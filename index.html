@@ -1,0 +1,807 @@
+<title>ИИзация - экспресс-диагностика бизнеса</title>
+<style>
+  :root {
+    --bg: #EDF0E8;
+    --surface: #FBFCF8;
+    --surface-2: #F4F6EF;
+    --ink: #16221B;
+    --muted: #5A6960;
+    --faint: #8A968C;
+    --line: #D6DCCC;
+    --line-strong: #C2CAB6;
+    --green: #1E5A3B;
+    --green-deep: #143E29;
+    --green-soft: #E4EEE4;
+    --bronze: #96652B;
+    --bronze-soft: #F0E6D3;
+    --shadow: 0 1px 2px rgba(20,40,25,.04), 0 8px 30px rgba(20,40,25,.06);
+    --r: 14px;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .shell {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 20px 64px;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+  .brand b { color: var(--bronze); }
+  .step-count {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .progress {
+    height: 4px;
+    background: var(--line);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .progress > i {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--green), var(--green-deep));
+    border-radius: 99px;
+    transition: width .45s cubic-bezier(.4,0,.1,1);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    padding: 34px 32px 30px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  h2.q {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(21px, 3.6vw, 27px);
+    line-height: 1.18;
+    letter-spacing: -.01em;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  .q-hint {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 22px;
+  }
+  .lede {
+    font-size: 17px;
+    color: var(--muted);
+    margin: 0 0 26px;
+    max-width: 56ch;
+  }
+
+  /* Intro meta */
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 26px;
+    margin: 0 0 30px;
+    padding: 18px 0 0;
+    border-top: 1px solid var(--line);
+  }
+  .meta-row div {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .meta-row b {
+    font-family: var(--mono);
+    color: var(--green-deep);
+    font-size: 15px;
+  }
+
+  /* Options */
+  .opts { display: grid; gap: 10px; }
+  .opts.two { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 480px) { .opts.two { grid-template-columns: 1fr; } }
+
+  .opt {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-align: left;
+    width: 100%;
+    padding: 15px 16px;
+    background: var(--surface-2);
+    border: 1.5px solid var(--line);
+    border-radius: 11px;
+    font-family: var(--sans);
+    font-size: 15.5px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color .15s, background .15s, transform .06s;
+  }
+  .opt:hover { border-color: var(--line-strong); background: #fff; }
+  .opt:active { transform: scale(.994); }
+  .opt:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+  .opt .mark {
+    flex: none;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    border: 1.5px solid var(--line-strong);
+    background: #fff;
+    display: grid;
+    place-items: center;
+    transition: all .15s;
+  }
+  .opt.round .mark { border-radius: 99px; }
+  .opt .mark svg { width: 13px; height: 13px; opacity: 0; transform: scale(.5); transition: all .15s; }
+  .opt.on {
+    border-color: var(--green);
+    background: var(--green-soft);
+  }
+  .opt.on .mark { background: var(--green); border-color: var(--green); }
+  .opt.on .mark svg { opacity: 1; transform: scale(1); stroke: #fff; }
+  .opt .lbl { flex: 1; }
+  .opt .lbl small { display: block; color: var(--muted); font-size: 13px; margin-top: 1px; }
+
+  input.txt {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--surface-2);
+    border: 1.5px solid var(--line);
+    border-radius: 11px;
+    margin-bottom: 12px;
+  }
+  input.txt:focus { outline: none; border-color: var(--green); background: #fff; }
+  input.txt::placeholder { color: var(--faint); }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .btn {
+    font-family: var(--sans);
+    font-size: 15.5px;
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: 10px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform .06s, background .15s, opacity .15s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--green); color: #fff; }
+  .btn-primary:hover { background: var(--green-deep); }
+  .btn-primary:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-ghost { background: transparent; color: var(--muted); border-color: var(--line); }
+  .btn-ghost:hover { color: var(--ink); border-color: var(--line-strong); }
+  .btn-back { background: none; border: none; color: var(--faint); cursor: pointer; font-size: 15px; padding: 8px 4px; }
+  .btn-back:hover { color: var(--ink); }
+
+  /* Result */
+  .verdict {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 22px;
+    border-radius: 12px;
+    background: linear-gradient(160deg, var(--green-deep), var(--green));
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .verdict .lvl-num {
+    font-family: var(--serif);
+    font-size: 42px;
+    line-height: .9;
+    font-weight: 600;
+    flex: none;
+    opacity: .55;
+  }
+  .verdict h3 { margin: 0 0 4px; font-family: var(--serif); font-size: 23px; font-weight: 600; }
+  .verdict p { margin: 0; font-size: 14.5px; opacity: .9; }
+
+  .roi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 480px) { .roi-grid { grid-template-columns: 1fr; } }
+  .stat {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 16px 18px;
+  }
+  .stat .k { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .stat .v { font-family: var(--serif); font-size: 27px; font-weight: 600; color: var(--bronze); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+  .stat .v small { font-size: 15px; color: var(--muted); font-family: var(--sans); }
+
+  .block-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 26px 0 12px;
+  }
+  .incl { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+  .incl li { display: flex; gap: 11px; font-size: 15px; color: var(--ink); align-items: flex-start; }
+  .incl li svg { flex: none; margin-top: 4px; }
+  .tiers { display: grid; gap: 8px; margin-top: 4px; }
+  .tier {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 12px 15px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2);
+    font-size: 14.5px;
+  }
+  .tier.pick { border-color: var(--green); background: var(--green-soft); }
+  .tier .nm { font-weight: 600; }
+  .tier .nm small { display:block; font-weight: 400; color: var(--muted); font-size: 12.5px; }
+  .tier .pr { font-family: var(--mono); color: var(--green-deep); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  .send-box {
+    margin-top: 26px;
+    padding: 22px;
+    border: 1px dashed var(--line-strong);
+    border-radius: 12px;
+    background: var(--surface-2);
+  }
+  .send-box h4 { margin: 0 0 6px; font-family: var(--serif); font-size: 19px; font-weight: 600; }
+  .send-box p { margin: 0 0 16px; color: var(--muted); font-size: 14.5px; }
+  .send-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .send-actions .btn { padding: 12px 20px; font-size: 14.5px; }
+  .btn-tg { background: var(--green); color: #fff; }
+  .btn-tg:hover { background: var(--green-deep); }
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px);
+    background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 99px;
+    font-size: 14px; opacity: 0; pointer-events: none; transition: all .3s; z-index: 50;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .foot { text-align: center; margin-top: 30px; font-size: 12.5px; color: var(--faint); font-family: var(--mono); letter-spacing: .04em; }
+  .disclaimer { font-size: 12.5px; color: var(--faint); margin-top: 18px; line-height: 1.5; }
+
+  .hide { display: none !important; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="shell">
+  <div class="top">
+    <div class="brand">ИИ<b>зация</b> · экспресс-диагностика</div>
+    <div class="step-count" id="counter"></div>
+  </div>
+  <div class="progress"><i id="bar"></i></div>
+
+  <div class="card" id="card"></div>
+
+  <div class="foot">Станислав Жуковец · ИИзация внедрение AI в бизнес</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- Settings Стас может править цифры здесь ----
+  var STAS_TG = "https://t.me/stanistar888";
+  var RUTINA_SHARE = 0.35;          // доля рутины, которую снимает AI
+  var HOURS_MID = { a: 6, b: 20, c: 45, d: 75 };   // часов/нед по вариантам
+  var RATE_VAL  = { a: 25, b: 45, c: 80, d: 150 };  // ставка часа в евро
+
+  var TIERS = [
+    { id: 1, name: "Старт", sub: "AI Productivity для команды", weeks: "3-4 недели" },
+    { id: 2, name: "Рост", sub: "AI Productivity + аналитика и финансы", weeks: "5-6 недель" },
+    { id: 3, name: "Автономия", sub: "Полный комплекс + AI-агенты продаж", weeks: "7-8 недель" }
+  ];
+
+  var LEVELS = {
+    0: {
+      num: "0", name: "Пилот - быстрый старт",
+      tagline: "Один процесс, максимум скорости. Проверяем ИИ на деле за 1-2 недели, без больших вложений.",
+      incl: [
+        "Настройка AI под 1 самый болезненный процесс",
+        "Обучение 1-2 человек работе с системой",
+        "Готовый результат уже на первой неделе",
+        "Основа, на которую позже нарастает полная система"
+      ],
+      tier: 1
+    },
+    1: {
+      num: "I", name: "Старт - продуктивность команды",
+      tagline: "Личный AI-ассистент каждому ключевому сотруднику. Снимаем рутину переписок, документов и отчётов.",
+      incl: [
+        "Персональные AI-окружения для команды",
+        "Общая база знаний бизнеса: клиенты, проекты, регламенты",
+        "Подключение к Telegram, почте, Google Drive, календарю",
+        "10+ готовых скиллов под ваши задачи",
+        "30 дней поддержки и обучение команды"
+      ],
+      tier: 1
+    },
+    2: {
+      num: "II", name: "Рост - продуктивность + аналитика",
+      tagline: "Всё из Старта плюс AI-аналитик по финансам и данным. Цифры и красные флаги видны сразу, без ручного разбора.",
+      incl: [
+        "Всё из уровня Старт для всей команды",
+        "AI-аналитик финансов: разбор отчётов, аномалии, прогнозы",
+        "Единый дашборд по компаниям и направлениям",
+        "Алерты при отклонениях от плана",
+        "6 недель сопровождения"
+      ],
+      tier: 2
+    },
+    3: {
+      num: "III", name: "Автономия - AI по всему циклу",
+      tagline: "Полный комплекс: продуктивность, аналитика и автономные AI-агенты для продаж. Система работает за команду на всех этапах.",
+      incl: [
+        "Всё из уровней Старт и Рост",
+        "AI-агенты продаж: квалификация лидов, досье, follow-up",
+        "Генератор КП и документов за минуты вместо часов",
+        "Дашборд воронки и интеграция с CRM",
+        "Анализ переписок и звонков, холодный outreach",
+        "8 недель углублённого сопровождения"
+      ],
+      tier: 3
+    }
+  };
+
+  // ---- Опросник ----
+  var STEPS = [
+    { type: "intro" },
+    {
+      type: "text", key: "company",
+      q: "Давайте познакомимся с вашим бизнесом",
+      hint: "Как называется компания и чем занимаетесь?",
+      fields: [
+        { k: "name", ph: "Название компании" },
+        { k: "field", ph: "Сфера (стройка, услуги, e-commerce, финансы...)" }
+      ]
+    },
+    {
+      type: "single", key: "size",
+      q: "Сколько человек в команде?",
+      hint: "Считаем всех, кто регулярно работает в бизнесе.",
+      opts: [
+        { v: "a", l: "1-3 человека", sc: 1 },
+        { v: "b", l: "4-10 человек", sc: 2 },
+        { v: "c", l: "11-30 человек", sc: 3 },
+        { v: "d", l: "30+ человек", sc: 4 }
+      ]
+    },
+    {
+      type: "multi", key: "pains",
+      q: "Где утекает время команды?",
+      hint: "Отметьте всё, что съедает часы каждую неделю.",
+      opts: [
+        { v: "chat", l: "Переписка с клиентами", s: "Разбросана по мессенджерам, теряются заявки", sales: 1 },
+        { v: "docs", l: "Подготовка КП, договоров, документов", s: "Каждый раз почти с нуля", sales: 1 },
+        { v: "reports", l: "Отчёты и аналитика", s: "Финансы, цифры, сводки вручную", fin: 1 },
+        { v: "content", l: "Контент и соцсети", s: "Посты, тексты, рассылки" },
+        { v: "tasks", l: "Контроль задач команды", s: "Совещания без следов, падают мячи" },
+        { v: "finance", l: "Финансовый учёт", s: "Разбор платежей, сверки", fin: 1 },
+        { v: "hire", l: "Найм и онбординг", s: "Вакансии, отбор, ввод в работу" },
+        { v: "support", l: "Поддержка клиентов", s: "Однотипные вопросы, ответы вручную" }
+      ]
+    },
+    {
+      type: "single", key: "hours",
+      q: "Сколько часов в неделю команда тратит на эту рутину?",
+      hint: "Грубая оценка суммарно по всем сотрудникам.",
+      opts: [
+        { v: "a", l: "Меньше 10 часов", sc: 1 },
+        { v: "b", l: "10-30 часов", sc: 2 },
+        { v: "c", l: "30-60 часов", sc: 3 },
+        { v: "d", l: "Больше 60 часов", sc: 4 }
+      ]
+    },
+    {
+      type: "single", key: "rate",
+      q: "Сколько примерно стоит час работы ключевого сотрудника?",
+      hint: "Нужно, чтобы посчитать реальную цену рутины. Ориентир, точность не важна.",
+      opts: [
+        { v: "a", l: "До €25 в час" },
+        { v: "b", l: "€25-60 в час" },
+        { v: "c", l: "€60-120 в час" },
+        { v: "d", l: "Больше €120 в час" }
+      ]
+    },
+    {
+      type: "single", key: "maturity",
+      q: "Что из AI уже используете?",
+      hint: "Честно - это влияет на точку старта.",
+      opts: [
+        { v: "a", l: "Пока ничего", sc: 0 },
+        { v: "b", l: "ChatGPT иногда, по наитию", sc: 1 },
+        { v: "c", l: "Есть отдельные автоматизации", sc: 2 },
+        { v: "d", l: "CRM и выстроенные процессы", sc: 3 }
+      ]
+    },
+    {
+      type: "single", key: "goal",
+      q: "Какая главная цель на ближайшие полгода?",
+      hint: "Одно, самое важное.",
+      opts: [
+        { v: "rutina", l: "Снять рутину с команды", s: "Освободить время людей" },
+        { v: "sales", l: "Больше продаж", s: "Быстрее реакция, выше конверсия", sales: 2 },
+        { v: "control", l: "Контроль команды и процессов", s: "Ничего не теряется" },
+        { v: "finance", l: "Финансы под контролем", s: "Видеть цифры вовремя", fin: 2 },
+        { v: "all", l: "Всё сразу, системно", s: "Полная перестройка на AI", sales: 1, fin: 1 }
+      ]
+    },
+    {
+      type: "text", key: "contact",
+      q: "Куда прислать результат и связаться?",
+      hint: "Оставьте имя и контакт - и увидите свою диагностику.",
+      fields: [
+        { k: "person", ph: "Ваше имя" },
+        { k: "handle", ph: "Telegram или email" }
+      ]
+    },
+    { type: "result" }
+  ];
+
+  // ---- State ----
+  var answers = { company: {}, contact: {}, pains: [] };
+  var idx = 0;
+  var card = document.getElementById("card");
+  var bar = document.getElementById("bar");
+  var counter = document.getElementById("counter");
+  var toast = document.getElementById("toast");
+
+  var CHK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  var TICK = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E5A3B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  function esc(s){ return String(s||"").replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function questionSteps(){ return STEPS.filter(function(s){ return s.type!=="intro" && s.type!=="result"; }); }
+
+  function render() {
+    var step = STEPS[idx];
+    var qSteps = questionSteps();
+    var qNum = 0, total = qSteps.length;
+    for (var i=1;i<=idx;i++){ if(STEPS[i] && STEPS[i].type!=="intro" && STEPS[i].type!=="result") qNum++; }
+
+    if (step.type === "intro" || step.type === "result") {
+      counter.textContent = "";
+    } else {
+      counter.textContent = "Вопрос " + qNum + " / " + total;
+    }
+    var pct = step.type==="result" ? 100 : (step.type==="intro" ? 0 : (qNum/(total+1))*100);
+    bar.style.width = pct + "%";
+
+    if (step.type === "intro") return renderIntro();
+    if (step.type === "result") return renderResult();
+    if (step.type === "text") return renderText(step);
+    return renderChoice(step);
+  }
+
+  function renderIntro() {
+    card.innerHTML =
+      '<p class="eyebrow">Экспресс-диагностика · 2 минуты</p>' +
+      '<h1>Где ваш бизнес теряет часы, и что заберёт на себя AI</h1>' +
+      '<p class="lede">Восемь коротких вопросов. В конце вы увидите, сколько времени и денег уходит на рутину, какой уровень ИИзации вам подходит и с чего разумно начать.</p>' +
+      '<div class="meta-row">' +
+        '<div><b>8</b> вопросов</div>' +
+        '<div><b>2</b> минуты</div>' +
+        '<div><b>0</b> обязательств</div>' +
+      '</div>' +
+      '<div class="nav" style="justify-content:flex-end;">' +
+        '<button class="btn btn-primary" id="next">Начать диагностику</button>' +
+      '</div>';
+    document.getElementById("next").onclick = go(1);
+  }
+
+  function renderText(step) {
+    var saved = answers[step.key] || {};
+    var html =
+      '<p class="eyebrow">Шаг</p>' +
+      '<h2 class="q">'+esc(step.q)+'</h2>' +
+      '<p class="q-hint">'+esc(step.hint)+'</p>';
+    step.fields.forEach(function(f){
+      html += '<input class="txt" data-k="'+f.k+'" placeholder="'+esc(f.ph)+'" value="'+esc(saved[f.k]||"")+'" autocomplete="off">';
+    });
+    html += navHtml(true);
+    card.innerHTML = html;
+    wireNav();
+    var inputs = card.querySelectorAll("input.txt");
+    inputs.forEach(function(inp){
+      inp.oninput = function(){ saved[inp.getAttribute("data-k")] = inp.value; answers[step.key] = saved; validateText(step); };
+      inp.onkeydown = function(e){ if(e.key==="Enter"){ var nx=document.getElementById("next"); if(nx && !nx.disabled) nx.click(); } };
+    });
+    validateText(step);
+    if (inputs[0]) inputs[0].focus();
+  }
+
+  function validateText(step){
+    var saved = answers[step.key] || {};
+    var ok = step.fields.every(function(f){ return (saved[f.k]||"").trim().length>0; });
+    var nx = document.getElementById("next");
+    if (nx) nx.disabled = !ok;
+  }
+
+  function renderChoice(step) {
+    var multi = step.type === "multi";
+    var html =
+      '<p class="eyebrow">'+(multi?"Можно несколько":"Один ответ")+'</p>' +
+      '<h2 class="q">'+esc(step.q)+'</h2>' +
+      '<p class="q-hint">'+esc(step.hint)+'</p>' +
+      '<div class="opts">';
+    step.opts.forEach(function(o){
+      var on = multi ? (answers[step.key]||[]).indexOf(o.v)>=0 : answers[step.key]===o.v;
+      html += '<button class="opt '+(multi?"":"round")+(on?" on":"")+'" data-v="'+o.v+'">' +
+                '<span class="mark">'+CHK+'</span>' +
+                '<span class="lbl">'+esc(o.l)+(o.s?'<small>'+esc(o.s)+'</small>':'')+'</span>' +
+              '</button>';
+    });
+    html += '</div>' + navHtml(!multi ? false : true);
+    card.innerHTML = html;
+    wireNav();
+
+    card.querySelectorAll(".opt").forEach(function(btn){
+      btn.onclick = function(){
+        var v = btn.getAttribute("data-v");
+        if (multi) {
+          var arr = answers[step.key] || [];
+          var pos = arr.indexOf(v);
+          if (pos>=0) arr.splice(pos,1); else arr.push(v);
+          answers[step.key] = arr;
+          btn.classList.toggle("on");
+          var nx=document.getElementById("next"); if(nx) nx.disabled = arr.length===0;
+        } else {
+          answers[step.key] = v;
+          setTimeout(function(){ go(idx+1)(); }, 180);
+        }
+      };
+    });
+    if (multi) { var nx=document.getElementById("next"); if(nx) nx.disabled = (answers[step.key]||[]).length===0; }
+  }
+
+  function navHtml(showNext){
+    return '<div class="nav">' +
+      '<button class="btn-back" id="back">&larr; Назад</button>' +
+      (showNext ? '<button class="btn btn-primary" id="next">Далее</button>' : '<span></span>') +
+    '</div>';
+  }
+  function wireNav(){
+    var b = document.getElementById("back");
+    if (b) b.onclick = go(idx-1);
+    var n = document.getElementById("next");
+    if (n) n.onclick = go(idx+1);
+  }
+
+  function go(to){
+    return function(){
+      if (to<0) return;
+      idx = Math.max(0, Math.min(STEPS.length-1, to));
+      render();
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+  }
+
+  // ---- Scoring ----
+  function scoreLevel(){
+    var s = 0, salesFocus = 0, finFocus = 0;
+
+    var sizeStep = STEPS.find(function(x){return x.key==="size";});
+    var sizeOpt = (sizeStep.opts.find(function(o){return o.v===answers.size;})||{});
+    s += (sizeOpt.sc||0);
+
+    var pains = answers.pains || [];
+    var painStep = STEPS.find(function(x){return x.key==="pains";});
+    s += Math.min(pains.length, 6) * 0.7;
+    pains.forEach(function(v){
+      var o = painStep.opts.find(function(x){return x.v===v;})||{};
+      salesFocus += (o.sales||0); finFocus += (o.fin||0);
+    });
+
+    var hoursStep = STEPS.find(function(x){return x.key==="hours";});
+    var hOpt = (hoursStep.opts.find(function(o){return o.v===answers.hours;})||{});
+    s += (hOpt.sc||0);
+
+    var goalStep = STEPS.find(function(x){return x.key==="goal";});
+    var gOpt = (goalStep.opts.find(function(o){return o.v===answers.goal;})||{});
+    salesFocus += (gOpt.sales||0); finFocus += (gOpt.fin||0);
+    if (answers.goal==="all") s += 1.5;
+
+    // base level by points
+    var lvl;
+    if (s < 3.5) lvl = 0;
+    else if (s < 6) lvl = 1;
+    else if (s < 8.5) lvl = 2;
+    else lvl = 3;
+
+    // overrides
+    if (salesFocus >= 2 && lvl < 3 && s >= 5) lvl = 3;      // сильный фокус на продажи
+    else if (finFocus >= 2 && lvl < 2 && s >= 4) lvl = 2;   // фокус на финансы/аналитику
+
+    return { lvl: lvl, s: s, sales: salesFocus, fin: finFocus };
+  }
+
+  function roi(){
+    var h = HOURS_MID[answers.hours] || 20;
+    var r = RATE_VAL[answers.rate] || 45;
+    var weekCost = h * r;
+    var monthCost = weekCost * 4.33;
+    var monthSave = monthCost * RUTINA_SHARE;
+    var yearSave = monthSave * 12;
+    return { monthCost: monthCost, monthSave: monthSave, yearSave: yearSave, hours: h };
+  }
+
+  function money(n){
+    n = Math.round(n/50)*50;
+    return "€" + n.toLocaleString("ru-RU").replace(/,/g," ");
+  }
+
+  function renderResult() {
+    var res = scoreLevel();
+    var L = LEVELS[res.lvl];
+    var R = roi();
+    var tier = TIERS[L.tier-1];
+
+    var company = (answers.company.name||"ваш бизнес");
+    var incl = L.incl.map(function(x){ return '<li>'+TICK+'<span>'+esc(x)+'</span></li>'; }).join("");
+
+    var tiersHtml = TIERS.map(function(t){
+      var pick = t.id===L.tier;
+      return '<div class="tier'+(pick?" pick":"")+'">' +
+               '<span class="nm">'+esc(t.name)+'<small>'+esc(t.sub)+'</small></span>' +
+               '<span class="pr">'+esc(t.weeks)+(pick?' · вам сюда':'')+'</span>' +
+             '</div>';
+    }).join("");
+
+    card.innerHTML =
+      '<p class="eyebrow">Ваша диагностика · '+esc(company)+'</p>' +
+      '<div class="verdict">' +
+        '<div class="lvl-num">'+L.num+'</div>' +
+        '<div><h3>'+esc(L.name)+'</h3><p>'+esc(L.tagline)+'</p></div>' +
+      '</div>' +
+
+      '<div class="roi-grid">' +
+        '<div class="stat"><div class="k">Рутина стоит вам</div><div class="v">'+money(R.monthCost)+'<small> / мес</small></div></div>' +
+        '<div class="stat"><div class="k">AI может высвобождать</div><div class="v">'+money(R.monthSave)+'<small> / мес</small></div></div>' +
+        '<div class="stat"><div class="k">В год это</div><div class="v">'+money(R.yearSave)+'</div></div>' +
+        '<div class="stat"><div class="k">Времени на рутину</div><div class="v">'+R.hours+'<small> ч / нед</small></div></div>' +
+      '</div>' +
+
+      '<div class="block-title">Что входит в рекомендованный уровень</div>' +
+      '<ul class="incl">'+incl+'</ul>' +
+
+      '<div class="block-title">Ступени внедрения</div>' +
+      '<div class="tiers">'+tiersHtml+'</div>' +
+
+      '<div class="send-box">' +
+        '<h4>Получить предложение под '+esc(company)+'</h4>' +
+        '<p>Каждое внедрение индивидуально. Отправьте результат Станиславу - он вернётся с детальным планом и предложением под вашу команду и задачи. Кнопка скопирует вашу диагностику и откроет чат.</p>' +
+        '<div class="send-actions">' +
+          '<button class="btn btn-tg" id="send-tg">Отправить в Telegram</button>' +
+          '<button class="btn btn-ghost" id="copy">Скопировать результат</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<p class="disclaimer">Расчёт экономии - ориентировочный, на основе ваших ответов (высвобождение около '+Math.round(RUTINA_SHARE*100)+'% рутины). Точные цифры, состав работ и стоимость - индивидуально, после 30-минутного разбора вашей ситуации.</p>' +
+
+      '<div class="nav"><button class="btn-back" id="back">&larr; Изменить ответы</button><span></span></div>';
+
+    document.getElementById("back").onclick = go(idx-1);
+    document.getElementById("copy").onclick = function(){ copyBrief(res, R, L); };
+    document.getElementById("send-tg").onclick = function(){ copyBrief(res, R, L, true); };
+  }
+
+  function brief(res, R, L){
+    var painStep = STEPS.find(function(x){return x.key==="pains";});
+    var painLabels = (answers.pains||[]).map(function(v){ var o=painStep.opts.find(function(x){return x.v===v;}); return o?o.l:v; });
+    var goalStep = STEPS.find(function(x){return x.key==="goal";});
+    var goalL = (goalStep.opts.find(function(o){return o.v===answers.goal;})||{}).l||"-";
+    var sizeStep = STEPS.find(function(x){return x.key==="size";});
+    var sizeL = (sizeStep.opts.find(function(o){return o.v===answers.size;})||{}).l||"-";
+    var matStep = STEPS.find(function(x){return x.key==="maturity";});
+    var matL = (matStep.opts.find(function(o){return o.v===answers.maturity;})||{}).l||"-";
+    var hoursStep = STEPS.find(function(x){return x.key==="hours";});
+    var hoursL = (hoursStep.opts.find(function(o){return o.v===answers.hours;})||{}).l||"-";
+    var rateStep = STEPS.find(function(x){return x.key==="rate";});
+    var rateL = (rateStep.opts.find(function(o){return o.v===answers.rate;})||{}).l||"-";
+
+    return [
+      "НОВАЯ ДИАГНОСТИКА ИИЗАЦИИ",
+      "",
+      "Компания: " + (answers.company.name||"-") + " (" + (answers.company.field||"-") + ")",
+      "Контакт: " + (answers.contact.person||"-") + " · " + (answers.contact.handle||"-"),
+      "Команда: " + sizeL,
+      "",
+      "Боли: " + (painLabels.join(", ")||"-"),
+      "Рутина: " + hoursL + " · ставка часа: " + rateL,
+      "Уровень AI сейчас: " + matL,
+      "Главная цель: " + goalL,
+      "",
+      "РЕКОМЕНДАЦИЯ: Уровень " + L.num + " - " + L.name,
+      "Рутина стоит ~" + money(R.monthCost) + "/мес, AI высвобождает ~" + money(R.monthSave) + "/мес (~" + money(R.yearSave) + "/год)",
+      "",
+      "[скоринг: pts " + res.s.toFixed(1) + ", sales " + res.sales + ", fin " + res.fin + "]"
+    ].join("\n");
+  }
+
+  function copyBrief(res, R, L, openTg){
+    var text = brief(res, R, L);
+    var done = function(){
+      showToast(openTg ? "Скопировано. Вставьте в чат (Ctrl+V / Cmd+V)" : "Результат скопирован");
+      if (openTg) setTimeout(function(){ window.open(STAS_TG, "_blank"); }, 700);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+    } else { fallbackCopy(text); done(); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add("show");
+    setTimeout(function(){ toast.classList.remove("show"); }, 2600);
+  }
+
+  render();
+})();
+</script>
