@@ -420,6 +420,8 @@
 
   // ---- Settings Стас может править цифры здесь ----
   var STAS_TG = "https://t.me/stanistar888";
+  // Точка-приёмник (Google Apps Script). Пусто = автоотправка выключена, работает только кнопка.
+  var RESULT_ENDPOINT = "https://script.google.com/macros/s/AKfycbyD0x_m3pR8nmB0sFk9ci46lMgGOWO2pBquoVyVsvljDY5m1zCmMZXfp_TLEaDvyL_u4A/exec";
   var RUTINA_SHARE = 0.35;          // доля рутины, которую снимает AI
   var HOURS_MID = { a: 6, b: 20, c: 45, d: 75 };   // часов/нед по вариантам
   var RATE_VAL  = { a: 25, b: 45, c: 80, d: 150 };  // ставка часа в евро
@@ -774,6 +776,8 @@
     var R = roi();
     var tier = TIERS[L.tier-1];
 
+    postResult(res, R, L);
+
     var company = (answers.company.name||"ваш бизнес");
     var incl = L.incl.map(function(x){ return '<li>'+TICK+'<span>'+esc(x)+'</span></li>'; }).join("");
 
@@ -854,6 +858,47 @@
       "",
       "[скоринг: pts " + res.s.toFixed(1) + ", sales " + res.sales + ", fin " + res.fin + "]"
     ].join("\n");
+  }
+
+  // ---- Автоотправка результата в хаб (Apps Script) ----
+  var posted = false;
+  function labelOf(key, val){
+    var step = STEPS.find(function(x){return x.key===key;});
+    if (!step) return "";
+    var o = (step.opts||[]).find(function(x){return x.v===val;});
+    return o ? o.l : "";
+  }
+  function postResult(res, R, L){
+    if (posted || !RESULT_ENDPOINT) return;   // один раз, и только если приёмник задан
+    posted = true;
+    var painStep = STEPS.find(function(x){return x.key==="pains";});
+    var painLabels = (answers.pains||[]).map(function(v){ var o=painStep.opts.find(function(x){return x.v===v;}); return o?o.l:v; });
+    var payload = {
+      company: answers.company.name || "",
+      field: answers.company.field || "",
+      contactName: answers.contact.person || "",
+      contactHandle: answers.contact.handle || "",
+      sizeLabel: labelOf("size", answers.size),
+      pains: painLabels,
+      hoursLabel: labelOf("hours", answers.hours),
+      rateLabel: labelOf("rate", answers.rate),
+      maturityLabel: labelOf("maturity", answers.maturity),
+      goalLabel: labelOf("goal", answers.goal),
+      levelName: "Уровень " + L.num + " - " + L.name,
+      monthCost: money(R.monthCost),
+      monthSave: money(R.monthSave),
+      yearSave: money(R.yearSave),
+      score: { pts: +res.s.toFixed(1), sales: res.sales, fin: res.fin }
+    };
+    try {
+      // text/plain -> простой запрос без CORS-префлайта, Apps Script принимает
+      fetch(RESULT_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      }).catch(function(){});
+    } catch (e) {}
   }
 
   function copyBrief(res, R, L, openTg){
