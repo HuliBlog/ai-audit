@@ -1,4 +1,4 @@
-<title>ИИзация - экспресс-диагностика бизнеса</title>
+<title>ИИзация - подробный онбординг бизнеса</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -494,13 +494,23 @@
     }
   };
 
-  // ---- Опросник ----
+  // ---- Онбординг ----
   var STEPS = [
     { type: "intro" },
     {
+      type: "text", key: "contact",
+      q: "Знакомимся - как с вами связаться?",
+      hint: "Зафиксируем контакт, чтобы Станислав вернулся с планом.",
+      fields: [
+        { k: "person", ph: "Ваше имя" },
+        { k: "phone", ph: "Номер телефона" },
+        { k: "handle", ph: "Контакт в Telegram (@username)" }
+      ]
+    },
+    {
       type: "text", key: "company",
-      q: "Давайте познакомимся с вашим бизнесом",
-      hint: "Как называется компания и чем занимаетесь?",
+      q: "Пара слов о бизнесе",
+      hint: "Название и чем занимаетесь.",
       fields: [
         { k: "name", ph: "Название компании" },
         { k: "field", ph: "Сфера (стройка, услуги, e-commerce, финансы...)" }
@@ -509,7 +519,7 @@
     {
       type: "single", key: "size",
       q: "Сколько человек в команде?",
-      hint: "Считаем всех, кто регулярно работает в бизнесе.",
+      hint: "Все, кто регулярно работает в бизнесе.",
       opts: [
         { v: "a", l: "1-3 человека", sc: 1 },
         { v: "b", l: "4-10 человек", sc: 2 },
@@ -518,9 +528,42 @@
       ]
     },
     {
+      type: "single", key: "priority",
+      q: "Что для вас приоритет №1 на ближайшие полгода?",
+      hint: "Одно, самое важное - под это ляжет весь план.",
+      opts: [
+        { v: "growth", l: "Рост выручки", s: "Больше сделок, выше конверсия" },
+        { v: "costs", l: "Резать издержки", s: "Высвободить время и деньги" },
+        { v: "control", l: "Навести контроль", s: "Видеть и держать бизнес в руках" },
+        { v: "exit", l: "Подготовка к выходу / масштабу", s: "Систематизировать и упаковать" }
+      ]
+    },
+    {
+      type: "single", key: "people",
+      q: "Сколько ключевых людей имеет смысл обучить первыми?",
+      hint: "Этап 1 всегда обучение топ-команды - без грамотных людей автоматизация не приживается.",
+      opts: [
+        { v: "a", l: "1-2 человека", sc: 1 },
+        { v: "b", l: "3-5 человек", sc: 2 },
+        { v: "c", l: "6-10 человек", sc: 3 },
+        { v: "d", l: "Больше 10", sc: 4 }
+      ]
+    },
+    {
+      type: "single", key: "maturity",
+      q: "Насколько команда сейчас в теме ИИ?",
+      hint: "Честно - это влияет на точку старта.",
+      opts: [
+        { v: "a", l: "Вообще нет", sc: 0 },
+        { v: "b", l: "ChatGPT иногда, по наитию", sc: 1 },
+        { v: "c", l: "Есть отдельные автоматизации", sc: 2 },
+        { v: "d", l: "CRM и выстроенные процессы", sc: 3 }
+      ]
+    },
+    {
       type: "multi", key: "pains",
       q: "Где утекает время команды?",
-      hint: "Отметьте всё, что съедает часы каждую неделю.",
+      hint: "Отметьте всё, что съедает часы каждую неделю. Это кандидаты в цифровых сотрудников (этап 2).",
       opts: [
         { v: "chat", l: "Переписка с клиентами", s: "Разбросана по мессенджерам, теряются заявки", sales: 1 },
         { v: "docs", l: "Подготовка КП, договоров, документов", s: "Каждый раз почти с нуля", sales: 1 },
@@ -534,8 +577,8 @@
     },
     {
       type: "single", key: "hours",
-      q: "Сколько часов в неделю команда тратит на эту рутину?",
-      hint: "Грубая оценка суммарно по всем сотрудникам.",
+      q: "Сколько часов в неделю уходит на эту рутину?",
+      hint: "Грубо, суммарно по всем сотрудникам.",
       opts: [
         { v: "a", l: "Меньше 10 часов", sc: 1 },
         { v: "b", l: "10-30 часов", sc: 2 },
@@ -546,7 +589,7 @@
     {
       type: "single", key: "rate",
       q: "Сколько примерно стоит час работы ключевого сотрудника?",
-      hint: "Нужно, чтобы посчитать реальную цену рутины. Ориентир, точность не важна.",
+      hint: "Чтобы посчитать реальную цену рутины. Ориентир.",
       opts: [
         { v: "a", l: "До €25 в час" },
         { v: "b", l: "€25-60 в час" },
@@ -555,35 +598,62 @@
       ]
     },
     {
-      type: "single", key: "maturity",
-      q: "Что из AI уже используете?",
-      hint: "Честно - это влияет на точку старта.",
+      type: "multi", key: "control",
+      q: "Что вам как руководителю тяжелее всего держать под контролем?",
+      hint: "Из этого соберётся система управления (этап 3).",
       opts: [
-        { v: "a", l: "Пока ничего", sc: 0 },
-        { v: "b", l: "ChatGPT иногда, по наитию", sc: 1 },
-        { v: "c", l: "Есть отдельные автоматизации", sc: 2 },
-        { v: "d", l: "CRM и выстроенные процессы", sc: 3 }
+        { v: "cash", l: "Деньги и кэш" },
+        { v: "funnel", l: "Воронка продаж" },
+        { v: "tasks", l: "Задачи команды" },
+        { v: "projects", l: "Статусы проектов" },
+        { v: "clients", l: "Здоровье клиентов" },
+        { v: "kpi", l: "KPI и метрики" }
       ]
     },
     {
-      type: "single", key: "goal",
-      q: "Какая главная цель на ближайшие полгода?",
-      hint: "Одно, самое важное.",
+      type: "multi", key: "data",
+      q: "Где сейчас живут данные бизнеса?",
+      hint: "Отметьте всё подходящее.",
       opts: [
-        { v: "rutina", l: "Снять рутину с команды", s: "Освободить время людей" },
-        { v: "sales", l: "Больше продаж", s: "Быстрее реакция, выше конверсия", sales: 2 },
-        { v: "control", l: "Контроль команды и процессов", s: "Ничего не теряется" },
-        { v: "finance", l: "Финансы под контролем", s: "Видеть цифры вовремя", fin: 2 },
-        { v: "all", l: "Всё сразу, системно", s: "Полная перестройка на AI", sales: 1, fin: 1 }
+        { v: "excel", l: "Excel / таблицы" },
+        { v: "google", l: "Google Workspace" },
+        { v: "crm", l: "CRM" },
+        { v: "accounting", l: "Бухгалтерская система" },
+        { v: "messengers", l: "Мессенджеры" },
+        { v: "paper", l: "Бумага / в голове" }
       ]
     },
     {
-      type: "text", key: "contact",
-      q: "Куда прислать результат и связаться?",
-      hint: "Оставьте имя и контакт - и увидите свою диагностику.",
-      fields: [
-        { k: "person", ph: "Ваше имя" },
-        { k: "handle", ph: "Telegram или email" }
+      type: "single", key: "security",
+      q: "Есть ли ограничения по безопасности данных?",
+      hint: "Влияет на то, как строим систему.",
+      opts: [
+        { v: "none", l: "Нет особых" },
+        { v: "finance", l: "Финансовые данные" },
+        { v: "personal", l: "Персональные данные клиентов" },
+        { v: "regulated", l: "Регуляторка / лицензии" }
+      ]
+    },
+    {
+      type: "single", key: "decision",
+      q: "Как принимается решение по такому проекту?",
+      hint: "Чтобы понимать, с кем говорить.",
+      opts: [
+        { v: "solo", l: "Решаю сам" },
+        { v: "partners", l: "С партнёрами" },
+        { v: "board", l: "Совет / правление" }
+      ]
+    },
+    {
+      type: "single", key: "budget",
+      q: "Есть ли ориентир по бюджету на внедрение?",
+      hint: "Помогает подобрать темп. Точную смету считаем индивидуально.",
+      opts: [
+        { v: "a", l: "До €5 000" },
+        { v: "b", l: "€5 000 - 15 000" },
+        { v: "c", l: "€15 000 - 30 000" },
+        { v: "d", l: "Больше €30 000" },
+        { v: "e", l: "Обсудим на созвоне" }
       ]
     },
     { type: "result" }
@@ -626,16 +696,16 @@
 
   function renderIntro() {
     card.innerHTML =
-      '<p class="eyebrow">Экспресс-диагностика · 2 минуты</p>' +
-      '<h1>Где ваш бизнес теряет часы, и что заберёт на себя AI</h1>' +
-      '<p class="lede">Восемь коротких вопросов. В конце вы увидите, сколько времени и денег уходит на рутину, какой уровень ИИзации вам подходит и с чего разумно начать.</p>' +
+      '<p class="eyebrow">Подробный онбординг · 5 минут</p>' +
+      '<h1>Соберём дорожную карту ИИзации под ваш бизнес</h1>' +
+      '<p class="lede">Несколько вопросов по вашей команде, процессам и управлению. В конце вы увидите персональный маршрут из этапов - обучение, цифровые сотрудники, система управления - с прикидкой экономии. И назначите созвон, если решите двигаться.</p>' +
       '<div class="meta-row">' +
-        '<div><b>8</b> вопросов</div>' +
-        '<div><b>2</b> минуты</div>' +
+        '<div><b>14</b> вопросов</div>' +
+        '<div><b>5</b> минут</div>' +
         '<div><b>0</b> обязательств</div>' +
       '</div>' +
       '<div class="nav" style="justify-content:flex-end;">' +
-        '<button class="btn btn-primary" id="next">Начать диагностику</button>' +
+        '<button class="btn btn-primary" id="next">Начать разбор</button>' +
       '</div>';
     document.getElementById("next").onclick = go(1);
   }
@@ -747,11 +817,6 @@
     var hOpt = (hoursStep.opts.find(function(o){return o.v===answers.hours;})||{});
     s += (hOpt.sc||0);
 
-    var goalStep = STEPS.find(function(x){return x.key==="goal";});
-    var gOpt = (goalStep.opts.find(function(o){return o.v===answers.goal;})||{});
-    salesFocus += (gOpt.sales||0); finFocus += (gOpt.fin||0);
-    if (answers.goal==="all") s += 1.5;
-
     // base level by points
     var lvl;
     if (s < 3.5) lvl = 0;
@@ -782,29 +847,36 @@
   }
 
   function renderResult() {
-    var res = scoreLevel();
-    var L = LEVELS[res.lvl];
     var R = roi();
-    var tier = TIERS[L.tier-1];
-
-    postResult(res, R, L);
+    postResult(R);
 
     var company = (answers.company.name||"ваш бизнес");
-    var incl = L.incl.map(function(x){ return '<li>'+TICK+'<span>'+esc(x)+'</span></li>'; }).join("");
+    var people = (labelOf("people", answers.people) || "ключевую команду").toLowerCase();
+    var wins = multiLabels("pains").slice(0, 3);
+    var control = multiLabels("control");
 
-    var tiersHtml = TIERS.map(function(t){
-      var pick = t.id===L.tier;
-      return '<div class="tier'+(pick?" pick":"")+'">' +
-               '<span class="nm">'+esc(t.name)+'<small>'+esc(t.sub)+'</small></span>' +
-               '<span class="pr">'+esc(t.weeks)+(pick?' · вам сюда':'')+'</span>' +
+    var stages = [
+      { n: "1", name: "Обучение топ-команды", weeks: "3-4 недели",
+        body: "Учим " + people + " работать с ИИ как с инструментом. Команда осваивает персональных ассистентов и перестаёт тратить часы на рутину." },
+      { n: "2", name: "Цифровые сотрудники", weeks: "4-6 недель",
+        body: wins.length ? "Первыми берём: " + wins.join(", ") + ". AI-агенты снимают эти процессы с людей." : "Ставим AI-агентов на самые затратные процессы." },
+      { n: "3", name: "Система управления", weeks: "по итогам 1-2",
+        body: control.length ? "Единый контур под контроль: " + control.join(", ") + ". Дашборды, алерты, ассистент руководителя." : "Единый контур: дашборды, алерты, ассистент руководителя." },
+      { n: "4", name: "Сопровождение", weeks: "ретейнер",
+        body: "Поддержка, новые агенты и обучение новых сотрудников по мере роста - система живёт без просадки." }
+    ];
+    var stagesHtml = stages.map(function(s){
+      return '<div class="tier">' +
+               '<span class="nm">Этап ' + s.n + ' - ' + esc(s.name) + '<small>' + esc(s.body) + '</small></span>' +
+               '<span class="pr">' + esc(s.weeks) + '</span>' +
              '</div>';
     }).join("");
 
     card.innerHTML =
-      '<p class="eyebrow">Ваша диагностика · '+esc(company)+'</p>' +
+      '<p class="eyebrow">Дорожная карта · '+esc(company)+'</p>' +
       '<div class="verdict">' +
-        '<div class="lvl-num">'+L.num+'</div>' +
-        '<div><h3>'+esc(L.name)+'</h3><p>'+esc(L.tagline)+'</p></div>' +
+        '<div class="lvl-num">&#8599;</div>' +
+        '<div><h3>Ваша дорожная карта ИИзации</h3><p>Путь из 4 этапов под ваш бизнес. Начинаем всегда с обучения команды - без этого автоматизация не приживается.</p></div>' +
       '</div>' +
 
       '<div class="roi-grid">' +
@@ -814,18 +886,14 @@
         '<div class="stat"><div class="k">Времени на рутину</div><div class="v">'+R.hours+'<small> ч / нед</small></div></div>' +
       '</div>' +
 
-      '<div class="block-title">Что входит в рекомендованный уровень</div>' +
-      '<ul class="incl">'+incl+'</ul>' +
-
-      '<div class="block-title">Ступени внедрения</div>' +
-      '<div class="tiers">'+tiersHtml+'</div>' +
+      '<div class="block-title">Ваш маршрут по этапам</div>' +
+      '<div class="tiers">'+stagesHtml+'</div>' +
 
       '<div class="send-box">' +
-        '<h4>Что дальше?</h4>' +
-        '<p>Ваш разбор сохранён. Выберите шаг: короткий созвон со Станиславом или сразу подробная диагностика вашего бизнеса по всем направлениям.</p>' +
+        '<h4>Готовы двигаться?</h4>' +
+        '<p>Ваш подробный разбор сохранён. Назначьте созвон - Станислав вернётся с детальным планом и сметой под эти этапы.</p>' +
         '<div class="send-actions">' +
           '<button class="btn btn-tg" id="book-call">Назначить созвон</button>' +
-          '<a class="btn btn-ghost" href="onboarding.html">Пройти подробный разбор</a>' +
         '</div>' +
         '<div class="booking hide" id="booking">' +
           '<div class="booking-title">Когда вам удобно созвониться?</div>' +
@@ -842,12 +910,12 @@
         '</div>' +
       '</div>' +
 
-      '<p class="disclaimer">Расчёт экономии - ориентировочный, на основе ваших ответов (высвобождение около '+Math.round(RUTINA_SHARE*100)+'% рутины). Точные цифры, состав работ и стоимость - индивидуально, после 30-минутного разбора вашей ситуации.</p>' +
+      '<p class="disclaimer">Расчёт экономии - ориентировочный, на основе ваших ответов (высвобождение около '+Math.round(RUTINA_SHARE*100)+'% рутины). Точные цифры, состав работ и стоимость - индивидуально, после разбора вашей ситуации.</p>' +
 
       '<div class="nav"><button class="btn-back" id="back">&larr; Изменить ответы</button><span></span></div>';
 
     document.getElementById("back").onclick = go(idx-1);
-    wireBooking(L);
+    wireBooking("ПОДРОБНЫЙ ОНБОРДИНГ");
   }
 
   function todayISO(){
@@ -860,7 +928,7 @@
     return p.length === 3 ? p[2] + "." + p[1] + "." + p[0] : v;
   }
 
-  function wireBooking(L){
+  function wireBooking(levelName){
     var bookBtn = document.getElementById("book-call");
     var box = document.getElementById("booking");
     var cd = document.getElementById("cd");
@@ -885,14 +953,14 @@
 
     confirm.onclick = function(){
       var when = fmtDate(cd.value) + ", " + todSel;
-      postCall(when, cphone.value.trim(), L);
+      postCall(when, cphone.value.trim(), levelName);
       box.innerHTML = '<div class="booking-done">Готово. Станислав свяжется с вами: <b>' + esc(when) + '</b>.</div>';
       bookBtn.textContent = "Созвон назначен";
       bookBtn.disabled = true;
     };
   }
 
-  function postCall(when, phone, L){
+  function postCall(when, phone, levelName){
     if (!RESULT_ENDPOINT) return;
     try {
       fetch(RESULT_ENDPOINT, {
@@ -905,7 +973,7 @@
           contactHandle: answers.contact.handle || "",
           phone: phone,
           callWhen: when,
-          levelName: "Уровень " + L.num + " - " + L.name
+          levelName: levelName
         })
       }).catch(function(){});
     } catch (e) {}
@@ -952,30 +1020,47 @@
     var o = (step.opts||[]).find(function(x){return x.v===val;});
     return o ? o.l : "";
   }
-  function postResult(res, R, L){
+  function multiLabels(key){
+    var step = STEPS.find(function(x){return x.key===key;});
+    if (!step) return [];
+    return (answers[key]||[]).map(function(v){ var o=step.opts.find(function(x){return x.v===v;}); return o?o.l:v; });
+  }
+  function buildNote(){
+    return [
+      "--- ПОДРОБНЫЙ ОНБОРДИНГ ---",
+      "Приоритет: " + (labelOf("priority", answers.priority) || "-"),
+      "Обучать первыми (этап 1): " + (labelOf("people", answers.people) || "-"),
+      "Уровень ИИ команды: " + (labelOf("maturity", answers.maturity) || "-"),
+      "Контролировать (этап 3): " + (multiLabels("control").join(", ") || "-"),
+      "Где данные: " + (multiLabels("data").join(", ") || "-"),
+      "Безопасность: " + (labelOf("security", answers.security) || "-"),
+      "Кто решает: " + (labelOf("decision", answers.decision) || "-"),
+      "Бюджет: " + (labelOf("budget", answers.budget) || "-"),
+      "Телефон: " + (answers.contact.phone || "-")
+    ].join("\n");
+  }
+  function postResult(R){
     if (posted || !RESULT_ENDPOINT) return;   // один раз, и только если приёмник задан
     posted = true;
-    var painStep = STEPS.find(function(x){return x.key==="pains";});
-    var painLabels = (answers.pains||[]).map(function(v){ var o=painStep.opts.find(function(x){return x.v===v;}); return o?o.l:v; });
+    var handle = (answers.contact.handle || "") + (answers.contact.phone ? " · тел " + answers.contact.phone : "");
     var payload = {
       company: answers.company.name || "",
       field: answers.company.field || "",
       contactName: answers.contact.person || "",
-      contactHandle: answers.contact.handle || "",
+      contactHandle: handle,
       sizeLabel: labelOf("size", answers.size),
-      pains: painLabels,
+      pains: multiLabels("pains"),
       hoursLabel: labelOf("hours", answers.hours),
       rateLabel: labelOf("rate", answers.rate),
       maturityLabel: labelOf("maturity", answers.maturity),
-      goalLabel: labelOf("goal", answers.goal),
-      levelName: "Уровень " + L.num + " - " + L.name,
+      goalLabel: labelOf("priority", answers.priority),
+      levelName: "ПОДРОБНЫЙ ОНБОРДИНГ - дорожная карта 3 этапа",
       monthCost: money(R.monthCost),
       monthSave: money(R.monthSave),
       yearSave: money(R.yearSave),
-      score: { pts: +res.s.toFixed(1), sales: res.sales, fin: res.fin }
+      note: buildNote()
     };
     try {
-      // text/plain -> простой запрос без CORS-префлайта, Apps Script принимает
       fetch(RESULT_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
