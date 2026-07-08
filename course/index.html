@@ -1,0 +1,380 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Цифровая команда компании · Корпоративный курс по Claude Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF;          /* электрик GROW */
+    --gold:#ddb85b;          /* золото GROW */
+    --black:#121212;
+    --ink:#1c1c1c;
+    --grey:#717171;
+    --silver:#d9d9d9;
+    --light:#f6f5f5;
+    --white:#ffffff;
+    --serif:'Baskervville',Georgia,'Times New Roman',serif;
+    --sans:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+  body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:var(--serif)}
+
+  .slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7vh 8vw;border-bottom:1px solid var(--silver);scroll-snap-align:start;position:relative}
+  @media(max-width:680px){.slide{padding:6vh 7vw;min-height:auto}}
+
+  .kicker{font-size:.76rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  h1,h2{font-weight:600;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+  h1{font-size:clamp(2rem,5.4vw,3.9rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.5rem,3.3vw,2.4rem);margin-bottom:1.2rem}
+  p.lead{font-size:clamp(1rem,1.55vw,1.22rem);color:var(--grey);max-width:47rem;font-weight:400}
+
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2{color:var(--white)}
+  .dark p.lead{color:#b5b5b5}
+  .dark .kicker{color:var(--gold)}
+
+  /* hero */
+  .hero{text-align:center;align-items:center}
+  .hero .club{font-size:.82rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.4rem}
+  .hero .club b{color:var(--blue)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.7rem;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.9vw,1.4rem);color:var(--grey);max-width:46rem}
+  .hero .meta{margin-top:2.6rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  /* cards */
+  .grid{display:grid;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:2.2rem}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .g2x2{grid-template-columns:1fr 1fr}
+  @media(max-width:680px){.g2x2{grid-template-columns:1fr}}
+  .card{background:var(--white);padding:1.7rem 1.6rem}
+  .dark .grid{background:#2c2c2c;border-color:#2c2c2c}
+  .dark .card{background:var(--black)}
+  .card h3{font-size:.98rem;font-weight:600;margin-bottom:.5rem;letter-spacing:.03em;text-transform:uppercase}
+  .dark .card h3{color:var(--white)}
+  .card p{font-size:.93rem;color:var(--grey)}
+  .card .n{font-family:var(--serif);font-size:1.9rem;color:var(--blue);display:block;margin-bottom:.6rem;line-height:1}
+  .dark .card .n{color:var(--gold)}
+
+  /* takeaway */
+  .takeaway{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.6vw,1.95rem);color:var(--white);max-width:48rem;margin-top:2rem;line-height:1.4}
+  .takeaway .accent{color:var(--gold);font-style:normal}
+
+  .note{margin-top:1.6rem;font-size:.95rem;color:var(--grey);max-width:47rem;border-left:2px solid var(--gold);padding-left:1rem}
+  .note b{color:var(--ink)}
+
+  /* пять слоёв ОС */
+  .oslayers{display:flex;flex-direction:column;margin-top:1.8rem;border-top:1px solid var(--silver);max-width:62rem}
+  .oslayer{display:grid;grid-template-columns:3rem 1fr auto;gap:0 1.4rem;align-items:center;padding:1.4rem .3rem;border-bottom:1px solid var(--silver)}
+  .oslayer .rn{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--blue);line-height:1}
+  .oslayer .txt{font-size:clamp(.95rem,1.5vw,1.1rem);color:var(--grey)}
+  .oslayer .txt b{color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+  .oslayer .tag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:.42rem .95rem;white-space:nowrap;border:1px solid var(--silver);color:#9a9a9a}
+  @media(max-width:680px){.oslayer{grid-template-columns:2.2rem 1fr}.oslayer .tag{grid-column:2;justify-self:start;margin-top:.6rem}}
+
+  /* программа 6 встреч */
+  .program{display:flex;flex-direction:column;margin-top:1.8rem;border-top:1px solid var(--silver);max-width:64rem}
+  .meet{display:grid;grid-template-columns:3.4rem 1fr auto;gap:.2rem 1.4rem;padding:1.55rem .3rem;border-bottom:1px solid var(--silver);align-items:start}
+  .meet .mn{font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.5rem);color:var(--blue);line-height:1;grid-row:span 2}
+  .meet .head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+  .meet h4{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:600;letter-spacing:.01em;text-transform:uppercase;margin:0}
+  .meet .fmt{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.26rem .7rem;white-space:nowrap;font-weight:600;border:1px solid var(--silver);color:var(--grey);align-self:center}
+  .meet .fmt.off{border-color:var(--blue);color:var(--blue)}
+  .meet .fmt.on{border-color:var(--gold);color:#a5822a}
+  .meet .desc{color:var(--grey);font-size:clamp(.9rem,1.35vw,1.02rem);max-width:48rem;grid-column:2}
+  .meet .out{color:var(--ink);font-size:clamp(.88rem,1.3vw,.98rem);grid-column:2;margin-top:.5rem;font-weight:500}
+  .meet .out b{color:var(--blue);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:.68rem;margin-right:.4rem}
+  @media(max-width:680px){.meet{grid-template-columns:2.4rem 1fr}.meet .fmt{grid-column:2;justify-self:start;grid-row:auto;margin-top:.3rem}.meet .mn{grid-row:span 3}}
+
+  /* модель найма / traits */
+  .traits{display:flex;flex-direction:column;margin-top:1.8rem;border-top:1px solid var(--silver);max-width:60rem}
+  .trait{display:grid;grid-template-columns:3.6rem 1fr;gap:0 1.4rem;padding:1.6rem .3rem;border-bottom:1px solid var(--silver)}
+  .trait .no{font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--blue);line-height:1;grid-row:span 2}
+  .trait h3{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600;letter-spacing:.01em;text-transform:uppercase}
+  .trait .bot{color:var(--grey);font-size:clamp(.9rem,1.35vw,1rem);max-width:44rem;margin-top:.5rem}
+  .trait .bot b{color:var(--blue);font-weight:600}
+
+  /* доказательства */
+  .proofs{display:grid;gap:1px;background:#2c2c2c;border:1px solid #2c2c2c;margin-top:2.2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .proof{background:var(--black);padding:1.8rem 1.6rem}
+  .proof .tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:.8rem}
+  .proof h3{color:var(--white);font-size:1.05rem;font-weight:600;margin-bottom:.5rem;letter-spacing:.02em}
+  .proof p{color:#b5b5b5;font-size:.93rem}
+
+  /* ведущие */
+  .hosts{display:grid;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:2.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .host{background:var(--white);padding:1.9rem 1.7rem}
+  .host .role{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .host .name{font-family:var(--serif);font-size:1.5rem;color:var(--ink);line-height:1.15;margin-bottom:.6rem}
+  .host p{font-size:.93rem;color:var(--grey)}
+
+  /* vs */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2c2c2c;border:1px solid #2c2c2c;margin-top:2.2rem}
+  .vs .col{background:var(--black);padding:1.9rem 1.7rem}
+  .vs h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:1.1rem}
+  .vs .a h4{color:#8a8a8a}
+  .vs .b h4{color:var(--gold)}
+  .vs ul{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+  .vs li{font-size:.96rem;color:#c5c5c5;padding-left:1.3rem;position:relative;line-height:1.45}
+  .vs .a li::before{content:"−";position:absolute;left:0;color:#6a6a6a;font-weight:700}
+  .vs .b li{color:#e8e8e8}
+  .vs .b li::before{content:"+";position:absolute;left:0;color:var(--gold);font-weight:700}
+  @media(max-width:680px){.vs{grid-template-columns:1fr}}
+
+  /* CTA */
+  .cta-wrap{margin-top:2.6rem;display:flex;justify-content:center}
+  .cta-btn{display:inline-block;font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--blue);padding:1.05rem 2.6rem;border-radius:3px;text-decoration:none;transition:background .15s}
+  .cta-btn:hover{background:#0013cc}
+
+  footer{padding:3rem 8vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--grey);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;background:var(--white)}
+  footer b{color:var(--ink)}
+
+  .brandcorner{position:fixed;right:1rem;bottom:.8rem;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);font-weight:600;z-index:5;pointer-events:none}
+</style>
+
+<div class="brandcorner">корпоративный курс</div>
+
+<!-- 1. HERO -->
+<section class="slide hero">
+  <div class="club">Корпоративная программа</div>
+  <h1>Цифровая команда<br><span>вашей компании</span></h1>
+  <p class="sub">Шесть встреч, за которые сотрудники не слушают про ИИ, а своими руками собирают цифровых работников на реальных данных компании. Уходят не с конспектом - с работающей системой.</p>
+  <div class="meta">
+    <div><b>Claude Code</b> · практикум под ключ</div>
+    <div><b>6 встреч</b> · по 2-3 часа · онлайн + офлайн</div>
+    <div><b>Кипр</b></div>
+  </div>
+</section>
+
+<!-- 2. ПРОБЛЕМА -->
+<section class="slide">
+  <div class="kicker">с чего начинается разговор</div>
+  <h2>У вас уже есть ИИ.<br>Только он на вас не работает</h2>
+  <p class="lead">Почти в каждой компании уже оплачены подписки на ИИ. Но открывают их пару раз в неделю, спрашивают что-то разовое и закрывают. ИИ как инструмент, который отвечает, только когда его спросят. Это не то, за что вы платите.</p>
+  <div class="grid g2x2">
+    <div class="card"><span class="n">01</span><h3>Куплено, но простаивает</h3><p>Лицензии есть, а в процессах компании ИИ не стоит. Сотрудники используют его как поисковик, не как работника.</p></div>
+    <div class="card"><span class="n">02</span><h3>Знает всё, кроме вас</h3><p>Публичный чат-бот не знает ваш продукт, клиентов, регламенты и историю. Каждый раз объясняешь заново.</p></div>
+    <div class="card"><span class="n">03</span><h3>Обучали - забыли</h3><p>Разовый вебинар «про нейросети» посмотрели и вернулись к работе как раньше. Ничего в компании не изменилось.</p></div>
+    <div class="card"><span class="n">04</span><h3>Каждый сам по себе</h3><p>Кто-то освоил, кто-то нет. Единого подхода нет, наработки не остаются в компании и уходят вместе с людьми.</p></div>
+  </div>
+</section>
+
+<!-- 3. СДВИГ -->
+<section class="slide dark">
+  <div class="kicker">суть сдвига</div>
+  <h2>Разница между<br>«у нас есть ИИ» и «на нас работает ИИ»</h2>
+  <div class="vs">
+    <div class="col a">
+      <h4>ИИ как инструмент</h4>
+      <ul>
+        <li>Отвечает, только когда откроешь и спросишь</li>
+        <li>Не помнит вчерашний контекст</li>
+        <li>Не знает продукт и клиентов компании</li>
+        <li>Живёт в отдельной вкладке, вне процессов</li>
+        <li>Каждый сотрудник изобретает подход сам</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>ИИ как цифровой сотрудник</h4>
+      <ul>
+        <li>Приходит сам по расписанию, с готовым докладом</li>
+        <li>Помнит всю историю и контекст компании</li>
+        <li>Работает из вашей базы знаний, а не из интернета</li>
+        <li>Подключён к почте, мессенджерам, задачам</li>
+        <li>Собран один раз, копируется на всю команду</li>
+      </ul>
+    </div>
+  </div>
+  <p class="takeaway">«ИИ забирает у людей труд машины: обход почты, разбор воронки, первый ответ клиенту. <span class="accent">Человеческое - решения, отношения, смысл - остаётся вашим людям</span>».</p>
+</section>
+
+<!-- 4. ЧТО ПОЛУЧИТ КОМАНДА -->
+<section class="slide">
+  <div class="kicker">результат, а не конспект</div>
+  <h2>Что команда унесёт<br>из шести встреч</h2>
+  <p class="lead">Это не курс лекций. Каждая встреча - практикум: сотрудники собирают систему прямо на своих рабочих данных и в конце встречи она уже работает. К финалу у компании собрана первая цифровая команда и есть модель, по которой она нанимает следующих работников сама.</p>
+  <div class="grid g2">
+    <div class="card"><span class="n">01</span><h3>Персональная ОС у каждого</h3><p>У каждого сотрудника - свой ИИ, который знает его роль, помнит контекст и приходит с докладом сам.</p></div>
+    <div class="card"><span class="n">02</span><h3>База знаний компании</h3><p>Живая база, которая отвечает из того, что компания уже знает: регламенты, продукт, наработки.</p></div>
+    <div class="card"><span class="n">03</span><h3>Первая цифровая команда</h3><p>Ассистент, который разгружает утро, и продажник, который не теряет ни одного лида. Собраны руками.</p></div>
+    <div class="card"><span class="n">04</span><h3>Модель, чтобы расти дальше</h3><p>Одна модель найма цифрового сотрудника. По ней компания собирает следующих работников без нас.</p></div>
+  </div>
+</section>
+
+<!-- 5. ОПОРНАЯ МОДЕЛЬ: 5 СЛОЁВ -->
+<section class="slide">
+  <div class="kicker">опорная модель · фундамент</div>
+  <h2>Пять слоёв персональной ОС.<br>На них строится вся программа</h2>
+  <p class="lead">Прежде чем нанимать цифровых сотрудников, у каждого в компании собирается основа - персональная операционная система на ИИ. Пять слоёв. Первые встречи курса - ровно про то, чтобы собрать этот фундамент под вашу компанию.</p>
+  <div class="oslayers">
+    <div class="oslayer"><div class="rn serif">I</div><div class="txt"><b>Мозг.</b> Модель, которая думает: Claude Code на компьютере сотрудника.</div><span class="tag">встреча 1</span></div>
+    <div class="oslayer"><div class="rn serif">II</div><div class="txt"><b>Память.</b> База знаний компании: всё, что она знает, снаружи головы.</div><span class="tag">встреча 2</span></div>
+    <div class="oslayer"><div class="rn serif">III</div><div class="txt"><b>Правила.</b> Файл-инструкция: кто сотрудник, продукт, регламенты, тон.</div><span class="tag">встреча 1-2</span></div>
+    <div class="oslayer"><div class="rn serif">IV</div><div class="txt"><b>Руки.</b> Подключения к почте, мессенджерам, задачам, документам.</div><span class="tag">встреча 3</span></div>
+    <div class="oslayer"><div class="rn serif">V</div><div class="txt"><b>Экран.</b> Дашборд, куда агент сам стягивает важное из всех каналов.</div><span class="tag">встреча 3</span></div>
+  </div>
+  <p class="note">Дом строится в первой половине курса. Во второй - заселяем в него сотрудников.</p>
+</section>
+
+<!-- 6. ПРОГРАММА 6 ВСТРЕЧ (главный слайд) -->
+<section class="slide">
+  <div class="kicker">программа · шесть встреч</div>
+  <h2>От персонального ИИ<br>к цифровой команде компании</h2>
+  <p class="lead">Пять практикумов по 2-3 часа плюс отдельная сессия ответов в финале. Каждая встреча стоит на предыдущей и заканчивается работающим результатом. Формат чередуется: офлайн-интенсивы для сборки и разгона, онлайн-сессии для практики и разбора.</p>
+  <div class="program">
+
+    <div class="meet">
+      <div class="mn serif">1</div>
+      <div class="head"><h4>Персональная ОС</h4><span class="fmt off">офлайн</span></div>
+      <div class="desc">ИИ узнаёт сотрудника. Ставим Claude Code, собираем файл-инструкцию: кто человек, его роль, приоритеты. ИИ перестаёт быть чужим чат-ботом и становится вторым мозгом под конкретного работника.</div>
+      <div class="out"><b>на выходе</b> у каждого свой ИИ, который знает его роль и контекст</div>
+    </div>
+
+    <div class="meet">
+      <div class="mn serif">2</div>
+      <div class="head"><h4>База знаний компании</h4><span class="fmt on">онлайн</span></div>
+      <div class="desc">ИИ узнаёт, что знает компания. Собираем живую базу: регламенты, продукт, наработки, частые вопросы. ИИ отвечает не из интернета, а из знаний компании. Метод атомарных заметок, ритуал atomize.</div>
+      <div class="out"><b>на выходе</b> база, которая отвечает из знаний компании, а не среднего по сети</div>
+    </div>
+
+    <div class="meet">
+      <div class="mn serif">3</div>
+      <div class="head"><h4>Руки и экран</h4><span class="fmt off">офлайн</span></div>
+      <div class="desc">Подключаем ИИ к рабочим каналам: почта, Telegram, WhatsApp, календарь, задачи. Собираем дашборд, куда агент сам стягивает важное. Теперь система не ждёт вопроса, а видит, что происходит в компании.</div>
+      <div class="out"><b>на выходе</b> ИИ подключён к каналам, важное само стягивается на один экран</div>
+    </div>
+
+    <div class="meet">
+      <div class="mn serif">4</div>
+      <div class="head"><h4>ИИ-исследователь</h4><span class="fmt on">онлайн</span></div>
+      <div class="desc">Учим ИИ проводить исследования за команду: рынок, конкуренты, разбор документов и договоров, сбор и сверка фактов из многих источников. То, на что у сотрудника уходит день, агент делает за минуты и приносит готовую сводку.</div>
+      <div class="out"><b>на выходе</b> рабочий навык: глубокое исследование под задачу за минуты</div>
+    </div>
+
+    <div class="meet">
+      <div class="mn serif">5</div>
+      <div class="head"><h4>Цифровая команда</h4><span class="fmt off">офлайн</span></div>
+      <div class="desc">Нанимаем сотрудников по одной модели и учим их делить работу. Ассистент каждое утро сам обходит каналы и присылает бриф: кто горит, что решать. Продажник ведёт клиента по воронке и не теряет ни одного лида. Дальше собираем команду агентов, где один раздаёт задачи другим - под процессы компании. Всё руками, на реальных данных.</div>
+      <div class="out"><b>на выходе</b> цифровая команда под процессы компании и модель, чтобы масштабировать самим</div>
+    </div>
+
+    <div class="meet">
+      <div class="mn serif">6</div>
+      <div class="head"><h4>Разбор и ответы</h4><span class="fmt on">онлайн</span></div>
+      <div class="desc">Отдельная сессия под вашу команду. Разбираем, что у кого не завелось, докручиваем ботов под реальные кейсы компании, отвечаем на всё, что накопилось за курс. Намечаем, с каких процессов продолжать внедрение дальше.</div>
+      <div class="out"><b>на выходе</b> рабочие боты докручены, вопросы закрыты, план внедрения на руках</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 7. ФОРМАТ -->
+<section class="slide">
+  <div class="kicker">как это устроено</div>
+  <h2>Практика на ваших данных,<br>а не теория на чужих примерах</h2>
+  <p class="lead">Люди учатся, только когда делают руками. Поэтому каждая встреча - это сборка на реальных задачах компании, с ведущим и помощью в зале. Никто не уходит с нерабочим ботом.</p>
+  <div class="grid g3">
+    <div class="card"><span class="n">01</span><h3>6 встреч по 2-3 часа</h3><p>Пять офлайн- и онлайн-практикумов для сборки плюс финальная онлайн-сессия ответов. Записи и материалы остаются у команды.</p></div>
+    <div class="card"><span class="n">02</span><h3>Готовые промпты</h3><p>Каждый шаг - проверенный промпт, который сотрудник копирует и запускает у себя. Ничего не надо программировать.</p></div>
+    <div class="card"><span class="n">03</span><h3>Результат на встрече</h3><p>Каждая встреча заканчивается работающей системой, а не списком «попробуйте дома». Между встречами - лёгкая практика.</p></div>
+  </div>
+  <p class="note"><b>Правило зала:</b> застрял на шаге - руку вверх. Помогает сосед, потом ведущий. Из встречи все выходят с рабочим результатом.</p>
+</section>
+
+<!-- 8. ДОКАЗАТЕЛЬСТВА -->
+<section class="slide dark">
+  <div class="kicker">это уже работает</div>
+  <h2>Мы не рассказываем про ИИ.<br>Мы показываем работающих сотрудников</h2>
+  <p class="lead">Всё, чему учим, у нас самих стоит в бою - в собственных компаниях и во внедрениях. На встречах команда видит живые системы на экране, а не слайды про будущее.</p>
+  <div class="proofs">
+    <div class="proof">
+      <div class="tag">продажник</div>
+      <h3>ИИ-бухгалтер Mg</h3>
+      <p>Консультирует клиента по налогам, квалифицирует, ведёт к встрече и сам кладёт горячий лид в CRM. Не консультант - продавец, работает 24/7.</p>
+    </div>
+    <div class="proof">
+      <div class="tag">ассистент</div>
+      <h3>Утренний бриф в 08:00</h3>
+      <p>Сам обходит почту, мессенджеры и календарь, присылает короткий доклад: кто требует внимания и что решать. Приходит без пинка каждое утро.</p>
+    </div>
+    <div class="proof">
+      <div class="tag">внедрения</div>
+      <h3>Компании уже в работе</h3>
+      <p>Собираем цифровые команды под конкретный бизнес - от бухгалтерии до стройки. Разбор, пилот, сопровождение под процессы компании.</p>
+    </div>
+  </div>
+  <p class="takeaway">«Хороший сотрудник - редкость и риск. Цифровой сотрудник - <span class="accent">настройка, которую можно скопировать</span>».</p>
+</section>
+
+<!-- 9. МОДЕЛЬ НАЙМА -->
+<section class="slide">
+  <div class="kicker">сердце метода</div>
+  <h2>Одна модель найма<br>для любого цифрового сотрудника</h2>
+  <p class="lead">Мы не учим сотни разрозненных приёмов. Мы даём одну модель, по которой собирается любой цифровой работник - ассистент, продажник, аналитик. Освоив её один раз, компания нанимает следующих сама.</p>
+  <div class="traits">
+    <div class="trait"><div class="no serif">I</div><div><h3>Роль</h3><p class="bot"><b>Должностная инструкция:</b> что сотрудник смотрит, что считает важным, каким тоном докладывает.</p></div></div>
+    <div class="trait"><div class="no serif">II</div><div><h3>Отчёт</h3><p class="bot"><b>Доклад под задачу:</b> короткая сводка с главным наверху, а не свалка данных.</p></div></div>
+    <div class="trait"><div class="no serif">III</div><div><h3>Канал</h3><p class="bot"><b>Приходит сам:</b> доклад прилетает в мессенджер сотрудника, а не ждёт, пока откроют.</p></div></div>
+    <div class="trait"><div class="no serif">IV</div><div><h3>Рабочий день</h3><p class="bot"><b>Запуск по расписанию:</b> каждое утро сам, без напоминаний, и берёт поручения на себя.</p></div></div>
+  </div>
+</section>
+
+<!-- 10. ВЕДУЩИЕ -->
+<section class="slide">
+  <div class="kicker">кто ведёт</div>
+  <h2>Три роли, которые<br>закрывают весь путь</h2>
+  <p class="lead">Обучение без внедрения остаётся вебинаром, а внедрение без стратегии - разрозненными ботами. Мы закрываем все три роли, поэтому команда не просто учится, а встраивает ИИ в бизнес по-настоящему.</p>
+  <div class="hosts">
+    <div class="host">
+      <div class="role">Обучение</div>
+      <div class="name serif">Стас Жуковец</div>
+      <p>Серийный фаундер: Mg Accounting, bezebee, ХУЛИБЕГ. Живёт с ИИ каждый день в трёх бизнесах. Ведёт программу и практику: не «можно попробовать», а «делай так - у меня работает».</p>
+    </div>
+    <div class="host">
+      <div class="role">Внедрение</div>
+      <div class="name serif">Михаил Зеленин</div>
+      <p>Отвечает за то, чтобы собранное на встречах реально встало в процессы компании. Техническая сборка, подключения, пилот и сопровождение цифровых сотрудников.</p>
+    </div>
+    <div class="host">
+      <div class="role">Стратегия</div>
+      <div class="name serif">Сергей Бек</div>
+      <p>Отвечает за то, куда компания движется с ИИ: где он даёт рычаг, с каких процессов начать, как это ложится в бизнес-цели. Связывает обучение с результатом для бизнеса.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. ДЛЯ КОГО -->
+<section class="slide">
+  <div class="kicker">кому подходит</div>
+  <h2>Для компаний, которым мало<br>«у нас есть подписка на ИИ»</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">01</span><h3>Команда тонет в рутине</h3><p>Сотрудники завалены почтой, чатами, отчётами и ручной работой, на которую жалко живых людей.</p></div>
+    <div class="card"><span class="n">02</span><h3>ИИ куплен, но не внедрён</h3><p>Подписки есть, а системного использования нет. Хочется, чтобы ИИ реально встал в процессы.</p></div>
+    <div class="card"><span class="n">03</span><h3>Растёте, но не хотите раздувать штат</h3><p>Нужно больше рук, но каждый найм - это деньги, время и риск. Часть рутины можно закрыть цифровыми работниками.</p></div>
+    <div class="card"><span class="n">04</span><h3>Хотите систему, а не разовый вебинар</h3><p>Нужно не «послушали и забыли», а работающая система и навык, который остаётся в компании.</p></div>
+  </div>
+</section>
+
+<!-- 12. ФИНАЛ / CTA -->
+<section class="slide hero">
+  <div class="club">Корпоративная программа</div>
+  <h1>Соберём цифровую команду<br><span>под вашу компанию</span></h1>
+  <p class="sub">Шесть встреч - и ваши сотрудники не слушают про ИИ, а работают с ним. Разбор, пилот и сопровождение - под ключ. Давайте обсудим, с каких процессов начать именно у вас.</p>
+  <div class="cta-wrap"><a class="cta-btn" href="https://t.me/stanistar888" target="_blank" rel="noopener">Обсудить программу</a></div>
+  <div class="meta">
+    <div><b>Стас Жуковец</b> · обучение</div>
+    <div><b>Михаил Зеленин</b> · внедрение</div>
+    <div><b>Сергей Бек</b> · стратегия</div>
+  </div>
+</section>
+
+<footer>
+  <div><b>Кипр</b></div>
+  <div>Корпоративный курс по Claude Code · 6 встреч · онлайн + офлайн</div>
+  <div>2026</div>
+</footer>
