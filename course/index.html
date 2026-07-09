@@ -5,14 +5,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://audit.maizongroup.com/course/">
 <meta property="og:title" content="Цифровая команда вашей компании">
-<meta property="og:description" content="Корпоративный курс по Claude Code. 6 встреч, за которые сотрудники своими руками собирают цифровых работников на реальных данных компании. Онлайн + офлайн.">
+<meta property="og:description" content="Корпоративный курс по Claude Code. 6 встреч онлайн, за которые сотрудники своими руками собирают цифровых работников на реальных данных компании.">
 <meta property="og:image" content="https://audit.maizongroup.com/course/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Цифровая команда вашей компании">
-<meta name="twitter:description" content="Корпоративный курс по Claude Code. 6 встреч под ключ, онлайн + офлайн.">
+<meta name="twitter:description" content="Корпоративный курс по Claude Code. 6 встреч онлайн, под ключ.">
 <meta name="twitter:image" content="https://audit.maizongroup.com/course/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,6 +126,23 @@
   .host .name{font-family:var(--serif);font-size:1.5rem;color:var(--ink);line-height:1.15;margin-bottom:.6rem}
   .host p{font-size:.93rem;color:var(--grey)}
 
+  /* пакеты / цены */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:2.2rem}
+  @media(max-width:820px){.plans{grid-template-columns:1fr}}
+  .plan{background:var(--white);padding:2rem 1.7rem;display:flex;flex-direction:column}
+  .plan.feat{background:var(--black)}
+  .plan .pt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .plan.feat .pt{color:var(--gold)}
+  .plan .price{font-family:var(--serif);font-size:2.5rem;line-height:1;color:var(--ink)}
+  .plan.feat .price{color:#fff}
+  .plan .unit{font-size:.84rem;color:var(--grey);margin-top:.5rem;margin-bottom:1.3rem}
+  .plan.feat .unit{color:#b5b5b5}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:auto}
+  .plan li{font-size:.92rem;color:var(--ink);padding-left:1.25rem;position:relative;line-height:1.4}
+  .plan li::before{content:"+";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .plan.feat li{color:#e8e8e8}
+  .plan.feat li::before{color:var(--gold)}
+
   /* vs */
   .vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2c2c2c;border:1px solid #2c2c2c;margin-top:2.2rem}
   .vs .col{background:var(--black);padding:1.9rem 1.7rem}
@@ -159,7 +176,7 @@
   <p class="sub">Шесть встреч, за которые сотрудники не слушают про ИИ, а своими руками собирают цифровых работников на реальных данных компании. Уходят не с конспектом - с работающей системой.</p>
   <div class="meta">
     <div><b>Claude Code</b> · практикум под ключ</div>
-    <div><b>6 встреч</b> · по 2-3 часа · онлайн + офлайн</div>
+    <div><b>6 встреч</b> · по 2-3 часа · онлайн</div>
     <div><b>Кипр</b></div>
   </div>
 </section>
@@ -238,47 +255,47 @@
 <section class="slide">
   <div class="kicker">программа · шесть встреч</div>
   <h2>От персонального ИИ<br>к цифровой команде компании</h2>
-  <p class="lead">Пять практикумов по 2-3 часа плюс отдельная сессия ответов в финале. Каждая встреча стоит на предыдущей и заканчивается работающим результатом. Формат гибридный: каждую встречу можно пройти очно в зале или подключиться онлайн - как удобно команде.</p>
+  <p class="lead">Пять практикумов по 2-3 часа плюс отдельная сессия ответов в финале. Каждая встреча стоит на предыдущей и заканчивается работающим результатом. Всё онлайн: команда подключается из любой точки, записи и материалы остаются у всех.</p>
   <div class="program">
 
     <div class="meet">
       <div class="mn serif">1</div>
-      <div class="head"><h4>Персональная ОС</h4><span class="fmt hy">онлайн + офлайн</span></div>
+      <div class="head"><h4>Персональная ОС</h4><span class="fmt hy">онлайн</span></div>
       <div class="desc">ИИ узнаёт сотрудника. Ставим Claude Code, собираем файл-инструкцию: кто человек, его роль, приоритеты. ИИ перестаёт быть чужим чат-ботом и становится вторым мозгом под конкретного работника.</div>
       <div class="out"><b>на выходе</b> у каждого свой ИИ, который знает его роль и контекст</div>
     </div>
 
     <div class="meet">
       <div class="mn serif">2</div>
-      <div class="head"><h4>База знаний компании</h4><span class="fmt hy">онлайн + офлайн</span></div>
+      <div class="head"><h4>База знаний компании</h4><span class="fmt hy">онлайн</span></div>
       <div class="desc">ИИ узнаёт, что знает компания. Собираем живую базу: регламенты, продукт, наработки, частые вопросы. ИИ отвечает не из интернета, а из знаний компании. Метод атомарных заметок, ритуал atomize.</div>
       <div class="out"><b>на выходе</b> база, которая отвечает из знаний компании, а не среднего по сети</div>
     </div>
 
     <div class="meet">
       <div class="mn serif">3</div>
-      <div class="head"><h4>Руки и экран</h4><span class="fmt hy">онлайн + офлайн</span></div>
+      <div class="head"><h4>Руки и экран</h4><span class="fmt hy">онлайн</span></div>
       <div class="desc">Подключаем ИИ к рабочим каналам: почта, Telegram, WhatsApp, календарь, задачи. Собираем дашборд, куда агент сам стягивает важное. Теперь система не ждёт вопроса, а видит, что происходит в компании.</div>
       <div class="out"><b>на выходе</b> ИИ подключён к каналам, важное само стягивается на один экран</div>
     </div>
 
     <div class="meet">
       <div class="mn serif">4</div>
-      <div class="head"><h4>ИИ-исследователь</h4><span class="fmt hy">онлайн + офлайн</span></div>
+      <div class="head"><h4>ИИ-исследователь</h4><span class="fmt hy">онлайн</span></div>
       <div class="desc">Учим ИИ проводить исследования за команду: рынок, конкуренты, разбор документов и договоров, сбор и сверка фактов из многих источников. То, на что у сотрудника уходит день, агент делает за минуты и приносит готовую сводку.</div>
       <div class="out"><b>на выходе</b> рабочий навык: глубокое исследование под задачу за минуты</div>
     </div>
 
     <div class="meet">
       <div class="mn serif">5</div>
-      <div class="head"><h4>Цифровая команда</h4><span class="fmt hy">онлайн + офлайн</span></div>
+      <div class="head"><h4>Цифровая команда</h4><span class="fmt hy">онлайн</span></div>
       <div class="desc">Нанимаем сотрудников по одной модели и учим их делить работу. Ассистент каждое утро сам обходит каналы и присылает бриф: кто горит, что решать. Продажник ведёт клиента по воронке и не теряет ни одного лида. Дальше собираем команду агентов, где один раздаёт задачи другим - под процессы компании. Всё руками, на реальных данных.</div>
       <div class="out"><b>на выходе</b> цифровая команда под процессы компании и модель, чтобы масштабировать самим</div>
     </div>
 
     <div class="meet">
       <div class="mn serif">6</div>
-      <div class="head"><h4>Разбор и ответы</h4><span class="fmt hy">онлайн + офлайн</span></div>
+      <div class="head"><h4>Разбор и ответы</h4><span class="fmt hy">онлайн</span></div>
       <div class="desc">Отдельная сессия под вашу команду. Разбираем, что у кого не завелось, докручиваем ботов под реальные кейсы компании, отвечаем на всё, что накопилось за курс. Намечаем, с каких процессов продолжать внедрение дальше.</div>
       <div class="out"><b>на выходе</b> рабочие боты докручены, вопросы закрыты, план внедрения на руках</div>
     </div>
@@ -292,7 +309,7 @@
   <h2>Практика на ваших данных,<br>а не теория на чужих примерах</h2>
   <p class="lead">Люди учатся, только когда делают руками. Поэтому каждая встреча - это сборка на реальных задачах компании, с ведущим и помощью в зале. Никто не уходит с нерабочим ботом.</p>
   <div class="grid g3">
-    <div class="card"><span class="n">01</span><h3>6 встреч по 2-3 часа</h3><p>Каждая встреча в гибриде: очно в зале или онлайн, как удобно команде. Пять практикумов сборки плюс финальная сессия ответов. Записи и материалы остаются у всех.</p></div>
+    <div class="card"><span class="n">01</span><h3>6 встреч по 2-3 часа</h3><p>Всё онлайн: пять практикумов сборки плюс финальная сессия ответов. Команда подключается откуда угодно, записи и материалы остаются у всех.</p></div>
     <div class="card"><span class="n">02</span><h3>Готовые промпты</h3><p>Каждый шаг - проверенный промпт, который сотрудник копирует и запускает у себя. Ничего не надо программировать.</p></div>
     <div class="card"><span class="n">03</span><h3>Результат на встрече</h3><p>Каждая встреча заканчивается работающей системой, а не списком «попробуйте дома». Между встречами - лёгкая практика.</p></div>
   </div>
@@ -373,12 +390,53 @@
   </div>
 </section>
 
+<!-- 11b. ПАКЕТЫ / ЦЕНЫ -->
+<section class="slide">
+  <div class="kicker">форматы работы</div>
+  <h2>Три способа<br>внедрить ИИ в компанию</h2>
+  <p class="lead">Начать можно с любого формата. Обычно идут по порядку: сначала обучаем команду на курсе, дальше берём под ключ то, что делать самим некогда или незачем.</p>
+  <div class="plans">
+    <div class="plan feat">
+      <div class="pt">Корпоративный курс</div>
+      <div class="price">5555 €</div>
+      <div class="unit">до 10 человек · +555 € за каждое место свыше</div>
+      <ul>
+        <li>6 встреч по 2-3 часа, онлайн</li>
+        <li>Чат поддержки на весь курс</li>
+        <li>Ведут Стас и Михаил</li>
+        <li>Команда собирает цифровых сотрудников на своих данных</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="pt">Индивидуальное обучение</div>
+      <div class="price">1111 €</div>
+      <div class="unit">персонально, один на один</div>
+      <ul>
+        <li>Личная операционная система на ИИ</li>
+        <li>Под ваши задачи и процессы</li>
+        <li>Программу подбираем на консультации</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="pt">Автоматизация под ключ</div>
+      <div class="price">от 3333 €</div>
+      <div class="unit">под конкретную задачу бизнеса</div>
+      <ul>
+        <li>Собираем цифровых сотрудников за вас</li>
+        <li>Под процессы вашей компании</li>
+        <li>Разбор, пилот, сопровождение</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Начать - с бесплатной консультации: за 20 минут скажем, какой формат под вашу задачу и с чего начать.</p>
+</section>
+
 <!-- 12. ФИНАЛ / CTA -->
 <section class="slide hero">
   <div class="club">Корпоративная программа</div>
   <h1>Соберём цифровую команду<br><span>под вашу компанию</span></h1>
-  <p class="sub">Шесть встреч - и ваши сотрудники не слушают про ИИ, а работают с ним. Разбор, пилот и сопровождение - под ключ. Давайте обсудим, с каких процессов начать именно у вас.</p>
-  <div class="cta-wrap"><a class="cta-btn" href="https://t.me/stanistar888" target="_blank" rel="noopener">Обсудить программу</a></div>
+  <p class="sub">Шесть встреч - и ваши сотрудники не слушают про ИИ, а работают с ним. Разбор, пилот и сопровождение - под ключ. Начнём с бесплатной консультации: обсудим, с каких процессов начать именно у вас.</p>
+  <div class="cta-wrap"><a class="cta-btn" href="https://t.me/stanistar888" target="_blank" rel="noopener">Записаться на консультацию</a></div>
   <div class="meta">
     <div><b>Стас Жуковец</b> · обучение</div>
     <div><b>Михаил Зеленин</b> · внедрение</div>
@@ -388,6 +446,6 @@
 
 <footer>
   <div><b>Кипр</b></div>
-  <div>Корпоративный курс по Claude Code · 6 встреч · онлайн + офлайн</div>
+  <div>Корпоративный курс по Claude Code · 6 встреч · онлайн</div>
   <div>2026</div>
 </footer>
