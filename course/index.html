@@ -145,6 +145,15 @@
   .plan.feat li{color:#e8e8e8}
   .plan.feat li::before{color:var(--gold)}
 
+  /* входит в каждый формат */
+  .included{margin-top:1.6rem;border:1px solid var(--silver);padding:1.5rem 1.8rem;background:var(--light)}
+  .inc-h{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#a5822a;margin-bottom:1.1rem}
+  .inc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem 2.4rem}
+  @media(max-width:680px){.inc-grid{grid-template-columns:1fr}}
+  .inc-grid span{font-size:.94rem;color:var(--ink);padding-left:1.4rem;position:relative;line-height:1.4}
+  .inc-grid span::before{content:"✓";position:absolute;left:0;color:#a5822a;font-weight:700}
+  .inc-grid b{color:var(--ink);font-weight:600}
+
   /* vs */
   .vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2c2c2c;border:1px solid #2c2c2c;margin-top:2.2rem}
   .vs .col{background:var(--black);padding:1.9rem 1.7rem}
@@ -404,9 +413,9 @@
       <div class="unit">для команды: базовый пакет до 10 человек, дальше по числу мест</div>
       <ul>
         <li>6 встреч по 2-3 часа, онлайн</li>
-        <li>Чат поддержки на весь курс</li>
-        <li>Ведут Стас и Михаил</li>
         <li>Команда собирает цифровых сотрудников на своих данных</li>
+        <li>Сертификат каждому участнику</li>
+        <li>Ведут Стас и Михаил лично</li>
       </ul>
     </div>
     <div class="plan">
@@ -416,7 +425,8 @@
       <ul>
         <li>Личная операционная система на ИИ</li>
         <li>Под ваши задачи и процессы</li>
-        <li>Программу подбираем на консультации</li>
+        <li>Приоритетная поддержка один на один</li>
+        <li>Разбор через месяц после старта</li>
       </ul>
     </div>
     <div class="plan">
@@ -428,6 +438,19 @@
         <li>Под процессы вашей компании</li>
         <li>Разбор, пилот, сопровождение</li>
       </ul>
+    </div>
+  </div>
+  <div class="included">
+    <div class="inc-h">Входит в каждый формат</div>
+    <div class="inc-grid">
+      <span><b>Личный чат с кураторами</b> - Стас и Михаил отвечают сами, не боты</span>
+      <span>Ответы на все ваши вопросы по ходу и после обучения</span>
+      <span>Записи встреч и материалы остаются у вас навсегда</span>
+      <span>Библиотека готовых промптов и шаблонов ролей</span>
+      <span>Обновления: выходит новое в Claude Code - показываем как применить</span>
+      <span><b>Скидка на следующие обучения</b> и продукты</span>
+      <span>Закрытое сообщество выпускников</span>
+      <span>Помощь с внедрением в реальные процессы, а не «в теории»</span>
     </div>
   </div>
   <p class="note">Стоимость - индивидуально, под объём и задачи. Начать - с бесплатной консультации: за 20 минут скажем, какой формат под вас, что войдёт и с чего начать.</p>
