@@ -149,19 +149,23 @@
   .host .name{font-family:'Baskervville',serif;font-size:1.5rem;color:var(--ink);line-height:1.15;margin-bottom:.6rem}
   .host p{font-size:.93rem;color:var(--grey);margin:0}
 
-  /* цена */
-  .price{margin-top:2rem;border:1px solid #2a2a2a;background:linear-gradient(160deg,#161616,#000);color:#fff;padding:2.4rem 2.2rem}
-  .price .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold)}
-  .price .was{margin-top:1rem;color:#8a8a8a;font-size:.95rem}
-  .price .was s{text-decoration-color:#6a6a6a}
-  .price .big{font-family:'Baskervville',serif;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin-top:.2rem;letter-spacing:.01em}
-  .price .u{color:#b5b5b5;margin-top:.7rem;font-size:.95rem}
-  .price .rowp{display:grid;grid-template-columns:1fr 9rem;gap:1rem;padding:1.15rem 0;border-top:1px solid #2a2a2a;align-items:baseline}
-  .price .rowp:first-of-type{margin-top:1.8rem}
-  .price .rowp .d{font-size:.95rem;color:#cfcfcf} .price .rowp .d b{color:#fff}
-  .price .rowp .n{text-align:right;font-family:'Baskervville',serif;font-size:1.4rem;color:var(--gold)}
-  .price .disc{margin-top:1.4rem;font-size:.82rem;color:#8a8a8a;line-height:1.5}
-  @media(max-width:600px){.price .rowp{grid-template-columns:1fr;gap:.2rem}.price .rowp .n{text-align:left}}
+  /* тарифы */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.2rem}
+  @media(max-width:860px){.plans{grid-template-columns:1fr}}
+  .plan{background:var(--white);border:1px solid var(--silver);padding:2rem 1.7rem;display:flex;flex-direction:column;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .plan:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .plan.feat{background:linear-gradient(160deg,#161616,#000);border-color:#2a2a2a}
+  .plan .pt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .plan.feat .pt{color:var(--gold)}
+  .plan .pp{font-family:'Baskervville',serif;font-size:2.4rem;line-height:1;color:var(--ink)}
+  .plan.feat .pp{color:#fff}
+  .plan .unit{font-size:.84rem;color:var(--grey);margin-top:.6rem;margin-bottom:1.4rem}
+  .plan.feat .unit{color:#b5b5b5}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:auto;padding:0}
+  .plan li{font-size:.92rem;color:var(--ink);padding-left:1.25rem;position:relative;line-height:1.4}
+  .plan li::before{content:"+";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .plan.feat li{color:#e8e8e8}
+  .plan.feat li::before{color:var(--gold)}
 
   /* шаги */
   .steps{margin-top:1.8rem;display:grid;gap:1rem;max-width:52rem}
@@ -414,7 +418,7 @@
     </div>
     <div class="col hi">
       <div class="k">Цифровой штаб</div>
-      <div class="v">Система приезжает <b>собранной на ваших данных</b>. Один на один, без групп. Ни одной строчки кода с вашей стороны: штабом управляют обычными словами. Вас ведут за руку до момента, когда вы управляете штабом сами.</div>
+      <div class="v">Система приезжает <b>собранной на ваших данных</b>. Только вы и ваша команда, без чужих групп. Ни одной строчки кода с вашей стороны: штабом управляют обычными словами. Вас ведут за руку до момента, когда вы управляете штабом сами.</div>
     </div>
   </div>
 </section>
@@ -474,7 +478,7 @@
   <div class="rows">
     <div class="row"><div class="k">Вы</div><div class="v">Держите смысл: ваши решения, приоритеты, финальное «да». Задаёте вопросы и пользуетесь. Учитесь управлять штабом сами.</div></div>
     <div class="row"><div class="k">Мы</div><div class="v"><b>Архитектура и сборка под ключ.</b> Нас двое: один ведёт метод и учит вас управлять штабом, второй ставит, подключает и настраивает. Между сессиями строим, вы копите вопросы.</div></div>
-    <div class="row"><div class="k">Формат</div><div class="v">Личные сессии по 2 часа, онлайн или очно. Один на один, без групп. Часть каждой сессии идёт на обучение управлению.</div></div>
+    <div class="row"><div class="k">Формат</div><div class="v">Личные сессии по 2 часа, онлайн или очно. Только вы и ваши люди, без чужих групп. Часть каждой сессии идёт на обучение управлению.</div></div>
     <div class="row"><div class="k">Данные</div><div class="v">Живут на вашем компьютере. Чувствительные контуры закрыты отдельным слоем доступа, наружу ничего не уходит.</div></div>
     <div class="row"><div class="k">Расходы</div><div class="v">Подписка на ИИ-агента около 100 € в месяц, оплачиваете напрямую. Единственная регулярная статья.</div></div>
   </div>
@@ -527,18 +531,48 @@
 <!-- ЦЕНА -->
 <section>
   <div class="kicker">цена премиум-сборки</div>
-  <h2>Вход через быстрый старт.<br>Дальше вся карта</h2>
-  <p class="body">Вход в систему это «Быстрый старт»: ядро и первый рабочий контур, 3 300 €. Полная сборка это все контуры на единой базе с сопровождением первой недели.</p>
-  <div class="price">
-    <div class="k">Полная сборка · все контуры на единой базе</div>
-    <div class="was">поконтурно <s>13 300 €</s></div>
-    <div class="big">11 000 €</div>
-    <div class="u">пакетом на единой базе · все контуры + первая неделя со штабом</div>
-    <div class="rowp"><div class="d"><b>Вход · Быстрый старт.</b> Ядро + первый рабочий контур + правила безопасности + передача и первая неделя со штабом.</div><div class="n">3 300 €</div></div>
-    <div class="rowp"><div class="d"><b>Каждый следующий контур.</b> Разворачивается на той же базе: капитал, юридический радар, здоровье семьи, поездки, сеть, документы.</div><div class="n">от 1 650 €</div></div>
-    <div class="rowp"><div class="d"><b>Пакет целиком.</b> Все контуры сразу, единый график, сопровождение. Выгоднее, чем собирать по одному.</div><div class="n">11 000 €</div></div>
-    <div class="disc">Цена привязана к объёму: финальная сумма зависит от числа контуров и глубины сборки и фиксируется в именном предложении после диагностики. Операционные расходы (подписка на ИИ-агента ≈ 100 €/мес) оплачиваются вами напрямую и в стоимость не входят. Собираем лично и вдвоём, без подрядчиков, поэтому одновременно ведём ограниченное число сборок: старт согласуем на диагностике.</div>
+  <h2>Три сборки штаба.<br>От первого контура до полной карты</h2>
+  <p class="body">В каждой сборке: диагностика, личная база знаний под ваш бизнес и первая неделя со штабом за руку. Разница - в числе контуров, людях, которых обучаем, и глубине сопровождения. Пока штаб на подписке, он не стоит на месте: обновления и новые возможности приезжают сами.</p>
+
+  <div class="plans">
+    <div class="plan">
+      <div class="pt">Быстрый старт</div>
+      <div class="pp">3 300 €</div>
+      <div class="unit">1 месяц поддержки включён · далее 350 €/мес</div>
+      <ul>
+        <li>Диагностика «Карта цифровой жизни»</li>
+        <li>База знаний под ваш бизнес</li>
+        <li>Внедрение: ядро + 1 контур</li>
+        <li>Первая неделя со штабом за руку</li>
+      </ul>
+    </div>
+    <div class="plan feat">
+      <div class="pt">Рабочий штаб · оптимум</div>
+      <div class="pp">6 900 €</div>
+      <div class="unit">2 месяца поддержки включены · далее 550 €/мес</div>
+      <ul>
+        <li>Диагностика «Карта цифровой жизни»</li>
+        <li>База знаний под ваш бизнес</li>
+        <li>Внедрение: ядро + 3 контура</li>
+        <li>Обучение двух человек</li>
+        <li>Первая неделя со штабом за руку</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="pt">Полный штаб</div>
+      <div class="pp">13 800 €</div>
+      <div class="unit">2 месяца поддержки включены · далее 550 €/мес</div>
+      <ul>
+        <li>Диагностика и глубокий сбор данных</li>
+        <li>База знаний под ваш бизнес</li>
+        <li>Внедрение: ядро + до 6 контуров</li>
+        <li>Обучение команды до 5 человек</li>
+        <li>Ассистент по внедрению на 1 месяц</li>
+      </ul>
+    </div>
   </div>
+  <p class="note">Для сравнения: живой ассистент обходится от 2 500 € в месяц, аналитик дороже, и оба могут уйти. Штаб собирается один раз и остаётся вашим.</p>
+  <p class="note">Финальный состав фиксируется в именном предложении после диагностики. Операционные расходы (подписка на ИИ-агента ≈ 100 €/мес) оплачиваются вами напрямую и в стоимость не входят. Собираем лично и вдвоём, без подрядчиков, поэтому одновременно ведём ограниченное число сборок: старт согласуем на диагностике.</p>
 </section>
 
 <!-- СЛЕДУЮЩИЙ ШАГ -->
@@ -614,7 +648,7 @@
 <script>
   const CB_BACKEND = "https://chat.maizongroup.com/chat";
   // Контекст страницы: уходит невидимо в первом сообщении, чтобы общий бэкенд говорил про штаб, а не про курс.
-  const CB_CONTEXT = "[Контекст для консультанта: посетитель пишет со страницы «Цифровой штаб · премиум-сборка» (audit.maizongroup.com/pult-duo). Это индивидуальная сборка персональной ИИ-системы под ключ для собственника, ведут лично Стас Жуковец (метод и обучение) и Михаил Зеленин (внедрение и сборка). Цены на странице открыты: вход «Быстрый старт» 3 300 евро (ядро + первый контур + первая неделя со штабом), каждый следующий контур от 1 650 евро, полная сборка всех контуров 11 000 евро. Первый шаг - диагностическая встреча «Карта цифровой жизни», 60 минут, после неё именное предложение в течение суток. Веди разговор про штаб (персональную сборку), а не про корпоративный курс, если клиент сам не спросит про курс. Цель - квалифицировать и записать на диагностику, взяв контакт.]\n\n";
+  const CB_CONTEXT = "[Контекст для консультанта: посетитель пишет со страницы «Цифровой штаб · премиум-сборка» (audit.maizongroup.com/pult-duo). Это индивидуальная сборка персональной ИИ-системы под ключ для собственника, ведут лично Стас Жуковец (метод и обучение) и Михаил Зеленин (внедрение и сборка). Тарифы на странице открыты: «Быстрый старт» 3 300 евро (ядро + 1 контур, база знаний, месяц поддержки включён, далее подписка 350 евро/мес); «Рабочий штаб» 6 900 евро (ядро + 3 контура, обучение двух человек, 2 месяца поддержки, далее 550 евро/мес); «Полный штаб» 13 800 евро (ядро + до 6 контуров, обучение команды до 5 человек, ассистент по внедрению на месяц, 2 месяца поддержки, далее 550 евро/мес). Во всех тарифах: диагностика, база знаний под бизнес клиента, первая неделя со штабом. Первый шаг - диагностическая встреча «Карта цифровой жизни», 60 минут, после неё именное предложение в течение суток. Веди разговор про штаб (персональную сборку), а не про корпоративный курс, если клиент сам не спросит про курс. Цель - квалифицировать и записать на диагностику, взяв контакт.]\n\n";
   let cbMsgs = [], cbBusy = false;
   function cbToggle(){
     var box=document.getElementById('cb-box'), btn=document.getElementById('cb-btn');
