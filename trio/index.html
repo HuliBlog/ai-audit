@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="referrer" content="no-referrer">
+<title>ТРИО ДИАМАНТ · Свой ИИ на своих серверах</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="ТРИО ДИАМАНТ · Свой ИИ на своих серверах">
+<meta property="og:description" content="Обучение команды, внедрение агентов и операционная ИИ-система поверх ваших процессов. Данные не покидают периметр компании.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+  :root{
+    --blue:#001AFF;
+    --blue-soft:#e8ebff;
+    --gold:#ddb85b;
+    --gold-deep:#b9903a;
+    --black:#121212;
+    --ink:#1c1c1c;
+    --grey:#717171;
+    --silver:#d9d9d9;
+    --hair:#ececec;
+    --light:#f6f5f5;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',-apple-system,'Segoe UI',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:'Baskervville',Georgia,serif}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver);background:var(--white)}
+  @media(max-width:680px){section{padding:6vh 7vw}}
+  .kicker{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1,h2{font-weight:600;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+  h1{font-size:clamp(2.1rem,5.6vw,4rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.55rem,3.4vw,2.5rem);margin-bottom:1.3rem}
+  .pain-punch{display:block;margin-top:.6rem;color:var(--blue)}
+  p{font-size:clamp(1rem,1.5vw,1.12rem);color:var(--ink)}
+  p.lead{font-size:clamp(1.02rem,1.6vw,1.24rem);color:var(--grey);max-width:46rem;font-weight:400;margin-top:.5rem}
+  p.body{color:var(--grey);max-width:46rem;margin-top:1rem}
+  b{font-weight:600;color:var(--ink)}
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2{color:var(--white)} .dark p.lead,.dark p.body{color:#b5b5b5}
+  .dark b{color:#fff}
+  .quote{font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.3rem,2.7vw,2rem);line-height:1.4;max-width:46rem;margin-top:1.8rem}
+  .quote .accent{color:var(--gold-deep);font-style:normal}
+  .dark .quote{color:#fff} .dark .quote .accent{color:var(--gold)}
+
+  /* hero */
+  .hero{min-height:76vh;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
+  .hero .club{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.4rem}
+  .hero .club b{color:var(--blue)}
+  .hero .gem{width:36px;height:36px;margin-bottom:2rem}
+  .hero .gem path{fill:none;stroke:var(--gold-deep);stroke-width:1.4;stroke-linejoin:round}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.8rem;font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--grey);max-width:44rem}
+  .hero .meta{margin-top:2.6rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  /* иллюстрация-плитка */
+  .illo{width:84px;height:84px;border-radius:18px;background:linear-gradient(155deg,var(--light),var(--white));border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;flex:none;transition:border-color .3s,transform .3s}
+  .illo svg{width:46px;height:46px;display:block}
+  .illo .s{fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .illo .g{fill:none;stroke:var(--gold);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .illo .gf{fill:var(--gold);stroke:none}
+  .illo .bf{fill:var(--blue);stroke:none}
+
+  /* контуры-диаграмма */
+  .perimeter{margin-top:2.4rem;display:grid;grid-template-columns:1.25fr auto 1fr;gap:1.2rem;align-items:stretch;max-width:62rem}
+  @media(max-width:840px){.perimeter{grid-template-columns:1fr}}
+  .zone{padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.8rem}
+  .zone .zk{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+  .zone h3{font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;font-weight:600;color:#fff}
+  .zone ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+  .zone li{font-size:.92rem;color:#b5b5b5;padding-left:1.1rem;position:relative;line-height:1.45}
+  .zone li::before{content:"◆";position:absolute;left:0;top:.1em;font-size:.55rem}
+  .zone.closed{border:1px solid var(--gold-deep);background:rgba(221,184,91,.05)}
+  .zone.closed .zk{color:var(--gold)}
+  .zone.closed li::before{color:var(--gold)}
+  .zone.open{border:1px dashed #4a4a4a}
+  .zone.open .zk{color:#8a8fff}
+  .zone.open li::before{color:#4d63ff}
+  .zone .zfoot{font-size:.88rem;margin-top:.2rem}
+  .gate-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:0 .4rem;text-align:center}
+  .gate-col .gline{width:1px;flex:1;background:linear-gradient(180deg,transparent,var(--gold-deep),transparent)}
+  .gate-col .glabel{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;writing-mode:vertical-rl;transform:rotate(180deg)}
+  @media(max-width:840px){.gate-col{flex-direction:row;padding:.2rem 0}.gate-col .gline{height:1px;width:auto;flex:1;background:linear-gradient(90deg,transparent,var(--gold-deep),transparent)}.gate-col .glabel{writing-mode:horizontal-tb;transform:none}}
+
+  /* сдвиги */
+  .turns{margin-top:2.6rem;display:grid;gap:.7rem;max-width:52rem}
+  .turn{display:flex;align-items:center;gap:1rem;font-size:clamp(1rem,1.9vw,1.3rem);font-weight:500;padding:1rem 0;border-bottom:1px solid #2c2c2c;color:#e8e8e8;flex-wrap:wrap}
+  .turn .ar{color:var(--gold);font-weight:600}
+  .turn.hi{font-family:'Baskervville',Georgia,serif;font-style:italic;font-weight:400;color:#fff;border-bottom:none;font-size:clamp(1.2rem,2.4vw,1.7rem)}
+  .turn.hi .ac{color:var(--gold)}
+
+  /* три правила */
+  .rules{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .rule{border-top:2px solid var(--gold);padding-top:1.1rem}
+  .rule .no{font-family:'Baskervville',Georgia,serif;font-size:2rem;color:var(--gold);line-height:1}
+  .rule .t{font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin:.5rem 0 .5rem;color:#fff}
+  .rule p{font-size:.96rem;color:#b5b5b5;margin:0}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+  /* модули */
+  .rooms{margin-top:2.2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:62rem}
+  .room{background:var(--white);border:1px solid var(--silver);padding:1.7rem 1.6rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .room:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .room:hover .illo{border-color:var(--blue)}
+  .room .core{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .room .nm{font-size:1rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .room p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.55}
+  .room .metric{font-size:.88rem;color:var(--ink);border-top:1px solid var(--hair);padding-top:.8rem}
+  .room .metric .mk{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);display:block;margin-bottom:.2rem}
+  @media(max-width:700px){.rooms{grid-template-columns:1fr}}
+  .note{font-size:.85rem;color:var(--grey);margin-top:1.4rem;max-width:46rem;font-style:italic;font-family:'Baskervville',Georgia,serif}
+  .note a{color:var(--blue);font-weight:600;text-decoration:none}
+
+  /* внешний сервис vs контур */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  .vs .col{padding:1.6rem 1.6rem;border:1px solid var(--silver)}
+  .vs .col.hi{border:1px solid var(--blue);background:var(--blue-soft)}
+  .vs .k{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--grey);margin-bottom:.7rem}
+  .vs .col.hi .k{color:var(--blue)}
+  .vs .v{font-size:.98rem;color:var(--ink);line-height:1.55}
+  @media(max-width:680px){.vs{grid-template-columns:1fr}}
+
+  /* лестница */
+  .ladder{display:flex;flex-direction:column;margin-top:2rem;border-top:1px solid var(--silver);max-width:62rem}
+  .ws{display:grid;grid-template-columns:5.2rem 1fr;gap:0 1.6rem;padding:2rem .3rem;border-bottom:1px solid var(--silver)}
+  .ws .no{font-family:'Baskervville',Georgia,serif;font-size:clamp(2rem,4.4vw,3.1rem);color:var(--blue);line-height:1;grid-row:span 3}
+  .ws .head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+  .ws h3{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .ws .when{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:600;white-space:nowrap}
+  .ws p{color:var(--grey);font-size:clamp(.93rem,1.5vw,1.05rem);max-width:46rem;margin-top:.6rem}
+  .ws .gate{margin-top:.9rem;display:inline-block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);border:1px solid var(--gold);padding:.4rem 1rem}
+  @media(max-width:680px){.ws{grid-template-columns:1fr}.ws .no{grid-row:auto;margin-bottom:.3rem}}
+
+  /* роли */
+  .rows{margin-top:1.6rem;max-width:56rem;border-top:1px solid var(--silver)}
+  .row{display:grid;grid-template-columns:11rem 1fr;gap:1.6rem;padding:1.2rem .3rem;border-bottom:1px solid var(--silver);align-items:baseline}
+  .row .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .row .v{font-size:1rem;color:var(--grey)} .row .v b{color:var(--ink)}
+  @media(max-width:600px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+  /* ведущие */
+  .hosts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.2rem;max-width:62rem}
+  .host{background:var(--white);border:1px solid var(--silver);padding:1.9rem 1.7rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .host:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .host .role{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .host .name{font-family:'Baskervville',Georgia,serif;font-size:1.5rem;color:var(--ink);line-height:1.15;margin-bottom:.6rem}
+  .host p{font-size:.93rem;color:var(--grey);margin:0}
+
+  /* доказательства */
+  .proofs{display:grid;gap:1.2rem;margin-top:2.2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .proof{background:var(--black);border:1px solid #2c2c2c;padding:1.8rem 1.6rem}
+  .proof .tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:.8rem}
+  .proof h3{color:var(--white);font-size:1.05rem;font-weight:600;margin-bottom:.5rem;letter-spacing:.02em}
+  .proof p{color:#b5b5b5;font-size:.93rem;margin:0}
+
+  /* тарифы */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.2rem}
+  @media(max-width:860px){.plans{grid-template-columns:1fr}}
+  .plan{background:var(--white);border:1px solid var(--silver);padding:2rem 1.7rem;display:flex;flex-direction:column;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .plan:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .plan.feat{background:linear-gradient(160deg,#161616,#000);border-color:#2a2a2a}
+  .plan .pt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .plan.feat .pt{color:var(--gold)}
+  .plan .pp{font-family:'Baskervville',Georgia,serif;font-size:2.4rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+  .plan.feat .pp{color:#fff}
+  .plan .unit{font-size:.84rem;color:var(--grey);margin-top:.6rem;margin-bottom:1.4rem}
+  .plan.feat .unit{color:#b5b5b5}
+  .plan ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:auto;padding:0}
+  .plan li{font-size:.92rem;color:var(--ink);padding-left:1.25rem;position:relative;line-height:1.4}
+  .plan li::before{content:"+";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .plan.feat li{color:#e8e8e8}
+  .plan.feat li::before{color:var(--gold)}
+
+  /* свой сервер - отдельный блок */
+  .server{margin-top:2.6rem;max-width:none;background:var(--black);border:1px solid var(--gold-deep);padding:2.2rem 2rem;display:grid;grid-template-columns:auto 1fr;gap:1.8rem;align-items:start}
+  @media(max-width:760px){.server{grid-template-columns:1fr}}
+  .server .illo{background:linear-gradient(155deg,#1c1c1c,#0d0d0d);border-color:#2c2c2c}
+  .server .sk{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:.5rem}
+  .server h3{color:#fff;font-size:clamp(1.2rem,2.4vw,1.7rem);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .server .sp{font-family:'Baskervville',Georgia,serif;font-size:2rem;color:var(--gold);margin-top:.4rem;font-variant-numeric:tabular-nums}
+  .server .sp small{font-family:'Jost',Arial,sans-serif;font-size:.8rem;color:#b5b5b5;letter-spacing:.06em}
+  .server ul{list-style:none;margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.6rem;padding:0}
+  @media(max-width:700px){.server ul{grid-template-columns:1fr}}
+  .server li{font-size:.92rem;color:#e8e8e8;padding-left:1.2rem;position:relative;line-height:1.45}
+  .server li::before{content:"◆";position:absolute;left:0;top:.15em;font-size:.55rem;color:var(--gold)}
+  .server .sfoot{margin-top:1.1rem;font-size:.88rem;color:#b5b5b5;font-style:italic;font-family:'Baskervville',Georgia,serif}
+
+  /* шаги */
+  .steps{margin-top:1.8rem;display:grid;gap:1rem;max-width:52rem}
+  .step{display:grid;grid-template-columns:3rem 1fr;gap:1.2rem;align-items:start}
+  .step .n{font-family:'Baskervville',Georgia,serif;font-size:2rem;color:var(--blue);line-height:1}
+  .step .t{font-size:1rem;color:var(--grey);padding-top:.35rem} .step .t b{color:var(--ink)}
+
+  /* finale */
+  .finale{text-align:center}
+  .finale .big{font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.2;max-width:40rem;margin:0 auto}
+  .finale .big .ac{color:var(--gold)}
+  .cta{margin-top:2.4rem;text-align:center}
+  .btn{display:inline-block;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--blue);padding:1rem 2.4rem;text-decoration:none;transition:transform .3s}
+  .btn:hover{transform:translateY(-2px)}
+  .small{margin-top:1rem;font-size:.85rem;color:#8a8a8a}
+  .small a{color:var(--gold)}
+  .finale .meta{margin-top:2.2rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8a8a}
+  .finale .meta b{color:#fff;font-weight:600}
+  footer{padding:3rem 8vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--grey);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;background:var(--white)}
+  footer b{color:var(--ink)}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="club"><b>Закрытый ИИ-контур</b> · для TRIODIAMOND</div>
+  <svg class="gem" viewBox="0 0 34 34" aria-hidden="true"><path d="M8 6 L26 6 L32 14 L17 30 L2 14 Z M2 14 L32 14 M8 6 L12 14 L17 30 L22 14 L26 6 M12 14 L17 6 L22 14"/></svg>
+  <h1>Свой ИИ.<br>На <span>своих серверах</span></h1>
+  <p class="sub">Обучение команды, внедрение агентов и операционная ИИ-система поверх процессов ТРИО ДИАМАНТ. Ценовая архитектура, дилерские условия и клиентская база не покидают компанию.</p>
+  <div class="meta">
+    <div><b>Данные</b> · внутри периметра</div>
+    <div><b>4 модуля</b> · первый контур</div>
+    <div><b>Метрики приёмки</b> · в договоре</div>
+    <div><b>Двое ведущих</b> · лично, без подрядчиков</div>
+  </div>
+</section>
+
+<!-- ПРОБЛЕМА -->
+<section>
+  <div class="kicker gold">где вы сейчас</div>
+  <h2>Звонков больше, чем можно прослушать.<span class="pain-punch">А отдать их внешнему ИИ - нельзя</span></h2>
+  <p class="body">Каждый день менеджеры говорят с дилерами и сетями. Что было обещано, какая скидка названа, почему клиент замолчал - знает только сам менеджер. Записи звонков есть, но прослушать поток целиком физически некому: проверяется выборочно, вручную.</p>
+  <p class="body">Обычный ответ рынка - «подключите внешний ИИ-сервис» - для вас закрыт устройством бизнеса. Ценовые уровни, условия дилеров и клиентская база - главный охраняемый актив компании. Отправлять их на чужие серверы нельзя ни за какое удобство.</p>
+  <p class="quote">Всё, что компания знает о клиенте, сегодня сходится в одной точке - <span class="accent">в голове менеджера</span>.</p>
+</section>
+
+<!-- ЧТО ЭТО · ДВА КОНТУРА -->
+<section class="dark">
+  <div class="kicker" style="color:var(--gold)">что мы строим</div>
+  <h2>Два контура. Один периметр.<br>Ваши данные внутри</h2>
+  <p class="lead">Не «внедрение ИИ», а архитектура, в которой класс данных определяет, какая модель имеет право их увидеть. Правило маршрутизации живёт в шлюзе моделей, а не в голове разработчика.</p>
+
+  <div class="perimeter">
+    <div class="zone closed">
+      <div class="zk">Закрытый контур · внутри периметра</div>
+      <h3>Коммерческое ядро</h3>
+      <ul>
+        <li>Ценовые уровни и матрицы скидок</li>
+        <li>Условия дилеров и сетей</li>
+        <li>Клиентская база и история сделок</li>
+        <li>Записи звонков и переписка</li>
+        <li>Данные 1С и личного кабинета</li>
+      </ul>
+      <p class="zfoot" style="color:var(--gold)">Модели работают на вашем узле. Наружу не уходит ни один токен.</p>
+    </div>
+    <div class="gate-col"><div class="gline"></div><div class="glabel">Шлюз моделей</div><div class="gline"></div></div>
+    <div class="zone open">
+      <div class="zk">Открытый контур · где это выгодно</div>
+      <h3>Маркетинг и рутина</h3>
+      <ul>
+        <li>Контент и маркетинговые материалы</li>
+        <li>Обезличенные задачи</li>
+        <li>Самые ресурсоёмкие генерации</li>
+      </ul>
+      <p class="zfoot" style="color:#8a8fff">Здесь допустимы внешние модели - без доступа к коммерческому ядру.</p>
+    </div>
+  </div>
+
+  <div class="turns">
+    <div class="turn"><span>Из звонков, которые некому слушать</span><span class="ar">→</span><span>в 100% потока, прослушанного системой</span></div>
+    <div class="turn"><span>Из знания в голове менеджера</span><span class="ar">→</span><span>в единую карточку клиента</span></div>
+    <div class="turn"><span>Из надежды на дисциплину</span><span class="ar">→</span><span>в контроль по вашему регламенту</span></div>
+    <div class="turn hi"><span>Данные остаются внутри.</span><span class="ac">Работа делается сама.</span></div>
+  </div>
+</section>
+
+<!-- ТРИ ПРАВИЛА -->
+<section class="dark" style="padding-top:0">
+  <div class="kicker" style="color:var(--gold)">три правила, на которых это держится</div>
+  <h2>Доверие встроено в архитектуру,<br>а не обещано словами</h2>
+  <div class="rules">
+    <div class="rule">
+      <div class="no">I</div>
+      <div class="t">Ни один токен наружу</div>
+      <p>Всё, что содержит цены, условия и клиентов, обрабатывается моделями внутри вашего контура. Открытые модели, доступ только по защищённому туннелю, путь до вашего собственного железа заложен в конструкцию.</p>
+    </div>
+    <div class="rule">
+      <div class="no">II</div>
+      <div class="t">Метрика - или работаем без счёта</div>
+      <p>Каждый модуль имеет метрику приёмки, измеренную на ваших данных и зафиксированную в договоре. Не достигли в срок - продолжаем без дополнительного счёта до достижения. Вы платите за результат, а не за попытку.</p>
+    </div>
+    <div class="rule">
+      <div class="no">III</div>
+      <div class="t">Без замка на подрядчика</div>
+      <p>Всё в контейнерах, конфигурация в вашем репозитории, модель сменна без переписывания системы. Железо и GPU-аренда - счетами поставщиков напрямую вам, без нашей наценки. Контур остаётся вашим при любом развитии событий.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 МОДУЛЯ -->
+<section>
+  <div class="kicker">первый контур</div>
+  <h2>Четыре модуля. Жёсткий порядок.<br>Каждый - с метрикой приёмки</h2>
+  <p class="body">Транскрибация - вход для всех остальных: без текста звонков нет ни контроля качества, ни полной карточки клиента, ни аналитики продаж. Агенты ложатся поверх вашей кросс-функциональной схемы ответственности - мы не приносим чужую методологию, а снимаем ручной труд с порядка, который у вас уже прописан.</p>
+
+  <div class="rooms">
+    <div class="room">
+      <div class="illo"><svg viewBox="0 0 48 48">
+        <rect class="s" x="14" y="7" width="9" height="15" rx="4.5"/>
+        <path class="s" d="M10 18c0 6.5 4 10 8.5 10s8.5-3.5 8.5-10M18.5 28v6M14 34h9"/>
+        <path class="g" d="M31 12h9M31 17h9M31 22h6"/>
+        <circle class="gf" cx="40" cy="27" r="1.6"/>
+      </svg></div>
+      <div class="core">модуль 1 · вход для всех</div>
+      <div class="nm">Транскрибация</div>
+      <p>Каждый звонок - в текст и в поиск. Привязка к клиенту и менеджеру, словарь вашей номенклатуры: артикулы, диаметры, бренды. Поток, который некому было слушать, становится прослушанным на 100%.</p>
+      <div class="metric"><span class="mk">Метрика приёмки</span>Качество распознавания, замеренное на контрольном наборе ваших звонков. 100% звонков расшифровано и доступно поиском.</div>
+    </div>
+
+    <div class="room">
+      <div class="illo"><svg viewBox="0 0 48 48">
+        <path class="s" d="M24 6l14 5v10c0 9-6 15.5-14 19-8-3.5-14-10-14-19V11z"/>
+        <path class="g" d="M17 23l5 5 9-10"/>
+      </svg></div>
+      <div class="core">модуль 2</div>
+      <div class="nm">Контроль качества</div>
+      <p>Каждый разговор проверяется по вашему регламенту: обязательные шаги, несогласованные скидки, обещания без исполнения. Спорное уходит человеку, а не решается моделью наугад. Дашборд по менеджерам и типам отклонений, эскалации по вашим четырём уровням.</p>
+      <div class="metric"><span class="mk">Метрика приёмки</span>100% звонков проверено. Список потерянных заявок, найденных в звонках, которых нет ни в 1С, ни в личном кабинете.</div>
+    </div>
+
+    <div class="room">
+      <div class="illo"><svg viewBox="0 0 48 48">
+        <rect class="s" x="7" y="10" width="34" height="28" rx="2"/>
+        <circle class="s" cx="16" cy="20" r="3.5"/>
+        <path class="s" d="M10 31c0-4 3-6 6-6s6 2 6 6"/>
+        <path class="g" d="M27 18h9M27 23h9M27 28h6"/>
+      </svg></div>
+      <div class="core">модуль 3</div>
+      <div class="nm">Ведение клиентов</div>
+      <p>Единая карточка из трёх источников: заказы в 1С, активность в личном кабинете, разговоры. Сигналы «клиент замолчал», «упал средний заказ», «обещали и не перезвонили». Подготовка к разговору - 30 секунд вместо перелистывания истории.</p>
+      <div class="metric"><span class="mk">Метрика приёмки</span>Полная карточка по активным клиентам. Ни один сигнал «клиент уходит» не остаётся без касания менеджера.</div>
+    </div>
+
+    <div class="room">
+      <div class="illo"><svg viewBox="0 0 48 48">
+        <path class="s" d="M9 39h30M12 39V27M20 39V21M28 39V30"/>
+        <path class="g" d="M12 24l8-8 6 5 9-11"/>
+        <path class="gf" d="M35 10h-6l6 6z"/>
+      </svg></div>
+      <div class="core">модуль 4</div>
+      <div class="nm">Продажи</div>
+      <p>Помощник менеджера внутри периметра: подбор позиций с учётом ценового уровня клиента, проверка наличия, черновик коммерческого предложения, сигнал при выходе за матрицу скидок.</p>
+      <div class="metric"><span class="mk">Метрика приёмки</span>Время подготовки КП «до и после». Точность подбора на контрольной выборке, подтверждённая руководителем отдела продаж.</div>
+    </div>
+  </div>
+  <p class="note">Целевые значения каждой метрики фиксируются в договоре после замера на ваших данных - до замера мы не обещаем цифр, снятых с чужих проектов.</p>
+</section>
+
+<!-- НЕ ВНЕШНИЙ СЕРВИС -->
+<section>
+  <div class="kicker">чем это отличается от «подключить ИИ-сервис»</div>
+  <h2>Вы платите за систему в собственность,<br>а не за доступ к чужой</h2>
+  <div class="vs">
+    <div class="col">
+      <div class="k">Внешний ИИ-сервис</div>
+      <div class="v">Каждый запрос с ценами и клиентами уходит на чужие серверы. Правила обработки данных меняются без вас. Интеграции поверхностные, под ваш процесс никто не подстраивается. Отключили сервис - остались ни с чем.</div>
+    </div>
+    <div class="col hi">
+      <div class="k">Свой закрытый контур</div>
+      <div class="v">Модели работают <b>на вашем узле</b>, коммерческие данные не покидают периметр. Агенты встроены в вашу 1С, телефонию и личный кабинет, в ваш регламент и ваши уровни эскалации. Контур - ваш актив: остаётся и работает при любом развитии событий.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ЛЕСТНИЦА -->
+<section>
+  <div class="kicker">как проходит внедрение</div>
+  <h2>Лестница с воротами на каждом шаге</h2>
+  <p class="lead">Следующий этап не начинается, пока предыдущий не принят. Вы всегда знаете, где мы находимся, что уже измерено и что будет дальше.</p>
+
+  <div class="ladder">
+    <div class="ws">
+      <div class="no">I</div>
+      <div class="head"><h3>Диагностика и замер</h3><span class="when">2-3 недели · входит в каждый пакет</span></div>
+      <p>Замер качества распознавания на 20-30 ваших звонках - артикулы, диаметры, названия брендов, обезличенно. Инвентаризация доступов: телефония, 1С, личный кабинет, аналитика. Документ архитектуры и план миграции на своё железо. Целевые метрики модулей - в договор.</p>
+      <span class="gate">Ворота: измеренная цифра качества на вашей лексике</span>
+    </div>
+    <div class="ws">
+      <div class="no">II</div>
+      <div class="head"><h3>Контур в работе</h3><span class="when">8-14 недель · по выбранному пакету</span></div>
+      <p>Разворачиваем закрытый контур на выделенном GPU-узле в РФ: открытые модели, доступ только по защищённому туннелю, данные не уходят вендорам с первого дня. Модули запускаются по порядку, оплата каждого - 50/50: половина на старте, половина по приёмке метрики. Параллельно - обучение команды на ваших реальных задачах.</p>
+      <span class="gate">Ворота: метрики модулей приняты, профиль нагрузки измерен</span>
+    </div>
+    <div class="ws">
+      <div class="no">III</div>
+      <div class="head"><h3>Свой сервер</h3><span class="when">по готовности профиля нагрузки</span></div>
+      <p>Переносим контур на ваше железо - в вашу серверную, рядом с 1С. Полный физический контроль. Всё в контейнерах, поэтому переезд - это перенос образов и весов, а не переписывание системы. Спецификация железа считается от измеренного профиля, а не от рекламных цифр.</p>
+      <span class="gate">Ворота: резервирование и регламент обновлений работают</span>
+    </div>
+    <div class="ws">
+      <div class="no">IV</div>
+      <div class="head"><h3>Система живёт дальше</h3><span class="when">постоянно</span></div>
+      <p>Сопровождение и развитие: дообучение на ваших данных, доработки по обратной связи команды, расширение на следующие процессы вашей схемы - от рекламаций до закупок. Либо полная передача эксплуатации вашей ИТ-команде: документация и доступы дублируются у вас с первого дня.</p>
+      <span class="gate">Ворота: каждое расширение принято на вашем сценарии</span>
+    </div>
+  </div>
+</section>
+
+<!-- КТО ЧТО ДЕРЖИТ -->
+<section>
+  <div class="kicker">кто что держит</div>
+  <h2>Вы держите бизнес. Мы строим систему</h2>
+  <div class="rows">
+    <div class="row"><div class="k">Вы</div><div class="v">Доступы и приоритеты, ваш регламент и ваша схема процессов. Приёмка по метрикам, финальное «да». Ваши люди учатся управлять системой сами.</div></div>
+    <div class="row"><div class="k">Мы</div><div class="v"><b>Архитектура и сборка под ключ.</b> Нас двое: один ведёт метод и обучение команды, второй проектирует и строит контур. Между сессиями строим, ваша команда копит вопросы.</div></div>
+    <div class="row"><div class="k">Формат</div><div class="v">Работаем с вашей командой: отдел продаж, руководители, ИТ. Сессии онлайн или очно, обучение - на ваших реальных задачах, не на учебных примерах.</div></div>
+    <div class="row"><div class="k">Данные</div><div class="v">Живут в вашем периметре. В открытый контур уходят только маркетинг и обезличенные задачи - по правилам шлюза, которые утверждаете вы.</div></div>
+    <div class="row"><div class="k">Расходы</div><div class="v">GPU-узел и железо оплачиваются напрямую провайдеру и поставщику - мы на инфраструктуре не зарабатываем. Ориентир соберём на диагностике по трём предложениям российских провайдеров.</div></div>
+  </div>
+</section>
+
+<!-- КТО СОБИРАЕТ -->
+<section>
+  <div class="kicker">кто собирает ваш контур</div>
+  <h2>Двое, которые закрывают весь путь</h2>
+  <p class="lead">Сборка без обучения оставляет вас с чужой системой. Обучение без сборки оставляет с конспектом. Мы закрываем обе роли: один ведёт метод и учит команду, второй строит и внедряет.</p>
+  <div class="hosts">
+    <div class="host">
+      <div class="role">Метод и обучение</div>
+      <div class="name serif">Стас Жуковец</div>
+      <p>Серийный предприниматель, фаундер и CEO Mg Accounting - бухгалтерии для бизнеса в 11 юрисдикциях. Сам живёт с ИИ-системой каждый день: его ассистент обходит почту и мессенджеры, ИИ-бухгалтер консультирует клиентов и продаёт. Ведёт метод и обучение вашей команды: не «можно попробовать», а «делай так, у меня работает».</p>
+    </div>
+    <div class="host">
+      <div class="role">Архитектура и внедрение</div>
+      <div class="name serif">Михаил Зеленин</div>
+      <p>ИТ-предприниматель, 25 лет в ИТ: путь от программиста до CTO и дальше в собственные ИТ-компании. Специализация - агентные решения и закрытые контуры: архитектура, интеграции с учётными системами и телефонией, правила безопасности и сопровождение после передачи.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЭТО УЖЕ РАБОТАЕТ -->
+<section class="dark">
+  <div class="kicker" style="color:var(--gold)">это уже работает</div>
+  <h2>Мы не рассказываем про ИИ.<br>Мы сами с ним живём</h2>
+  <p class="lead">Всё, что мы предлагаем вам, у нас самих работает в бою: в собственных компаниях и во внедрениях. На встрече покажем живые системы на экране, а не слайды про будущее.</p>
+  <div class="proofs">
+    <div class="proof">
+      <div class="tag">ассистент</div>
+      <h3>Доклад сам приходит в 08:00</h3>
+      <p>Обходит почту, мессенджеры и календарь, присылает короткий доклад: кто требует внимания и что решать. Трижды в день, без пинка.</p>
+    </div>
+    <div class="proof">
+      <div class="tag">продажник</div>
+      <h3>ИИ-бухгалтер Mg</h3>
+      <p>Консультирует клиентов по налогам, квалифицирует, ведёт к встрече и сам кладёт горячий лид в CRM. Работает 24/7.</p>
+    </div>
+    <div class="proof">
+      <div class="tag">закрытые контуры</div>
+      <h3>Модели внутри периметра</h3>
+      <p>Архитектура закрытого контура спроектирована и отлажена на предыдущих внедрениях: вы получаете готовый каркас, а не исследование за ваш счёт.</p>
+    </div>
+  </div>
+  <p class="quote">«Хороший менеджер помнит многое. Система - <span class="accent">помнит всё и не увольняется</span>».</p>
+</section>
+
+<!-- ЦЕНА -->
+<section>
+  <div class="kicker">три предложения</div>
+  <h2>От пилота до автономии.<br>Одна архитектура</h2>
+  <p class="body">В каждом предложении: диагностика с замером на ваших данных, закрытый контур, обучение команды и метрики приёмки в договоре. Разница - в охвате модулей и глубине, на которой система становится вашей операционной средой. Оплата модулей 50/50: половина на старте, половина по приёмке.</p>
+
+  <div class="plans">
+    <div class="plan">
+      <div class="pt">Пилот</div>
+      <div class="pp">19 900 €</div>
+      <div class="unit">8-10 недель · далее сопровождение от 2 200 €/мес</div>
+      <ul>
+        <li>Диагностика и замер на ваших звонках</li>
+        <li>Закрытый контур на выделенном GPU-узле в РФ</li>
+        <li>Модуль 1 · Транскрибация</li>
+        <li>Модуль 2 · Контроль качества</li>
+        <li>Обучение: стартовый воркшоп + 2 практикума для отдела продаж и руководителей</li>
+      </ul>
+    </div>
+    <div class="plan feat">
+      <div class="pt">Система · оптимум</div>
+      <div class="pp">33 900 €</div>
+      <div class="unit">12-14 недель · далее сопровождение от 2 800 €/мес</div>
+      <ul>
+        <li>Всё, что входит в «Пилот»</li>
+        <li>Модуль 3 · Ведение клиентов</li>
+        <li>Модуль 4 · Продажи</li>
+        <li>Единая карточка клиента: 1С + кабинет + звонки</li>
+        <li>Обучение: программа из 6 встреч - менеджеры, руководители, ИТ</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <div class="pt">Автономия</div>
+      <div class="pp">65 900 €</div>
+      <div class="unit">первый год под ключ · 12 месяцев сопровождения включены</div>
+      <ul>
+        <li>Всё, что входит в «Систему»</li>
+        <li>Агентный контур поверх всех 8 сквозных процессов вашей схемы</li>
+        <li>Дашборд руководителя: продажи, качество, сигналы - одним экраном</li>
+        <li>Подготовка внутреннего ИИ-чемпиона и вашей ИТ-команды</li>
+        <li>Со второго года - сопровождение от 2 800 €/мес или полная передача вашей ИТ-команде</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- СВОЙ СЕРВЕР · отдельный блок -->
+  <div class="server">
+    <div class="illo"><svg viewBox="0 0 48 48">
+      <rect class="s" x="9" y="8" width="30" height="10" rx="2"/>
+      <rect class="s" x="9" y="21" width="30" height="10" rx="2"/>
+      <path class="s" d="M15 34v4h18v-4"/>
+      <circle class="gf" cx="15" cy="13" r="1.6"/><circle class="gf" cx="15" cy="26" r="1.6"/>
+      <path class="g" d="M31 13h4M31 26h4"/>
+    </svg></div>
+    <div>
+      <div class="sk">Отдельный этап · к любому предложению</div>
+      <h3>Организация своего сервера</h3>
+      <div class="sp">6 900 € <small>· работы под ключ</small></div>
+      <ul>
+        <li>Спецификация железа по измеренному профилю нагрузки, а не по рекламным цифрам</li>
+        <li>Три предложения поставщиков и сопровождение закупки - счёт идёт напрямую вам</li>
+        <li>Развёртывание и перенос контура: образы и веса, без переписывания системы</li>
+        <li>Резервное копирование, регламент обновлений, приёмочные испытания с вашим ИТ</li>
+        <li>Инструкция по восстановлению и передача эксплуатации</li>
+        <li>Полный физический контроль: сервер в вашей серверной, рядом с вашей 1С</li>
+      </ul>
+      <p class="sfoot">Само железо - по счёту поставщика, без нашей наценки. Стартует, когда профиль нагрузки измерен на этапе «Контур в работе»: так сервер покупается под реальную нагрузку, а не с запасом «на глаз».</p>
+    </div>
+  </div>
+
+  <p class="note">Финальный состав фиксируется в договоре после диагностики. Аренда GPU-узла на время пилота оплачивается напрямую провайдеру - ориентир соберём на диагностике по трём предложениям. Ведём ограниченное число внедрений одновременно: старт согласуем на встрече.</p>
+</section>
+
+<!-- СЛЕДУЮЩИЙ ШАГ -->
+<section>
+  <div class="kicker">следующий шаг</div>
+  <h2>С чего начинается контур</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="t"><b>Рабочая встреча с вашим ИТ.</b> Телефония и записи, 1С, личный кабинет, аналитика: что где живёт и у кого доступы. Час, который экономит недели старта.</div></div>
+    <div class="step"><div class="n">2</div><div class="t"><b>Диагностика и замер, 2-3 недели.</b> Измеренная цифра качества на ваших записях, документ архитектуры, целевые метрики модулей - в договор. По итогам вы точно знаете, что получите и как это будет проверено.</div></div>
+    <div class="step"><div class="n">3</div><div class="t"><b>Запуск модулей по порядку.</b> Транскрибация даёт первый видимый результат уже через месяц после замера: поток звонков, который никто не слушал, становится прослушанным и доступным поиском.</div></div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="dark finale">
+  <div class="big">Данные остаются внутри.<br><span class="ac">Работа делается сама.</span></div>
+  <div class="cta">
+    <a class="btn" href="https://t.me/stanistar888">Обсудить архитектуру и старт</a>
+    <div class="small">Ответим на вопросы и согласуем встречу с вашим ИТ · Telegram: <a href="https://t.me/stanistar888">@stanistar888</a></div>
+  </div>
+  <div class="meta">
+    <div><b>Стас Жуковец</b> · метод и обучение</div>
+    <div><b>Михаил Зеленин</b> · архитектура и внедрение</div>
+  </div>
+</section>
+
+<footer>
+  <div><b>Закрытый ИИ-контур</b> · для ООО «ТРИО ДИАМАНТ ЛТД»</div>
+  <div><b>Стас Жуковец</b> · <b>Михаил Зеленин</b></div>
+  <div>Июль 2026 · предложение действительно 30 дней</div>
+</footer>
+</body>
+</html>
