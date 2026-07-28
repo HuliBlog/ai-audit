@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Цифровой Штаб · для Ярослава</title>
+<meta name="description" content="Цифровой Штаб для покупки и перепродажи малых бизнесов во Флориде: описание системы, предложение по пунктам и исследование рынка.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Цифровой Штаб · для Ярослава">
+<meta property="og:description" content="Описание системы, предложение по пунктам и исследование рынка Флориды - в одном документе.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --blue:#001AFF; --blue-soft:#e8ebff; --blue-tint:#dbe0ff; --blue-line:#c2c9ff;
+    --gold:#ddb85b; --gold-deep:#b9903a; --gold-tint:#f2e7c8;
+    --black:#121212; --ink:#1c1c1c; --grey:#717171; --silver:#d9d9d9; --hair:#ececec; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:'Baskervville',serif}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 7vw}}
+  .kicker{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1,h2{font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  h1{font-size:clamp(2.1rem,5.6vw,4rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.55rem,3.4vw,2.5rem);margin-bottom:1.3rem}
+  p{font-size:clamp(1rem,1.5vw,1.12rem);color:var(--ink)}
+  p.lead{font-size:clamp(1.02rem,1.6vw,1.24rem);color:var(--grey);max-width:46rem;font-weight:400;margin-top:.5rem}
+  p.body{color:var(--grey);max-width:46rem;margin-top:1rem}
+  b{font-weight:600;color:var(--ink)}
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2{color:var(--white)} .dark p.lead,.dark p.body{color:#b5b5b5}
+  .quote{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.3rem,2.7vw,2rem);line-height:1.4;max-width:46rem;margin-top:1.8rem}
+  .quote .accent{color:var(--gold-deep);font-style:normal}
+  .dark .quote{color:#fff} .dark .quote .accent{color:var(--gold)}
+
+  /* hero */
+  .hero{min-height:76vh;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
+  .hero .club{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.4rem}
+  .hero .club b{color:var(--blue)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.8rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--grey);max-width:44rem}
+  .hero .meta{margin-top:2.6rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  /* иллюстрация-плитка (дуотон) */
+  .illo{width:90px;height:90px;border-radius:20px;background:radial-gradient(130% 130% at 28% 18%,var(--white),var(--light));border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;flex:none;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .illo svg{width:52px;height:52px;display:block}
+  .illo .st{fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .illo .gs{fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .illo .fb{fill:var(--blue-tint)}       /* мягкая синяя заливка */
+  .illo .fg{fill:var(--gold-tint)}       /* мягкая золотая заливка */
+  .illo .bf{fill:var(--blue)}
+  .illo .gf{fill:var(--gold)}
+  .illo .wf{fill:var(--white)}
+
+  /* модель пяти слоёв */
+  .layers{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}
+  .layer{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.75rem}
+  .layer .nm{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .layer .ds{font-size:.85rem;color:var(--grey);line-height:1.4}
+  @media(max-width:760px){.layers{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:420px){.layers{grid-template-columns:1fr}}
+
+  /* сдвиги */
+  .turns{margin-top:2rem;display:grid;gap:.7rem;max-width:52rem}
+  .turn{display:flex;align-items:center;gap:1rem;font-size:clamp(1.05rem,2vw,1.35rem);font-weight:500;padding:1rem 0;border-bottom:1px solid var(--hair)}
+  .turn .ar{color:var(--blue);font-weight:600}
+  .turn.hi{font-family:'Baskervville',serif;font-style:italic;font-weight:400;color:var(--blue);border-bottom:none;font-size:clamp(1.2rem,2.4vw,1.7rem)}
+  .turn.hi .ac{color:var(--gold-deep)}
+
+  /* три правила */
+  .rules{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .rule{border-top:2px solid var(--gold);padding-top:1.1rem}
+  .rule .no{font-family:'Baskervville',serif;font-size:2rem;color:var(--gold);line-height:1}
+  .rule .t{font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin:.5rem 0 .5rem;color:#fff}
+  .rule p{font-size:.96rem;color:#b5b5b5;margin:0}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+  /* контуры */
+  .rooms{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .room{background:var(--white);border:1px solid var(--silver);padding:1.7rem 1.6rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .room:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .room:hover .illo{border-color:var(--blue-line)}
+  .room .nm{font-size:1rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .room p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.55}
+  .room .core{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  @media(max-width:900px){.rooms{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.rooms{grid-template-columns:1fr}}
+  .note{font-size:.85rem;color:var(--grey);margin-top:1.4rem;max-width:46rem;font-style:italic;font-family:'Baskervville',serif}
+
+  /* не курс */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  .vs .col{padding:1.6rem 1.6rem;border:1px solid var(--silver)}
+  .vs .col.hi{border:1px solid var(--blue);background:var(--blue-soft)}
+  .vs .k{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--grey);margin-bottom:.7rem}
+  .vs .col.hi .k{color:var(--blue)}
+  .vs .v{font-size:.98rem;color:var(--ink);line-height:1.55}
+  @media(max-width:680px){.vs{grid-template-columns:1fr}}
+
+  /* лестница внедрения */
+  .ladder{display:flex;flex-direction:column;margin-top:2rem;border-top:1px solid var(--silver);max-width:62rem}
+  .ws{display:grid;grid-template-columns:5.2rem 1fr;gap:0 1.6rem;padding:2rem .3rem;border-bottom:1px solid var(--silver)}
+  .ws .no{font-family:'Baskervville',serif;font-size:clamp(2rem,4.4vw,3.1rem);color:var(--blue);line-height:1;grid-row:span 3}
+  .ws .head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+  .ws h3{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .ws .when{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:600;white-space:nowrap}
+  .ws p{color:var(--grey);font-size:clamp(.93rem,1.5vw,1.05rem);max-width:46rem;margin-top:.6rem}
+  .ws .gate{margin-top:.9rem;display:inline-block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);border:1px solid var(--gold);padding:.4rem 1rem}
+  @media(max-width:680px){.ws{grid-template-columns:1fr}.ws .no{grid-row:auto;margin-bottom:.3rem}}
+
+  /* тёмный блок недели */
+  .week ul{list-style:none;margin:1.4rem 0 0;max-width:44rem}
+  .week li{padding:.55rem 0 .55rem 1.7rem;position:relative;color:#cdcdcd;font-size:1rem}
+  .week li::before{content:"";position:absolute;left:0;top:.95rem;width:.7rem;height:.7rem;background:var(--gold);border-radius:50%}
+
+  /* автор */
+  .author{margin-top:2rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;border:1px solid var(--silver);padding:2rem 2rem;max-width:56rem}
+  .emblem{width:112px;height:112px;border-radius:50%;flex:none;background:radial-gradient(130% 130% at 30% 20%,var(--white),var(--light));border:1px solid var(--hair);position:relative;display:flex;align-items:center;justify-content:center}
+  .emblem .mono{font-family:'Baskervville',serif;font-size:2.6rem;color:var(--blue);letter-spacing:.02em}
+  .emblem::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid var(--gold);opacity:.7}
+  .author .role{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .author .nm{font-family:'Baskervville',serif;font-size:clamp(1.4rem,3vw,1.9rem);margin:.2rem 0 .6rem}
+  .author p{font-size:.98rem;color:var(--grey);line-height:1.6}
+  @media(max-width:600px){.author{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+  /* это уже работает */
+  .proof{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .pcard{border:1px solid var(--silver);padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.9rem}
+  .pcard .lbl{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .pcard .t{font-size:1.05rem;font-weight:600;color:var(--ink)}
+  .pcard p{font-size:.92rem;color:var(--grey);line-height:1.55;margin:0}
+  @media(max-width:820px){.proof{grid-template-columns:1fr}}
+
+  /* роли */
+  .rows{margin-top:1.6rem;max-width:56rem;border-top:1px solid var(--silver)}
+  .row{display:grid;grid-template-columns:11rem 1fr;gap:1.6rem;padding:1.2rem .3rem;border-bottom:1px solid var(--silver);align-items:baseline}
+  .row .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .row .v{font-size:1rem;color:var(--grey)} .row .v b{color:var(--ink)}
+  @media(max-width:600px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+  /* цена */
+  .price{margin-top:2rem;border:1px solid #2a2a2a;background:linear-gradient(160deg,#161616,#000);color:#fff;padding:2.4rem 2.2rem}
+  .price .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+  .price .was{margin-top:1rem;color:#8a8a8a;font-size:.95rem}
+  .price .was s{text-decoration-color:#6a6a6a}
+  .price .big{font-family:'Baskervville',serif;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin-top:.2rem;letter-spacing:.01em}
+  .price .u{color:#b5b5b5;margin-top:.7rem;font-size:.95rem}
+  .price .rowp{display:grid;grid-template-columns:1fr 9rem;gap:1rem;padding:1.15rem 0;border-top:1px solid #2a2a2a;align-items:baseline}
+  .price .rowp:first-of-type{margin-top:1.8rem}
+  .price .rowp .d{font-size:.95rem;color:#cfcfcf} .price .rowp .d b{color:#fff}
+  .price .rowp .n{text-align:right;font-family:'Baskervville',serif;font-size:1.4rem;color:var(--gold)}
+  .price .disc{margin-top:1.4rem;font-size:.82rem;color:#8a8a8a;line-height:1.5}
+  @media(max-width:600px){.price .rowp{grid-template-columns:1fr;gap:.2rem}.price .rowp .n{text-align:left}}
+
+  /* тарифная лестница */
+  .tiers{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:start}
+  .tier{border:1px solid var(--silver);padding:2rem 1.7rem;display:flex;flex-direction:column;background:var(--white);transition:transform .3s,box-shadow .3s}
+  .tier:hover{transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.4)}
+  .tier.hi{border:1.5px solid var(--blue);position:relative;box-shadow:0 20px 50px -34px rgba(0,26,255,.5)}
+  .tier.hi::before{content:"рекомендуем";position:absolute;top:-.72rem;left:1.7rem;background:var(--blue);color:#fff;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:.28rem .8rem}
+  .tier .tn{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .tier .tp{font-family:'Baskervville',serif;font-size:clamp(2.1rem,4vw,2.7rem);line-height:1;margin:.35rem 0 .3rem}
+  .tier .sup{font-size:.8rem;color:var(--grey);line-height:1.45;border-bottom:1px solid var(--hair);padding-bottom:1rem;margin-bottom:.4rem}
+  .tier ul{list-style:none;margin:.6rem 0 0;display:grid;gap:.6rem}
+  .tier li{font-size:.92rem;color:#4a4a4a;line-height:1.4;padding-left:1.5rem;position:relative}
+  .tier li::before{content:"✓";position:absolute;left:0;top:0;color:var(--blue);font-weight:700}
+  .tier.hi li::before{color:var(--gold-deep)}
+  @media(max-width:820px){.tiers{grid-template-columns:1fr}}
+
+  .anchor{margin-top:1.8rem;border-left:3px solid var(--gold);background:var(--light);padding:1.1rem 1.5rem;font-size:1.02rem;color:var(--ink);line-height:1.6;max-width:52rem}
+  .anchor b{color:var(--ink)}
+  .pricenote{margin-top:1.2rem;font-size:.85rem;color:var(--grey);line-height:1.6;max-width:52rem}
+
+  /* шаги */
+  .steps{margin-top:1.8rem;display:grid;gap:1rem;max-width:52rem}
+  .step{display:grid;grid-template-columns:3rem 1fr;gap:1.2rem;align-items:start}
+  .step .n{font-family:'Baskervville',serif;font-size:2rem;color:var(--blue);line-height:1}
+  .step .t{font-size:1rem;color:var(--grey);padding-top:.35rem} .step .t b{color:var(--ink)}
+
+  /* cta / finale */
+  .finale{text-align:center}
+  .finale .big{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.2;max-width:40rem;margin:0 auto}
+  .finale .big .ac{color:var(--gold)}
+  .cta{margin-top:2.4rem;text-align:center}
+  .btn{display:inline-block;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--blue);padding:1rem 2.4rem;text-decoration:none;transition:transform .3s}
+  .btn:hover{transform:translateY(-2px)}
+  .small{margin-top:1rem;font-size:.85rem;color:#8a8a8a}
+  .small a{color:var(--gold)}
+  footer{padding:3rem 8vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--grey);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;background:var(--white)}
+  footer b{color:var(--ink)} footer a{color:var(--blue);text-decoration:none;font-weight:600}
+
+  /* плавающая кнопка */
+  .fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:60;display:inline-flex;align-items:center;gap:.6rem;background:var(--blue);color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.9rem 1.5rem;border-radius:999px;text-decoration:none;box-shadow:0 16px 40px -12px rgba(0,26,255,.55);transition:transform .3s}
+  .fab:hover{transform:translateY(-2px)}
+  .fab .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)}
+  @media(max-width:600px){.fab{right:1rem;bottom:1rem;font-size:.7rem;padding:.8rem 1.2rem}}
+
+
+  /* верхняя навигация объединённого документа */
+  .navtop{position:sticky;top:0;z-index:70;display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;padding:.85rem 8vw;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--silver)}
+  .navtop .brand{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;
+    color:var(--grey);text-decoration:none;white-space:nowrap}
+  .navtop .brand b{color:var(--blue)}
+  .navtop .tabs{display:flex;gap:.4rem;flex-wrap:wrap}
+  .navtop .tabs a{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:var(--grey);text-decoration:none;padding:.5rem .9rem;border:1px solid transparent;
+    border-radius:999px;transition:color .25s,background .25s,border-color .25s}
+  .navtop .tabs a:hover{color:var(--ink);border-color:var(--hair)}
+  .navtop .tabs a.on{color:var(--blue);background:var(--blue-soft);border-color:var(--blue-line)}
+  @media(max-width:760px){
+    .navtop{flex-direction:column;align-items:stretch;gap:.5rem;padding:.6rem 4vw}
+    .navtop .brand{text-align:center;font-size:.62rem;letter-spacing:.18em}
+    .navtop .tabs{justify-content:center;gap:.25rem;flex-wrap:nowrap}
+    .navtop .tabs a{padding:.4rem .6rem;font-size:.62rem;letter-spacing:.04em;white-space:nowrap}
+  }
+  @media(max-width:360px){
+    .navtop .tabs a{padding:.4rem .45rem;font-size:.58rem;letter-spacing:0}
+  }
+  .doc[hidden]{display:none}
+
+</style>
+</head>
+<body>
+<nav class="navtop">
+<a class="brand" href="#shtab"><b>Цифровой Штаб</b> · для Ярослава</a>
+<div class="tabs">
+<a href="#shtab" data-tab="shtab">Штаб</a>
+<a href="#kp" data-tab="kp">Предложение</a>
+<a href="#research" data-tab="research">Исследование</a>
+</div>
+</nav>
+<div class="doc" id="doc-shtab">
+
+<!-- HERO -->
+<section class="hero">
+<div class="club"><b>Цифровой Штаб</b> · сборка под покупку и продажу бизнесов</div>
+<h1>Брокеры присылают.<br>А разбираете вы<br><span>вручную</span></h1>
+<p class="sub">Цифровой Штаб: система агентов, которая ловит каждое предложение от брокеров, оценивает объект по вашим критериям, считает потенциал перепаковки и говорит по-испански вместо вас.</p>
+<div class="meta">
+<div><b>Флорида и Майами</b> · бизнесы до полумиллиона</div>
+<div><b>Один вход</b> · вместо почты, чатов и площадок</div>
+<div><b>Ваши данные</b> · остаются у вас</div>
+<div><b>Под ключ</b> · первый контур за 4-5 недель</div>
+</div>
+</section>
+
+<!-- ГДЕ ВЫ СЕЙЧАС -->
+<section>
+<div class="kicker gold">где вы сейчас</div>
+<h2>Модель у вас уже работает.<br>Не работает только конвейер</h2>
+<p class="body">Вы находите бизнес, который держится на старых привычках и теряет клиентов, добавляете автоматизацию, перепаковываете и выходите. Кейс уже есть. Узкое место не в модели, а в том, что весь поток объектов проходит через вас лично.</p>
+<div class="quote">«Пока всё в ручном режиме, то есть нет никакой структуры».<span class="accent">Ваши слова на созвоне 24 июля</span></div>
+<div class="rules">
+<div class="rule"><div class="no">1</div><div class="t">Поток не структурирован</div><p>Брокеры сбрасывают объекты на почту и в чаты, часть закрытых предложений приходит до публикации. Отбор держится на вашем внимании, а значит упирается в ваши сутки.</p></div>
+<div class="rule"><div class="no">2</div><div class="t">Нет матрицы оценки</div><p>Как отбирать, как анализировать, какие критерии и какие вопросы задавать владельцу. Всё это пока живёт в голове, поэтому не передаётся помощнику и не ускоряется.</p></div>
+<div class="rule"><div class="no">3</div><div class="t">Испанский решает, кому покажут объект первым</div><p>Значимая часть офлайн-рынка Майами это испаноговорящие брокеры. Они отдают объект до публикации тому, с кем им легко общаться.</p></div>
+</div>
+</section>
+
+<!-- ЧТО МЫ ПРОВЕРИЛИ ПРО ВАШ РЫНОК -->
+<section class="dark">
+<div class="kicker">прежде чем предлагать</div>
+<h2>Мы проверили ваш рынок,<br>а не поверили себе на слово</h2>
+<p class="lead">Перед этим предложением мы прогнали исследование рынка перепродажи малых бизнесов во Флориде: 26 источников, 109 утверждений, каждое проверялось независимо и на опровержение. Выдержали проверку девять. Вот три, которые меняют суть работы.</p>
+<div class="rows">
+<div class="row"><div class="k">Ваш сегмент это центр рынка</div><div class="v">Медиана закрытой сделки по США во втором квартале 2026 составила <b>349 250 долларов</b>. По агломерации Майами за 2025 год медиана <b>291 000</b> при медианном денежном потоке <b>142 300</b> и сроке на рынке <b>164 дня</b>. Ваша оценка ликвидности «до полумиллиона» подтверждается цифрами.</div></div>
+<div class="row"><div class="k">Поток объектов закрыт</div><div class="v">Институциональный поток штата идёт через <b>закрытый список ассоциации Business Brokers of Florida</b>, недоступный без членства. Публике видна только витрина. Отсюда прямой вывод: побеждает не тот, кто спарсил больше площадок, а тот, кто <b>не теряет входящее и отвечает брокеру быстрее</b>.</div></div>
+<div class="row"><div class="k">Разрешения не переходят с бизнесом</div><div class="v">Флоридские разрешения на табак и никотин (статуты 569.003 и 569.32) выдаются <b>на каждую точку отдельно</b>, непередаваемы и привязаны сразу к держателю и к адресу. Покупая через активы, вы разрешения продавца не наследуете, а механизма временного разрешения в этой главе нет, в отличие от алкогольной. Между закрытием сделки и своим разрешением возникает разрыв по выручке.</div></div>
+</div>
+<div class="cta">
+<a class="btn" href="#research">Посмотреть исследование целиком</a>
+<div class="small">С источниками, уровнями уверенности и тем, что проверку не прошло</div>
+</div>
+</section>
+
+<!-- ПЯТЬ СЛОЁВ -->
+<section>
+<div class="kicker gold">как это устроено</div>
+<h2>Один штаб. Пять слоёв</h2>
+<p class="body">Штаб это не дашборд и не один бот. Это база знаний о вас и ваших критериях, поверх которой работают отдельные агенты. Каждый занят своим делом, потому что один универсальный помощник ломается на всём сразу.</p>
+<div class="layers">
+<div class="layer"><div class="nm">Мозги</div><div class="ds">Агенты, каждый под свою работу: приём, оценка, проверка объекта, переписка</div></div>
+<div class="layer"><div class="nm">Память</div><div class="ds">База знаний: ваши критерии, категории, пороги, история объектов и переписок</div></div>
+<div class="layer"><div class="nm">Правила</div><div class="ds">Что агент решает сам, а что приносит вам. Границы доступа к чувствительному</div></div>
+<div class="layer"><div class="nm">Руки</div><div class="ds">Подключения: почта, WhatsApp, Telegram, CRM, площадки, хранилище фото и видео</div></div>
+<div class="layer"><div class="nm">Экран</div><div class="ds">Доклад дня в Telegram и веб-экран: что появилось, что стоит смотреть, что ждёт ответа</div></div>
+</div>
+</section>
+
+<!-- КОНТУР ПОТОКА СДЕЛОК -->
+<section>
+<div class="kicker gold">первый контур</div>
+<h2>Поток сделок:<br>от письма брокера до решения</h2>
+<p class="body">Это тот контур, который собираем первым. Он закрывает ровно то, что сейчас съедает ваше время.</p>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Перехват входящего.</b> Подписки брокеров с почты, переписки из WhatsApp и Telegram, объявления с публичных площадок. Ни одно предложение не теряется и не остаётся без ответа. Закрытые предложения помечаются отдельно, чтобы вы видели их первыми.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Единая карточка объекта.</b> Из письма или объявления агент сам собирает карточку: категория, локация, выручка, денежный поток, цена, остатки товара, срок на рынке, контакт брокера. Больше не нужно вычитывать письма, чтобы понять, о чём речь.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Оценка по вашим критериям.</b> Обязательные и желательные признаки с весами. Нерелевантное отсекается сразу, релевантное поднимается наверх с объяснением, почему. Критерии ваши, и вы меняете их словами, а не настройками.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>Расчёт дельты.</b> Что даст автоматизация и перепаковка именно этой точке, сколько это трудозатрат, где ваша прибыль на выходе. Ровно то, о чём вы говорили: «дать дельту, где можно заработать и с какими трудозатратами».</div></div>
+<div class="step"><div class="n">5</div><div class="t"><b>Проверка объекта.</b> Список вопросов владельцу, тревожные признаки, черновик письма о намерении. Отдельным пунктом чек-листа идут разрешения: для табачной розницы Флориды это непередаваемое разрешение на каждую точку и разрыв по выручке после закрытия сделки.</div></div>
+<div class="step"><div class="n">6</div><div class="t"><b>Двуязычный агент.</b> Входящее от испаноговорящих брокеров переводит, ответы готовит на испанском, встречи назначает, переписку ведёт в вашем тоне. Это снимает не только языковой барьер: брокер отдаёт объект до публикации тому, кто отвечает быстро и понятно.</div></div>
+<div class="step"><div class="n">7</div><div class="t"><b>Передача помощнику.</b> Когда конвейер встал, помощник берёт коммуникации и выезды на точки, а вам остаётся решение. Регламент для него пишет сам штаб, из того, как работали вы.</div></div>
+</div>
+</section>
+
+<!-- ЧЕСТНО: НЕ ПАРСЕР -->
+<section>
+<div class="kicker gold">чтобы не было завышенных ожиданий</div>
+<h2>Мы не обещаем спарсить рынок.<br>Мы обещаем не терять ваш</h2>
+<div class="vs">
+<div class="col">
+<div class="k">Парсер площадок</div>
+<div class="v">Звучит масштабно, но публичные площадки это витрина. Главный поток Флориды идёт закрытым брокерским списком, куда попадают членством и отношениями, а не запросами. Парсер один в поле даёт объём и почти не даёт качества.</div>
+</div>
+<div class="col hi">
+<div class="k">Цифровой Штаб</div>
+<div class="v">Работает там, где ваш реальный поток: <b>во входящем от брокеров</b>. Ничего не теряет, всё оценивает, отвечает быстро и на языке брокера. Публичные площадки подключаем как дополнение, а не как основу. <b>Скорость и качество ответа и есть то, что заводит вас в закрытые рассылки.</b></div>
+</div>
+</div>
+<div class="note">Открытый вопрос, который решим на онбординге: рассылают ли ваши брокеры объекты до публикации и что даёт доступ. Ни один внешний источник это не подтвердил, поэтому спрашиваем вас, а не додумываем.</div>
+</section>
+
+<!-- ЛЕСТНИЦА ВНЕДРЕНИЯ -->
+<section>
+<div class="kicker gold">как идём</div>
+<h2>Лестница с воротами на каждом шаге</h2>
+<div class="ladder">
+<div class="ws"><div class="no">I</div><div class="head"><h3>Онбординг</h3><span class="when">60-120 минут</span></div><p>Забираем доступы, разбираем ваши критерии отбора по порогам и категориям, собираем список брокеров и площадок, разбираем два-три реальных письма от брокеров как образцы. Уже эта встреча даёт вам формализованную матрицу отбора, которой сейчас нет.</p><span class="gate">Ворота: критерии названы и записаны</span></div>
+<div class="ws"><div class="no">II</div><div class="head"><h3>Сборка ядра и контура сделок</h3><span class="when">4-5 недель</span></div><p>Ставим командный центр, заводим базу знаний под ваши критерии, подключаем почту и мессенджеры, запускаем приём, карточки, оценку и двуязычного агента. Ведём вас за руку первую неделю работы за штабом.</p><span class="gate">Ворота: первый объект прошёл конвейер целиком</span></div>
+<div class="ws"><div class="no">III</div><div class="head"><h3>Передача помощнику</h3><span class="when">2 недели, после первых трёх недель вашей работы</span></div><p>Обучаем помощника, пишем регламент из вашей же практики, настраиваем маршрутизацию задач и выездов. Вы выходите из операционки и остаётесь на решении.</p><span class="gate">Ворота: помощник ведёт поток сам</span></div>
+<div class="ws"><div class="no">IV</div><div class="head"><h3>Остальные контуры</h3><span class="when">2-3 недели на контур</span></div><p>В тариф входит право на три контура. Вторым и третьим берёте то, что к тому моменту болит: капитал и инвестиции, люди и сеть, здоровье, документы и архивы.</p><span class="gate">Ворота: вы решаете, что следующее</span></div>
+</div>
+</section>
+
+<!-- ОДНО УСЛОВИЕ -->
+<section class="dark">
+<div class="kicker">условие, без которого не берёмся</div>
+<h2>Первые три недели штаб водите вы,<br>а не помощник</h2>
+<p class="lead">Вы сказали, что на первом этапе поток пойдёт через вас, а потом на помощника. Мы просим зафиксировать это как условие, и вот почему. Если владелец не поработал в системе сам, он не понимает, что у неё просить, и внедрение затухает через месяц. Мы это видели.</p>
+<p class="lead">Через три недели передаём помощнику, обучаем его и отдаём ему то, где нужен живой человек: коммуникации и выезды на точки. Он не теряет роль, он перестаёт быть узким горлом.</p>
+</section>
+
+<!-- ЦЕНА -->
+<section>
+<div class="kicker gold">сколько это стоит</div>
+<h2>Три сборки штаба.<br>Вам считаем вторую</h2>
+<div class="tiers">
+<div class="tier">
+<div class="tn">Старт</div>
+<div class="tp">3 300 €</div>
+<div class="sup">1 месяц поддержки включён · далее по желанию 330 €/мес</div>
+<ul>
+<li>Диагностика и карта контуров</li>
+<li>База знаний под вас</li>
+<li>Ядро + 1 контур</li>
+<li>Обучение одного человека</li>
+</ul>
+</div>
+<div class="tier hi">
+<div class="tn">База · ваш вариант</div>
+<div class="tp">6 900 €</div>
+<div class="sup">1 месяц поддержки включён · далее по желанию 490 €/мес</div>
+<ul>
+<li>Всё из «Старта»</li>
+<li>Ядро + право на 3 контура</li>
+<li>Первым собираем поток сделок</li>
+<li>Два контура добираете позже</li>
+<li>Обучение двух человек: вы и помощник</li>
+</ul>
+</div>
+<div class="tier">
+<div class="tn">Премиум</div>
+<div class="tp">13 800 €</div>
+<div class="sup">1 месяц поддержки включён · далее по желанию 750 €/мес</div>
+<ul>
+<li>Ядро + до 6 контуров</li>
+<li>Обучение команды до 5 человек</li>
+<li>Живой ассистент внедрения на месяц</li>
+</ul>
+</div>
+</div>
+<div class="anchor"><b>Почему вам «База», а не «Старт».</b> Контур потока сделок сложнее типового: приём из нескольких каналов, оценка по вашей матрице, проверка объекта и двуязычная переписка. В «Старте» он занял бы единственный слот, и за каждый следующий контур пришлось бы платить отдельно по 1 700 €. «База» закрывает это сразу и оставляет вам два контура в запасе, а работы на старте столько же: собираем один контур.</div>
+<div class="pricenote">Расходы на ИИ-агента, около 100 € в месяц, оплачиваются напрямую поставщику и в тариф не входят. Поддержка после первого месяца по желанию, система остаётся у вас при любой отмене подписки.</div>
+</section>
+
+<!-- КТО ДЕЛАЕТ -->
+<section>
+<div class="kicker gold">кто это делает</div>
+<h2>Двое, и роли не размыты</h2>
+<div class="rows">
+<div class="row"><div class="k">Станислав Жуковец</div><div class="v">Ведёт продукт и вас как клиента, отвечает за постановку задач и результат. Проводит ИИ-воркшопы для владельцев бизнеса в кипрских бизнес-клубах. <b>Ваш единственный контакт по деньгам и договорённостям.</b></div></div>
+<div class="row"><div class="k">Михаил Зеленин</div><div class="v">Технический бэкграунд и реализация: собирает штаб, агентов и подключения. Внедряет агентные системы в бизнес и жизнь, ведёт свою операционную систему на этих же принципах. <b>Автор сборки, работает вашими руками, а не через подрядчиков.</b></div></div>
+</div>
+</section>
+
+<!-- ДОВЕРИЕ -->
+<section>
+<div class="kicker gold">про данные</div>
+<h2>Доверие встроено в архитектуру,<br>а не обещано словами</h2>
+<div class="rules">
+<div class="rule"><div class="no">1</div><div class="t">Данные у вас</div><p>База знаний лежит на вашем компьютере или сервере, а не в чужом облаке. В модель уходят только рабочие запросы. Чувствительные контуры под отдельным слоем доступа.</p></div>
+<div class="rule"><div class="no">2</div><div class="t">Необратимое подтверждаете вы</div><p>Агент готовит письмо, предложение, назначение встречи. Отправку и любое необратимое действие подтверждает человек.</p></div>
+<div class="rule"><div class="no">3</div><div class="t">Система честна с вами</div><p>Если данных не хватает для вывода, штаб говорит «не знаю» и спрашивает, а не выдаёт удобную догадку. Это правило заложено в инструкции агентов.</p></div>
+</div>
+</section>
+
+<!-- ЧТО НУЖНО ОТ ВАС -->
+<section>
+<div class="kicker gold">что нужно от вас</div>
+<h2>Четыре вещи, и мы стартуем</h2>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Список брокеров и площадок,</b> включая тот сайт во Флориде, название которого вы обещали уточнить. Плюс несколько типовых писем от брокеров как образцы.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Доступы</b> к почте, мессенджерам и CRM, если она есть. Настраиваем вместе на онбординге, ничего не пересылая в переписке.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Ваши критерии отбора:</b> пороги по выручке и марже, категории бизнесов, локации, что для вас стоп-сигнал. Если пока не сформулированы, соберём на онбординге.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>Три недели вашего личного участия</b> в работе штаба до передачи помощнику. Это то самое условие.</div></div>
+</div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale">
+<div class="big">Вы держите решение.<br><span class="ac">Штаб держит поток.</span></div>
+<div class="cta">
+<a class="btn" href="#kp">Смотреть предложение по пунктам</a>
+<div class="small">Или сразу вопросы Станиславу в Telegram <a href="https://t.me/stanistar888">@stanistar888</a></div>
+</div>
+</section>
+
+<footer>
+<div><b>Цифровой Штаб</b> · сборка под покупку и продажу бизнесов</div>
+<div><b>Станислав Жуковец</b> и <b>Михаил Зеленин</b> · внедрение агентного ИИ в бизнес</div>
+<div><a href="#research">Исследование рынка →</a></div>
+</footer>
+
+</div>
+<div class="doc" id="doc-kp">
+
+<!-- HERO -->
+<section class="hero">
+<div class="club"><b>Предложение</b> · Цифровой Штаб для Ярослава</div>
+<h1>Что именно мы делаем,<br>за какие деньги<br><span>и в какие сроки</span></h1>
+<p class="sub">Постранично и по пунктам: состав работ, что входит и что не входит, сроки по этапам, цена и порядок оплаты, как мы вместе поймём, что штаб сработал.</p>
+<div class="meta">
+<div><b>Тариф</b> · База, 6 900 €</div>
+<div><b>Первый контур</b> · поток сделок</div>
+<div><b>Срок до результата</b> · 4-5 недель</div>
+<div><b>В запасе</b> · ещё два контура</div>
+</div>
+</section>
+
+<!-- СОСТАВ РАБОТ -->
+<section>
+<div class="kicker gold">состав работ</div>
+<h2>Что мы собираем и передаём</h2>
+<p class="body">Ниже то, что вы получаете физически: файлы, агенты, экраны, регламенты. Не «консультации», а собранная система на ваших данных.</p>
+<div class="rows">
+<div class="row"><div class="k">Ядро штаба</div><div class="v">Командный центр на вашем компьютере: рабочее пространство, в котором живут база знаний, правила и агенты. Ставим и настраиваем мы, работает у вас.</div></div>
+<div class="row"><div class="k">База знаний о вас</div><div class="v">Кто вы, чем занимаетесь, ваши критерии отбора и пороги, категории бизнесов, локации, стоп-сигналы, история объектов и переписок. Это то, что делает ответы агентов вашими, а не общими.</div></div>
+<div class="row"><div class="k">Подключения</div><div class="v">Почта, WhatsApp, Telegram, CRM при наличии, публичные площадки Флориды, хранилище для фото и видео с выездов.</div></div>
+<div class="row"><div class="k">Агент приёма</div><div class="v">Ловит входящее от брокеров и с площадок, распознаёт закрытые предложения, собирает по каждому объекту единую карточку с автозаполнением полей.</div></div>
+<div class="row"><div class="k">Агент оценки</div><div class="v">Считает объект по вашей матрице: обязательные и желательные признаки с весами, приоритет, объяснение решения. Плюс расчёт дельты: потенциал перепаковки, трудозатраты, прибыль на выходе.</div></div>
+<div class="row"><div class="k">Агент проверки объекта</div><div class="v">Список вопросов владельцу, тревожные признаки, черновик письма о намерении. Отдельный блок чек-листа по разрешениям для табачной розницы Флориды.</div></div>
+<div class="row"><div class="k">Двуязычный агент</div><div class="v">Перевод входящего и исходящего между английским и испанским, шаблоны писем брокерам и владельцам на обоих языках, назначение встреч, протоколирование переписки.</div></div>
+<div class="row"><div class="k">Экран</div><div class="v">Доклад дня в Telegram и веб-экран: что появилось, что стоит смотреть, что ждёт вашего ответа, где нужен выезд.</div></div>
+<div class="row"><div class="k">Регламент для помощника</div><div class="v">Пишется из вашей же практики за первые три недели. По нему помощник берёт коммуникации и выезды без потери качества.</div></div>
+<div class="row"><div class="k">Обучение двух человек</div><div class="v">Вы и ваш помощник. Не запись курса, а работа за штабом вживую, за руку, на ваших реальных объектах.</div></div>
+</div>
+</section>
+
+<!-- СРОКИ -->
+<section>
+<div class="kicker gold">сроки</div>
+<h2>Четыре этапа с воротами приёмки</h2>
+<p class="body">Ворота означают: этап не считается закрытым, пока не выполнено проверяемое условие. Это защищает вас от «мы поработали, а результата не видно».</p>
+<div class="ladder">
+<div class="ws"><div class="no">I</div><div class="head"><h3>Онбординг</h3><span class="when">60-120 минут, на этой неделе</span></div><p>Забираем доступы, формализуем критерии отбора, собираем список брокеров и площадок, разбираем реальные письма как образцы. Вы уходите со встречи с записанной матрицей отбора.</p><span class="gate">Ворота: критерии названы, доступы получены</span></div>
+<div class="ws"><div class="no">II</div><div class="head"><h3>Сборка ядра и контура сделок</h3><span class="when">4-5 недель</span></div><p>Ядро, база знаний, подключения, четыре агента, экран. Первая неделя работы за штабом проходит вместе с нами, за руку.</p><span class="gate">Ворота: реальный объект прошёл конвейер от письма брокера до вашего решения</span></div>
+<div class="ws"><div class="no">III</div><div class="head"><h3>Передача помощнику</h3><span class="when">2 недели, после ваших первых трёх недель</span></div><p>Обучение помощника, регламент из вашей практики, маршрутизация задач и выездов.</p><span class="gate">Ворота: помощник ведёт поток самостоятельно</span></div>
+<div class="ws"><div class="no">IV</div><div class="head"><h3>Второй и третий контуры</h3><span class="when">2-3 недели на контур, по вашему выбору</span></div><p>Входят в тариф. Берёте то, что к тому моменту болит: капитал и инвестиции, люди и сеть, здоровье, документы и архивы.</p><span class="gate">Ворота: вы решаете, что следующее и когда</span></div>
+</div>
+<div class="pricenote">Сложим сроки честно: первый контур работает через 4-5 недель после онбординга, выход из операционки наступает примерно на девятой-десятой неделе - 4-5 недель сборки, три недели вашей личной работы за штабом и две недели на передачу помощнику. Второй и третий контуры идут уже поверх работающей системы.</div>
+</section>
+
+<!-- ЦЕНА -->
+<section>
+<div class="kicker gold">цена и порядок оплаты</div>
+<h2>Одна цифра, без скрытых строк</h2>
+<div class="price">
+<div class="k">Цифровой Штаб · тариф База</div>
+<div class="big">6 900 <span class="u">€</span></div>
+<div class="rowp"><div class="d"><b>Ядро, база знаний, подключения</b>Командный центр на вашей машине, база под ваши критерии, все каналы</div><div class="n">входит</div></div>
+<div class="rowp"><div class="d"><b>Контур потока сделок</b>Четыре агента: приём, оценка и дельта, проверка объекта, двуязычная переписка. Плюс экран</div><div class="n">входит</div></div>
+<div class="rowp"><div class="d"><b>Право на ещё два контура</b>Собираем по вашему выбору после первого, 2-3 недели на контур</div><div class="n">входит</div></div>
+<div class="rowp"><div class="d"><b>Обучение двух человек</b>Вы и помощник, вживую за штабом на ваших объектах</div><div class="n">входит</div></div>
+<div class="rowp"><div class="d"><b>Регламент для помощника</b>Пишется из вашей практики, по нему он принимает поток</div><div class="n">входит</div></div>
+<div class="rowp"><div class="d"><b>Первый месяц сопровождения</b>Правки, донастройка, ответы на вопросы</div><div class="n">входит</div></div>
+<div class="rowp"><div class="d"><b>Сопровождение далее</b>По желанию, можно отключить в любой момент, система остаётся у вас</div><div class="n">490 €/мес</div></div>
+<div class="rowp"><div class="d"><b>Расходы на ИИ-агента</b>Оплачиваются вами напрямую поставщику, мы на этом не зарабатываем</div><div class="n">~100 €/мес</div></div>
+<div class="rowp"><div class="d"><b>Дополнительный контур сверх трёх</b>Если захотите больше, чем входит в тариф</div><div class="n">1 700 €</div></div>
+<div class="disc">Оплата в два платежа: 50 процентов при старте после онбординга, 50 процентов по воротам второго этапа, когда реальный объект прошёл конвейер целиком. Счёт выставляет Станислав.</div>
+</div>
+<div class="pricenote">Почему не «Старт» за 3 300 €: контур потока сделок занял бы там единственный слот, и каждый следующий контур стоил бы отдельно 1 700 €. В «Базе» объём работ на старте тот же, один контур, но у вас остаётся два в запасе и обучение помощника входит в цену.</div>
+</section>
+
+<!-- КАК ПОЙМЁМ, ЧТО СРАБОТАЛО -->
+<section class="dark">
+<div class="kicker">проверяемый результат</div>
+<h2>Как мы вместе поймём,<br>что штаб отработал деньги</h2>
+<p class="lead">Договоримся о замерах до старта, а не после. Базовые значения снимаем на онбординге, с ваших же слов и вашей текущей практики.</p>
+<div class="rows">
+<div class="row"><div class="k">Ни одного потерянного письма</div><div class="v">Каждое входящее от брокера попало в систему и получило либо ответ, либо мотивированный отказ. Это то, что сейчас держится на вашем внимании.</div></div>
+<div class="row"><div class="k">Время до первой оценки объекта</div><div class="v">От письма брокера до понятного «смотрим или нет» с обоснованием. Замеряем текущее время на онбординге и сравниваем через месяц.</div></div>
+<div class="row"><div class="k">Скорость ответа брокеру</div><div class="v">Ключевая метрика для попадания в закрытые рассылки. Брокер отдаёт объект до публикации тому, кто отвечает быстро и на его языке.</div></div>
+<div class="row"><div class="k">Доля релевантных объектов</div><div class="v">Сколько из просмотренного дошло до серьёзного рассмотрения. Растёт за счёт отсечения нерелевантного на входе.</div></div>
+<div class="row"><div class="k">Ваше время в операционке</div><div class="v">Главная цифра третьего этапа: сколько часов в неделю вы лично тратите на разбор потока до и после передачи помощнику.</div></div>
+</div>
+</section>
+
+<!-- ЧТО НЕ ВХОДИТ -->
+<section>
+<div class="kicker gold">чтобы не было недопонимания</div>
+<h2>Что в это предложение не входит</h2>
+<div class="rules">
+<div class="rule"><div class="no">1</div><div class="t">Юридическое сопровождение сделок</div><p>Штаб готовит чек-листы, вопросы владельцу и черновик письма о намерении. Он не заменяет юриста и не даёт юридических заключений. Разрешения, договоры и закрытие сделки остаются за вами и вашими консультантами.</p></div>
+<div class="rule"><div class="no">2</div><div class="t">Гарантия доступа в закрытые списки</div><p>Мы строим скорость и качество ответа, которые повышают ваши шансы попасть в рассылки брокеров до публикации. Членство в ассоциации и отношения с брокерами это ваша территория, мы её не покупаем.</p></div>
+<div class="rule"><div class="no">3</div><div class="t">Оценка бизнеса вместо вас</div><p>Штаб приносит расчёт, признаки и вопросы. Решение о покупке и цене принимаете вы. Система устроена так, что все необратимые действия подтверждает человек.</p></div>
+</div>
+<div class="note">Мы также не обещаем полноту публичных площадок. Институциональный поток Флориды закрыт брокерским списком, и мы говорим об этом прямо в самом предложении, а не после оплаты.</div>
+</section>
+
+<!-- ЧТО НУЖНО ОТ ВАС -->
+<section>
+<div class="kicker gold">что нужно от вас</div>
+<h2>Четыре вещи для старта</h2>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Список брокеров и площадок,</b> включая тот сайт во Флориде, название которого вы обещали уточнить. Плюс два-три типовых письма от брокеров как образцы для настройки распознавания.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Доступы</b> к почте, мессенджерам и CRM. Настраиваем вместе на онбординге, ничего не пересылая в переписке.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Критерии отбора:</b> пороги по выручке и марже, категории, локации, стоп-сигналы. Если пока не сформулированы, вытащим их на онбординге, это его прямая задача.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>Три недели вашего личного участия</b> перед передачей помощнику. Условие результата, а не формальность.</div></div>
+</div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale">
+<div class="big">Скажите «да»,<br><span class="ac">и следующий шаг это слоты на онбординг.</span></div>
+<div class="cta">
+<a class="btn" href="https://t.me/stanistar888">Написать Станиславу</a>
+<div class="small">Вернуться к <a href="#shtab">описанию штаба</a> или посмотреть <a href="#research">исследование рынка</a></div>
+</div>
+</section>
+
+<footer>
+<div><b>Предложение</b> · Цифровой Штаб для Ярослава</div>
+<div><b>Станислав Жуковец</b> и <b>Михаил Зеленин</b> · внедрение агентного ИИ в бизнес</div>
+<div><a href="#shtab">← К описанию штаба</a></div>
+</footer>
+
+</div>
+<div class="doc" id="doc-research">
+
+<!-- HERO -->
+<section class="hero">
+<div class="club"><b>Исследование</b> · рынок покупки и перепродажи малых бизнесов во Флориде</div>
+<h1>Мы проверили ваш рынок<br>прежде чем<br><span>что-то предлагать</span></h1>
+<p class="sub">26 источников, 109 извлечённых утверждений, каждое проверялось независимо и на опровержение. Проверку выдержали девять. Здесь они, с источниками и уровнем уверенности. И здесь же то, что проверку не прошло.</p>
+<div class="meta">
+<div><b>26</b> · источников прочитано</div>
+<div><b>109</b> · утверждений извлечено</div>
+<div><b>9</b> · подтверждено</div>
+<div><b>16</b> · отброшено</div>
+</div>
+</section>
+
+<!-- МЕТОД -->
+<section>
+<div class="kicker gold">как мы это делали</div>
+<h2>Каждое утверждение<br>пыталось быть опровергнутым</h2>
+<p class="body">Обычный обзор рынка собирает то, что подтверждает мысль автора. Мы сделали наоборот. Поиск шёл по шести независимым направлениям, из найденных источников извлекались проверяемые утверждения, и на каждое ставились три независимых проверяющих с одной задачей: опровергнуть. Утверждение выживало, только если опровергнуть его не удалось.</p>
+<p class="body">Это тот же принцип, по которому работает Цифровой Штаб на ваших объектах: не «найти подтверждение, что бизнес хороший», а попытаться найти причину, почему он плохой, и только потом считать дельту. Ниже вы видите этот механизм на живом примере.</p>
+<div class="note">Одна честная оговорка о выборке. Основные рыночные числа пришли с площадки BizBuySell и построены на добровольных отчётах брокеров. Это лучший доступный публичный ориентир, но не перепись рынка. Мы отмечаем это, потому что вы знаете рынок изнутри и вправе с цифрами спорить.</div>
+</section>
+
+<!-- ЧТО ПОДТВЕРДИЛОСЬ -->
+<section>
+<div class="kicker gold">выдержало проверку</div>
+<h2>Девять фактов,<br>три из которых меняют работу</h2>
+<div class="proof">
+<div class="pcard"><div class="lbl">уверенность высокая · 3 из 3</div><div class="t">Ваш сегмент это центр рынка, а не его край</div><p>Медиана закрытой сделки по США во втором квартале 2026 составила 349 250 долларов при медианной выручке 692 087 и медианном денежном потоке 155 921. Больше половины всех закрытых сделок страны легли ниже полумиллиона. Ваша оценка ликвидности этого сегмента подтверждается.</p></div>
+<div class="pcard"><div class="lbl">уверенность средняя · 2 из 3</div><div class="t">Майами дешевле страны и чуть быстрее</div><p>По агломерации Майами за 2025 год: 447 отчётных продаж, медианная цена 291 000 долларов, медианная выручка 631 000, медианный денежный поток 142 300, медианный срок на рынке 164 дня. Против 170 дней по стране. Уверенность снижена сознательно: в источнике часть колонок это медианы, а часть средние, поэтому строку нельзя читать как одну сделку.</p></div>
+<div class="pcard"><div class="lbl">уверенность высокая · 3 из 3</div><div class="t">Институциональный поток Флориды закрыт</div><p>Ассоциация Business Brokers of Florida держит общий для штата список объектов, доступный только членам. Публике видна витрина. Практический вывод: автоматизации доступна лишь малая часть реального потока, а решает не объём просмотренного, а скорость и качество ответа брокеру.</p></div>
+<div class="pcard"><div class="lbl">уверенность средняя · 2 из 3</div><div class="t">Ликвидность подтверждается сроками</div><p>Средний срок на рынке по закрытым сделкам базы BIZCOMPS с 2000 года составляет около 200 дней при выборке более 13 тысяч сделок. Медиана Майами в 164 дня ложится ниже этого уровня.</p></div>
+<div class="pcard"><div class="lbl">уверенность высокая · 3 из 3</div><div class="t">Разрешения на табак выдаются на каждую точку</div><p>Флоридские разрешения на розничную торговлю табаком (статут 569.003) и никотиновыми продуктами (569.32) оформляются отдельной заявкой на каждый адрес. Одно разрешение не покрывает сеть.</p></div>
+<div class="pcard"><div class="lbl">уверенность высокая · 3 из 3</div><div class="t">Разрешения не переходят к покупателю</div><p>Оба разрешения непередаваемы и привязаны одновременно к названному держателю и к конкретному адресу. Покупая через активы, вы не наследуете разрешения продавца и обязаны получать свои. Механизма временного разрешения в этой главе нет, в отличие от алкогольной (561.331). Между закрытием сделки и получением разрешения возникает разрыв по выручке, который стоит закладывать в цену заранее.</p></div>
+<div class="pcard"><div class="lbl">уверенность высокая · 3 из 3</div><div class="t">Посредничество требует лицензии риелтора</div><p>Во Флориде сведение продавца и покупателя бизнеса за вознаграждение требует действующей лицензии по главе 475. Отдельной лицензионной категории «бизнес-брокер» в штате не существует. Полезно знать, если вы захотите сами сводить сделки, а не только покупать.</p></div>
+<div class="pcard"><div class="lbl">уверенность низкая · производное</div><div class="t">Рычаг это денежный поток, а не мультипликатор</div><p>Из соотношения подтверждённых медиан выходит порядок 2,0 к 2,3 доллара цены выхода на каждый добавленный доллар годового денежного потока. Держим низкую уверенность специально: все утверждения о конкретных средних мультипликаторах проверку не прошли. Практический смысл устойчив: в этом сегменте мультипликатор задаётся отраслью и конкретной сделкой, а управляемый вами рычаг это сама прибыль точки. Поэтому автоматизация обосновывается ростом прибыли, а не обещанием переоценки.</p></div>
+</div>
+</section>
+
+<!-- ЧТО НЕ ПРОШЛО -->
+<section class="dark">
+<div class="kicker">не выдержало проверки</div>
+<h2>Шестнадцать утверждений<br>мы отбросили. В том числе<br>по вашей нише</h2>
+<p class="lead">Первая версия исследования содержала подробную статистику по smoke shops: мультипликаторы, медианные цены, сроки продажи, число закрытых сделок за год. Всё это единогласно опровергнуто при проверке и здесь не приводится. Туда же ушли объёмы активных объявлений Майами, средние мультипликаторы к выручке и к прибыли, тезис о том, что подешевевшая розница это арбитраж, демографические доли по Miami-Dade и практическая планка вложений по визе E-2.</p>
+<p class="lead">«Опровергнуто» здесь означает «не подтвердилось при проверке», а не «этого не существует». Но мы предпочитаем сказать вам, что чего-то не знаем, чем назвать красивую цифру, которую вы как человек этого рынка проверите за минуту.</p>
+<div class="quote">Про ваш рынок в целом мы можем говорить цифрами. Про вашу нишу мы спрашиваем вас.<span class="accent">Это и есть рабочий принцип штаба</span></div>
+</section>
+
+<!-- ЧТО УТОЧНЯЕМ У ВАС -->
+<section>
+<div class="kicker gold">вопросы к вам</div>
+<h2>Четыре вещи,<br>которых нет ни в одном источнике</h2>
+<p class="body">Мы их искали и не нашли подтверждения. Это прямые вопросы на онбординг, и от двух первых зависит, как именно настраивать контур.</p>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Как работает поток до публикации.</b> Рассылают ли ваши брокеры объекты подписчикам до выхода объявления, и что даёт доступ: соглашение о неразглашении, подтверждение средств, членство в ассоциации. От ответа зависит, что мы строим в первую очередь: обработку входящего или попадание в списки.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Комиссия брокера в вашем сегменте.</b> Минимальный гонорар, лестница, кто платит при совместной работе двух брокеров. Ни один источник этого не подтвердил, а именно от комиссии считается, где в сделке лежит экономия от автоматического отбора.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Тот сайт во Флориде.</b> Вы говорили, что забыли название и уточните. От него зависит, есть ли вообще публичный источник, который имеет смысл подключать.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>Срок получения разрешений при смене владельца</b> и чем вы закрываете разрыв по выручке: управляющим соглашением с продавцом, отложенным закрытием или иначе. Это отдельный пункт чек-листа проверки объекта, и лучше построить его на вашей практике.</div></div>
+</div>
+</section>
+
+<!-- ИСТОЧНИКИ -->
+<section>
+<div class="kicker gold">источники</div>
+<h2>На чём это стоит</h2>
+<div class="rows">
+<div class="row"><div class="k">Рыночные метрики</div><div class="v">Отчёты BizBuySell Insight Report за 2025 год и второй квартал 2026, включая таблицы по географическим рынкам. Добровольные отчёты брокеров, площадка принадлежит CoStar.</div></div>
+<div class="row"><div class="k">Сроки продажи</div><div class="v">База закрытых сделок BIZCOMPS, обзор Morgan &amp; Westfield по срокам продажи бизнеса.</div></div>
+<div class="row"><div class="k">Поток объектов Флориды</div><div class="v">Материалы ассоциации Business Brokers of Florida и её списка объектов.</div></div>
+<div class="row"><div class="k">Право Флориды</div><div class="v">Статуты штата: глава 475 о лицензировании посредников, 569.003 и 569.32 о разрешениях на табак и никотин, 561.331 о временных разрешениях в алкогольной торговле. Первоисточники, не пересказы.</div></div>
+</div>
+<div class="pricenote">Исследование выполнено 25 июля 2026 года под это предложение. Данные и право могут меняться, поэтому перед конкретной сделкой правовые пункты стоит перепроверять на актуальность.</div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale">
+<div class="big">Так штаб работает<br><span class="ac">и с вашими объектами.</span></div>
+<div class="cta">
+<a class="btn" href="#kp">Смотреть предложение</a>
+<div class="small">Или вернуться к <a href="#shtab">описанию штаба</a></div>
+</div>
+</section>
+
+<footer>
+<div><b>Исследование рынка</b> · Флорида, малые бизнесы до полумиллиона</div>
+<div><b>Станислав Жуковец</b> и <b>Михаил Зеленин</b> · внедрение агентного ИИ в бизнес</div>
+<div><a href="#shtab">← К описанию штаба</a></div>
+</footer>
+
+</div>
+<a class="fab" href="https://t.me/stanistar888"><span class="dot"></span>Задать вопрос</a>
+<script>
+(function(){
+  var ids = ['shtab','kp','research'];
+  var tabs = document.querySelectorAll('.navtop .tabs a');
+  function show(id, push){
+    if(ids.indexOf(id) < 0) id = 'shtab';
+    ids.forEach(function(x){ document.getElementById('doc-'+x).hidden = (x !== id); });
+    tabs.forEach(function(t){ t.classList.toggle('on', t.dataset.tab === id); });
+    document.title = ({shtab:'Цифровой Штаб · для Ярослава',
+                       kp:'Предложение · Цифровой Штаб для Ярослава',
+                       research:'Исследование · рынок малых бизнесов Флориды'})[id];
+    if(push) window.scrollTo(0,0);
+  }
+  function fromHash(){ return (location.hash || '#shtab').slice(1); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if(ids.indexOf(id) < 0) return;
+    e.preventDefault();
+    if(location.hash !== '#'+id) history.pushState(null,'','#'+id);
+    show(id, true);
+  });
+  window.addEventListener('popstate', function(){ show(fromHash(), false); });
+  show(fromHash(), false);
+})();
+</script>
+</body>
+</html>
