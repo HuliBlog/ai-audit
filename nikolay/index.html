@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Пульт Трансформации · для Николая</title>
+<meta name="description" content="Финансовый агент для ресторанной группы: инвойсы из WhatsApp в QuickBooks и Syrve, разбор списка из 14 пунктов и дорожная карта развития.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Пульт Трансформации · для Николая">
+<meta property="og:description" content="Финансовый агент, разбор 14 пунктов и дорожная карта - в одном документе.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --blue:#001AFF; --blue-soft:#e8ebff; --blue-tint:#dbe0ff; --blue-line:#c2c9ff;
+    --gold:#ddb85b; --gold-deep:#b9903a; --gold-tint:#f2e7c8;
+    --black:#121212; --ink:#1c1c1c; --grey:#717171; --silver:#d9d9d9; --hair:#ececec; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:'Baskervville',serif}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 7vw}}
+  .kicker{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1,h2{font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  h1{font-size:clamp(2.1rem,5.6vw,4rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.55rem,3.4vw,2.5rem);margin-bottom:1.3rem}
+  p{font-size:clamp(1rem,1.5vw,1.12rem);color:var(--ink)}
+  p.lead{font-size:clamp(1.02rem,1.6vw,1.24rem);color:var(--grey);max-width:46rem;font-weight:400;margin-top:.5rem}
+  p.body{color:var(--grey);max-width:46rem;margin-top:1rem}
+  b{font-weight:600;color:var(--ink)}
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2{color:var(--white)} .dark p.lead,.dark p.body{color:#b5b5b5}
+  .quote{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.3rem,2.7vw,2rem);line-height:1.4;max-width:46rem;margin-top:1.8rem}
+  .quote .accent{color:var(--gold-deep);font-style:normal}
+  .dark .quote{color:#fff} .dark .quote .accent{color:var(--gold)}
+
+  /* hero */
+  .hero{min-height:76vh;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
+  .hero .club{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.4rem}
+  .hero .club b{color:var(--blue)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.8rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--grey);max-width:44rem}
+  .hero .meta{margin-top:2.6rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  /* модель пяти слоёв */
+  .layers{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}
+  .layer{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.75rem}
+  .layer .nm{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .layer .ds{font-size:.85rem;color:var(--grey);line-height:1.4}
+  @media(max-width:760px){.layers{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:420px){.layers{grid-template-columns:1fr}}
+
+  /* три правила */
+  .rules{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .rule{border-top:2px solid var(--gold);padding-top:1.1rem}
+  .rule .no{font-family:'Baskervville',serif;font-size:2rem;color:var(--gold);line-height:1}
+  .rule .t{font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin:.5rem 0 .5rem;color:#fff}
+  .rule p{font-size:.96rem;color:#b5b5b5;margin:0}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+  /* карточки направлений */
+  .rooms{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .room{background:var(--white);border:1px solid var(--silver);padding:1.7rem 1.6rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .room:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .room .nm{font-size:1rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .room p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.55}
+  .room .core{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  @media(max-width:900px){.rooms{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.rooms{grid-template-columns:1fr}}
+  .note{font-size:.85rem;color:var(--grey);margin-top:1.4rem;max-width:46rem;font-style:italic;font-family:'Baskervville',serif}
+
+  /* сравнение двух колонок */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  .vs .col{padding:1.6rem 1.6rem;border:1px solid var(--silver)}
+  .vs .col.hi{border:1px solid var(--blue);background:var(--blue-soft)}
+  .vs .k{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--grey);margin-bottom:.7rem}
+  .vs .col.hi .k{color:var(--blue)}
+  .vs .v{font-size:.98rem;color:var(--ink);line-height:1.55}
+  @media(max-width:680px){.vs{grid-template-columns:1fr}}
+
+  /* лестница внедрения */
+  .ladder{display:flex;flex-direction:column;margin-top:2rem;border-top:1px solid var(--silver);max-width:62rem}
+  .ws{display:grid;grid-template-columns:5.2rem 1fr;gap:0 1.6rem;padding:2rem .3rem;border-bottom:1px solid var(--silver)}
+  .ws .no{font-family:'Baskervville',serif;font-size:clamp(2rem,4.4vw,3.1rem);color:var(--blue);line-height:1;grid-row:span 3}
+  .ws .head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+  .ws h3{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .ws .when{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:600;white-space:nowrap}
+  .ws .free{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:600;border:1px solid var(--blue-line);padding:.2rem .7rem;white-space:nowrap}
+  .ws p{color:var(--grey);font-size:clamp(.93rem,1.5vw,1.05rem);max-width:46rem;margin-top:.6rem}
+  .ws .gate{margin-top:.9rem;display:inline-block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);border:1px solid var(--gold);padding:.4rem 1rem}
+  @media(max-width:680px){.ws{grid-template-columns:1fr}.ws .no{grid-row:auto;margin-bottom:.3rem}}
+
+  /* роли */
+  .rows{margin-top:1.6rem;max-width:56rem;border-top:1px solid var(--silver)}
+  .row{display:grid;grid-template-columns:11rem 1fr;gap:1.6rem;padding:1.2rem .3rem;border-bottom:1px solid var(--silver);align-items:baseline}
+  .row .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .row .v{font-size:1rem;color:var(--grey)} .row .v b{color:var(--ink)}
+  @media(max-width:600px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+  /* цена */
+  .price{margin-top:2rem;border:1px solid #2a2a2a;background:linear-gradient(160deg,#161616,#000);color:#fff;padding:2.4rem 2.2rem;max-width:56rem}
+  .price .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+  .price .was{margin-top:1rem;color:#8a8a8a;font-size:.95rem}
+  .price .big{font-family:'Baskervville',serif;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin-top:.2rem;letter-spacing:.01em}
+  .price .u{color:#b5b5b5;margin-top:.7rem;font-size:.95rem}
+  .price .rowp{display:grid;grid-template-columns:1fr 11rem;gap:1rem;padding:1.15rem 0;border-top:1px solid #2a2a2a;align-items:baseline}
+  .price .rowp:first-of-type{margin-top:1.8rem}
+  .price .rowp .d{font-size:.95rem;color:#cfcfcf} .price .rowp .d b{color:#fff}
+  .price .rowp .n{text-align:right;font-family:'Baskervville',serif;font-size:1.4rem;color:var(--gold)}
+  .price .disc{margin-top:1.4rem;font-size:.82rem;color:#8a8a8a;line-height:1.5}
+  @media(max-width:600px){.price .rowp{grid-template-columns:1fr;gap:.2rem}.price .rowp .n{text-align:left}}
+
+  .anchor{margin-top:1.8rem;border-left:3px solid var(--gold);background:var(--light);padding:1.1rem 1.5rem;font-size:1.02rem;color:var(--ink);line-height:1.6;max-width:52rem}
+  .anchor b{color:var(--ink)}
+  .pricenote{margin-top:1.2rem;font-size:.85rem;color:var(--grey);line-height:1.6;max-width:52rem}
+
+  /* шаги */
+  .steps{margin-top:1.8rem;display:grid;gap:1rem;max-width:52rem}
+  .step{display:grid;grid-template-columns:3rem 1fr;gap:1.2rem;align-items:start}
+  .step .n{font-family:'Baskervville',serif;font-size:2rem;color:var(--blue);line-height:1}
+  .step .t{font-size:1rem;color:var(--grey);padding-top:.35rem} .step .t b{color:var(--ink)}
+
+  /* волны */
+  .wave{margin-top:2.2rem;border:1px solid var(--silver);padding:2rem 1.8rem;max-width:62rem}
+  .wave .whead{display:flex;align-items:baseline;gap:1.2rem;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:1rem}
+  .wave .wno{font-family:'Baskervville',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--blue);line-height:1}
+  .wave h3{font-size:clamp(1.05rem,2.2vw,1.4rem);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .wave .wwhen{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:600;margin-left:auto;white-space:nowrap}
+  .wave .wwhen.now{color:#8a6d24}
+  .witem{padding:1.2rem 0;border-bottom:1px solid var(--hair)}
+  .witem:last-child{border-bottom:none;padding-bottom:0}
+  .witem .t{font-size:1rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .witem p{font-size:.95rem;color:var(--grey);margin-top:.35rem;max-width:48rem;line-height:1.55}
+  .witem .tag{margin-top:.55rem;display:inline-block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#8a6d24}
+  @media(max-width:680px){.wave .wwhen{margin-left:0}}
+
+  /* cta / finale */
+  .finale{text-align:center}
+  .finale .big{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.2;max-width:40rem;margin:0 auto}
+  .finale .big .ac{color:var(--gold)}
+  .cta{margin-top:2.4rem;text-align:center}
+  .btn{display:inline-block;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--blue);padding:1rem 2.4rem;text-decoration:none;transition:transform .3s}
+  .btn:hover{transform:translateY(-2px)}
+  .small{margin-top:1rem;font-size:.85rem;color:#8a8a8a}
+  .small a{color:var(--gold)}
+  footer{padding:3rem 8vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--grey);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;background:var(--white)}
+  footer b{color:var(--ink)} footer a{color:var(--blue);text-decoration:none;font-weight:600}
+
+  /* плавающая кнопка */
+  .fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:60;display:inline-flex;align-items:center;gap:.6rem;background:var(--blue);color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.9rem 1.5rem;border-radius:999px;text-decoration:none;box-shadow:0 16px 40px -12px rgba(0,26,255,.55);transition:transform .3s}
+  .fab:hover{transform:translateY(-2px)}
+  .fab .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--gold)}
+  @media(max-width:600px){.fab{right:1rem;bottom:1rem;font-size:.7rem;padding:.8rem 1.2rem}}
+
+  /* верхняя навигация объединённого документа */
+  .navtop{position:sticky;top:0;z-index:70;display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;padding:.85rem 8vw;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--silver)}
+  .navtop .brand{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;
+    color:var(--grey);text-decoration:none;white-space:nowrap}
+  .navtop .brand b{color:var(--blue)}
+  .navtop .tabs{display:flex;gap:.4rem;flex-wrap:wrap}
+  .navtop .tabs a{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+    color:var(--grey);text-decoration:none;padding:.5rem .9rem;border:1px solid transparent;
+    border-radius:999px;transition:color .25s,background .25s,border-color .25s}
+  .navtop .tabs a:hover{color:var(--ink);border-color:var(--hair)}
+  .navtop .tabs a.on{color:var(--blue);background:var(--blue-soft);border-color:var(--blue-line)}
+  @media(max-width:760px){
+    .navtop{flex-direction:column;align-items:stretch;gap:.5rem;padding:.6rem 4vw}
+    .navtop .brand{text-align:center;font-size:.62rem;letter-spacing:.18em}
+    .navtop .tabs{justify-content:center;gap:.25rem;flex-wrap:nowrap}
+    .navtop .tabs a{padding:.4rem .6rem;font-size:.62rem;letter-spacing:.04em;white-space:nowrap}
+  }
+  @media(max-width:360px){
+    .navtop .tabs a{padding:.4rem .45rem;font-size:.58rem;letter-spacing:0}
+  }
+  .doc[hidden]{display:none}
+
+  /* читаемость на светлом фоне */
+  section:not(.dark) .rule .t{color:var(--ink)}
+  section:not(.dark) .rule p{color:var(--grey)}
+  section.dark .rows{border-top-color:#2f2f2f}
+  section.dark .row{border-bottom-color:#2f2f2f}
+  section.dark .row .k{color:#94a3ff}
+  section.dark .row .v{color:#c9c9c9}
+  section.dark .row .v b{color:#fff}
+  section.dark .kicker{color:#94a3ff}
+  .kicker.gold{color:#8a6d24}
+  .ws .gate{color:#8a6d24}
+  section:not(.dark) .quote .accent{color:#8a6d24}
+  @media(max-width:760px){.ws .when{white-space:normal}}
+
+</style>
+</head>
+<body>
+<nav class="navtop">
+<a class="brand" href="#offer"><b>Пульт Трансформации</b> · для Николая</a>
+<div class="tabs">
+<a href="#offer" data-tab="offer">Предложение</a>
+<a href="#plan" data-tab="plan">Ваш список</a>
+<a href="#next" data-tab="next">Развитие</a>
+</div>
+</nav>
+
+<!-- ================================ ДОКУМЕНТ 1 · ПРЕДЛОЖЕНИЕ ================================ -->
+<div class="doc" id="doc-offer">
+
+<!-- HERO -->
+<section class="hero">
+<div class="club"><b>Пульт Трансформации</b> · ресторанная группа Николая Рыжкова</div>
+<h1>До 150 документов в день.<br>Два учёта.<br><span>Всё руками</span></h1>
+<p class="sub">Пульт: система агентов, которая подхватывает инвойсы и чеки прямо из ваших WhatsApp-групп, разносит их в QuickBooks по статьям и в Syrve по номенклатуре, а последнее слово оставляет человеку.</p>
+<div class="meta">
+<div><b>12 ресторанов и баров</b> · Лимассол</div>
+<div><b>7 компаний</b> · 7 аккаунтов QuickBooks</div>
+<div><b>100-150 документов</b> · каждый день</div>
+<div><b>Демо на ваших документах</b> · до оплаты</div>
+</div>
+</section>
+
+<!-- ГДЕ ВЫ СЕЙЧАС -->
+<section>
+<div class="kicker gold">где вы сейчас</div>
+<h2>Процесс у вас уже отлажен.<br>Не хватает только рук, которые не устают</h2>
+<p class="body">Документы собираются со всех точек в WhatsApp-группы, команда видит каждый инвойс в момент появления, приёмка и оплата разделены отметками. Это редкость: у большинства групп такого порядка нет. Дальше начинается ручной труд, и он двойной.</p>
+<div class="quote">«Не человек это тащил из WhatsApp, открытого на компьютере, а агент тащил».<span class="accent"> Ваши слова на созвоне 30 июля</span></div>
+<div class="rules">
+<div class="rule"><div class="no">1</div><div class="t">Поток живёт в WhatsApp</div><p>По каждой компании своя группа: PDF и фотографии, принявший расписывается на инвойсе, менеджер отметкой отправляет его в оплату. Процесс живой и удобный, но всё, что после него, держится на ручном вводе.</p></div>
+<div class="rule"><div class="no">2</div><div class="t">Каждый документ проходит руки дважды</div><p>Одни бухгалтеры разносят его в QuickBooks по статьям с НДС 5, 9 и 19 процентов, другие в Syrve по номенклатуре: килограммы рыбы и мяса в товарный учёт. 100-150 документов в день, две независимые ручные линии.</p></div>
+<div class="rule"><div class="no">3</div><div class="t">Объём растёт быстрее команды</div><p>Сотрудники просят доплату, обсуждается ещё один человек на ввод. С ростом сети до 30 собственных точек эта статья расходов растёт вместе с риском ошибок и путаницы между людьми.</p></div>
+</div>
+</section>
+
+<!-- ПРЕЖДЕ ЧЕМ ПРЕДЛАГАТЬ -->
+<section class="dark">
+<div class="kicker">прежде чем предлагать</div>
+<h2>Мы проверили соединения,<br>а не поверили себе на слово</h2>
+<p class="lead">Между вашим вопросом и этим предложением мы прогнали проверку всей связки: от WhatsApp до проводки в QuickBooks. Вот на чём стоит предложение.</p>
+<div class="rows">
+<div class="row"><div class="k">Коннектор официальный</div><div class="v">У Intuit есть собственный открытый коннектор QuickBooks Online для Claude: счета поставщиков, план счетов, вложения, аналитика по классам и точкам, финансовые отчёты. Мы строим не коннектор, а рабочий контур вокруг него: <b>правила разнесения, подтверждение человеком, журнал</b>.</div></div>
+<div class="row"><div class="k">Режим «только чтение» встроен</div><div class="v">Запись, изменение и удаление отключаются на уровне самого коннектора. На старте агент видит ваши данные и <b>физически не может изменить ни одной записи</b>. Запись включаем только после вашего решения.</div></div>
+<div class="row"><div class="k">Syrve нам знаком</div><div class="v">Интеграцию с этой системой (международная версия iiko) мы уже собирали в другом ресторанном проекте, для бизнеса доставки питания. Для вашей связки это <b>не эксперимент, а повторение пройденного</b>.</div></div>
+<div class="row"><div class="k">Бухгалтерия - наша профессия</div><div class="v">Финансовый контур вам собирает не ИТ-подрядчик со стороны. Станислав - фаундер бухгалтерской компании Mg, которая ведёт клиентов в 11 юрисдикциях, включая Кипр. <b>НДС, план счетов и сверки - ежедневная работа его команды</b>, поэтому агента учат люди, которые сами разносят такие документы годами.</div></div>
+</div>
+</section>
+
+<!-- ПЕРВЫЙ КОНТУР -->
+<section>
+<div class="kicker gold">первый контур · финансовый агент</div>
+<h2>От фотографии в группе<br>до проводки с вложением</h2>
+<p class="body">Ничего не меняем в привычке команды: документы падают в те же группы, что и сегодня. Меняется то, что происходит дальше.</p>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Перехват из WhatsApp.</b> Агент читает группы компаний: PDF и фотографии. Каждый документ получает номер и попадает в очередь, ничего не теряется и не задваивается.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Извлечение.</b> Поставщик, дата, номер, валюта, строки, суммы, ставка НДС: 5, 9 или 19 процентов. Фотографии распознаются так же, как PDF.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Сверка.</b> Агент находит поставщика в QuickBooks нужной компании, поднимает его прошлые счета и план счетов. Ваша история и есть база правил разнесения.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>Предложение.</b> Таблица «строка, статья, точка» с уверенностью по каждой строке. Сомнительное агент помечает и спрашивает, а не прячет.</div></div>
+<div class="step"><div class="n">5</div><div class="t"><b>Ваша отметка остаётся воротами.</b> Как сегодня «ок» менеджера в группе: бухгалтер подтверждает или правит. Каждая правка пополняет правила, агент учится на вашей практике.</div></div>
+<div class="step"><div class="n">6</div><div class="t"><b>Проводка.</b> Счёт ложится в QuickBooks нужного юрлица, оригинал прикрепляется к проводке, сумма сверяется до цента.</div></div>
+<div class="step"><div class="n">7</div><div class="t"><b>Вторая линия: Syrve.</b> Тот же документ параллельно разносится по номенклатуре в товародвижение. Два агента: один в учёт, второй в склад.</div></div>
+</div>
+<div class="note">Каждая проводка остаётся в журнале: кто предложил, кто подтвердил, что поправили. Метрика качества одна и честная: доля строк, разнесённых без ручной правки. Вы видите её каждую неделю.</div>
+</section>
+
+<!-- КАК ИДЁМ -->
+<section>
+<div class="kicker gold">как идём</div>
+<h2>Сначала вы видите результат.<br>Потом платите</h2>
+<div class="ladder">
+<div class="ws"><div class="no">I</div><div class="head"><h3>Созвон с бухгалтером</h3><span class="when">60-90 минут</span><span class="free">бесплатно</span></div><p>Подтверждаем версию QuickBooks (по переписке похоже на Online, проверим), разбираем план счетов, классы и точки, забираем 20-30 реальных документов как образцы. Договариваемся, кто подтверждает проводки по каждой компании.</p><span class="gate">Ворота: доступы и образцы на руках</span></div>
+<div class="ws"><div class="no">II</div><div class="head"><h3>Демо в песочнице</h3><span class="when">2-3 дня</span><span class="free">до оплаты</span></div><p>Собираем контур на тестовой компании QuickBooks и прогоняем ваши образцы. Вы и ваш бухгалтер видите свои инвойсы разнесёнными: статьи, НДС, вложения. Это ответ на ваш вопрос «посмотреть вживую»: не чужой скринкаст, а ваши документы.</p><span class="gate">Ворота: бухгалтер подтверждает качество разнесения. Да - стартуем, первая половина оплаты</span></div>
+<div class="ws"><div class="no">III</div><div class="head"><h3>Живые аккаунты и полуавтомат</h3><span class="when">1-2 недели</span></div><p>Подключаем живые аккаунты сначала в режиме чтения, затем включаем запись. Каждый счёт проводится только после отметки бухгалтера, оригинал прикрепляется к проводке. Ведём команду за руку первую неделю работы.</p><span class="gate">Ворота: первый счёт прошёл от WhatsApp до проводки. Только после этого - вторая половина</span></div>
+<div class="ws"><div class="no">IV</div><div class="head"><h3>Автопорог и Syrve</h3><span class="when">2-3 недели</span></div><p>Документы с высокой уверенностью проводятся сами, спорные ждут человека. Порог задаёте вы. Подключаем номенклатурную линию Syrve вторым агентом. Обе линии входят в цену контура.</p><span class="gate">Ворота: вы решаете, где граница автомата</span></div>
+</div>
+</section>
+
+<!-- ЦЕНА -->
+<section>
+<div class="kicker gold">сколько это стоит</div>
+<h2>Одна цена.<br>Окупается быстрее, чем за квартал</h2>
+<p class="body">Ручной ввод сейчас обходится группе минимум в 2 000 € каждый месяц, и с ростом сети эта цифра только растёт. Мы не продаём тариф. Мы снимаем эту статью расходов.</p>
+<div class="price">
+<div class="k">Финансовый контур · под ключ</div>
+<div class="was">Сейчас: от 2 000 € в месяц на ручной ввод, каждый месяц, с ростом нагрузки</div>
+<div class="big">4 500 €</div>
+<div class="u">весь финансовый контур: обе линии разнесения, все семь компаний, один раз</div>
+<div class="rowp"><div class="d"><b>Что входит.</b> Созвон с бухгалтером, демо в песочнице, подключение живых аккаунтов, линия QuickBooks постатейно и линия Syrve по номенклатуре, обучение команды, первый месяц поддержки.</div><div class="n">включено</div></div>
+<div class="rowp"><div class="d"><b>Оплата по воротам.</b> До демо на ваших документах не платите ничего. Первая половина - когда бухгалтер подтвердил качество в песочнице. Вторая - после того, как первый ваш счёт прошёл путь от WhatsApp до проводки. Не прошёл: не платите.</div><div class="n">50 / 50</div></div>
+<div class="rowp"><div class="d"><b>Окупаемость.</b> При ваших текущих расходах контур возвращает себя за два-три месяца. Дальше эти 2 000 € каждый месяц остаются в группе.</div><div class="n">~10 недель</div></div>
+<div class="rowp"><div class="d"><b>Дальше по желанию.</b> Поддержка и развитие правил со второго месяца. Система остаётся у вас при любой отмене подписки.</div><div class="n">490 €/мес</div></div>
+<div class="disc">Расходы на ИИ-модель, порядка 100 € в месяц, оплачиваются напрямую поставщику и в цену не входят. Гостевой агент и следующие контуры оцениваются отдельно: сметы перед стартом каждой волны.</div>
+</div>
+</section>
+
+<!-- КТО ДЕЛАЕТ -->
+<section>
+<div class="kicker gold">кто это делает</div>
+<h2>Двое, и роли не размыты</h2>
+<div class="rows">
+<div class="row"><div class="k">Станислав Жуковец</div><div class="v">Ведёт продукт и вас как клиента, отвечает за постановку задач и результат. Фаундер и CEO бухгалтерской компании Mg: учёт, НДС и сверки для клиентов в 11 юрисдикциях, включая Кипр. Проводит ИИ-воркшопы для владельцев бизнеса в кипрских бизнес-клубах. <b>Ваш единственный контакт по деньгам и договорённостям.</b></div></div>
+<div class="row"><div class="k">Михаил Зеленин</div><div class="v">Технический бэкграунд и реализация: собирает пульт, агентов и подключения. Внедряет агентные системы в бизнес и жизнь, ведёт свою операционную систему на этих же принципах. <b>Автор сборки, работает своими руками, а не через подрядчиков.</b></div></div>
+</div>
+</section>
+
+<!-- ПРО ДАННЫЕ -->
+<section class="dark">
+<div class="kicker">про данные</div>
+<h2>Финансы группы не гуляют<br>по чужим облакам</h2>
+<div class="rules">
+<div class="rule"><div class="no">1</div><div class="t">Прямое соединение</div><p>Официальный коннектор Intuit работает у вас, без посредников-агрегаторов между агентом и бухгалтерией. Ключи доступа хранятся в вашем контуре.</p></div>
+<div class="rule"><div class="no">2</div><div class="t">Необратимое подтверждает человек</div><p>Агент предлагает разнесение, проводку подтверждает бухгалтер. Автопроводка появляется только там, где вы сами подняли порог доверия.</p></div>
+<div class="rule"><div class="no">3</div><div class="t">Система честна с вами</div><p>Если данных не хватает, агент говорит «не уверен» и спрашивает, а не выдаёт удобную догадку. Это правило заложено в инструкции каждого агента.</p></div>
+</div>
+</section>
+
+<!-- ЧТО НУЖНО ОТ ВАС -->
+<section>
+<div class="kicker gold">что нужно от вас</div>
+<h2>Пять вещей, и мы стартуем</h2>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Подтвердить версию QuickBooks:</b> Online или установленная на компьютере. От этого зависит способ подключения, остальное не меняется.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Созвон с бухгалтером, 60-90 минут.</b> Вы сказали, что готовы его подключить: этого достаточно для старта.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Доступ к WhatsApp-группам компаний,</b> куда падают документы, или пересылка в отдельную группу с агентом. Решим на созвоне, что удобнее.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>20-30 документов-образцов и план счетов:</b> на них агент учится вашим правилам разнесения ещё до подключения.</div></div>
+<div class="step"><div class="n">5</div><div class="t"><b>Кто подтверждает проводки по каждой компании:</b> имя и телефон. Ворота остаются за людьми, поэтому людей надо назвать.</div></div>
+</div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale">
+<div class="big">Команда работает как привыкла.<br><span class="ac">Пульт убирает ручной ввод.</span></div>
+<div class="cta">
+<a class="btn" href="#plan">Разбор вашего списка из 14 пунктов</a>
+<div class="small">Архитектура и развитие группы: <a href="#next">третий раздел</a> · Вопросы Станиславу: <a href="https://t.me/stanistar888">@stanistar888</a></div>
+</div>
+</section>
+
+<footer>
+<div><b>Пульт Трансформации</b> · ресторанная группа · Лимассол</div>
+<div><b>Станислав Жуковец</b> и <b>Михаил Зеленин</b> · внедрение агентного ИИ в бизнес</div>
+<div><a href="#plan">Ваш список →</a></div>
+</footer>
+
+</div>
+
+<!-- ================================ ДОКУМЕНТ 2 · ВАШ СПИСОК ================================ -->
+<div class="doc" id="doc-plan">
+
+<!-- HERO -->
+<section class="hero">
+<div class="club"><b>Пульт Трансформации</b> · разбор вашего списка</div>
+<h1>14 пунктов.<br>Одно ядро.<br><span>Шесть волн</span></h1>
+<p class="sub">Ваш список пожеланий от 30 июля разобран целиком: каждый пункт получил волну внедрения, способ реализации и честную пометку о зрелости. Ничего не потеряно и ничего не обещано вслепую.</p>
+<div class="meta">
+<div><b>Волна I</b> · старт · 4 500 €</div>
+<div><b>Волны II-VI</b> · отдельные сметы до старта</div>
+<div><b>Порядок после первой</b> · ваш выбор</div>
+</div>
+</section>
+
+<!-- КАК ЧИТАТЬ -->
+<section>
+<div class="kicker gold">как читать этот разбор</div>
+<h2>Всё из списка строится<br>на одном ядре</h2>
+<p class="body">Пульт это база знаний о группе плюс агенты поверх неё. Каждая волна добавляет агентов, но ядро, подключения и правила строятся один раз. Поэтому порядок волн важен: каждая следующая опирается на данные предыдущей. Порядок после первой волны утверждаем вместе, он не догма.</p>
+<div class="anchor"><b>Начинаем с финансового блока:</b> боль названа вами прямо, окупаемость видна. Остальные волны включаются по вашему решению, каждая со своей сметой до старта.</div>
+</section>
+
+<!-- ВОЛНА I -->
+<section>
+<div class="kicker gold">продаём сейчас · 4 500 €</div>
+<div class="wave">
+<div class="whead"><div class="wno">I</div><h3>Финансовый блок</h3><span class="wwhen now">недели 1-3 · старт</span></div>
+<div class="witem"><div class="t">Инвойсы из чата в Intuit</div><p>Фото и сканы инвойсов из ваших групп агент распознаёт, разносит по статьям в QuickBooks нужной компании и прикрепляет оригинал к проводке. Ваше одобрение отметкой остаётся воротами.</p><span class="tag">ваш пункт · QuickBooks · проверенный контур</span></div>
+<div class="witem"><div class="t">Накладные в Syrve</div><p>Распознание номенклатуры в товарных накладных и занесение в бэк-офис Syrve. Вторая линия того же конвейера: один документ, два учёта, ноль двойного ручного ввода.</p><span class="tag">ваш пункт · Syrve (iiko) · собирали в другом проекте</span></div>
+<div class="witem"><p>Подробный конвейер, лестница внедрения и цена: <a href="#offer" style="color:var(--blue);font-weight:600">на первой странице</a>. До демо на ваших документах не платите ничего, вторая половина после того, как первый ваш счёт прошёл путь целиком.</p></div>
+</div>
+</section>
+
+<!-- ВОЛНА II -->
+<section>
+<div class="kicker gold">после финансового блока</div>
+<div class="wave">
+<div class="whead"><div class="wno">II</div><h3>Деньги: аналитика и платежи</h3><span class="wwhen">2-4 недели</span></div>
+<div class="witem"><div class="t">Отчёты и ошибки учёта</div><p>Графические аналитические отчёты на данных QuickBooks по каждой компании и по группе целиком. Отдельный агент ищет ошибки учёта: дубли, расхождения сумм, пропущенные документы, странные статьи.</p><span class="tag">ваш пункт · QuickBooks отдаёт отчёты через подключение</span></div>
+<div class="witem"><div class="t">Аналитика Syrve / iiko</div><p>ABC-анализ по блюдам, гостевой поток, средний чек и наполненность чека поверх базовых отчётов Syrve. Сводка по 12 точкам с сигналами отклонений, а не таблицы ради таблиц.</p><span class="tag">ваш пункт · Syrve</span></div>
+<div class="witem"><div class="t">Платежи Revolut и Bank of Cyprus</div><p>Агент готовит платёжные поручения по плану платежей из Intuit, человек подтверждает каждый платёж в банке. Полный автомат на исходящие деньги мы сознательно не строим: это защита группы, а не ограничение технологии.</p><span class="tag">ваш пункт · подтверждение человеком всегда</span></div>
+</div>
+</section>
+
+<!-- ВОЛНА III -->
+<section>
+<div class="kicker gold">гостевой фронт</div>
+<div class="wave">
+<div class="whead"><div class="wno">III</div><h3>Гостевые коммуникации</h3><span class="wwhen">3-5 недель</span></div>
+<div class="witem"><div class="t">Агенты каналов связи</div><p>WhatsApp, Telegram, Instagram, Facebook: ответы на вопросы о заведениях и меню, приём броней с постановкой в вашу систему Remarked. Возможности интеграции Remarked проверим на созвоне: от этого зависит, пишет агент брони сам или готовит их менеджеру.</p><span class="tag">ваш пункт · Remarked уточняем</span></div>
+<div class="witem"><div class="t">Банкетное меню и продажи</div><p>Агент расчёта банкетного меню по вашим калькуляциям, помощники менеджеров по продажам и служба контроля качества ресторанов и доставки: агенты поверх гостевого ядра и данных Syrve.</p><span class="tag">ваш пункт</span></div>
+<div class="witem"><div class="t">Лояльность и кампании</div><p>Сегментация гостевой базы на основе Remarked и маркетинговые кампании по сегментам: кто давно не был, кто ходит в один бар, кто заказывает доставку. Запуск кампании утверждает человек.</p><span class="tag">ваш пункт · Remarked</span></div>
+</div>
+</section>
+
+<!-- ВОЛНА IV -->
+<section>
+<div class="kicker gold">голос</div>
+<div class="wave">
+<div class="whead"><div class="wno">IV</div><h3>AI-телефония</h3><span class="wwhen">2-3 недели</span></div>
+<div class="witem"><div class="t">Голосовой агент</div><p>Ответы голосом на те же вопросы: заведение, меню, бронь, с отметкой в тех же базах. ElevenLabs или аналог, выберем по качеству русского, греческого и английского. Голосовых агентов мы собирали, поэтому оценка сроков здесь из практики.</p><span class="tag">ваш пункт · идёт после текстовых: голос наследует их знания</span></div>
+<div class="witem"><p>Голос ставим после третьей волны сознательно: голосовой агент хорош ровно настолько, насколько хороша база знаний под ним. Сначала текстовые агенты её выращивают, потом голос получает её бесплатно.</p></div>
+</div>
+</section>
+
+<!-- ВОЛНА V -->
+<section>
+<div class="kicker gold">контент и реклама</div>
+<div class="wave">
+<div class="whead"><div class="wno">V</div><h3>Контент и маркетинг</h3><span class="wwhen">3-5 недель</span></div>
+<div class="witem"><div class="t">Дизайн полиграфии и лендингов</div><p>Макеты меню, тейбл-тенты, афиши и лендинги продуктов на основе ваших фото- и видеоматериалов. Агент генерирует варианты, человек утверждает макет.</p><span class="tag">ваш пункт</span></div>
+<div class="witem"><div class="t">Рилсы и посты</div><p>Генерация рилсов и постов из ваших материалов, календарь и постинг в оптимальное время по каждой точке. Тон каждого заведения свой.</p><span class="tag">ваш пункт</span></div>
+<div class="witem"><div class="t">Таргетированная реклама</div><p>Сборка креативов из ваших материалов, отчёты по кампаниям, рекомендации по бюджетам. Управление ставками полуавтоматом: агент предлагает, человек подтверждает.</p><span class="tag">ваш пункт</span></div>
+<div class="witem"><div class="t">Виртуальные модели</div><p>Виртуальные персонажи для посещения заведений и освещения продуктов группы. Технология есть, эффект на вашу аудиторию честно проверяем малым тиражом, прежде чем масштабировать.</p><span class="tag">ваш пункт · эксперимент</span></div>
+</div>
+</section>
+
+<!-- ВОЛНА VI -->
+<section>
+<div class="kicker gold">знания и команда</div>
+<div class="wave">
+<div class="whead"><div class="wno">VI</div><h3>Знания и команда</h3><span class="wwhen">2-4 недели</span></div>
+<div class="witem"><div class="t">Личные помощники сотрудникам</div><p>Протоколы встреч с помощью Plaud, постановка задач из протоколов и отслеживание исполнения через агента. На этом принципе работает наша собственная операционная система, так что контур обкатан на себе.</p><span class="tag">ваш пункт · Plaud + задачи</span></div>
+<div class="witem"><div class="t">Меню, чек-листы, инструкции</div><p>ИИ для создания меню, чек-листов открытия и закрытия, инструкций и систем мотивации. Пишутся из практики группы и данных Syrve, а не из шаблонов.</p><span class="tag">ваш пункт</span></div>
+<div class="witem"><div class="t">Мониторинг конкурентов</div><p>Регулярный сбор знаний о рынке: меню, цены, акции и отзывы конкурентов по Лимассолу. Еженедельная сводка с изменениями, а не разовый отчёт.</p><span class="tag">ваш пункт</span></div>
+</div>
+</section>
+
+<!-- СВОДНАЯ КАРТА -->
+<section class="dark">
+<div class="kicker">сводная дорожная карта</div>
+<h2>Волны идут одна за другой.<br>Порядок после первой: ваш выбор</h2>
+<div class="rows">
+<div class="row"><div class="k">I · Финансовый блок</div><div class="v">Недели 1-3 · 4 500 € · инвойсы в QuickBooks + накладные в Syrve. <b>Согласовано, начинаем с него.</b></div></div>
+<div class="row"><div class="k">II · Деньги</div><div class="v">2-4 недели · отчёты, ошибки учёта, аналитика iiko, платёжные черновики Revolut и Bank of Cyprus.</div></div>
+<div class="row"><div class="k">III · Гостевые коммуникации</div><div class="v">3-5 недель · агенты каналов + брони Remarked, банкетное меню, продажи, контроль качества, лояльность.</div></div>
+<div class="row"><div class="k">IV · AI-телефония</div><div class="v">2-3 недели · голосовой агент поверх знаний текстовых агентов.</div></div>
+<div class="row"><div class="k">V · Контент и маркетинг</div><div class="v">3-5 недель · дизайн, рилсы и посты, таргет, виртуальные модели.</div></div>
+<div class="row"><div class="k">VI · Знания и команда</div><div class="v">2-4 недели · личные помощники, меню и инструкции, мониторинг конкурентов.</div></div>
+</div>
+<p class="lead" style="margin-top:1.8rem">Сроки волн ориентировочные и уточняются на воротах предыдущей волны. Цены волн II-VI считаем по факту состава: каждая волна - отдельная смета до старта, без сюрпризов. Волны II и VI можно вести параллельно основной: они не трогают гостевой фронт.</p>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale" style="border-top:1px solid #2a2a2a">
+<div class="big">Список из 14 пунктов это не хаос.<br><span class="ac">Это дорожная карта на год.</span></div>
+<div class="cta">
+<a class="btn" href="#offer">Начинаем с финансового блока</a>
+<div class="small">Архитектура и развитие группы: <a href="#next">третий раздел</a></div>
+</div>
+</section>
+
+<footer>
+<div><b>Пульт Трансформации</b> · ресторанная группа · Лимассол</div>
+<div><b>Станислав Жуковец</b> и <b>Михаил Зеленин</b> · внедрение агентного ИИ в бизнес</div>
+<div><a href="#next">Развитие →</a></div>
+</footer>
+
+</div>
+
+<!-- ================================ ДОКУМЕНТ 3 · РАЗВИТИЕ ================================ -->
+<div class="doc" id="doc-next">
+
+<!-- HERO -->
+<section class="hero">
+<div class="club"><b>Пульт Трансформации</b> · архитектура и развитие</div>
+<h1>Один пульт.<br>Пять слоёв.<br><span>Шесть направлений</span></h1>
+<p class="sub">Как устроена система, которая начинается с финансового агента, и куда она ведёт группу: от гостевого агента до сводной картины по всем точкам каждое утро.</p>
+</section>
+
+<!-- ГОСТЕВОЙ АГЕНТ -->
+<section>
+<div class="kicker gold">второй контур · гостевой агент</div>
+<h2>Каждая заявка получает ответ.<br>Каждый отзыв получает голос</h2>
+<p class="body">У 12 точек гости пишут круглосуточно: брони, банкеты, кейтеринг, жалобы, благодарности. Скорость и тон ответа решают, вернётся ли гость. Агент отвечает за минуты и всегда в голосе заведения.</p>
+<div class="steps">
+<div class="step"><div class="n">1</div><div class="t"><b>Приём заявок.</b> Брони, банкеты и кейтеринг из WhatsApp, Instagram и с сайта. Агент отвечает сразу, собирает детали: дата, количество гостей, бюджет, пожелания - и передаёт менеджеру готовую карточку, а не переписку на полчаса.</div></div>
+<div class="step"><div class="n">2</div><div class="t"><b>Обратная связь.</b> Отзывы Google и TripAdvisor по всем точкам в одной ленте. На каждый отзыв черновик ответа в тоне заведения, публикация после одобрения человеком.</div></div>
+<div class="step"><div class="n">3</div><div class="t"><b>Соцсети.</b> Календарь публикаций, черновики постов под события и меню каждой точки. Человек утверждает, агент публикует и следит за реакцией.</div></div>
+<div class="step"><div class="n">4</div><div class="t"><b>Голос бренда.</b> У разных заведений разный характер. Агент ведёт отдельный тон для каждой точки: бар отвечает не так, как ресторан.</div></div>
+<div class="step"><div class="n">5</div><div class="t"><b>Эскалация.</b> Конфликт, жалоба на здоровье, вопрос о деньгах: такие ветки агент не ведёт сам, а сразу поднимает человеку с полным контекстом.</div></div>
+</div>
+</section>
+
+<!-- ПОЧЕМУ ВТОРОЙ БЫСТРЕЕ -->
+<section>
+<div class="kicker gold">почему второй агент быстрее первого</div>
+<h2>Одна механика, разные данные</h2>
+<div class="vs">
+<div class="col">
+<div class="k">Финансовый агент</div>
+<div class="v">Перехват документа из WhatsApp → разбор → предложение разнесения → подтверждение бухгалтером → проводка в QuickBooks и Syrve.</div>
+</div>
+<div class="col hi">
+<div class="k">Гостевой агент</div>
+<div class="v">Перехват сообщения гостя → разбор → черновик ответа → подтверждение менеджером → отправка и карточка заявки. <b>Тот же конвейер, другие данные.</b> Поэтому второй контур собирается быстрее и дешевле первого: ядро уже стоит.</div>
+</div>
+</div>
+</section>
+
+<!-- ПЯТЬ СЛОЁВ -->
+<section class="dark">
+<div class="kicker">глобальная архитектура</div>
+<h2>Один пульт. Пять слоёв</h2>
+<p class="lead">Пульт это не дашборд и не один бот. Это база знаний о группе, поверх которой работают отдельные агенты. Каждый занят своим делом, потому что один универсальный помощник ломается на всём сразу.</p>
+<div class="layers" style="margin-top:2.6rem">
+<div class="layer"><div class="nm" style="color:#fff">Мозги</div><div class="ds" style="color:#b5b5b5">Агенты, каждый под свою работу: финансовый, номенклатурный, гостевой</div></div>
+<div class="layer"><div class="nm" style="color:#fff">Память</div><div class="ds" style="color:#b5b5b5">База знаний группы: план счетов, поставщики, меню, тон каждого заведения</div></div>
+<div class="layer"><div class="nm" style="color:#fff">Правила</div><div class="ds" style="color:#b5b5b5">Что агент решает сам, а что несёт человеку. Границы доступа к чувствительному</div></div>
+<div class="layer"><div class="nm" style="color:#fff">Руки</div><div class="ds" style="color:#b5b5b5">Подключения: WhatsApp, QuickBooks, Syrve, отзывы, соцсети, почта</div></div>
+<div class="layer"><div class="nm" style="color:#fff">Экран</div><div class="ds" style="color:#b5b5b5">Доклад владельцу: деньги, документы, заявки и отзывы по 12 точкам</div></div>
+</div>
+<p class="lead" style="margin-top:2.4rem">Перед вторым контуром делаем короткую ИТ-карту группы: какие системы где развёрнуты, какие серверы и доступы существуют. Это несколько часов работы и страховка от сюрпризов на каждом следующем шаге - в том числе ответ на ваш вопрос про безопасность и доступы сотрудников.</p>
+</section>
+
+<!-- ДОРОЖНАЯ КАРТА КОНТУРОВ -->
+<section>
+<div class="kicker gold">дорожная карта</div>
+<h2>Пульт растёт контурами,<br>а не переделками</h2>
+<div class="ladder">
+<div class="ws"><div class="no">I</div><div class="head"><h3>Финансовый контур</h3><span class="when">недели 1-3</span></div><p>Быстрая победа там, где боль названа вами прямо: инвойсы из WhatsApp в QuickBooks и Syrve. Подробно на первой странице.</p><span class="gate">Ворота: первый счёт прошёл конвейер целиком</span></div>
+<div class="ws"><div class="no">II</div><div class="head"><h3>ИТ-карта группы</h3><span class="when">параллельно</span></div><p>Короткий аудит: системы, серверы, доступы, что где хранится. Результат: схема, от которой безопасно строить остальное.</p><span class="gate">Ворота: карта на руках у вас и у нас</span></div>
+<div class="ws"><div class="no">III</div><div class="head"><h3>Гостевой агент</h3><span class="when">недели 4-6</span></div><p>Заявки, отзывы, соцсети на готовом ядре. Тон каждого заведения, эскалация человеку, карточки заявок менеджеру.</p><span class="gate">Ворота: агент ведёт живые заявки под присмотром</span></div>
+<div class="ws"><div class="no">IV</div><div class="head"><h3>Пульт владельца</h3><span class="when">дальше, по вашему выбору</span></div><p>Сводная картина группы: деньги, документы, гости по всем точкам на одном экране. И новые контуры по мере того, где болит: закупки, персонал, отчётность.</p><span class="gate">Ворота: вы решаете, что следующее</span></div>
+</div>
+<div class="note">Агенты меняются и добавляются. Ядро строится один раз.</div>
+</section>
+
+<!-- ПОЧЕМУ СНАЧАЛА ФИНКОНТУР -->
+<section>
+<div class="kicker gold">почему сначала финансовый контур</div>
+<h2>Автоматизация кредиторки это<br>фундамент данных, а не только экономия</h2>
+<p class="body">Пока документы разносятся руками, у группы нет машиночитаемой картины закупок. Как только финансовый агент встал, каждый инвойс превращается в данные: кто, что, почём, для какой точки. На этом фундаменте стоят все шесть направлений ниже.</p>
+<div class="quote">Сначала система убирает ручной труд. <span class="accent">Потом те же данные начинают отвечать на вопросы владельца.</span></div>
+</section>
+
+<!-- ШЕСТЬ НАПРАВЛЕНИЙ -->
+<section>
+<div class="kicker gold">карта возможностей</div>
+<h2>Шесть направлений развития</h2>
+<p class="body">Это карта возможностей, а не обещания: каждое направление обсуждаем отдельно и берём тогда, когда оно созрело.</p>
+<div class="rooms">
+<div class="room"><div class="nm">Единая управленческая картина</div><p>Семь компаний в QuickBooks уже отдают стандартные отчёты: баланс, прибыль и убытки, денежный поток, кредиторка по срокам. Пульт собирает из них сводную картину группы: по каждой точке и по группе целиком, каждое утро, без ожидания закрытия месяца.</p><div class="core">на данных · QuickBooks</div></div>
+<div class="room"><div class="nm">Фудкост и закупки</div><p>Syrve знает, что продаётся. Финансовый контур знает, что закупается и почём. Вместе это фудкост по блюдам, прогноз закупок и раннее обнаружение расхождений: списания и недостачи видны по расхождению линий, а не по итогам инвентаризации.</p><div class="core">на данных · QuickBooks + Syrve</div></div>
+<div class="room"><div class="nm">Гостевая база и повторные визиты</div><p>Заявки, брони и отзывы стекаются в одну базу по всем точкам. Видно, кто возвращается, какие точки теряют гостей и почему. Из этого растут точечные акции и работа с постоянными гостями вместо рекламы вслепую.</p><div class="core">на данных · гостевой агент</div></div>
+<div class="room"><div class="nm">Кейтеринг как канал роста</div><p>В кейтеринге сделку часто решает скорость ответа на заявку. Агент отвечает за минуты и в любое время, собирает детали и передаёт менеджеру готовую смету-заготовку. Канал растёт без расширения штата продаж.</p><div class="core">на данных · гостевой агент</div></div>
+<div class="room"><div class="nm">Регламенты из практики</div><p>Чек-листы открытия и закрытия, онбординг новых сотрудников, передача смены. Пульт пишет регламенты из того, как реально работает команда, а не из шаблонов. Новая точка открывается по проверенной книге, а не по памяти управляющего.</p><div class="core">на данных · вся группа</div></div>
+<div class="room"><div class="nm">Время бухгалтерии</div><p>До 150 документов в день это часы ручного ввода ежедневно, помноженные на две учётные линии. Когда ввод уходит агентам, люди переключаются на контроль, сверки и работу с поставщиками: на то, что действительно требует человека.</p><div class="core">на данных · финансовый контур</div></div>
+</div>
+<div class="note">Цифры экономии здесь сознательно не названы: считать их до пилота значит гадать. После двух недель работы финансового контура у вас будет честная метрика: доля документов без ручной правки и время команды, которое освободилось. От неё и посчитаем экономику каждого следующего шага.</div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale">
+<div class="big">Группа уже создаёт данные каждый день.<br><span class="ac">Пульт превращает их в решения.</span></div>
+<div class="cta">
+<a class="btn" href="#offer">Вернуться к предложению</a>
+<div class="small">Разбор 14 пунктов: <a href="#plan">второй раздел</a> · Вопросы Станиславу: <a href="https://t.me/stanistar888">@stanistar888</a></div>
+</div>
+</section>
+
+<footer>
+<div><b>Пульт Трансформации</b> · ресторанная группа · Лимассол</div>
+<div><b>Станислав Жуковец</b> и <b>Михаил Зеленин</b> · внедрение агентного ИИ в бизнес</div>
+<div><a href="#offer">← К предложению</a></div>
+</footer>
+
+</div>
+
+<a class="fab" href="https://t.me/stanistar888"><span class="dot"></span>Задать вопрос</a>
+<script>
+(function(){
+  var ids = ['offer','plan','next'];
+  var tabs = document.querySelectorAll('.navtop .tabs a');
+  function show(id, push){
+    if(ids.indexOf(id) < 0) id = 'offer';
+    ids.forEach(function(x){ document.getElementById('doc-'+x).hidden = (x !== id); });
+    tabs.forEach(function(t){ t.classList.toggle('on', t.dataset.tab === id); });
+    document.title = ({offer:'Пульт Трансформации · для Николая',
+                       plan:'Ваш список из 14 пунктов · Пульт Трансформации',
+                       next:'Архитектура и развитие · Пульт Трансформации'})[id];
+    if(push) window.scrollTo(0,0);
+  }
+  function fromHash(){ return (location.hash || '#offer').slice(1); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if(ids.indexOf(id) < 0) return;
+    e.preventDefault();
+    if(location.hash !== '#'+id) history.pushState(null,'','#'+id);
+    show(id, true);
+  });
+  window.addEventListener('popstate', function(){ show(fromHash(), false); });
+  show(fromHash(), false);
+})();
+</script>
+</body>
+</html>
