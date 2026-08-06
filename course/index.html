@@ -176,6 +176,8 @@
   footer b{color:var(--ink)}
 
   .brandcorner{position:fixed;right:1rem;bottom:.8rem;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);font-weight:600;z-index:5;pointer-events:none}
+  /* бренд всегда Mg: большая M, маленькая g - не даём uppercase его сломать */
+  .mgb{text-transform:none !important}
 </style>
 
 <div class="brandcorner">корпоративный курс</div>
@@ -338,7 +340,7 @@
   <div class="proofs">
     <div class="proof">
       <div class="tag">продажник</div>
-      <h3>ИИ-бухгалтер Mg</h3>
+      <h3>ИИ-бухгалтер <span class="mgb">Mg</span></h3>
       <p>Консультирует клиента по налогам, квалифицирует, ведёт к встрече и сам кладёт горячий лид в CRM. Не консультант - продавец, работает 24/7.</p>
     </div>
     <div class="proof">

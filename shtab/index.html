@@ -201,6 +201,8 @@
   .small a{color:var(--gold)}
   footer{padding:3rem 8vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--grey);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;background:var(--white)}
   footer b{color:var(--ink)} footer a{color:var(--blue);text-decoration:none;font-weight:600}
+  /* бренд всегда Mg: большая M, маленькая g - не даём uppercase его сломать */
+  .mgb{text-transform:none !important}
 </style>
 </head>
 <body>
@@ -537,7 +539,7 @@
     </div>
     <div class="proof">
       <div class="tag">продажник</div>
-      <h3>ИИ-бухгалтер Mg</h3>
+      <h3>ИИ-бухгалтер <span class="mgb">Mg</span></h3>
       <p>Консультирует клиентов по налогам, квалифицирует, ведёт к встрече и сам кладёт горячий лид в CRM. Работает 24/7.</p>
     </div>
     <div class="proof">
