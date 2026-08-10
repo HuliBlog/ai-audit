@@ -218,14 +218,14 @@
 
   /* Максим читает это с телефона: мелкие капсовые подписи ниже 12px не поднимаем меньше .78rem,
      трекинг чуть ужимаем, чтобы строки не ломались */
-  /* планшет и узкое окно: подписи тоже не должны падать ниже 12px */
-  @media(max-width:900px){
-    .deal .dk,.fact .nm,.scene .when,.ws .when,.ws .gate,.room .core,
-    .brief .bh,.host .role,.price .pt,.row .k,.vs .k,.tco .k,.split .sl{
-      font-size:.78rem;letter-spacing:.13em
-    }
-    .kicker,.hero .club{font-size:.8rem;letter-spacing:.22em}
+  /* Ни одна капсовая подпись не опускается ниже 12px ни на одном размере:
+     Максим читает это с телефона, и мелкий трекованный капс там не читается */
+  .deal .dk,.fact .nm,.scene .when,.ws .when,.ws .gate,.room .core,
+  .brief .bh,.host .role,.price .pt,.row .k,.vs .k,.tco .k,.split .sl{
+    font-size:.78rem;letter-spacing:.13em
   }
+  .kicker,.hero .club{font-size:.8rem;letter-spacing:.22em}
+  .deal .dr{grid-template-columns:14.5rem 1fr}
   @media(max-width:680px){
     .kicker{font-size:.8rem;letter-spacing:.22em}
     .hero .club{font-size:.8rem;letter-spacing:.22em}
