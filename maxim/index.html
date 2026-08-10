@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+<meta name="referrer" content="no-referrer">
+<title>Цифровой штаб · контур «Объекты» для SHATRO Engineering</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://audit.maizongroup.com/maxim/">
+<meta property="og:title" content="Цифровой штаб · контур «Объекты»">
+<meta property="og:description" content="Агент первого лица, который живёт в телефоне, понимает голосовые по-русски, знает ваши объекты и сметы и приходит сам каждое утро. Первый ответ через 5 рабочих дней.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF;
+    --blue-soft:#e8ebff;
+    --gold:#ddb85b;
+    --gold-deep:#93671a;   /* золото для текста на светлом: контраст 5.0:1, читается с телефона на солнце */
+    --black:#121212;
+    --ink:#1c1c1c;
+    --grey:#717171;
+    --silver:#d9d9d9;
+    --hair:#ececec;
+    --light:#f6f5f5;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 7vw}}
+  .kicker{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1,h2{font-weight:600;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+  h1{font-size:clamp(2.1rem,5.6vw,4rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.55rem,3.4vw,2.5rem);margin-bottom:1.3rem}
+  .pain-punch{display:block;margin-top:.6rem;color:var(--blue)}
+  p{font-size:clamp(1rem,1.5vw,1.12rem);color:var(--ink)}
+  p.body{color:var(--grey);max-width:46rem;margin-top:1rem}
+  b{font-weight:600;color:var(--ink)}
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2,.dark h3{color:var(--white)}
+  /* страховка: любой абзац на тёмном светлый, частные правила ниже перебивают */
+  .dark p{color:#b5b5b5}
+  .dark p.body{color:#b5b5b5}
+  .dark b{color:#fff}
+  .dark .kicker{color:var(--gold)}
+  .quote{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.3rem,2.7vw,2rem);line-height:1.4;max-width:46rem;margin-top:1.8rem}
+  .quote .accent{color:var(--gold-deep);font-style:normal}
+  .dark .quote{color:#fff} .dark .quote .accent{color:var(--gold)}
+
+  /* hero */
+  .hero{min-height:74vh;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
+  .hero .club{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.4rem;line-height:1.9}
+  .hero .club b{color:var(--blue)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.8rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--grey);max-width:44rem}
+  .hero .meta{margin-top:2.6rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:center;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  /* карточка сделки */
+  .deal{margin-top:1.8rem;border:1px solid var(--silver);border-top:3px solid var(--blue);max-width:62rem}
+  .deal .dr{display:grid;grid-template-columns:13rem 1fr;gap:1.4rem;padding:1.15rem 1.7rem;border-bottom:1px solid var(--hair);align-items:baseline}
+  .deal .dr:last-child{border-bottom:none}
+  .deal .dk{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .deal .dv{font-size:1.02rem;color:var(--grey);line-height:1.5}
+  .deal .dv b{color:var(--ink)}
+  .deal .dv .amt{font-family:'Baskervville',serif;font-size:1.5rem;color:var(--ink)}
+  @media(max-width:680px){.deal .dr{grid-template-columns:1fr;gap:.25rem;padding:1rem 1.2rem}}
+
+  /* три колонки */
+  .rules{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .rule{border-top:2px solid var(--blue);padding-top:1.1rem}
+  .rule .no{font-family:'Baskervville',serif;font-size:2rem;color:var(--blue);line-height:1}
+  .rule .t{font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin:.5rem 0 .5rem}
+  .rule p{font-size:.96rem;color:var(--grey);margin:0}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+  /* факты о компании */
+  .facts{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .fact{background:var(--white);border:1px solid var(--silver);padding:1.7rem 1.6rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .fact:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .fact .nm{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:.7rem}
+  .fact .big{font-family:'Baskervville',serif;font-size:1.9rem;color:var(--ink);line-height:1.1;margin-bottom:.6rem}
+  .fact p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.55}
+  @media(max-width:900px){.facts{grid-template-columns:1fr}}
+
+  /* сравнение */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  .vs .col{padding:1.7rem 1.6rem;border:1px solid var(--silver)}
+  .vs .col.hi{border:1px solid var(--blue);background:var(--blue-soft)}
+  .vs .k{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--grey);margin-bottom:.9rem}
+  .vs .col.hi .k{color:var(--blue)}
+  .vs .v{font-size:.98rem;color:var(--ink);line-height:1.6}
+  .vs ul{list-style:none;display:grid;gap:.55rem}
+  .vs li{font-size:.96rem;color:var(--grey);padding-left:1.25rem;position:relative;line-height:1.5}
+  .vs li::before{content:"·";position:absolute;left:.25rem;color:var(--grey);font-weight:700}
+  .vs .col.hi li::before{content:"+";left:0;color:var(--blue)}
+  .vs .col.hi li{color:var(--ink)}
+  @media(max-width:680px){.vs{grid-template-columns:1fr}}
+
+  /* сцены дня */
+  .scenes{margin-top:2rem;display:grid;gap:0;max-width:56rem;border-top:1px solid var(--silver)}
+  .scene{display:grid;grid-template-columns:3.4rem 1fr;gap:1.4rem;padding:1.5rem .3rem;border-bottom:1px solid var(--silver)}
+  .scene .n{font-family:'Baskervville',serif;font-size:1.9rem;color:var(--blue);line-height:1}
+  .scene .when{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:.35rem}
+  .scene p{font-size:1rem;color:var(--grey);margin:0}
+  .scene p b{color:var(--ink)}
+  @media(max-width:600px){.scene{grid-template-columns:1fr;gap:.4rem}}
+
+  /* шаги */
+  .steps{margin-top:1.8rem;display:grid;gap:1.2rem;max-width:52rem}
+  .step{display:grid;grid-template-columns:3rem 1fr;gap:1.2rem;align-items:start}
+  .step .n{font-family:'Baskervville',serif;font-size:2rem;color:var(--blue);line-height:1}
+  .step .t{font-size:1rem;color:var(--grey);padding-top:.35rem} .step .t b{color:var(--ink)}
+
+  /* пример доклада */
+  .brief{margin-top:2rem;max-width:44rem;border:1px solid #2c2c2c;background:#0d0d0d;padding:1.7rem 1.6rem}
+  .brief .bh{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:1.1rem}
+  .brief ul{list-style:none;display:grid;gap:.75rem}
+  .brief li{font-size:.95rem;color:#cdcdcd;padding-left:1.6rem;position:relative;line-height:1.5}
+  .brief li::before{content:"";position:absolute;left:0;top:.6rem;width:.55rem;height:.55rem;background:var(--gold);border-radius:50%}
+  .brief li b{color:#fff;font-weight:600}
+  .brief .bf{margin-top:1.2rem;padding-top:1rem;border-top:1px solid #2c2c2c;font-size:.85rem;color:#8a8a8a;font-family:'Baskervville',serif;font-style:italic}
+
+  /* лестница внедрения */
+  .ladder{display:flex;flex-direction:column;margin-top:2rem;border-top:1px solid var(--silver);max-width:62rem}
+  .ws{display:grid;grid-template-columns:5.2rem 1fr;gap:0 1.6rem;padding:2rem .3rem;border-bottom:1px solid var(--silver)}
+  .ws .no{font-family:'Baskervville',serif;font-size:clamp(2rem,4.4vw,3.1rem);color:var(--blue);line-height:1;grid-row:span 3}
+  .ws .head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+  .ws h3{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+  .ws .when{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:600;white-space:nowrap}
+  .ws p{color:var(--grey);font-size:clamp(.93rem,1.5vw,1.05rem);max-width:46rem;margin-top:.6rem}
+  .ws .gate{margin-top:.9rem;display:inline-block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);border:1px solid var(--gold);padding:.4rem 1rem}
+  @media(max-width:680px){.ws{grid-template-columns:1fr}.ws .no{grid-row:auto;margin-bottom:.3rem}}
+
+  /* риск */
+  .risk{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .risk .r{border-top:2px solid var(--gold);padding-top:1.1rem}
+  .risk .r .t{font-size:1rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin-bottom:.5rem;color:#fff}
+  .risk .r p{font-size:.94rem;color:#b5b5b5;margin:0}
+  @media(max-width:760px){.risk{grid-template-columns:1fr}}
+
+  /* цена */
+  .price{margin-top:2.2rem;border:1px solid var(--silver);border-top:3px solid var(--blue);padding:2.2rem 2rem;max-width:56rem}
+  .price .pt{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .price .pp{font-family:'Baskervville',serif;font-size:clamp(2.6rem,7vw,3.6rem);line-height:1;color:var(--ink)}
+  .price .unit{font-size:.96rem;color:var(--grey);margin-top:.7rem}
+  .split{margin-top:1.6rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .split .s{border:1px solid var(--hair);padding:1.1rem 1.2rem;background:var(--light)}
+  .split .s.now{border-color:var(--blue);background:var(--blue-soft)}
+  .split .sa{font-family:'Baskervville',serif;font-size:1.75rem;color:var(--ink);line-height:1}
+  .split .sl{font-size:.85rem;color:#565656;margin-top:.45rem;line-height:1.45}
+  .split .s.now .sl{color:var(--ink)}
+  @media(max-width:600px){.split{grid-template-columns:1fr}}
+  .price ul{list-style:none;display:grid;gap:.62rem;margin-top:1.7rem;padding-top:1.5rem;border-top:1px solid var(--hair)}
+  .price li{font-size:.96rem;color:var(--ink);padding-left:1.3rem;position:relative;line-height:1.5}
+  .price li::before{content:"+";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .after{margin-top:1.6rem;display:grid;gap:.85rem;border-top:1px solid var(--hair);padding-top:1.5rem}
+  .after div{font-size:.98rem;color:var(--grey);line-height:1.5}
+  .after b{color:var(--ink);font-weight:600}
+  .after .amt{color:var(--gold-deep);font-weight:600}
+  .tco{margin-top:2rem;max-width:56rem;border:1px solid var(--gold);background:#fffdf7;padding:1.6rem 1.7rem}
+  .tco .k{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:.7rem}
+  .tco p{font-size:.98rem;color:var(--grey);margin:0;line-height:1.6}
+  .tco p b{color:var(--ink)}
+
+  /* карточки-правила и FAQ */
+  .rooms{margin-top:2.2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:62rem}
+  .room{background:var(--white);border:1px solid var(--silver);padding:1.8rem 1.7rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .room:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .room .core{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);margin-bottom:.8rem}
+  .room .nm{font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:.6rem}
+  .room p{font-size:.94rem;color:var(--grey);margin:0;line-height:1.6}
+  @media(max-width:760px){.rooms{grid-template-columns:1fr}}
+  .qa{margin-top:2rem;max-width:56rem;border-top:1px solid var(--silver)}
+  .qa .q{padding:1.5rem .3rem;border-bottom:1px solid var(--silver)}
+  .qa .qt{font-size:clamp(1.02rem,1.9vw,1.2rem);font-weight:600;color:var(--ink);margin-bottom:.55rem}
+  .qa .qa-a{font-size:.99rem;color:var(--grey);line-height:1.62}
+  .qa .qa-a b{color:var(--ink)}
+
+  /* ведущие */
+  .hosts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.2rem;max-width:62rem}
+  .host{background:var(--white);border:1px solid var(--silver);padding:1.9rem 1.7rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .host:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .host .role{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1rem}
+  .host .name{font-family:'Baskervville',serif;font-size:1.5rem;color:var(--ink);line-height:1.15;margin-bottom:.6rem}
+  .host p{font-size:.93rem;color:var(--grey);margin:0}
+
+  /* строки договора */
+  .rows{margin-top:1.8rem;max-width:56rem;border-top:1px solid var(--silver)}
+  .row{display:grid;grid-template-columns:12rem 1fr;gap:1.6rem;padding:1.2rem .3rem;border-bottom:1px solid var(--silver);align-items:baseline}
+  .row .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .row .v{font-size:1rem;color:var(--grey)} .row .v b{color:var(--ink)}
+  @media(max-width:600px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+  .note{font-size:.88rem;color:var(--grey);margin-top:1.5rem;max-width:46rem;font-style:italic;font-family:'Baskervville',serif}
+  .dark .note{color:#8a8a8a}
+
+  /* финал */
+  .finale{text-align:center}
+  .finale .big{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.2;max-width:40rem;margin:0 auto;color:var(--white)}
+  .dark .finale .big{color:var(--white)}
+  .finale .big .ac{color:var(--gold)}
+  .cta{margin-top:2.4rem;text-align:center}
+  .btn{display:inline-block;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--blue);padding:1rem 2.4rem;text-decoration:none;transition:transform .3s}
+  .btn:hover{transform:translateY(-2px)}
+  .small{margin-top:1rem;font-size:.85rem;color:#8a8a8a}
+  .small a{color:var(--gold)}
+  footer{padding:3rem 8vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--grey);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;background:var(--white)}
+  footer b{color:var(--ink)} footer a{color:var(--blue);text-decoration:none;font-weight:600}
+  /* бренд всегда Mg: большая M, маленькая g - не даём uppercase его сломать */
+  .mgb{text-transform:none !important}
+
+  /* Максим читает это с телефона: мелкие капсовые подписи ниже 12px не поднимаем меньше .78rem,
+     трекинг чуть ужимаем, чтобы строки не ломались */
+  @media(max-width:680px){
+    .deal .dk,.fact .nm,.scene .when,.ws .when,.ws .gate,.room .core,
+    .brief .bh,.host .role,.price .pt,.row .k,.vs .k,.tco .k,.split .sl{
+      font-size:.78rem;letter-spacing:.13em
+    }
+    .kicker{font-size:.8rem;letter-spacing:.22em}
+    .hero .club{font-size:.8rem;letter-spacing:.22em}
+    .hero .meta{gap:1.1rem;font-size:.84rem;letter-spacing:.1em}
+    .btn{font-size:.86rem;letter-spacing:.12em;padding:1rem 1.9rem}
+    footer{font-size:.8rem;letter-spacing:.08em}
+    .brief li,.qa .qa-a,.room p,.fact p,.rule p,.risk .r p{font-size:1rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="club"><b>Цифровой штаб</b> · контур «Объекты»<br>для SHATRO Engineering</div>
+  <h1>Вам некогда садиться<br>за компьютер.<br><span>И не надо</span></h1>
+  <p class="sub">Агент, который живёт в вашем телефоне, понимает голосовые по-русски, знает ваши объекты и сметы и приходит сам каждое утро. Внутри та же топовая модель, которой вы уже пользуетесь.</p>
+  <div class="meta">
+    <div><b>Голосом</b> · как вы уже привыкли</div>
+    <div><b>Из телефона</b> · Telegram или WhatsApp</div>
+    <div><b>Ваш сервер</b> · сметы никуда не уезжают</div>
+    <div><b>5 рабочих дней</b> · до первого ответа</div>
+  </div>
+</section>
+
+<!-- КАРТОЧКА СДЕЛКИ -->
+<section>
+  <div class="kicker">если читать только один экран</div>
+  <h2>Вся сделка в шести строках</h2>
+  <p class="body">Дальше подробности: зачем, как устроено, что происходит по неделям. Но если времени нет совсем, достаточно этого блока.</p>
+  <div class="deal">
+    <div class="dr"><div class="dk">что получаете</div><div class="dv"><b>Агента первого лица в телефоне</b>, который знает ваши объекты, сметы и договоры, читает рабочие чаты и почту сам и каждое утро в 08:00 присылает короткую сводку по всем стройкам.</div></div>
+    <div class="dr"><div class="dk">сколько стоит</div><div class="dv"><span class="amt">6 900 €</span> под ключ. Из них <b>2 300 €</b> сейчас, <b>4 600 €</b> через две недели после запуска и только если пользуетесь.</div></div>
+    <div class="dr"><div class="dk">чем рискуете</div><div class="dv"><b>2 300 €.</b> Всё остальное вы платите за уже работающую систему, а не за обещание.</div></div>
+    <div class="dr"><div class="dk">сколько ждать</div><div class="dv"><b>5 рабочих дней</b> до первого осмысленного ответа по вашему объекту. <b>3 недели</b> до полного контура по всем стройкам.</div></div>
+    <div class="dr"><div class="dk">сколько вашего времени</div><div class="dv"><b>60 минут</b> один раз, у вас в офисе. Дальше только голосовые, которые вы и так наговариваете.</div></div>
+    <div class="dr"><div class="dk">что дальше</div><div class="dv">Сопровождение и сервер <b>590 €/мес</b>, первый месяц включён, отмена в любой момент. Следующие контуры по <b>2 900 €</b>, и только когда сами захотите.</div></div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ ПРОШЛЫЙ ЗАХОД НЕ ПОШЁЛ -->
+<section>
+  <div class="kicker gold">почему прошлый заход не пошёл</div>
+  <h2>Вы не бросили ИИ.<span class="pain-punch">Вы упёрлись в клавиатуру</span></h2>
+  <p class="body">На воркшопах результат был, вы сами это сказали. Дальше сломалась не мотивация, а вход: инструмент попросил сесть за стол, а ваша работа происходит между объектами, встречами и гостями. С телефона. Вы сформулировали это точнее нас: с компьютером неудобно, поэтому в телефоне у вас ЖПТ, и работаете вы с ним потому, что он понимает голосовые.</p>
+  <div class="rules">
+    <div class="rule">
+      <div class="no">I</div>
+      <div class="t">Вход не тот</div>
+      <p>Тот инструмент живёт на компьютере. Ваш рабочий инструмент это телефон. Пока эти двое не совпадут, ничего не приживётся, сколько ни настраивай.</p>
+    </div>
+    <div class="rule">
+      <div class="no">II</div>
+      <div class="t">Времени «заниматься» нет</div>
+      <p>Любая система, которая требует сесть и повозиться, у вас умрёт. Не потому что вы не хотите, а потому что окно между делами короче, чем настройка.</p>
+    </div>
+    <div class="rule">
+      <div class="no">III</div>
+      <div class="t">Спрашивать приходится вам</div>
+      <p>Помощник, которого надо дёргать, всегда проигрывает помощнику, который написал первым. Пока инициатива на вас, это ещё один пункт в вашем списке.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО МЫ УВИДЕЛИ -->
+<section>
+  <div class="kicker">прежде чем предлагать</div>
+  <h2>Мы посмотрели, как устроена<br>ваша компания</h2>
+  <p class="body">Не чтобы рассказать вам про вашу стройку, а чтобы не предлагать вам общий продукт. Три вещи, которые меняют суть сборки.</p>
+
+  <div class="facts">
+    <div class="fact">
+      <div class="nm">точек отказа много</div>
+      <div class="big">57 объектов<br>23 700 м²</div>
+      <p>Меньше чем за четыре года на Кипре, командой больше 150 человек. Полный цикл: архитектура, дизайн, стройка, отделка, инженерия, поставка из Европы и своё мебельное производство. Чем длиннее цикл, тем больше мест, где вопрос повисает, и тем дороже стоит один невыясненный.</p>
+    </div>
+    <div class="fact">
+      <div class="nm">три страны, один вы</div>
+      <div class="big">Лимассол<br>Киев, Лондон</div>
+      <p>Разные команды, разные часовые пояса, разные валюты и поставщики. Лондон открыт недавно и требует внимания больше остальных. Сводить это в одну картину в голове можно, но только пока вы на связи двадцать четыре часа.</p>
+    </div>
+    <div class="fact">
+      <div class="nm">люди у вас есть</div>
+      <div class="big">Слой управления<br>уже собран</div>
+      <p>Операционный директор, директор по строительству, внутренний контроль, руководители проектов, помощник CEO, закупки, бухгалтерия, мебельное производство. Мы не будем убеждать вас, что вам некому делегировать. Вам есть кому.</p>
+    </div>
+  </div>
+
+  <p class="quote">Проблема не в том, что <span class="accent">некому передать</span>. Проблема в том, что состояние объектов живёт в двадцати чатах, а сходится в одном месте: у вас в голове.</p>
+
+  <p class="body">Ваши люди знают каждый свой участок. Никто, кроме вас, не видит всю картину сразу, потому что нет места, где она собирается. Поэтому к вам и идут вопросы, ответ на которые лежит в переписке недельной давности. Открытые вакансии - главный архитектор, технический директор, руководитель проекта, дизайнер мебели - мы читаем как рост под Лондон, а не как дыру в управлении. Агент нужен не вместо этих людей и не для того, чтобы кого-то не нанимать. Он нужен как слой над ними: место, где состояние всех строек собирается само.</p>
+
+  <p class="note">Если что-то из этого читаем неправильно, поправьте на первой же встрече. Мы предпочитаем спросить вас, а не догадаться за вас.</p>
+</section>
+
+<!-- ГЛАВНОЕ ОТЛИЧИЕ -->
+<section>
+  <div class="kicker">главное отличие</div>
+  <h2>Мы не зовём вас уходить с ЖПТ.<br>Мы даём ему память и руки</h2>
+  <p class="body">Внутрь ставим ту же топовую модель, с которой вы уже работаете в телефоне. Собеседник не меняется, и заново привыкать не к чему. Меняется то, что он умеет.</p>
+  <div class="vs">
+    <div class="col">
+      <div class="k">ЖПТ в телефоне сейчас</div>
+      <ul>
+        <li>Помнит разговор, но не помнит компанию</li>
+        <li>Знает мир, но не знает ваши объекты</li>
+        <li>Ждёт, пока вы спросите</li>
+        <li>Отвечает, но ничего не делает</li>
+        <li>Всё, что вы ему отправили, лежит в чужом облаке</li>
+      </ul>
+    </div>
+    <div class="col hi">
+      <div class="k">он же, но в вашем штабе</div>
+      <ul>
+        <li>Помнит вашу компанию: объекты, сметы, договоры, поставщиков, переписку</li>
+        <li>Приходит сам каждое утро со сводкой</li>
+        <li>Действует: читает почту, разбирает вложения, готовит письмо подрядчику</li>
+        <li>База на вашем сервере, не в чужом облаке</li>
+        <li>И по-прежнему понимает голос</li>
+      </ul>
+    </div>
+  </div>
+  <p class="body">Это не ещё один чат. Это оболочка вокруг модели: память, доступ к вашим файлам и каналам, расписание и правила, что он делает сам, а что приносит вам на решение. Имя агенту выбираете вы. По умолчанию он откликается на Гермеса.</p>
+</section>
+
+<!-- ДЕНЬ -->
+<section>
+  <div class="kicker">как это выглядит в вашем дне</div>
+  <h2>Ничего не открывать.<br>Только говорить</h2>
+  <div class="scenes">
+    <div class="scene">
+      <div class="n">1</div>
+      <div>
+        <div class="when">08:00 · вы ещё не доехали</div>
+        <p>В телефоне уже лежит сводка: по каким объектам отставание, где перерасход по смете, кто ждёт вашего решения сегодня. Вы её просто читаете, ничего не запрашивая.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="n">2</div>
+      <div>
+        <div class="when">за рулём</div>
+        <p>Наговариваете голосовое: <b>«что по Blue Gold, где мы по бюджету»</b>. Через десять секунд ответ, собранный из чатов прораба, почты и таблицы. Без звонков четверым.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="n">3</div>
+      <div>
+        <div class="when">на объекте</div>
+        <p>Голосом: <b>«запиши, у нас по вентиляции сдвиг на неделю, предупреди заказчика»</b>. Он фиксирует, готовит письмо и показывает вам на подтверждение. Отправляете одним касанием.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="n">4</div>
+      <div>
+        <div class="when">пришёл счёт от поставщика</div>
+        <p>Пересылаете ему PDF прямо в чат. Он вытаскивает позиции, сверяет с заказом и говорит, где расхождение по цене или количеству.</p>
+      </div>
+    </div>
+    <div class="scene">
+      <div class="n">5</div>
+      <div>
+        <div class="when">вечером, между гостями</div>
+        <p><b>«Что осталось на завтра»</b>. Короткий список того, что висит на вас, а не на команде.</p>
+      </div>
+    </div>
+  </div>
+  <p class="note">Голосовые он понимает по-русски, из коробки, без выбора языка и без настроек. Ответить может текстом или голосом, как вам удобнее.</p>
+</section>
+
+<!-- ПРИМЕР ДОКЛАДА -->
+<section class="dark">
+  <div class="kicker" style="color:var(--gold)">чтобы не покупать вслепую</div>
+  <h2>Вот как выглядит<br>утренний доклад</h2>
+  <p class="body">Не отчёт на пять страниц, а короткий список того, что требует именно вас. Пример собран на условных данных, чтобы показать формат. На ваших он будет по вашим объектам.</p>
+  <div class="brief">
+    <div class="bh">08:00 · сводка по объектам · вторник</div>
+    <ul>
+      <li><b>Требует вас сегодня - 2.</b> Заказчик по офису в «Овале» ждёт ответ по замене плитки со вчера. Подрядчик по вентиляции просит подтвердить сдвиг срока.</li>
+      <li><b>Бюджет.</b> По одному объекту факт по отделке подошёл к 92% сметы при готовности около 70%. Разрыв вырос за неделю.</li>
+      <li><b>Сроки.</b> Две стройки идут по графику. По одной поставка из Италии сдвинулась на 8 дней, монтаж кухни поедет следом.</li>
+      <li><b>Документы.</b> Не подписаны два акта у одного подрядчика, оба старше 30 дней.</li>
+      <li><b>Тихо.</b> По одному объекту в чате прораба четвёртый день ничего. Обычно это значит, что там что-то встало.</li>
+    </ul>
+    <div class="bf">Последний пункт вы не получите ни в одной таблице: заметить молчание может только тот, кто читает чаты каждый день.</div>
+  </div>
+  <p class="body">На встрече покажем это не картинкой, а вживую: у Михаила такая система работает на его собственном бизнесе, включая доклад в 08:00. Посмотрите на реальном экране, до того как что-то подпишете.</p>
+</section>
+
+<!-- ПЕРВЫЙ КОНТУР -->
+<section>
+  <div class="kicker">первый контур</div>
+  <h2>Объекты: одна живая карточка<br>на каждую стройку</h2>
+  <p class="body">Начинаем с одного контура, а не со всего сразу. Именно с того, который вы трогаете каждый день.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="t"><b>Собираем базу.</b> Ваши объекты, сметы, договоры подряда, спецификации, графики. Мы забираем папки и переписку и раскладываем это в базу знаний сами. От вас нужен доступ, не работа.</div></div>
+    <div class="step"><div class="n">2</div><div class="t"><b>Подключаем каналы.</b> Рабочие чаты по объектам в WhatsApp, почта, таблицы. Агент читает их сам и больше не ждёт, пока вы перескажете.</div></div>
+    <div class="step"><div class="n">3</div><div class="t"><b>Карточка объекта.</b> По каждой стройке: стадия, бюджет против факта, что горит, кто ответственный, что ждёт вашего решения. Обновляется сама из того, что пишут в чатах.</div></div>
+    <div class="step"><div class="n">4</div><div class="t"><b>Утренний доклад.</b> В 08:00 в ваш телефон приходит сводка по всем объектам. Такая, как выше.</div></div>
+    <div class="step"><div class="n">5</div><div class="t"><b>Голосовой доступ ко всему этому.</b> Любой вопрос по любому объекту, голосом, в любой момент.</div></div>
+  </div>
+</section>
+
+<!-- ВТОРОЙ ЧЕЛОВЕК -->
+<section>
+  <div class="kicker gold">как мы страхуем главный риск</div>
+  <h2>Не один пользователь, а два.<br>Вы и ваш помощник</h2>
+  <p class="body">Честно про риск: система, которая держится на одном человеке, уже один раз не прижилась. Если единственный пользователь это первое лицо, у которого нет времени, всё повторится. Поэтому доступ получают двое.</p>
+  <div class="vs">
+    <div class="col hi">
+      <div class="k">вы</div>
+      <div class="v">Только голос и только с телефона. Утренняя сводка, вопрос по объекту, поручение зафиксировать и подготовить письмо. Ничего не настраиваете, ничего не открываете. Ноль домашних заданий.</div>
+    </div>
+    <div class="col">
+      <div class="k">ваш помощник</div>
+      <div class="v">Тот, кто и так сидит за компьютером. Подкидывает в базу документы, поправляет карточку объекта, следит, чтобы каналы не отваливались. Мы обучаем этого человека отдельно, час, и дальше он держит систему живой без вас.</div>
+    </div>
+  </div>
+  <p class="body">Так система перестаёт зависеть от того, нашли вы сегодня минуту или нет. Вы получаете пользу, кто-то другой платит за неё вниманием. Ровно так это и должно работать у первого лица.</p>
+</section>
+
+<!-- ГРАНИЦЫ -->
+<section class="dark">
+  <div class="kicker" style="color:var(--gold)">чтобы не было завышенных ожиданий</div>
+  <h2>Это не замена людям.<br>Это конец «спроси у Максима»</h2>
+  <div class="vs">
+    <div class="col" style="border-color:#2c2c2c;background:#0d0d0d">
+      <div class="k" style="color:#8a8a8a">чего мы не обещаем</div>
+      <div class="v" style="color:#b5b5b5">Он не заменит технического директора, не проконтролирует бригаду на объекте и не примет решение за вас. Он не построит ERP за пять дней и не наведёт порядок там, где его нет в исходных данных: если по объекту никто ничего не пишет, ему неоткуда взять состояние. И он не сократит вам штат. Мы на это не подписываемся и в расчёт окупаемости это не кладём.</div>
+    </div>
+    <div class="col" style="border-color:var(--gold);background:#141210">
+      <div class="k" style="color:var(--gold)">что он делает точно</div>
+      <div class="v" style="color:#e8e8e8">Держит в одном месте всё, что сейчас размазано по чатам, почте и вашей голове, и отдаёт это голосом за десять секунд. Убирает половину вопросов, которые сегодня приходят к вам только потому, что ответ знаете только вы. И показывает то, что в таблицах не видно: где стало тихо.</div>
+    </div>
+  </div>
+</section>
+
+<!-- КАК ИДЁМ -->
+<section>
+  <div class="kicker">как идём</div>
+  <h2>Три шага, и на каждом<br>понятно, что получилось</h2>
+  <div class="ladder">
+    <div class="ws">
+      <div class="no">I</div>
+      <div>
+        <div class="head"><h3>Онбординг</h3><div class="when">60 минут · у вас в офисе, Лимассол</div></div>
+        <p>Приезжаем сами, в удобное вам время. Показываем живую систему на экране, забираем доступы к почте и чатам, вы показываете папки с документами, за пятнадцать минут проговариваем, какие вопросы вы задаёте чаще всего. Это единственная встреча, которая требует вашего времени.</p>
+        <div class="gate">Ворота: доступы у нас, вы свободны</div>
+      </div>
+    </div>
+    <div class="ws">
+      <div class="no">II</div>
+      <div>
+        <div class="head"><h3>Он выходит на связь</h3><div class="when">5 рабочих дней</div></div>
+        <p>Сервер поднят, база загружена, каналы подключены. Вы наговариваете первое голосовое и получаете осмысленный ответ по своему объекту. С этого момента можно пользоваться. Параллельно час занимаемся с вашим помощником.</p>
+        <div class="gate">Ворота: вы задали вопрос голосом и получили ответ</div>
+      </div>
+    </div>
+    <div class="ws">
+      <div class="no">III</div>
+      <div>
+        <div class="head"><h3>Он знает все объекты</h3><div class="when">3 недели</div></div>
+        <p>Контур объектов собран целиком: карточки по всем стройкам, утренний доклад, разбор входящих документов. Две недели наблюдаем, как вы им пользуетесь, и доводим под вашу манеру спрашивать.</p>
+        <div class="gate">Ворота: вторая часть оплаты</div>
+      </div>
+    </div>
+  </div>
+  <p class="body"><b>Если решаем на этой неделе:</b> онбординг в среду 12 августа, первый ответ голосом в вашем телефоне к среде 19 августа, полный контур по всем объектам к 9 сентября. Дальше даты сдвигаются на столько, на сколько сдвигается встреча.</p>
+</section>
+
+<!-- РИСК -->
+<section class="dark">
+  <div class="kicker" style="color:var(--gold)">как мы снимаем ваш риск</div>
+  <h2>Большую часть суммы платите<br>только за работающее</h2>
+  <p class="body">Вы уже один раз начали и бросили. Значит главный риск здесь не технический, а простой: что вы снова не станете этим пользоваться. Мы берём его на себя и делим сумму не пополам, а в вашу пользу.</p>
+  <p class="quote">Вы рискуете <span class="accent">2 300 евро</span>. Остальные 4 600 платите через две недели после запуска, когда система уже стоит у вас в телефоне и вы ей пользуетесь.</p>
+  <p class="body"><b>Критерий, чтобы не спорить потом.</b> «Пользуетесь» это не ощущение, а число: за десять рабочих дней после запуска вы обратились к агенту с телефона минимум в семь разных дней. Меньше - вторая часть не выставляется, мы отключаем сервер и расходимся без обид. Считаем по логу обращений, он открыт вам с первого дня, и смотрим в него вместе.</p>
+  <div class="risk">
+    <div class="r">
+      <div class="t">Ничего не настраиваете</div>
+      <p>Базу знаний наполняем мы. Каналы подключаем мы. Вам не выдаются домашние задания.</p>
+    </div>
+    <div class="r">
+      <div class="t">Один час вашего времени</div>
+      <p>Онбординг шестьдесят минут. Всё остальное общение с системой это голосовые, которые вы и так наговариваете.</p>
+    </div>
+    <div class="r">
+      <div class="t">Система остаётся вашей</div>
+      <p>При любой отмене подписки база знаний и сервер остаются у вас. Мы не держим вас на замке.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНА -->
+<section>
+  <div class="kicker">сколько это стоит</div>
+  <h2>Одна цифра,<br>и большая её часть отложена</h2>
+  <div class="price">
+    <div class="pt">Цифровой штаб под ключ · контур «Объекты»</div>
+    <div class="pp">6 900 €</div>
+    <div class="unit">Единовременно, за сборку и запуск. Делится на две неравные части</div>
+    <div class="split">
+      <div class="s now">
+        <div class="sa">2 300 €</div>
+        <div class="sl">При подписании. Это всё, чем вы рискуете</div>
+      </div>
+      <div class="s">
+        <div class="sa">4 600 €</div>
+        <div class="sl">Через две недели после запуска и только при выполнении критерия использования</div>
+      </div>
+    </div>
+    <ul>
+      <li>Выделенный сервер под вас, поднимаем и обслуживаем мы</li>
+      <li>База знаний компании: объекты, сметы, договоры, спецификации, поставщики</li>
+      <li>Подключение почты, рабочих чатов по объектам и таблиц</li>
+      <li>Голосовой вход с телефона в Telegram или WhatsApp, по-русски</li>
+      <li>Карточка по каждой стройке и утренний доклад в 08:00</li>
+      <li>Обучение вашего помощника, чтобы система жила без вас</li>
+      <li>Месяц сопровождения после запуска и доводка под вашу манеру спрашивать</li>
+    </ul>
+    <div class="after">
+      <div>Дальше сопровождение, сервер и расходы на модель <span class="amt">590 €/мес</span>, первый месяц включён, отмена в любой момент</div>
+      <div>Каждый следующий контур: закупки и поставщики, сметы и акты, найм <span class="amt">2 900 €</span></div>
+      <div>Всё сразу, первый контур и три следующих: по отдельности 15 600 €, одним заходом <span class="amt">14 400 €</span> и восемь недель вместо трёх</div>
+    </div>
+  </div>
+
+  <div class="tco">
+    <div class="k">чтобы вы считали не по частям</div>
+    <p><b>Год владения в этой конфигурации: 6 900 € сборка плюс 590 € в месяц начиная со второго.</b> Отдельных счетов за модель, лицензии и хостинг нет, всё внутри. Если через две недели вы этим не пользуетесь, ваш реальный расход остаётся 2 300 €, и на этом всё заканчивается.</p>
+  </div>
+
+  <p class="body" style="margin-top:2rem"><b>Как это соотносится с тем, что мы называли раньше.</b> Полная сборка на всю операционку так и стоит около пятнадцати тысяч, мы от этой цифры не отказываемся: первый контур и три следующих это 14 400 € одним заходом. Здесь вы платите не меньше за то же самое, а за первый кусок из той же системы. Мы сознательно не приносим вам всю сборку сразу: вы уже один раз зашли в большое и вышли, потому что оно потребовало вашего времени. Расширяться будем от работающего, а не от презентации, и следующий контур вы купите тогда, когда сами скажете, какой именно болит.</p>
+
+  <p class="quote">Здесь нет пакетов на выбор. <span class="accent">Одна конфигурация</span>, потому что мы уже знаем, что вам нужно первым.</p>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="kicker">вопросы, которые вы зададите</div>
+  <h2>Отвечаем до того,<br>как вы их зададите</h2>
+  <div class="qa">
+    <div class="q">
+      <div class="qt">Агент будет читать чаты моей команды. Что скажут люди?</div>
+      <div class="qa-a">Подключаются только <b>рабочие чаты по объектам</b>, то есть те, куда вы и так имеете доступ как собственник. Личные переписки сотрудников не подключаются никогда. Команде это подаётся как сводка для CEO, а не как контроль за людьми: агент отвечает на вопросы про объекты, а не про то, кто во сколько написал. Если хотите, на старте подключим один чат вместо всех и посмотрим на реакцию.</div>
+    </div>
+    <div class="q">
+      <div class="qt">Мои сметы и договоры уйдут в чужую модель?</div>
+      <div class="qa-a">База целиком лежит на вашем сервере и его не покидает. В модель уходит только текст конкретного запроса и небольшой фрагмент, который нужен для ответа, а не архив. Провайдер модели по своим условиям не обучается на данных, которые приходят по рабочему каналу. Плюс мы подписываем NDA до того, как получим от вас первый файл.</div>
+    </div>
+    <div class="q">
+      <div class="qt">А если вы завтра пропадёте?</div>
+      <div class="qa-a">Сервер оформлен на вашу компанию, база знаний на нём, доступы у вас с первого дня. Система собрана на открытых компонентах, без нашей закрытой лицензии, и мы передаём документацию по сборке. Любой другой технический подрядчик сможет её подхватить. Мы не держим вас на замке, потому что заработать на замке всё равно нельзя.</div>
+    </div>
+    <div class="q">
+      <div class="qt">Он начнёт выдумывать, а я приму решение по выдумке?</div>
+      <div class="qa-a">Если данных не хватает, он обязан сказать «не знаю» и спросить, это прописано в его инструкциях и это первое, что мы проверяем при сдаче. По каждому факту в сводке он может показать источник: из какого чата, письма или файла это взято. Проверять его не нужно каждый раз, но возможность проверить есть всегда.</div>
+    </div>
+    <div class="q">
+      <div class="qt">У меня нет времени объяснять, что мне нужно.</div>
+      <div class="qa-a">И не надо. Шестьдесят минут в вашем офисе, из них пятнадцать вы отвечаете на вопрос «какие вопросы вы чаще всего задаёте своим людям». Остальное мы вытащим из ваших документов и переписки сами. Всё, что мы поймём неправильно, поправится за две недели наблюдения, и это наша работа, а не ваша.</div>
+    </div>
+    <div class="q">
+      <div class="qt">Почему только объекты, а не сразу всё?</div>
+      <div class="qa-a">Потому что широкий заход у вас уже один раз не прижился. Один контур собирается за три недели и даёт видимый результат, пока вы ещё помните, зачем начинали. Закупки, сметы с актами и найм подключаются потом, по одному, каждый за две-три недели, и порядок выбираете вы по тому, что болит.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ДАННЫЕ -->
+<section>
+  <div class="kicker">про ваши данные</div>
+  <h2>Сметы и договоры<br>остаются у вас</h2>
+  <div class="rooms">
+    <div class="room">
+      <div class="core">правило 1</div>
+      <div class="nm">База на вашем сервере</div>
+      <p>Не в общем облаке и не на нашей машине. Отдельный сервер под вашу компанию. В модель уходит только сам рабочий запрос, а не весь архив.</p>
+    </div>
+    <div class="room">
+      <div class="core">правило 2</div>
+      <div class="nm">Необратимое подтверждаете вы</div>
+      <p>Агент готовит письмо подрядчику, ответ заказчику, назначение встречи. Кнопку «отправить» нажимает человек, а не он.</p>
+    </div>
+    <div class="room">
+      <div class="core">правило 3</div>
+      <div class="nm">Он говорит «не знаю»</div>
+      <p>Если данных для ответа не хватает, агент прямо это говорит и спрашивает, а не выдаёт удобную догадку. И по любому факту показывает, откуда он его взял.</p>
+    </div>
+    <div class="room">
+      <div class="core">правило 4</div>
+      <div class="nm">Доступ у двоих, под NDA</div>
+      <p>Со стороны исполнителя технический доступ к серверу есть у двух человек, названных ниже поимённо. Подрядчиков не привлекаем. NDA подписываем до того, как получим первый документ. По завершении работ наши доступы отзываются, ваши остаются.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ДОГОВОР -->
+<section>
+  <div class="kicker">договор и оплата</div>
+  <h2>Чтобы бухгалтерия<br>не задавала вопросов</h2>
+  <div class="rows">
+    <div class="row"><div class="k">договор</div><div class="v">Договор на разработку и внедрение с приложением по объёму работ и порядку приёмки. Подписываем до онбординга.</div></div>
+    <div class="row"><div class="k">счёт</div><div class="v">Инвойс на юрлицо SHATRO от <b class="mgb">Mg</b> Accounting (Maizon Group). Валюта евро, банковский перевод.</div></div>
+    <div class="row"><div class="k">график</div><div class="v"><b>2 300 €</b> при подписании, <b>4 600 €</b> через две недели после запуска при выполнении критерия использования.</div></div>
+    <div class="row"><div class="k">nda</div><div class="v">Подписываем до передачи доступов и документов. Отдельным документом или разделом договора, как вам удобнее.</div></div>
+    <div class="row"><div class="k">подписка</div><div class="v">590 €/мес со второго месяца, выставляется помесячно, отменяется в любой момент без штрафа. Сервер и база при отмене остаются у вас.</div></div>
+    <div class="row"><div class="k">контакт по деньгам</div><div class="v">Станислав Жуковец. Один человек, чтобы не пересылать вопросы между исполнителями.</div></div>
+  </div>
+</section>
+
+<!-- КТО ДЕЛАЕТ -->
+<section>
+  <div class="kicker">кто это делает</div>
+  <h2>Двое, и роли не размыты</h2>
+  <div class="hosts">
+    <div class="host">
+      <div class="role">ведёт вас как клиента</div>
+      <div class="name">Станислав Жуковец</div>
+      <p>Отвечает за постановку задач и результат. Проводит ИИ-воркшопы для владельцев бизнеса в кипрских клубах, в том числе те, на которых были вы. Ваш единственный контакт по деньгам и договорённостям.</p>
+    </div>
+    <div class="host">
+      <div class="role">собирает систему</div>
+      <div class="name">Михаил Зеленин</div>
+      <p>Сервер, агент, база знаний, подключения. Внедряет агентный ИИ в бизнес и живёт на такой же системе сам, включая утренний доклад в телефон в 08:00. Работает своими руками, а не через подрядчиков.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО НУЖНО ОТ ВАС -->
+<section>
+  <div class="kicker">что нужно от вас</div>
+  <h2>Три вещи, и мы стартуем</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div class="t"><b>Один час в вашем офисе.</b> Приезжаем сами, в удобное вам время. Забираем доступы к почте и рабочим чатам, ничего не пересылая в переписке.</div></div>
+    <div class="step"><div class="n">2</div><div class="t"><b>Папка с документами по объектам:</b> сметы, договоры, спецификации, графики. В том виде, в каком они есть сейчас. Разбирать и раскладывать будем мы.</div></div>
+    <div class="step"><div class="n">3</div><div class="t"><b>Один человек из команды на час</b> и ваш телефон. Больше ничего. Дальше вы просто говорите с ним так же, как говорите сейчас с ЖПТ.</div></div>
+  </div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="dark finale">
+  <div class="kicker" style="color:var(--gold)">следующий шаг</div>
+  <p class="big">У вас нет времени на систему.<br><span class="ac">Поэтому её собираем мы.</span></p>
+  <div class="cta">
+    <a class="btn" href="https://t.me/stanistar888">Написать Станиславу</a>
+    <div class="small">Или голосовым, как вам привычнее: <a href="https://t.me/stanistar888">@stanistar888</a></div>
+  </div>
+</section>
+
+<footer>
+  <div><b>Цифровой штаб</b> · контур «Объекты»</div>
+  <div>Станислав Жуковец и Михаил Зеленин · внедрение агентного ИИ</div>
+  <div>Для SHATRO Engineering, Лимассол · <a href="https://t.me/stanistar888">@stanistar888</a></div>
+</footer>
+
+</body>
+</html>
