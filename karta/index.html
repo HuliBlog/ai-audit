@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>Карта структуры за 30 минут · Mg</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Карта структуры за 30 минут">
+<meta property="og:description" content="Увидите свою структуру целиком: где компании и счета, что уже нарушено, во сколько это обойдётся и в каком порядке чинить. Карта - ваша, даже если вы не будете с нами работать.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+  :root{
+    --navy:#1B4F72; --blue:#2E86C1; --blue-soft:#eaf2f8;
+    --ink:#141414; --grey:#6d7278; --silver:#d9dcdf;
+    --light:#f7f8f9; --white:#fff; --dark:#0e1b26; --red:#b03a2e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',-apple-system,'Segoe UI',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 7vw}}
+  .kicker{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  h1,h2{font-weight:600;line-height:1.14;letter-spacing:-.01em;text-wrap:balance}
+  h1{font-size:clamp(2rem,5.4vw,3.6rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.5rem,3.2vw,2.3rem);margin-bottom:1.2rem}
+  p{font-size:clamp(1rem,1.5vw,1.1rem)}
+  p.lead{font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--grey);max-width:47rem;margin-top:.6rem}
+  b{font-weight:600}
+  .dark{background:var(--dark);color:var(--white);border-bottom:none}
+  .dark h2{color:#fff}.dark p.lead{color:#a9b4bd}.dark b{color:#fff}
+
+  .hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
+  .hero .mg{font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+  .hero .club{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--grey);font-weight:600;margin-bottom:2.6rem}
+  .hero h1 span{color:var(--navy)}
+  .hero .sub{margin-top:1.7rem;font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.05rem,1.85vw,1.4rem);color:var(--grey);max-width:46rem}
+  .hero .meta{margin-top:2.8rem;display:flex;gap:2.2rem;flex-wrap:wrap;justify-content:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink)}
+
+  .btn{display:inline-block;margin-top:2.6rem;padding:1.05rem 2.6rem;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;transition:background .2s}
+  .btn:hover{background:var(--blue)}
+  .dark .btn{background:#fff;color:var(--dark)}
+  .dark .btn:hover{background:var(--blue);color:#fff}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem;margin-top:2.4rem}
+  .card{border:1px solid var(--silver);padding:1.9rem 1.6rem;background:var(--light)}
+  .card .n{font-size:.72rem;letter-spacing:.22em;color:var(--blue);font-weight:700;margin-bottom:.9rem}
+  .card h3{font-size:1.12rem;font-weight:600;margin-bottom:.6rem}
+  .card p{font-size:.97rem;color:var(--grey)}
+
+  .rows{margin-top:2rem;max-width:58rem;border-top:1px solid var(--silver)}
+  .row{display:grid;grid-template-columns:13rem 1fr;gap:1.6rem;padding:1.25rem .3rem;border-bottom:1px solid var(--silver);align-items:baseline}
+  .row .k{font-size:.95rem;font-weight:600;color:var(--navy)}
+  .row .v{font-size:1rem;color:var(--grey)}
+  .row .v b{color:var(--ink)}
+  @media(max-width:640px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+  .no{margin-top:2rem;max-width:52rem;border-left:3px solid var(--red);padding:.2rem 0 .2rem 1.5rem}
+  .no li{list-style:none;color:var(--grey);padding:.35rem 0;font-size:1rem}
+  .no li::before{content:"-";color:var(--red);margin-right:.7rem}
+
+  form{margin-top:2.4rem;max-width:38rem}
+  label{display:block;font-size:.9rem;font-weight:600;margin:1.5rem 0 .5rem}
+  input,select,textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--silver);font-family:inherit;font-size:1rem;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
+  .hint{font-size:.85rem;color:var(--grey);margin-top:.35rem}
+  button{margin-top:2.2rem;padding:1.05rem 2.6rem;background:var(--navy);color:#fff;border:none;font-family:inherit;font-weight:600;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+  button:hover{background:var(--blue)}
+
+  footer{padding:5vh 8vw;font-size:.85rem;color:var(--grey);text-align:center}
+  footer b{color:var(--ink)}
+
+  .ex .exlink{display:block;margin-top:2rem;max-width:52rem;border:1px solid var(--silver);box-shadow:0 12px 40px rgba(20,20,20,.08)}
+  .ex .exlink img{display:block;width:100%;height:auto}
+  .exrows{margin-top:2rem;max-width:52rem;display:grid;gap:1rem}
+  .exrow{padding:1rem 1.2rem;background:var(--blue-soft);font-size:1rem;color:var(--grey)}
+  .exrow b{color:var(--ink);display:block;margin-bottom:.25rem}
+  .btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--navy);margin-left:.8rem}
+  .btn.ghost:hover{background:var(--blue-soft)}
+  @media(max-width:640px){.btn.ghost{margin-left:0}}
+</style>
+
+<section class="hero">
+  <div class="mg">Mg</div>
+  <div class="club">Maizon Group · бухгалтерия простым языком</div>
+  <h1>Карта <span>структуры</span><br>за 30 минут</h1>
+  <p class="sub">Вы увидите свою структуру целиком: где компании и счета, что уже нарушено, во сколько это может обойтись и в каком порядке это чинить.</p>
+  <div class="meta">
+    <div>30 минут <b>разговора</b></div>
+    <div>карта <b>в течение суток</b></div>
+    <div><b>бесплатно</b></div>
+  </div>
+  <a class="btn" href="#form">Получить карту</a>
+</section>
+
+<section>
+  <div class="kicker">Что вы получите</div>
+  <h2>Одну страницу, на которой видно всё</h2>
+  <p class="lead">Не пересказ разговора и не коммерческое предложение. Документ, с которым можно работать, даже если вы никогда не станете нашим клиентом.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="n">01</div>
+      <h3>Схема как есть</h3>
+      <p>Где компании, где счета, где вы налоговый резидент, что и куда сдаётся. Часто это первый раз, когда всё нарисовано в одном месте.</p>
+    </div>
+    <div class="card">
+      <div class="n">02</div>
+      <h3>Красные точки</h3>
+      <p>Что уже нарушено или сломается в ближайшие месяцы. С ценой вопроса в деньгах: штраф, потеря статуса, риск для активов.</p>
+    </div>
+    <div class="card">
+      <div class="n">03</div>
+      <h3>Порядок на 90 дней</h3>
+      <p>Что чинить первым, что вторым, а что подождёт. Со сроками, чтобы можно было поставить в календарь.</p>
+    </div>
+    <div class="card">
+      <div class="n">04</div>
+      <h3>Что можем закрыть мы</h3>
+      <p>Из списка выше - что делаем сами, в какие сроки и сколько это стоит. Без этого блока карта была бы неполной.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="ex">
+  <div class="kicker">Как выглядит карта</div>
+  <h2>Одна страница. Четыре блока. Цифры, а не общие слова</h2>
+  <p class="lead">Ниже - карта реального клиента: туристическая компания в свободной зоне ОАЭ с операциями в трёх странах. Данные обезличены, структура документа - как в оригинале.</p>
+  <a class="exlink" href="primer/"><img src="primer/preview.png" alt="Пример карты структуры" loading="lazy"></a>
+  <div class="exrows">
+    <div class="exrow"><b>Что увидел клиент за 30 минут.</b> Регистрация по корпоративному налогу не подтверждена, а это 10 000 AED за просрочку. Декларации по VAT не сходятся с выписками. Аудит за прошлый год не сдан, без него ставка по корпналогу вместо 0% становится 9%.</div>
+    <div class="exrow"><b>Что он получил через сутки.</b> Схему трёх контуров на одном листе, шесть точек со статусом и ценой, порядок на 90 дней по неделям и список того, что закрывает Mg, а что остаётся на его стороне.</div>
+    <div class="exrow"><b>Что изменилось.</b> До карты владелец сам пересылал выписки между тремя бухгалтериями и узнавал о расхождениях от проверяющих. После - один ответственный, сверка по расписанию и календарь обязательств на год.</div>
+  </div>
+  <a class="btn" href="primer/">Открыть пример целиком</a>
+  <a class="btn ghost" href="primer/Mg-Karta-struktury-primer.pdf">Скачать PDF</a>
+</section>
+
+<section class="dark">
+  <div class="kicker">Почему это работает</div>
+  <h2>Мы не консультируем по переписке.<br>Мы делаем это руками в 11 странах</h2>
+  <p class="lead">Открываем компании сами как партнёр IFZA, а не перепродаём посреднику. Ездим с клиентом в банк. Выступали спонсором визы клиента, пока он ждал резидентство. Отвечаем на вопросы, за которые юрфирма выставляет счёт за меморандум.</p>
+  <p class="lead">И работаем там, где многие разводят руками.</p>
+  <a class="btn" href="#form">Записаться на разбор</a>
+</section>
+
+<section>
+  <div class="kicker">Как проходит</div>
+  <h2>Четыре шага, два дня</h2>
+  <div class="rows">
+    <div class="row"><div class="k">Шаг 1</div><div class="v">Вы отвечаете на <b>4 вопроса</b> в форме ниже. Это две минуты - нам нужно понять, сможем ли мы быть полезны.</div></div>
+    <div class="row"><div class="k">Шаг 2</div><div class="v">Мы отвечаем в течение часа в рабочее время и предлагаем <b>слот на завтра или послезавтра</b>.</div></div>
+    <div class="row"><div class="k">Шаг 3</div><div class="v"><b>30 минут разговора.</b> Вы рассказываете, как устроен ваш бизнес. Мы называем, что видим - включая то, о чём вы не спрашивали.</div></div>
+    <div class="row"><div class="k">Шаг 4</div><div class="v">В течение <b>24 часов</b> присылаем карту. Она ваша.</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Честно</div>
+  <h2>Чего в карте не будет</h2>
+  <p class="lead">Чтобы не было ощущения, что мы что-то недоговариваем. Карта отвечает на вопросы <b>что</b> и <b>в каком порядке</b>. Она не отвечает на вопрос <b>как</b>:</p>
+  <ul class="no">
+    <li>пошаговых инструкций по подаче документов</li>
+    <li>расчёта налогов по вашим конкретным цифрам</li>
+    <li>готовых шаблонов и форм</li>
+    <li>работы с вашим текущим бухгалтером</li>
+  </ul>
+  <p class="lead" style="margin-top:1.8rem">Это уже работа, и она считается отдельно. Но что именно нужно сделать - вы будете знать точно.</p>
+</section>
+
+<section id="form">
+  <div class="kicker">Заявка</div>
+  <h2>Четыре вопроса</h2>
+  <p class="lead">Мы берём ограниченное число разборов в неделю и хотим, чтобы они достались тем, кому реально можем помочь.</p>
+  <form id="kf" method="post" action="#" onsubmit="return kfSend(event)">
+    <label for="q1">1. В каких странах у вас компании или счета?</label>
+    <input id="q1" name="q1" type="text" placeholder="ОАЭ, Кипр, Казахстан..." required>
+
+    <label for="q2">2. Компания уже действует или планируете открывать?</label>
+    <select id="q2" name="q2" required>
+      <option value="">Выберите</option>
+      <option>Есть действующая компания</option>
+      <option>Есть, но с ней проблемы</option>
+      <option>Планирую открывать</option>
+      <option>Пока только думаю</option>
+    </select>
+
+    <label for="q3">3. Годовой оборот бизнеса</label>
+    <select id="q3" name="q3" required>
+      <option value="">Выберите</option>
+      <option>до $100k</option>
+      <option>$100k - $500k</option>
+      <option>$500k - $2M</option>
+      <option>более $2M</option>
+    </select>
+    <div class="hint">Нужно, чтобы понимать масштаб задачи и не предлагать лишнего.</div>
+
+    <label for="q4">4. Решение принимаете вы или с партнёром?</label>
+    <select id="q4" name="q4" required>
+      <option value="">Выберите</option>
+      <option>Я принимаю решение сам</option>
+      <option>Вместе с партнёром или советом</option>
+      <option>Я собираю информацию для собственника</option>
+    </select>
+
+    <label for="q5">Что беспокоит сильнее всего? <span style="font-weight:400;color:var(--grey)">(необязательно)</span></label>
+    <textarea id="q5" name="q5" rows="3" placeholder="Одной строкой"></textarea>
+
+    <label for="contact">Как с вами связаться</label>
+    <input id="contact" name="contact" type="text" placeholder="Telegram или e-mail" required>
+
+    <button type="submit">Отправить заявку</button>
+  </form>
+
+<script>
+function kfSend(e){e.preventDefault();var f=document.getElementById('kf');var g=function(n){var el=f.querySelector('[name='+n+']');return el?el.value:''};
+var msg='Заявка на Карту структуры\n1. Страны: '+g('q1')+'\n2. Компания: '+g('q2')+'\n3. Оборот: '+g('q3')+'\n4. Решение: '+g('q4')+'\n5. Беспокоит: '+g('q5')+'\nКонтакт: '+g('contact');
+var box=document.getElementById('kfdone');box.querySelector('pre').textContent=msg;box.style.display='block';
+try{navigator.clipboard.writeText(msg)}catch(x){}
+if(window.fbq){try{fbq('track','Lead')}catch(x){}}
+f.querySelector('button').disabled=true;box.scrollIntoView({behavior:'smooth'});return false}
+</script>
+<div id="kfdone" style="display:none;max-width:38rem;margin-top:1.6rem;padding:1.2rem 1.4rem;border:1px solid var(--navy);background:var(--blue-soft)">
+  <b>Осталось отправить нам ответы.</b>
+  <p style="font-size:.95rem;color:var(--grey);margin:.5rem 0 .8rem">Текст ниже уже скопирован. Откройте наш Telegram, вставьте его в чат и отправьте. Ответим в течение часа в рабочее время.</p>
+  <pre style="white-space:pre-wrap;font-family:inherit;font-size:.9rem;background:#fff;padding:.9rem 1rem;border:1px solid var(--silver)"></pre>
+  <a class="btn" style="margin-top:1.2rem" href="https://t.me/AI_Mg_Global_bot?start=karta" target="_blank" rel="noopener">Открыть Telegram</a>
+</div>
+</section>
+
+<footer>
+  <b>Mg</b> · Maizon Group FZ-LLC · Meydan, Dubai, UAE<br>
+  maizongroup.com · info@maizongroup.com
+</footer>
+</body>
+</html>
