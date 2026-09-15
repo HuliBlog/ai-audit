@@ -2,45 +2,46 @@
 <html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Mg · Карта структуры, пример</title>
 <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@page{size:A4;margin:14mm 14mm 12mm}
+@page{size:A4;margin:16mm 15mm 14mm}
 :root{--navy:#1B4F72;--blue:#2E86C1;--ink:#141414;--grey:#6d7278;--silver:#d9dcdf;--light:#f7f8f9;--red:#b03a2e;--amber:#b8860b;--green:#2e7d32}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Jost',Arial,sans-serif;color:var(--ink);font-size:10.4pt;line-height:1.42;background:#fff}
-.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:10px}
+body{font-family:'Jost',Arial,sans-serif;color:var(--ink);font-size:10.2pt;line-height:1.58;background:#fff}
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:22px}
 .mg{font-size:22pt;font-weight:700;letter-spacing:-.02em}
 .tag{font-family:'Baskervville',serif;font-style:italic;color:var(--grey);font-size:9.5pt}
-h1{font-size:17pt;font-weight:600;letter-spacing:.01em;margin:2px 0 2px}
-.sub{color:var(--grey);font-size:9.5pt;margin-bottom:10px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
-.block{border:1px solid var(--silver);padding:9px 11px;background:#fff;break-inside:avoid}
+h1{font-size:19pt;font-weight:600;letter-spacing:.01em;margin:6px 0 6px}
+.sub{color:var(--grey);font-size:9.5pt;margin-bottom:22px;max-width:60rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.block{border:1px solid var(--silver);padding:18px 20px 16px;background:#fff;break-inside:avoid}
 .block.full{grid-column:1/3}
-.k{font-size:7.6pt;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:5px}
+.k{font-size:7.8pt;letter-spacing:.26em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:12px}
 .k span{color:var(--grey);font-weight:500;letter-spacing:.05em;text-transform:none;margin-left:8px}
 table{width:100%;border-collapse:collapse;font-size:9.4pt}
-th{text-align:left;font-weight:600;color:var(--grey);font-size:8pt;text-transform:uppercase;letter-spacing:.08em;padding:3px 6px 4px;border-bottom:1px solid var(--silver)}
-td{padding:4px 6px;vertical-align:top;border-bottom:1px solid #eee}
+th{text-align:left;font-weight:600;color:var(--grey);font-size:8pt;text-transform:uppercase;letter-spacing:.08em;padding:4px 8px 8px;border-bottom:1px solid var(--silver)}
+td{padding:9px 8px;vertical-align:top;border-bottom:1px solid #eee;line-height:1.5}
 tr:last-child td{border-bottom:none}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .r{background:var(--red)}.a{background:var(--amber)}.g{background:var(--green)}
 .money{white-space:nowrap;font-weight:600}
-.scheme{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
-.box{border:1px solid var(--silver);background:var(--light);padding:7px 9px;font-size:9.2pt}
-.box b{display:block;font-size:9.6pt;margin-bottom:2px}
-.box .m{color:var(--grey);font-size:8.6pt}
+.scheme{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.box{border:1px solid var(--silver);background:var(--light);padding:14px 16px;font-size:9.4pt;line-height:1.55}
+.box b{display:block;font-size:10pt;margin-bottom:6px}
+.box .m{color:var(--grey);font-size:8.8pt;margin-top:6px;display:block}
 .box.bad{border-color:var(--red)}
 .box.ok{border-color:var(--green)}
 ul{padding-left:15px}li{margin:2px 0}
-.foot{margin-top:10px;display:flex;justify-content:space-between;font-size:8.4pt;color:var(--grey);border-top:1px solid var(--silver);padding-top:6px}
-.note{font-size:8.6pt;color:var(--grey);margin-top:5px}
+.foot{margin-top:24px;display:flex;justify-content:space-between;gap:24px;font-size:8.4pt;color:var(--grey);border-top:1px solid var(--silver);padding-top:12px}
+.note{font-size:8.8pt;color:var(--grey);margin-top:14px;line-height:1.5}
 
-body{padding:22px 24px 40px;max-width:1080px;margin:0 auto}
+body{padding:36px 32px 56px;max-width:1120px;margin:0 auto}
 @media(max-width:760px){html,body{overflow-x:hidden}.block{overflow-x:auto}table{min-width:520px}.money{white-space:normal}.k span{display:block;margin:2px 0 0}.example,.note,.foot{word-break:break-word}.grid{grid-template-columns:1fr}.block.full{grid-column:auto}.scheme{grid-template-columns:1fr}body{padding:14px 12px 30px;font-size:10.8pt}table{font-size:9.6pt}.top{flex-direction:column;align-items:flex-start;gap:4px}.foot{flex-direction:column;gap:6px}}
-.example{background:#fff8e1;border:1px solid #e6c56a;padding:8px 12px;font-size:9.6pt;margin-bottom:12px}
-.cta{margin-top:18px;text-align:center}
+.example{background:#fff8e1;border:1px solid #e6c56a;padding:14px 18px;font-size:9.6pt;margin-bottom:24px;line-height:1.55}
+.cta{margin-top:36px;text-align:center}
 .cta a{display:inline-block;padding:14px 30px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:10pt}
 .cta p{color:var(--grey);font-size:9.4pt;margin-top:8px}
 .back{font-size:9.4pt;color:var(--grey);text-decoration:none}
 @media print{.example,.cta,.back{display:none}body{padding:0;max-width:none}}
+@media print{body{zoom:.86}.block{padding:14px 16px 12px}td{padding:7px 8px}}
 </style></head><body>
 <div class="top"><div><div class="mg">Mg</div></div><div class="tag">Maizon Group · бухгалтерия простым языком</div></div>
 <div class="example"><b>Это пример.</b> Реальная карта одного клиента Mg: туристическая компания в свободной зоне ОАЭ. Название, суммы по декларациям и детали, по которым компанию можно узнать, убраны. Структура документа, красные точки и порядок действий - как в оригинале.</div>
