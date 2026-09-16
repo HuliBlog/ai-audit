@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Контактный центр и ядро группы Eurostatus · Mg Digital</title>
+<meta name="description" content="Этап 2 после созвона 15.09: контактный центр с голосом на фронте, единая карточка гостя, ядро данных группы на 60 точек как фундамент всех будущих ролей, пилот на Oshi и La Fermata.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Контактный центр и ядро группы Eurostatus · Mg Digital">
+<meta property="og:description" content="Голос на фронте, одна карточка гостя, ядро группы на 60 точек под все роли до 2029. Версия после созвона 15 сентября.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF; --blue-soft:#e8ebff; --blue-tint:#dbe0ff; --blue-line:#c2c9ff;
+    --gold:#ddb85b; --gold-deep:#b9903a; --gold-tint:#f2e7c8;
+    --green:#1f7a4d; --green-soft:#e6f4ec; --red:#b3261e; --red-soft:#fbeae9;
+    --black:#121212; --ink:#1c1c1c; --grey:#717171; --silver:#d9d9d9; --hair:#ececec; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:'Baskervville',serif}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 6vw}}
+  .kicker{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.2rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1,h2,h3{font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  h1{font-size:clamp(2rem,5.4vw,3.8rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.5rem,3.3vw,2.4rem);margin-bottom:1.2rem}
+  h3{font-size:clamp(1.05rem,2vw,1.35rem);margin-bottom:.5rem}
+  p{font-size:clamp(1rem,1.5vw,1.1rem);color:var(--ink)}
+  p.lead{font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--grey);max-width:46rem;margin-top:.4rem}
+  p.body{color:var(--grey);max-width:46rem;margin-top:1rem}
+  b{font-weight:600;color:var(--ink)}
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2,.dark h3{color:var(--white)} .dark p,.dark p.lead,.dark p.body{color:#b5b5b5}
+  .dark b{color:#fff}
+  .quote{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.8rem);line-height:1.4;max-width:46rem;margin-top:1.6rem}
+  .quote .accent{color:var(--gold-deep);font-style:normal}
+  .dark .quote{color:#fff} .dark .quote .accent{color:var(--gold)}
+  .note{font-size:.86rem;color:var(--grey);margin-top:1.3rem;max-width:50rem;font-style:italic;font-family:'Baskervville',serif}
+  .src{font-size:.74rem;color:var(--grey);letter-spacing:.06em;text-transform:uppercase;margin-top:.6rem}
+
+  /* hero */
+  .hero{min-height:78vh;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
+  .hero .club{font-size:.8rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.2rem}
+  .hero .club b{color:var(--blue)} .mg{text-transform:none!important}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.6rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.4rem);color:var(--grey);max-width:44rem}
+  .hero .meta{margin-top:2.4rem;display:flex;gap:2.2rem;flex-wrap:wrap;justify-content:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem;max-width:56rem;width:100%}
+  .stat{border-top:2px solid var(--blue);padding-top:.9rem;text-align:left}
+  .stat .n{font-family:'Baskervville',serif;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1;color:var(--blue)}
+  .stat .d{font-size:.86rem;color:var(--grey);margin-top:.4rem}
+  @media(max-width:640px){.stats{grid-template-columns:1fr}}
+
+  /* nav */
+  .toc{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:2.2rem;justify-content:center}
+  .toc a{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);text-decoration:none;border-bottom:1px solid transparent}
+  .toc a:hover{color:var(--blue);border-color:var(--blue)}
+
+  /* status two columns */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2rem}
+  .vs .col{padding:1.6rem;border:1px solid var(--silver)}
+  .vs .col.ok{border-color:var(--green);background:var(--green-soft)}
+  .vs .col.todo{border-color:var(--gold);background:var(--gold-tint)}
+  .vs .k{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--grey);margin-bottom:.8rem}
+  .vs .col.ok .k{color:var(--green)} .vs .col.todo .k{color:var(--gold-deep)}
+  .vs ul{list-style:none} .vs li{font-size:.96rem;color:var(--ink);line-height:1.5;padding:.35rem 0 .35rem 1.2rem;position:relative}
+  .vs li:before{content:"";position:absolute;left:0;top:.95rem;width:.5rem;height:.5rem;border-radius:50%;background:currentColor;opacity:.5}
+  @media(max-width:680px){.vs{grid-template-columns:1fr}}
+  .promise{margin-top:1.6rem;border-left:3px solid var(--blue);padding:.9rem 1.3rem;background:var(--blue-soft);max-width:50rem}
+  .promise p{font-size:.98rem;color:var(--ink)}
+
+  /* table */
+  .tbl{width:100%;border-collapse:collapse;margin-top:1.8rem;font-size:.94rem}
+  .tbl th{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--grey);text-align:left;padding:.7rem .6rem;border-bottom:1px solid var(--silver)}
+  .tbl td{padding:.8rem .6rem;border-bottom:1px solid var(--hair);vertical-align:top;color:var(--ink)}
+  .tbl td.m{color:var(--grey)} .tbl td.n{font-family:'Baskervville',serif;font-size:1.12rem;white-space:nowrap}
+  .tbl tr.hi td{background:var(--blue-soft)}
+  .tbl tr.sum td{border-top:2px solid var(--ink);font-weight:600}
+  .dark .tbl th{color:#8a8a8a;border-color:#2a2a2a} .dark .tbl td{color:#e6e6e6;border-color:#232323} .dark .tbl td.m{color:#9a9a9a}
+  .dark .tbl tr.hi td{background:#1a1a1a} .dark .tbl tr.sum td{border-color:#fff}
+  .tag{display:inline-block;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:.15rem .55rem;border:1px solid currentColor;border-radius:2px;white-space:nowrap}
+  .tag.s1{color:var(--green)} .tag.s2{color:var(--blue)} .tag.s3{color:var(--gold-deep)} .tag.s4{color:var(--grey)}
+  .scroll{overflow-x:auto}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}
+  .step{border-top:2px solid var(--blue);padding-top:.9rem}
+  .step .no{font-family:'Baskervville',serif;font-size:1.8rem;color:var(--blue);line-height:1}
+  .step .t{font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin:.4rem 0 .3rem}
+  .step p{font-size:.88rem;color:var(--grey);line-height:1.5}
+  .step .who{margin-top:.5rem;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+  /* chat demo */
+  .chat{max-width:34rem;margin-top:2rem;display:flex;flex-direction:column;gap:.7rem}
+  .msg{padding:.8rem 1rem;border-radius:12px;font-size:.94rem;line-height:1.5;max-width:88%}
+  .msg.g{background:var(--light);align-self:flex-start;border-bottom-left-radius:2px}
+  .msg.h{background:var(--blue);color:#fff;align-self:flex-end;border-bottom-right-radius:2px}
+  .msg .w{display:block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:.25rem}
+
+  /* cards */
+  .rooms{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+  .room{background:var(--white);border:1px solid var(--silver);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.7rem}
+  .room .nm{font-size:.94rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .room p{font-size:.9rem;color:var(--grey);margin:0;line-height:1.5}
+  .dark .room{background:#161616;border-color:#2a2a2a} .dark .room .nm{color:#fff}
+  @media(max-width:900px){.rooms{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.rooms{grid-template-columns:1fr}}
+
+  /* loop */
+  .loop{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.6rem}
+  .loop .l{border:1px solid var(--silver);padding:1rem;font-size:.9rem}
+  .loop .l .k{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:.3rem}
+  .loop .l p{font-size:.9rem;color:var(--grey);line-height:1.45}
+  @media(max-width:900px){.loop{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.loop{grid-template-columns:1fr}}
+
+  /* rows */
+  .rows{margin-top:1.6rem;max-width:56rem;border-top:1px solid var(--silver)}
+  .row{display:grid;grid-template-columns:12rem 1fr;gap:1.4rem;padding:1.1rem .3rem;border-bottom:1px solid var(--silver);align-items:baseline}
+  .row .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .row .v{font-size:.98rem;color:var(--grey)} .row .v b{color:var(--ink)}
+  .dark .rows,.dark .row{border-color:#2a2a2a} .dark .row .k{color:var(--gold)}
+  @media(max-width:600px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+  /* price */
+  .price{margin-top:2rem;border:1px solid #2a2a2a;background:linear-gradient(160deg,#161616,#000);color:#fff;padding:2.2rem 2rem;max-width:56rem}
+  .price .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+  .price .big{font-family:'Baskervville',serif;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;margin-top:.6rem}
+  .price .u{color:#b5b5b5;margin-top:.7rem;font-size:.95rem}
+  .price .rowp{display:grid;grid-template-columns:1fr 10rem;gap:1rem;padding:1.05rem 0;border-top:1px solid #2a2a2a;align-items:baseline}
+  .price .rowp:first-of-type{margin-top:1.6rem}
+  .price .rowp .d{font-size:.95rem;color:#cfcfcf} .price .rowp .d b{color:#fff}
+  .price .rowp .n{text-align:right;font-family:'Baskervville',serif;font-size:1.35rem;color:var(--gold)}
+  .price .disc{margin-top:1.3rem;font-size:.84rem;color:#8a8a8a;line-height:1.5}
+  @media(max-width:600px){.price .rowp{grid-template-columns:1fr;gap:.2rem}.price .rowp .n{text-align:left}}
+
+  /* timeline */
+  .years{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+  .yr{border-top:2px solid var(--gold);padding-top:.9rem}
+  .yr .n{font-family:'Baskervville',serif;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;color:var(--gold)}
+  .yr .w{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8a8a8a;font-weight:600;margin-top:.3rem}
+  .yr p{font-size:.92rem;color:#b5b5b5;margin-top:.5rem}
+  @media(max-width:680px){.years{grid-template-columns:1fr}}
+
+  /* checklist */
+  .chk{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}
+  .chk .c{border:1px solid var(--silver);padding:1.3rem}
+  .chk .c .k{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:.6rem}
+  .chk ul{list-style:none} .chk li{font-size:.92rem;color:var(--ink);padding:.28rem 0 .28rem 1.1rem;position:relative;line-height:1.45}
+  .chk li:before{content:"";position:absolute;left:0;top:.78rem;width:.4rem;height:.4rem;background:var(--blue)}
+  @media(max-width:800px){.chk{grid-template-columns:1fr}}
+
+  .cta{margin-top:2.2rem;display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:1rem 1.8rem}
+  footer{padding:3rem 8vw;font-size:.78rem;color:var(--grey);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  footer b{color:var(--ink)}
+
+  /* dark-section overrides: everything readable on black */
+  .dark .chk .c{border-color:#3a3a3a;background:#161616}
+  .dark .chk .c .k{color:var(--gold)}
+  .dark .chk li{color:#e6e6e6}
+  .dark .chk li:before{background:var(--gold)}
+  .dark .row .v{color:#c9c9c9} .dark .row .v b{color:#fff}
+  .dark .rows{border-color:#3a3a3a} .dark .row{border-color:#2e2e2e}
+  .dark .note{color:#a3a3a3}
+  .dark .room{border-color:#3a3a3a} .dark .room p{color:#c4c4c4}
+  .dark .tbl td{color:#ececec} .dark .tbl td.m{color:#b0b0b0} .dark .tbl th{color:#a3a3a3}
+  .dark .tag.s1{color:#7fd3a3} .dark .tag.s2{color:#8fa0ff} .dark .tag.s3{color:var(--gold)} .dark .tag.s4{color:#bdbdbd}
+  .dark .yr p{color:#c4c4c4}
+  .dark p.lead{color:#c4c4c4}
+  .dark .kicker{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="club"><b class="mg">Mg</b> Digital · Группа Eurostatus · версия после созвона 15 сентября 2026</div>
+  <h1>Контактный центр.<br><span>Голос на фронте</span></h1>
+  <p class="sub">Вы сказали это прямо: серьёзный гость звонит. Поэтому этап 2 пересобран. Мозг контактного центра, который ведёт гостя от обращения до лояльности и помнит его в любом канале, голос как первый канал на нём, и ядро данных группы под всем этим.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">80%</div><div class="d">броней приходят звонком, по вашей оценке на созвоне</div></div>
+    <div class="stat"><div class="n">1</div><div class="d">единый номер группы: куплен, телефония Remarked подключена, человека на трубке нет</div></div>
+    <div class="stat"><div class="n">60</div><div class="d">броней в вечер в Oshi на пике, половина через OpenTable</div></div>
+  </div>
+  <div class="meta"><span>Для <b>Николая Рыжкова</b></span><span>Маркетинг <b>Екатерина</b></span><span>Финансы <b>Галина</b></span><span>Со стороны <span class="mg">Mg</span> <b>Станислав, Михаил</b></span></div>
+  <nav class="toc">
+    <a href="#heard">Что мы услышали</a><a href="#status">Роль 1</a><a href="#cc">Контактный центр</a><a href="#schema">Архитектура</a><a href="#core">Ядро</a><a href="#base">База гостей</a><a href="#pilot">Пилот</a><a href="#price">Цена</a><a href="#later">Что отложили</a><a href="#next">Следующий шаг</a>
+  </nav>
+</section>
+
+<!-- HEARD -->
+<section id="heard" class="dark">
+  <div class="kicker gold">Созвон 15 сентября · что изменилось</div>
+  <h2>Мы показали хостеса в мессенджерах. Вам нужен контактный центр с голосом</h2>
+  <p class="lead">Вы и Екатерина за час сказали больше, чем мы собрали за две недели. Ниже то, что мы услышали, и что с этим сделали.</p>
+  <div class="rows">
+    <div class="row"><div class="k">Вы сказали</div><div class="v"><b>«Серьёзно настроенные либо звонят, либо бронируют напрямую».</b> Мессенджеров у точек почти нет, в Instagram четыре-пять сообщений в день. На личный номер Екатерины никто не написал, зато два-четыре звонка в день.</div></div>
+    <div class="row"><div class="k">Мы сделали</div><div class="v">Голос вынесен из роли 3 на фронт этапа 2 как первый канал. Мозг контактного центра тот же, мессенджеры к нему вторичным каналом.</div></div>
+    <div class="row"><div class="k">Вы сказали</div><div class="v"><b>«Важная задача: сведение всех данных со всех каналов в одном контактном центре»</b> и привязка к Syrve и Remarked. «Этот человек нам и позвонил, и написал».</div></div>
+    <div class="row"><div class="k">Мы сделали</div><div class="v">Роль 2 переименована и пересобрана: контактный центр = мозг, который ведёт гостя, + голос как первый канал + одна карточка гостя в ядре группы.</div></div>
+    <div class="row"><div class="k">Вы сказали</div><div class="v"><b>«P&amp;L мы делаем в Intuit, что там улучшать?»</b> Дашборды и рекомендации поверх Syrve уже есть готовые за небольшую подписку. Маркетолог как роль пока размыт.</div></div>
+    <div class="row"><div class="k">Мы сделали</div><div class="v">Строки 1+, маркетолог и пульт владельца убраны из сметы. Готовые дашборды поверх Syrve подключаем, а не переписываем.</div></div>
+    <div class="row"><div class="k">Вы сказали</div><div class="v"><b>Склад остаётся на аутсорсе, шесть складов по точкам не делятся.</b> Из Syrve нужна одна узкая вещь: автозаявка поставщикам по остаткам и сверка поставки с заявкой.</div></div>
+    <div class="row"><div class="k">Мы сделали</div><div class="v">Syrve из этапа 1 выведен по вашему решению. Автозаявка поставщикам описана отдельным блоком с отдельной сметой.</div></div>
+    <div class="row"><div class="k">Вы сказали</div><div class="v"><b>Часть «скидок» это питание персонала по цене меню.</b> Салат за 15 при себестоимости 2,5. Реальная нагрузка около 2%, не 10-15%.</div></div>
+    <div class="row"><div class="k">Мы сделали</div><div class="v">Расчёт эффекта по скидкам снят. Эффект считаем по броням и карточкам гостей, см. «Пилот».</div></div>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section id="status">
+  <div class="kicker">Роль 1 · Финансовый контролёр · статус</div>
+  <h2>Что закрываем в роли 1 после созвона</h2>
+  <div class="vs">
+    <div class="col ok">
+      <div class="k">Работает на ваших данных</div>
+      <ul>
+        <li>2 469 документов прошли через контролёра из 7 рабочих чатов, 1 957 финансовых.</li>
+        <li>Инвойсы поставщиков проводятся в QuickBooks с оригиналом, НДС по ставкам 0 / 5 / 9 / 19.</li>
+        <li>Около 40 правил учёта группы выведены с Юлией и закреплены в системе. Они же станут основой ядра.</li>
+        <li>Интерфейс EN / RU / UA, персональные ссылки операторам, новая инфраструктура с 14 сентября.</li>
+      </ul>
+    </div>
+    <div class="col todo">
+      <div class="k">Меняется по вашему решению 15.09</div>
+      <ul>
+        <li><b>Syrve выходит из этапа 1.</b> Складской учёт остаётся на аутсорсе, вы это сказали сами. Накладные в Syrve не делаем.</li>
+        <li>Вместо Syrve в следующий этап идёт узкая задача: автозаявка поставщикам и сверка поставки.</li>
+        <li>Формы 011 / 041, батчи и квитанции доходят до проводки сами, бухгалтер подтверждает одним действием. Это критерий приёмки роли 1.</li>
+        <li>Yummy Kitchen и Viva: в работе с Галиной.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="promise">
+    <p><b>Деньги по роли 1 без изменений.</b> Второй транш после того, как первый ваш счёт пройдёт путь от WhatsApp до проводки, где бухгалтер только подтвердил. Сопровождение 490 € в месяц с приёмки. Счёта за работы, уже сделанные в роли 1 сверх исходного предложения, не будет. Новые задачи идут по правилу реестра ниже.</p>
+  </div>
+  <p class="note">Просим подтвердить вывод Syrve из этапа 1 одной строкой в чате. Тогда приёмка роли 1 это только QuickBooks.</p>
+</section>
+
+<!-- CONTACT CENTER -->
+<section id="cc">
+  <div class="kicker">Роль 2 · Контактный центр Eurostatus</div>
+  <h2>Мозг контактного центра, и голос как его первый канал</h2>
+  <p class="lead">Мозг контактного центра это один агент, который знает залы и меню каждой точки, ведёт гостя от вопроса до брони и возврата, учится на правках Екатерины и отдаёт ей сводку. Каналы к нему прикручиваются: первым голос, потому что гость звонит. WhatsApp, Telegram и Instagram на том же номере подключаются к тому же мозгу, и гость, который звонил, при переписке не станет новым человеком.</p>
+
+  <div class="rooms">
+    <div class="room"><div class="nm">Как сегодня</div><p>В Oshi отдельный человек на телефоне, работает вечерами. Звонок в 10 утра никто не берёт. В La Fermata 0-7 броней в день, в Shakespeare не бронируют. Единый номер группы куплен, но на нём никого нет.</p></div>
+    <div class="room"><div class="nm">Как будет</div><p>Звонок в любое время принимает агент. Бронь встаёт в систему, гостю приходит подтверждение, накануне напоминание. Банкеты, депозиты и спорные даты уходят менеджеру точки с уже собранной карточкой.</p></div>
+    <div class="room"><div class="nm">Где человек</div><p>Агент не выдумывает акции и цены, не подтверждает бронь, пока стол не встал в системе, не спорит с недовольным гостем. Всё это передаёт человеку. Правила утверждает Екатерина.</p></div>
+  </div>
+
+  <h3 style="margin-top:3rem">Голос: первый канал контактного центра</h3>
+  <div class="steps">
+    <div class="step"><div class="no">1</div><div class="t">Звонок</div><p>Единый номер группы или номер точки. Три языка, гость опознан по номеру телефона.</p><div class="who">без человека</div></div>
+    <div class="step"><div class="no">2</div><div class="t">Вопрос</div><p>Часы, парковка, дети, собака, как найти. Ответ из базы знаний точки.</p><div class="who">без человека</div></div>
+    <div class="step"><div class="no">3</div><div class="t">Бронь</div><p>Стол в Remarked, в Oshi через OpenTable. Подтверждение гостю сообщением.</p><div class="who">человек: банкеты, депозиты</div></div>
+    <div class="step"><div class="no">4</div><div class="t">Карточка</div><p>Имя, телефон, точка, сколько человек, детское кресло, заказ. В ядре группы.</p><div class="who">без человека</div></div>
+    <div class="step"><div class="no">5</div><div class="t">После визита</div><p>Напоминание, обратная связь, приглашение в другую точку группы. Только с согласия гостя.</p><div class="who">человек утверждает сценарий</div></div>
+  </div>
+
+  <h3 style="margin-top:3rem">Что делает мозг, независимо от канала</h3>
+  <p class="body">Опознаёт гостя по номеру или профилю. Отвечает из базы знаний точки, не выдумывает акций и цен. Ставит бронь и подтверждает. Напоминает накануне, переносит, отменяет. После визита собирает обратную связь и приглашает в другую точку группы, только с согласия. Сложное передаёт человеку с собранной карточкой. Каждая правка Екатерины становится правилом для всех точек, раз в неделю сводка: что повторялось, что стало автономным. Мессенджеры на том же номере подключаются к этому же мозгу вторичным каналом: сегодня там мало обращений, вы это сказали, и мы не ставим их на фронт.</p>
+
+  <h3 style="margin-top:3rem">Почему голос сложнее текста, и что мы с этим делаем</h3>
+  <p class="body">Задержка ответа, качество распознавания греческого, тон голоса. Это настраивается итерациями на живых звонках, а не на демо. Поэтому в пилоте контрольный показ в конце первой недели на записанных звонках, и порог по эскалациям фиксируем письменно до старта.</p>
+</section>
+
+<!-- SCHEMA -->
+<section id="schema" class="dark" style="padding-left:0;padding-right:0">
+  <div style="padding:0 8vw"><div class="kicker gold">Архитектура · одно ядро, два продукта</div>
+  <h2>Что уже в проде, что покупаем сейчас, что встанет на ядро потом</h2>
+  <p class="lead">В основании ядро данных группы, рассчитанное на 60 точек. Над ним два продукта: финансовый контролёр уже работает, контактный центр это этап 2. У каждого свой интерфейс: веб-панель бухгалтера и голос с мессенджерами для гостя. Пунктиром всё, что группа построит на готовом ядре по пути к 60 точкам: каждая роль отдельной сметой, но без повторного основания.</p></div>
+  <iframe src="shema.html" title="Схема: ядро и два продукта группы" style="width:100%;border:0;display:block;margin-top:1.5rem;height:1400px" onload="try{var d=this.contentDocument;this.style.height='300px';this.style.height=(d.body.scrollHeight+40)+'px'}catch(e){}"></iframe>
+</section>
+
+<!-- CORE -->
+<section id="core" class="dark">
+  <div class="kicker gold">Ядро данных группы · платформа на 60 точек</div>
+  <h2>Одно ядро под всё, что группа построит до 2029</h2>
+  <p class="lead">Ядро это не часть контактного центра, а фундамент группы, рассчитанный на вашу цель: 60 ресторанов к 2029. Сегодня у вас 12 точек, и данные о госте разбросаны по Remarked, OpenTable, Syrve, телефону менеджера и голове сотрудника. Ядро сводит их в одно место: звонки и сообщения, брони, продажи по позициям, документы из QuickBooks. Контактный центр первый продукт, который на нём стоит. Автозаявка поставщикам, стык маркетинга и Syrve, операционный ассистент, пульт владельца, банк и кредиторка встанут на то же ядро: каждая роль отдельной сметой, но без повторной разработки основания. Ядро оплачивается один раз.</p>
+
+  <h3 style="margin-top:3rem">Что лежит в ядре</h3>
+  <div class="rooms">
+    <div class="room"><div class="nm">Карточка гостя</div><p>Телефон как ключ. Визиты, точки, заказы, предпочтения, согласие на связь. Сводится только там, где гость сам позвонил, написал или оставил номер. Один гость перестаёт быть тремя записями в трёх системах.</p></div>
+    <div class="room"><div class="nm">Паспорт точки</div><p>Меню с датой актуальности, часы, залы, посадка, условия по детям и животным, тон общения, номер. Первые паспорта наполняет Екатерина на живых звонках. Новая точка это заполненный паспорт: контактный центр и все следующие роли работают на ней с первого дня.</p></div>
+    <div class="room"><div class="nm">Правила группы</div><p>Как отвечаем, что обещаем, что передаём человеку, как учитываем. Каждая правка Екатерины или бухгалтера становится правилом для всех точек, а не для одной.</p></div>
+    <div class="room"><div class="nm">Журнал событий</div><p>Каждый звонок, сообщение, бронь, визит, счёт, правка правила: с датой, источником и точкой. Из журнала потом считается любая воронка и любое отклонение, без ручного сбора по чатам.</p></div>
+    <div class="room"><div class="nm">Роли и доступы</div><p>Владелец, Екатерина, менеджер точки, бухгалтер видят своё. Доступ выдаётся и снимается одной операцией. Уход сотрудника не уносит из группы знания и контакты гостей.</p></div>
+    <div class="room"><div class="nm">Связки</div><p>Remarked (брони, бонусы), OpenTable (Oshi), Syrve (продажи по позициям), QuickBooks (уже подключён контролёром), единый номер группы, WhatsApp Business, Viva (QR на счёте, проверяем). Данные на серверах в ЕС, Франкфурт. Доступы у вас.</p></div>
+  </div>
+
+  <h3 style="margin-top:3rem">Что встанет на ядро: роль за ролью</h3>
+  <p class="body">Ваши 14 пунктов от 30 июля, разложенные по тому, что каждая роль берёт из ядра. Первые две роли уже на нём. Порядок остальных выбираете вы по результатам работы, а не по плану на бумаге. Каждая следующая роль обходится дешевле первой, потому что не строит своё основание заново.</p>
+  <table class="tbl">
+    <tr><th>Роль</th><th>Что делает</th><th>Что берёт из ядра</th><th>Статус</th></tr>
+    <tr><td>1 · Финансовый контролёр</td><td class="m">Инвойсы и чеки из чатов в QuickBooks, Z-отчёты и батчи терминалов, наличная касса, накладные в Syrve</td><td class="m">Связки QuickBooks и Syrve, правила учёта, журнал проводок, доступы бухгалтеров</td><td><span class="tag s1">В проде</span></td></tr>
+    <tr class="hi"><td>2 · Контактный центр</td><td class="m">Голос на едином номере и на Oshi, мессенджеры на том же номере, бронь, напоминание, возврат гостя, передача сложного человеку</td><td class="m">Карточка гостя, паспорта точек, правила общения, связки Remarked и OpenTable</td><td><span class="tag s3">Этап 2 · это предложение</span></td></tr>
+    <tr><td>Автозаявка поставщикам</td><td class="m">По остаткам в Syrve система предлагает шефу заявку, рассылает 30-40 поставщикам в WhatsApp по матрице продуктов, сверяет поставку с заявкой</td><td class="m">Связка Syrve, матрица поставщиков в правилах группы, журнал заявок и расхождений</td><td><span class="tag s4">Отдельная смета</span></td></tr>
+    <tr><td>Стык маркетинга и Syrve</td><td class="m">Показы, пересылки, обращения, брони, продажи позиции, обратная связь в одной картине. Кампании по сегментам лояльности, приглашение в другую точку группы</td><td class="m">Карточка гостя с согласием, журнал обращений и броней, продажи по позициям из Syrve. Порог Екатерины: 1 000 карточек</td><td><span class="tag s4">После пилота</span></td></tr>
+    <tr><td>Операционный ассистент</td><td class="m">Протоколы встреч через Plaud, контроль задач, чек-листы, меню и инструкции, расчёт банкетного меню, банк гипотез под маркетинг группы</td><td class="m">Паспорта точек, правила группы, журнал задач, доступы по сотруднику</td><td><span class="tag s4">Отдельная смета</span></td></tr>
+    <tr><td>Пульт владельца</td><td class="m">Отклонения по точке до отчёта, сводный экран, контроль качества ресторанов и доставки, мониторинг конкурентов и рынка</td><td class="m">Журнал событий по всем точкам, продажи из Syrve, обратная связь гостей из контактного центра. Готовые дашборды поверх Syrve подключаются как есть</td><td><span class="tag s4">Отдельная смета</span></td></tr>
+    <tr><td>1+ · Банк, кредиторка, P&amp;L</td><td class="m">Банковские операции, сверка стейтментов, платёжный план, предварительный VAT-отчёт, аналитика ABC и гостевого потока</td><td class="m">Связка QuickBooks и банка, правила учёта, журнал проводок. Сегодня вы ведёте это в Intuit, возвращаемся, если понадобится</td><td><span class="tag s4">Отложено</span></td></tr>
+  </table>
+
+  <h3 style="margin-top:3rem">Как ядро растёт с 12 точек до 60</h3>
+  <div class="rows">
+    <div class="row"><div class="k">Новая точка</div><div class="v">Заполняется паспорт точки, подключаются номер и касса. Контактный центр отвечает за неё с первого дня, карточки гостей и журнал копятся сразу. Разработки нет, есть подключение.</div></div>
+    <div class="row"><div class="k">Новая роль</div><div class="v">Встаёт на уже собранные данные: карточки, паспорта, журнал. Поэтому вторая и следующие роли дешевле первой и ставятся быстрее.</div></div>
+    <div class="row"><div class="k">Замена системы</div><div class="v">Уйдёт Remarked, придёт европейский сервис: меняется одна связка. Карточка гостя, история и правила остаются в ядре, а не в чужом сервисе.</div></div>
+    <div class="row"><div class="k">Уход сотрудника</div><div class="v">«Машенька из Instagram это вот этот номер» знает ядро, а не менеджер. Доступ снимается одной операцией, знания и контакты остаются в группе.</div></div>
+    <div class="row"><div class="k">Чего ядро не делает</div><div class="v">Не заменяет Remarked, Syrve и QuickBooks и не становится ещё одной системой, куда надо вносить данные руками. Оно сводит то, что уже есть, и отдаёт продуктам сверху.</div></div>
+  </div>
+
+  <h3 style="margin-top:3rem">Remarked: что делаем до старта</h3>
+  <div class="rows">
+    <div class="row"><div class="k">Доступ</div><div class="v">Екатерина даёт доступ в main-кабинет. Михаил смотрит API, стабильность и что реально отдаётся наружу. Оценка письменно до цены.</div></div>
+    <div class="row"><div class="k">Ваш вопрос</div><div class="v"><b>«Не поздно ли перескочить на европейский сервис?»</b> Пять месяцев нестабильности, брони слетают, меню смешиваются. Ответим отдельным документом: что теряете, что приобретаете, что переносится. Ядро группы строится так, чтобы замена Remarked не ломала карточку гостя.</div></div>
+    <div class="row"><div class="k">Бронь через агента</div><div class="v">Если API Remarked не даёт ставить бронь роботу, запасной путь: агент ставит её через интерфейс, как человек. Этот путь проверяем на доступе от Екатерины до старта, в цену он входит.</div></div>
+  </div>
+
+  <h3 style="margin-top:3rem">Стык маркетинга и Syrve: куда это ведёт</h3>
+  <p class="body">Вы описали воронку: 100 000 показов рилса, 2 500 пересылок, сколько позвонили и написали, сколько дошли, что заказали, что сказали после. Сегодня её не собрать, потому что гость без брони это «тёмное пятно». Ядро с карточками гостей из звонков это первый шаг к тому, чтобы эта воронка появилась. Екатерина назвала порог: хотя бы 1 000 карточек, с которыми можно работать. Это и есть метрика первых месяцев.</p>
+</section>
+
+<!-- GUEST BASE -->
+<section id="base">
+  <div class="kicker">Откуда возьмётся база гостей</div>
+  <h2>Момент оплаты: единственный, когда гость сам достаёт телефон</h2>
+  <p class="lead">Екатерина назвала порог: хотя бы 1 000 карточек, с которыми можно работать. Сегодня лояльность ставят меньше 1% гостей, а гость без брони это «тёмное пятно». Контактный центр даёт карточку из каждого звонка. Второй источник, для тех, кто пришёл без звонка, это счёт.</p>
+  <div class="rooms">
+    <div class="room"><div class="nm">QR на счёте при оплате</div><p>На чеке или на терминале Viva QR-код: «оставьте номер, следующий визит со скидкой» или бонус в Remarked. Гость уже держит телефон, чтобы заплатить. Кубик на столе просит его об услуге, счёт нет. Проверяем у Viva, вы у них эквайер.</p></div>
+    <div class="room"><div class="nm">Звонок и сообщение</div><p>Каждый звонок в контактный центр заводит карточку: имя, телефон, точка, сколько человек, детское кресло, заказ. Гость, который потом напишет, узнаётся по номеру.</p></div>
+    <div class="room"><div class="nm">Бронь в Remarked и OpenTable</div><p>Брони уже содержат телефон. Ядро сводит их с карточкой из звонка и со счётом, так один гость перестаёт быть тремя записями в трёх системах.</p></div>
+  </div>
+  <p class="note">Приглашения и рассылки только с согласия гостя, которое он даёт в момент оставления номера. Отписка в одно действие. Это и есть та база, по которой потом считается стык маркетинга и Syrve.</p>
+</section>
+
+<!-- PILOT -->
+<section id="pilot">
+  <div class="kicker">Пилот</div>
+  <h2>Две точки, единый номер, четыре недели живых звонков</h2>
+  <div class="rows">
+    <div class="row"><div class="k">Точки</div><div class="v"><b>Oshi</b>: до 60 броней в вечер, половина через OpenTable, отдельный человек на телефоне. <b>La Fermata</b>: 0-7 броней в день, живая тренировочная площадка, которую вы сами предлагали для Remarked.</div></div>
+    <div class="row"><div class="k">Канал</div><div class="v">Голос на едином номере группы и на номере Oshi. Мессенджеры на том же номере подключаются к тому же мозгу во второй половине пилота.</div></div>
+    <div class="row"><div class="k">Замер до старта</div><div class="v">Одна неделя: сколько входящих на номер Oshi и на единый номер, сколько не взяли. Это база, по которой вы проверите эффект после пилота.</div></div>
+    <div class="row"><div class="k">Период</div><div class="v">7-10 недель от доступов до приёмки, по вехам: неделя 1 доступы и замер звонков; недели 2-3 база знаний и настройка на записанных звонках с Екатериной; неделя 4 контрольный показ на живом потоке; недели 5-8 живые звонки в двух точках; недели 9-10 приёмка и подключение мессенджеров.</div></div>
+    <div class="row"><div class="k">Приёмка</div><div class="v">Бронь поставлена голосом без человека и подтверждена гостю. Карточка гостя заведена из звонка. Один гость опознан из звонка и сообщения. Доля принятых звонков от входящих в часы пилота не ниже порога, который фиксируем письменно до первого платежа, вместе с порогом эскалаций по вине агента. Сбои оператора связи в долю не входят.</div></div>
+    <div class="row"><div class="k">Не прошло</div><div class="v">Второй платёж не выставляется, дорабатываем до прохождения за свой счёт.</div></div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price" class="dark">
+  <div class="kicker gold">Цена и порядок оплаты</div>
+  <h2>Ядро на все проекты, мозг контактного центра, голос</h2>
+  <p class="lead">Цифры из таблицы, которую вы видели 15 сентября. Мозг контактного центра это то, что раньше называлось цифровым хостесом: он не про мессенджеры, а про ведение гостя в любом канале. К нему прикручивается голос, который вы попросили поставить на фронт. Минуты телефонии подтверждает Михаил после доступа в Remarked.</p>
+  <div class="price">
+    <div class="k">Этап 2 · контактный центр</div>
+    <div class="big">14 400 €</div>
+    <div class="u">7 200 € на старте, 7 200 € после приёмки пилота · 7-10 недель от доступов до приёмки, по вехам · сопровождение мозга и голоса вместе 750 € в месяц плюс минуты телефонии, с приёмки пилота</div>
+    <div class="rowp"><div class="d"><b>Ядро данных группы.</b> Фундамент группы на горизонте 60 точек: карточка гостя, паспорта точек, правила, журнал событий, роли доступа, связки Remarked / OpenTable / Syrve / QuickBooks / единый номер. Оплачивается один раз. Каждая следующая точка, роль и связка подключаются к готовому, основание заново не строится.</div><div class="n">4 500 €</div></div>
+    <div class="rowp"><div class="d"><b>Мозг контактного центра.</b> Один агент на все точки: база знаний, воронка от обращения до лояльности, бронь в Remarked / OpenTable, напоминания и возврат гостя, петли обучения, сводка Екатерине. Каналы: голос первым, WhatsApp, Telegram, Instagram на том же номере.</div><div class="n">6 000 €</div></div>
+    <div class="rowp"><div class="d"><b>Голосовой канал.</b> Единый номер группы и номер Oshi, три языка, распознавание и синтез речи, задержки и тон под живые звонки. Минуты телефонии оплачиваются отдельно.</div><div class="n">3 900 €</div></div>
+    <div class="rowp"><div class="d"><b>Сопровождение.</b> Мозг и голос вместе: правки правил, разбор недели с Екатериной, обновления, подключение новых точек к готовому номеру и ядру. С приёмки пилота, не с даты подписи.</div><div class="n">750 € / мес</div></div>
+    <div class="disc">Расходы на модель ИИ и телефонию оплачиваются вами напрямую и в цену не входят. Подписки Remarked, OpenTable, WhatsApp Business остаются вашими.</div>
+  </div>
+  <p class="note">Мозг один, каналов много: голос отдельной строкой, потому что у него своя телефония и своя настройка на живых звонках. Из сметы убраны 1+ (банк, кредиторка, P&amp;L, вы ведёте это в Intuit), маркетолог и пульт владельца (готовые дашборды поверх Syrve). Они перенесены в раздел «Что отложили».</p>
+</section>
+
+<!-- LATER -->
+<section id="later">
+  <div class="kicker">Что отложили и почему</div>
+  <h2>Три вещи, к которым вернёмся, когда появятся данные</h2>
+  <div class="chk">
+    <div class="c"><div class="k">Автозаявка поставщикам</div><ul>
+      <li>По остаткам в Syrve система предлагает шефу: «мясо заканчивается». Шеф подтверждает.</li>
+      <li>Бот рассылает заявки в WhatsApp 30-40 поставщикам по матрице продуктов.</li>
+      <li>Поставка сверяется с заявкой, расхождение видно до того, как блюдо встало на стоп.</li>
+      <li>Единственный участок склада, который вы назвали важным. Оценим отдельно после доступа к остаткам.</li>
+    </ul></div>
+    <div class="c"><div class="k">Стык маркетинга и Syrve</div><ul>
+      <li>Показы, пересылки, обращения, брони, продажи позиции, обратная связь в одной картине.</li>
+      <li>Нужна база гостей. Порог Екатерины: 1 000 карточек.</li>
+      <li>Готовые дашборды поверх Syrve подключаем как есть, не переписываем.</li>
+      <li>Возвращаемся после пилота контактного центра.</li>
+    </ul></div>
+    <div class="c"><div class="k">Тест гипотез</div><ul>
+      <li>Екатерина: нет рук, чтобы гонять 10 гипотез в месяц по 12 точкам.</li>
+      <li>Банк гипотез, который Михаил показывал на мастермайнде GROW, адаптируется под маркетинг группы.</li>
+      <li>Запускается, когда есть карточки гостей, по которым видно результат.</li>
+    </ul></div>
+  </div>
+  <p class="note">Правило прежнее: каждая новая задача в день появления получает пометку «в текущем этапе» или «следующий этап со сметой». Оценка бесплатна, работа нет.</p>
+</section>
+
+<!-- NEXT -->
+<section id="next" class="dark">
+  <div class="kicker gold">Следующий шаг</div>
+  <h2>Три вещи до цены, одна после</h2>
+  <div class="chk">
+    <div class="c"><div class="k">От Екатерины</div><ul>
+      <li>Доступ в main-кабинет Remarked.</li>
+      <li>Единый номер группы: кто оператор связи, подключена ли телефония Remarked.</li>
+      <li>Неделя замера: звонки на номер Oshi и на единый номер, сколько не взяли.</li>
+    </ul></div>
+    <div class="c"><div class="k">От Николая</div><ul>
+      <li>Одна строка в чате: Syrve из этапа 1 выведен, склад на аутсорсе.</li>
+      <li>Ссылки на дашборд-продукты поверх Syrve, которые вы смотрели.</li>
+      <li>Контакт в Viva: можно ли ставить QR на чек и терминал.</li>
+      <li>Решение по этапу 2 после финальной цены.</li>
+    </ul></div>
+    <div class="c"><div class="k">От нас</div><ul>
+      <li>Оценка Remarked письменно: API, стабильность, европейская альтернатива.</li>
+      <li>Подтверждение минут телефонии и связки с единым номером после доступа в Remarked.</li>
+      <li>Роль 1: первый счёт целиком от WhatsApp до проводки, скрин в чат.</li>
+    </ul></div>
+  </div>
+  <p class="quote" style="margin-top:2.6rem">Через семь-десять недель звонки в Oshi и La Fermata принимает агент, гость получает подтверждение, а в ядре появляется карточка. <span class="accent">Остальные точки подключаются к готовому номеру и ядру.</span></p>
+  <a class="cta" href="https://t.me/stanistar888">Написать Станиславу</a>
+</section>
+
+<footer>
+  <div><b>Mg</b> Digital · Maizon Group · maizongroup.com</div>
+  <div>Документ для Николая Рыжкова, группа Eurostatus · версия 16.09.2026 · ядро группы · не для распространения</div>
+</footer>
+
+</body>
+</html>
