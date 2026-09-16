@@ -1,0 +1,164 @@
+<title>Схема: ядро и два продукта группы Рыжкова</title>
+<style>
+  :root{
+    --bg:#0e1013; --card:#171a20; --card2:#1f232b; --line:#2e343f;
+    --ink:#f2f4f7; --dim:#9aa3b0; --mute:#6b7480;
+    --gold:#d8a657; --goldbg:#221d13; --teal:#5fb3b3; --tealbg:#132020;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);
+       font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       padding-block:32px;padding-left:18px;padding-right:18px}
+  .wrap{max-width:1080px;margin:0 auto}
+  h1{font-size:19px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 6px;font-weight:600}
+  .sub{color:var(--dim);margin:0 0 30px;font-size:13px}
+
+  .lbl{color:var(--mute);font-size:10.5px;font-weight:600;letter-spacing:.16em;
+       text-transform:uppercase;margin:0 0 10px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 19px}
+  .card h3{margin:0 0 5px;font-size:16px;font-weight:600;letter-spacing:.01em}
+  .card .cap{color:var(--dim);font-size:12.5px;margin:0 0 14px;line-height:1.45}
+  .teal{border-color:#31555a;border-top:3px solid var(--teal);background:var(--tealbg)}
+  .gold{border-color:#5a4a2a;border-top:3px solid var(--gold);background:var(--goldbg)}
+  .dash{border:1px dashed var(--line);background:none}
+
+  .tag{display:inline-block;padding:2px 9px;border-radius:9px;font-size:10px;font-weight:700;
+       letter-spacing:.09em;color:#0e1013;vertical-align:2px;margin-left:8px}
+  .tag.t{background:var(--teal)} .tag.g{background:var(--gold)}
+
+  ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+  li{position:relative;padding-left:16px;color:var(--dim);font-size:13px}
+  li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--line)}
+  .teal li::before{background:var(--teal)} .gold li::before{background:var(--gold)}
+
+  /* соединители: тонкая линия без наконечников */
+  .link{display:flex;justify-content:center;padding:14px 0}
+  .link i{display:block;width:1px;height:26px;background:linear-gradient(to bottom,transparent,var(--line) 35%,var(--line) 65%,transparent)}
+  .link.t i{background:linear-gradient(to bottom,transparent,#31555a 35%,#31555a 65%,transparent)}
+  .link.g i{background:linear-gradient(to bottom,transparent,#5a4a2a 35%,#5a4a2a 65%,transparent)}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 14px}
+  .mini h4{margin:0 0 6px;font-size:13px;font-weight:600}
+  .mini p{margin:0;color:var(--mute);font-size:11.5px;line-height:1.5}
+  .core{background:var(--card2);border:1px solid #3a424e;border-radius:13px;padding:19px 21px}
+  .core h3{margin:0 0 5px;font-size:18px}
+  .foot{color:var(--mute);font-size:11.5px;margin:14px 0 0}
+  .legend{margin-top:26px;color:var(--dim);font-size:12.5px;display:grid;gap:8px}
+  .legend b{color:var(--ink)}
+  .key{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  @media (max-width:820px){
+    .cols,.two{grid-template-columns:1fr}
+    .grid4,.grid5{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:460px){ .grid4,.grid5{grid-template-columns:1fr} }
+</style>
+
+<div class="wrap">
+  <h1>Архитектура группы: одно ядро, два продукта, свой интерфейс у каждого</h1>
+  <p class="sub">Версия 16.09.2026 · ядро оплачивается один раз, продукты и каналы встают на него</p>
+
+  <p class="lbl">Встанут на то же ядро позже · отдельная смета</p>
+  <div class="grid4">
+    <div class="mini dash"><h4>Автозаявка поставщикам</h4><p>остатки, заявка, сверка поставки</p></div>
+    <div class="mini dash"><h4>Маркетинг и Syrve</h4><p>кампания, брони, продажи блюд</p></div>
+    <div class="mini dash"><h4>Операционный ассистент</h4><p>задачи, чек-листы, гипотезы</p></div>
+    <div class="mini dash"><h4>Пульт владельца</h4><p>сводная картина по точкам</p></div>
+  </div>
+
+  <div class="link"><i></i></div>
+
+  <div class="cols">
+    <div>
+      <p class="lbl">Через что работает человек</p>
+      <div class="card teal">
+        <h3>Веб-панель бухгалтера</h3>
+        <p class="cap">Документ с оригиналом рядом, проводка подтверждается одним действием.</p>
+        <ul class="teal">
+          <li>персональный доступ каждому сотруднику</li>
+          <li>три языка интерфейса и журнал действий</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <p class="lbl">Через что приходит гость</p>
+      <div class="two">
+        <div class="card gold">
+          <h3>Голос</h3>
+          <p class="cap">Первый канал</p>
+          <ul class="gold">
+            <li>единый номер и номер Oshi</li>
+            <li>три языка, круглосуточно</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Мессенджеры</h3>
+          <p class="cap">Вторая очередь</p>
+          <ul>
+            <li>WhatsApp и Instagram</li>
+            <li>тот же номер и та же карточка</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="link t"><i></i></div>
+    <div class="link g"><i></i></div>
+  </div>
+
+  <p class="lbl">Два продукта на общем ядре</p>
+  <div class="cols">
+    <div class="card teal">
+      <h3>Роль 1. Финансовый контролёр <span class="tag t">В ПРОДЕ</span></h3>
+      <p class="cap">Документ из рабочего чата доходит до проводки сам, бухгалтер подтверждает.</p>
+      <ul class="teal">
+        <li>приём документов из семи чатов</li>
+        <li>распознавание, суммы и НДС</li>
+        <li>разнесение по счетам QuickBooks</li>
+        <li>сверка касс и банка</li>
+      </ul>
+    </div>
+
+    <div class="card gold">
+      <h3>Роль 2. Контактный центр <span class="tag g">ЭТАП 2</span></h3>
+      <p class="cap">Один агент на все точки: ведёт гостя от вопроса до повторного визита.</p>
+      <ul class="gold">
+        <li>ответы на вопросы гостя</li>
+        <li>бронь, подтверждение, напоминание</li>
+        <li>карточка гостя по номеру телефона</li>
+        <li>возврат гостя и передача сложного человеку</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="link t"><i></i></div>
+    <div class="link g"><i></i></div>
+  </div>
+
+  <div class="core">
+    <h3>Ядро данных группы</h3>
+    <p class="cap">Оплачивается один раз. Новая точка подключается к готовому, новая роль встаёт на собранные данные.</p>
+    <div class="grid5">
+      <div class="mini"><h4>Карточка гостя</h4><p>телефон как ключ, визиты и переходы между точками</p></div>
+      <div class="mini"><h4>База знаний точек</h4><p>меню, часы, залы, тон каждой точки</p></div>
+      <div class="mini"><h4>Правила и журнал</h4><p>правила учёта и общения, кто что сделал</p></div>
+      <div class="mini"><h4>Роли и доступы</h4><p>доступ по сотруднику, снимается одной операцией</p></div>
+      <div class="mini"><h4>Связки</h4><p>QuickBooks, Syrve, Remarked, OpenTable, WhatsApp</p></div>
+    </div>
+    <p class="foot">Серверы в ЕС, Франкфурт. Данные группы остаются у группы, а не у сотрудника и не у стороннего сервиса.</p>
+  </div>
+
+  <div class="legend">
+    <div><span class="key" style="background:#5fb3b3"></span><b>Роль 1</b> работает на живых данных и оплачена наполовину. Человек взаимодействует с ней через веб-панель.</div>
+    <div><span class="key" style="background:#d8a657"></span><b>Роль 2</b> предмет этапа 2. Гость взаимодействует с ней голосом, дальше в мессенджерах.</div>
+    <div><span class="key" style="background:#2e343f"></span><b>Пунктир</b> встаёт на готовое ядро позже и считается отдельной сметой.</div>
+  </div>
+</div>
