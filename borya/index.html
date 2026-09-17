@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Полный зал сейчас, своя НКО к весне | Classical Arts × Digizen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#7732D9; --purple-dark:#6034BF; --ink:#000; --grey:#646464; --grey-2:#777; --line:#E6E6E6; --soft:#F4F1FB; --white:#fff;
+    --teal:#2FC7C0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:var(--white);line-height:1.5;font-size:17px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* header */
+  header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px}
+  .logo i{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#B58BFF,var(--purple) 60%);display:inline-block;position:relative}
+  .logo i::after{content:"";position:absolute;inset:9px;border-radius:50%;background:#fff}
+  .logo span{color:var(--grey);font-weight:400;font-size:15px;margin-left:6px}
+  nav{display:flex;gap:26px;font-size:15px;font-weight:600}
+  nav a:hover{color:var(--purple)}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;border-radius:192px;padding:12px 26px;font-weight:600;font-size:15px;white-space:nowrap}
+  .pill.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .pill.ghost:hover{background:var(--ink);color:#fff}
+  @media(max-width:900px){nav{display:none}}
+
+  /* hero */
+  .hero{padding:80px 0 40px;position:relative;overflow:hidden}
+  .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .kicker{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:18px}
+  h1{font-size:clamp(38px,5.4vw,72px);line-height:1.02;font-weight:800;letter-spacing:-.02em;text-transform:uppercase}
+  h1 em{font-style:normal;color:var(--purple)}
+  .hero p.lead{font-size:19px;color:var(--grey);margin-top:26px;max-width:560px}
+  .hero .cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .orb{aspect-ratio:1;border-radius:50%;background:
+      radial-gradient(circle at 30% 28%,#fff 0,rgba(255,255,255,.0) 22%),
+      conic-gradient(from 210deg,#8E5BFF,#2FC7C0,#5B3DE0,#8ED9F5,#7732D9,#8E5BFF);
+      position:relative;box-shadow:0 40px 80px rgba(119,50,217,.25)}
+  .orb::before{content:"";position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.55),rgba(255,255,255,0) 60%),#F0ECFA;mix-blend-mode:screen;opacity:.85}
+  .orb .stat{position:absolute;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 14px 40px rgba(0,0,0,.12);font-size:14px;color:var(--grey)}
+  .orb .stat b{display:block;font-size:26px;color:var(--ink);line-height:1.1}
+  .orb .s1{top:6%;left:-6%} .orb .s2{bottom:12%;right:-8%} .orb .s3{bottom:-4%;left:18%}
+  @media(max-width:900px){.hero .grid{grid-template-columns:1fr}.orb{max-width:320px;margin:20px auto 0}.orb .s1{left:0}.orb .s2{right:0}}
+
+  .big{font-size:clamp(46px,9vw,140px);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.03em;padding:30px 0 0;white-space:nowrap;overflow:hidden}
+  .big span{display:inline-block;padding-right:.4em}
+  .big .o{-webkit-text-stroke:2px var(--ink);color:transparent}
+
+  /* sections */
+  section{padding:84px 0;border-top:1px solid var(--line)}
+  .label{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-2);font-weight:600;margin-bottom:14px}
+  h2{font-size:clamp(30px,3.6vw,48px);line-height:1.08;font-weight:800;letter-spacing:-.02em;max-width:820px}
+  h2 em{font-style:normal;color:var(--purple)}
+  .sub{color:var(--grey);font-size:18px;max-width:720px;margin-top:16px}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:44px}
+  .card{border:1px solid var(--line);border-radius:22px;padding:28px;background:#fff;transition:.2s}
+  .card:hover{border-color:var(--purple);box-shadow:0 18px 50px rgba(119,50,217,.10);transform:translateY(-2px)}
+  .card h3{font-size:20px;font-weight:700;margin-bottom:10px;line-height:1.25}
+  .card p{color:var(--grey);font-size:15.5px}
+  .card .num{width:38px;height:38px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:18px}
+  .card.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .card.dark p{color:#BDBDBD}
+  .card.soft{background:var(--soft);border-color:transparent}
+  .tag{display:inline-block;border-radius:100px;padding:5px 12px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+  .tag.no{background:#FFE4E4;color:#B3261E}
+  .tag.wait{background:#FFF1D6;color:#8A5A00}
+  .tag.ok{background:#E2F6EE;color:#0C6B45}
+  .tag.p{background:#EDE4FB;color:var(--purple-dark)}
+
+  /* before/after */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+  .ba .col{border-radius:22px;padding:30px;border:1px solid var(--line)}
+  .ba .col.after{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .ba h3{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-2);margin-bottom:22px}
+  .ba .after h3{color:#B58BFF}
+  .ba ul{list-style:none}
+  .ba li{padding:14px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+  .ba .after li{border-top-color:#2B2B2B}
+  .ba li b{display:block;font-weight:700;margin-bottom:4px}
+  .ba li small{color:var(--grey);font-size:14.5px;display:block}
+  .ba .after li small{color:#BDBDBD}
+  .dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex:none;margin-top:2px}
+  .dot.x{background:#FFE4E4;color:#B3261E}.dot.w{background:#FFF1D6;color:#8A5A00}.dot.v{background:#E2F6EE;color:#0C6B45}.dot.p{background:var(--purple);color:#fff}
+  @media(max-width:900px){.ba{grid-template-columns:1fr}}
+
+  /* phases */
+  .phases{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px;position:relative}
+  .phase{border-radius:26px;padding:34px;border:1px solid var(--line);position:relative;overflow:hidden}
+  .phase.one{background:var(--soft)}
+  .phase.two{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .phase .when{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--purple)}
+  .phase.two .when{color:#B58BFF}
+  .phase h3{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:10px 0 18px;line-height:1.08}
+  .phase ul{list-style:none;margin-top:6px}
+  .phase li{padding:11px 0;border-top:1px solid rgba(0,0,0,.08);font-size:15.5px;display:grid;grid-template-columns:22px 1fr;gap:10px}
+  .phase.two li{border-top-color:#2B2B2B;color:#DADADA}
+  .phase li::before{content:"→";color:var(--purple);font-weight:700}
+  .phase.two li::before{color:#B58BFF}
+  .phase .goal{margin-top:22px;padding:16px 18px;border-radius:16px;background:#fff;color:var(--ink);font-weight:600;font-size:15px}
+  .phase.two .goal{background:#1C1C1C;color:#fff}
+  .bridge{grid-column:1/-1;border-radius:22px;padding:26px 30px;background:linear-gradient(90deg,#EDE4FB,#E3F7F6);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+  .bridge .arrow{font-size:44px;font-weight:800;color:var(--purple);line-height:1}
+  .bridge p{font-size:16px;color:#333}
+  .bridge b{color:var(--ink)}
+  @media(max-width:900px){.phases{grid-template-columns:1fr}}
+
+  /* money */
+  .money{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;margin-top:44px}
+  .calc{border-radius:26px;background:var(--ink);color:#fff;padding:34px}
+  .calc h3{font-size:22px;font-weight:700;margin-bottom:6px}
+  .calc p.note{color:#BDBDBD;font-size:14.5px;margin-bottom:22px}
+  .calc .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .calc label{font-size:13px;color:#BDBDBD;display:block;margin-bottom:6px}
+  .calc input{width:100%;background:#1C1C1C;border:1px solid #333;color:#fff;border-radius:12px;padding:12px 14px;font:inherit;font-size:16px}
+  .calc .out{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+  .calc .out div{background:#1C1C1C;border-radius:16px;padding:16px}
+  .calc .out b{display:block;font-size:28px;color:#fff;line-height:1.1}
+  .calc .out span{font-size:13px;color:#BDBDBD}
+  .calc .out .hi b{color:#B58BFF}
+  .mlist{display:flex;flex-direction:column;gap:14px}
+  .mlist .card{padding:22px 24px}
+  .mlist .card b{font-size:24px;display:block;line-height:1.1;margin-bottom:6px}
+  .mlist .card small{color:var(--grey);font-size:14.5px}
+  @media(max-width:900px){.money{grid-template-columns:1fr}}
+
+  /* red lines */
+  .lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:40px}
+  .line{border-left:4px solid #B3261E;padding:16px 20px;background:#FFF7F7;border-radius:0 18px 18px 0}
+  .line b{display:block;margin-bottom:4px}
+  .line p{color:#5A3A3A;font-size:15px}
+
+  /* roles */
+  .roles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+  .role{border-radius:22px;padding:26px;border:1px solid var(--line)}
+  .role .who{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:8px}
+  .role h3{font-size:20px;margin-bottom:12px}
+  .role ul{list-style:none;color:var(--grey);font-size:15px}
+  .role li{padding:6px 0;border-top:1px solid var(--line)}
+  @media(max-width:1000px){.roles{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.roles{grid-template-columns:1fr}}
+
+  /* timeline */
+  .tl{margin-top:44px;display:grid;gap:0}
+  .tl .step{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:22px 0;border-top:1px solid var(--line)}
+  .tl .d{font-weight:800;color:var(--purple);font-size:16px}
+  .tl .d small{display:block;font-weight:500;color:var(--grey-2);font-size:13px}
+  .tl h4{font-size:19px;margin-bottom:6px}
+  .tl p{color:var(--grey);font-size:15.5px}
+  .tl .step.spring .d{color:var(--teal)}
+  @media(max-width:700px){.tl .step{grid-template-columns:1fr;gap:6px}}
+
+  /* decisions */
+  .dec{counter-reset:d;margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .dec div{border-radius:20px;padding:24px 26px;background:var(--soft);display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+  .dec div::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-weight:800;font-size:26px;color:var(--purple);line-height:1}
+  .dec b{display:block;margin-bottom:4px;font-size:17px}
+  .dec p{color:var(--grey);font-size:15px}
+  .dec div.hot{background:var(--ink);color:#fff}
+  .dec div.hot p{color:#BDBDBD}
+  .dec div.hot::before{color:#B58BFF}
+  @media(max-width:800px){.dec{grid-template-columns:1fr}}
+
+  /* final */
+  .final{background:var(--purple);color:#fff;border:0;padding:96px 0}
+  .final h2{color:#fff;max-width:900px}
+  .final p{color:#E9DDFF;font-size:19px;max-width:700px;margin-top:18px}
+  .final .pill{background:#fff;color:var(--purple);margin-top:34px}
+  footer{padding:36px 0;font-size:14px;color:var(--grey-2)}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo"><i></i>Digizen <span>× Classical Arts</span></div>
+    <nav>
+      <a href="#change">Что изменилось</a>
+      <a href="#phases">Две фазы</a>
+      <a href="#money">Деньги</a>
+      <a href="#lines">Красные линии</a>
+      <a href="#roles">Роли</a>
+      <a href="#decide">Решения</a>
+    </nav>
+    <a class="pill" href="#decide">Созвон: 5 решений</a>
+  </div>
+</header>
+
+<section class="hero" style="border-top:0">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="kicker">Рабочий документ · Classical Arts / IBS · 17.09.2026</div>
+        <h1>Полный зал <em>сейчас.</em><br>Своя НКО <em>к весне.</em></h1>
+        <p class="lead">Идея с митингов и идея "НКО для Гугла" - это не две идеи, а одна в две фазы. Осенний тур заполняем на чужих НКО и местных спонсорах. Всё, что при этом соберём, становится фундаментом собственного 501(c)(3) и Google Ad Grants к весеннему туру 2027.</p>
+        <div class="cta">
+          <a class="pill" href="#phases">Смотреть две фазы</a>
+          <a class="pill ghost" href="#lines">Что нельзя обещать</a>
+        </div>
+      </div>
+      <div class="orb">
+        <div class="stat s1"><b>13</b>площадок Tier A<br>заполняемость ≤ 12%</div>
+        <div class="stat s2"><b>23</b>НКО с контактами<br>в 13 городах</div>
+        <div class="stat s3"><b>$10K/мес</b>Google Ad Grants<br>после регистрации НКО</div>
+      </div>
+    </div>
+  </div>
+  <div class="big"><span>Fill the</span><span class="o">house</span><span>Build the</span><span class="o">foundation</span></div>
+</section>
+
+<section id="change">
+  <div class="wrap">
+    <div class="label">(Что изменилось)</div>
+    <h2>Из четырёх идей с митингов живут две. <em>Но они сильнее, чем казалось.</em></h2>
+    <p class="sub">Проверка Влада честная, с ней спорить не надо. Списание номинала не работает, $3-5 с билета требует регистрации, порталы корпораций не успевают. Зато оставшееся ложится ровно в миссию будущей НКО.</p>
+
+    <div class="ba">
+      <div class="col">
+        <h3>Было: 4 идеи Бориса</h3>
+        <ul>
+          <li><span class="dot x">✕</span><div><b>Списать номинал непроданных билетов</b><small>Билет = услуга. В США дарёные услуги не вычитаются, в Онтарио на услуги расписок нет. Зал и труппа уже списаны как расходы.</small></div></li>
+          <li><span class="dot w">‖</span><div><b>$3-5 с билета местной НКО</b><small>Это cause marketing. В Illinois и Massachusetts нужна регистрация commercial co-venturer и договор с НКО. Пауза до юриста.</small></div></li>
+          <li><span class="dot w">‖</span><div><b>Пакет для крупных работодателей</b><small>Лид-тайм 60-90 дней, подаёт только НКО. Через порталы к октябрю-ноябрю не успеть. Работает только личный выход на ЛПР.</small></div></li>
+          <li><span class="dot v">✓</span><div><b>Сначала НКО, потом спонсор</b><small>Правильный порядок. Спонсору продаём конкретных детей из его города, а не абстрактную благотворительность.</small></div></li>
+        </ul>
+      </div>
+      <div class="col after">
+        <h3>Стало: одна модель в две фазы</h3>
+        <ul>
+          <li><span class="dot p">1</span><div><b>Осень 2026: бесплатные билеты через партнёрские НКО</b><small>Boys &amp; Girls Clubs, BBBS, Tickets for Kids. Все Tier A города. Полный зал для видео, отзывов и артистов. Лимит: до 15% вместимости.</small></div></li>
+          <li><span class="dot p">2</span><div><b>Осень 2026: "Sponsor a Seat" для местного бизнеса</b><small>Кредитные союзы, местные банки, больницы через маркетинг-директора, казино. Только ноябрьские города и Skokie. Лично, не через порталы.</small></div></li>
+          <li><span class="dot p">3</span><div><b>Всё осеннее = актив для Form 1023</b><small>23 НКО-партнёра, фото, цифры бенефициаров, спонсоры. Это multi-stakeholder миссия, которая снимает главный юр риск single-client funnel.</small></div></li>
+          <li><span class="dot p">4</span><div><b>Весна 2027: Rising Ballet Stars Foundation + Google Ad Grants</b><small>Собственный 501(c)(3) на готовой базе. $10 000/мес поисковой рекламы, YouTube Nonprofit, Google Workspace. Спонсоры жертвуют уже с вычетом.</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="phases" style="background:#FAFAFA">
+  <div class="wrap">
+    <div class="label">(Две фазы)</div>
+    <h2>Осень кормит весну. <em>Ничего не делаем дважды.</em></h2>
+    <p class="sub">Google-НКО к этому туру невозможна физически: Form 1023 идёт 3-6+ месяцев, потом TechSoup, потом Google. Тур заканчивается 25.11. Значит осень - пилот, весна - продукт.</p>
+
+    <div class="phases">
+      <div class="phase one">
+        <div class="when">Фаза 1 · 06.10 - 25.11.2026</div>
+        <h3>Заполнить залы<br>на чужих НКО</h3>
+        <ul>
+          <li>По каждому Tier A городу 2-3 НКО из базы. Community foundations используем как коннекторов, не как получателей.</li>
+          <li>Предложение НКО: 20-150 билетов на конкретную дату. Нужны подтверждение, количество, лид группы, согласие на фото.</li>
+          <li>Tickets for Kids Charities как национальный канал: один договор на 23 штата.</li>
+          <li>"Sponsor a Seat" по ноябрьским городам: 100 билетов конкретной НКО, логотип, благодарность со сцены, 5 билетов команде, релиз после шоу.</li>
+          <li>Приоритет региональным спонсорам: Consumers Energy = 3 города Мичигана, Hollywood Casino = Toledo + Joliet.</li>
+          <li>Публичный PR только после спектакля, чтобы не убить платные продажи.</li>
+        </ul>
+        <div class="goal">Цель фазы: полные залы в Tier A + 5-10 первых спонсоров + 23 живых НКО-партнёра + библиотека фото и цитат.</div>
+      </div>
+
+      <div class="phase two">
+        <div class="when">Фаза 2 · декабрь 2026 - весенний тур 2027</div>
+        <h3>Своя НКО<br>и Google Ad Grants</h3>
+        <ul>
+          <li>Регистрируем Rising Ballet Stars Foundation, Inc. (501(c)(3), Florida). Миссия: доступ к классическому балету для детей из underserved communities.</li>
+          <li>Программы для Form 990 уже прожиты осенью: бесплатные посещения, Rising Stars на сцене, outreach в школах.</li>
+          <li>Независимый board, disclosure отношений с Classical Arts, fair-market договоры.</li>
+          <li>Google for Nonprofits: Ad Grants $10 000/мес на поиск, YouTube Nonprofit, Workspace, Maps credit.</li>
+          <li>Контент-завод под миссию: 120-150 шоу в сезон = 120 локальных историй.</li>
+          <li>Спонсоры фазы 1 переходят в доноров фонда: их деньги теперь идут с вычетом, а не как маркетинговый расход.</li>
+        </ul>
+        <div class="goal">Цель фазы: работающая НКО с грантом к весеннему туру, кейс для продажи модели остальным клиентам Digizen.</div>
+      </div>
+
+      <div class="bridge">
+        <div class="arrow">↗</div>
+        <p><b>Мост между фазами.</b> Каждое действие осенью оформляем так, чтобы оно легло в заявку: список НКО-партнёров с контактами и датами, число детей на каждом шоу, фото с согласием, письма спонсоров. Это не отдельная работа, это та же работа, просто записанная.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="money">
+  <div class="wrap">
+    <div class="label">(Деньги)</div>
+    <h2>Осенью деньги небольшие и честные. <em>Большие деньги в модели, а не в туре.</em></h2>
+    <p class="sub">Себестоимость пустого кресла около нуля: зал и труппа оплачены. Поэтому чек спонсора - почти чистые деньги. Но арифметика жёсткая: одним туром состояние не сделать.</p>
+
+    <div class="money">
+      <div class="calc">
+        <h3>Калькулятор пакета "Sponsor a Seat"</h3>
+        <p class="note">$45 - заглушка из документа Влада. Впиши реальную среднюю цену билета, и цифры пересчитаются.</p>
+        <div class="row">
+          <div><label>Средняя цена билета, $</label><input id="price" type="number" value="45"></div>
+          <div><label>Билетов в пакете</label><input id="qty" type="number" value="100"></div>
+        </div>
+        <div class="row">
+          <div><label>Скидка спонсору, %</label><input id="disc" type="number" value="30"></div>
+          <div><label>Спонсоров на город</label><input id="spons" type="number" value="2"></div>
+        </div>
+        <div class="row">
+          <div><label>Ноябрьских городов</label><input id="cities" type="number" value="11"></div>
+          <div><label>Пустых мест на город (ориентир)</label><input id="empty" type="number" value="1800"></div>
+        </div>
+        <div class="out">
+          <div class="hi"><b id="o1">-</b><span>чек одного спонсора</span></div>
+          <div><b id="o2">-</b><span>мест закрыто одним пакетом</span></div>
+          <div class="hi"><b id="o3">-</b><span>спонсорских денег за осень</span></div>
+          <div><b id="o4">-</b><span>пакетов нужно, чтобы закрыть один зал</span></div>
+        </div>
+      </div>
+
+      <div class="mlist">
+        <div class="card">
+          <span class="tag ok">Фаза 1</span>
+          <b>Спонсорские пакеты</b>
+          <small>Реалистично 1-2 спонсора на ноябрьский город за 3-6 недель. Это десятки тысяч долларов на тур, не сотни. Бесплатные билеты денег не приносят, они приносят полный зал и материал.</small>
+        </div>
+        <div class="card">
+          <span class="tag p">Фаза 2</span>
+          <b>$120 000 в год рекламы</b>
+          <small>Google Ad Grants: $10 000/мес поисковой рекламы под миссию. Плюс YouTube Nonprofit и Workspace. Это не кэш, это трафик и авторитет, которые сейчас покупаются за деньги.</small>
+        </div>
+        <div class="card dark">
+          <span class="tag p" style="background:#2B2B2B;color:#B58BFF">Модель</span>
+          <b>Setup + retainer</b>
+          <small>По майской договорённости: setup от $10K с ростом до $50K после первого кейса, retainer $2-3K/мес за Grants, контент и compliance. Classical Arts - первый кейс, дальше модель продаётся остальным клиентам Digizen.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lines" style="background:#FAFAFA">
+  <div class="wrap">
+    <div class="label">(Красные линии)</div>
+    <h2>Что нельзя обещать собственнику. <em>Ни на встрече, ни в письмах.</em></h2>
+    <p class="sub">Это не юридическая консультация, финальное слово за 501(c)(3) attorney и CPA. Но эти пункты уже понятны и без них.</p>
+    <div class="lines">
+      <div class="line"><b>НКО не покупает билеты у Classical Arts</b><p>Спонсор покупает билеты напрямую у Classical Arts, это его маркетинговый расход. Фонд ведёт программы, а не перепродаёт услуги учредителей. Иначе это private benefit, ровно то, за что IRS сносит 501(c)(3) (American Campaign Academy, кейсы 2025).</p></div>
+      <div class="line"><b>Никакого "спишем номинал"</b><p>Списание не работает ни в США, ни в Онтарио. Налоговый аргумент есть только у спонсора, и то со словами "проверьте у своего бухгалтера".</p></div>
+      <div class="line"><b>Никакого ТВ без канала</b><p>Пока нет договорённости с конкретным каналом, в письмах про телевидение ни слова. Первая же проверка убьёт доверие спонсора.</p></div>
+      <div class="line"><b>Скидки не публикуем до шоу</b><p>Бесплатные и -30% билеты уходят только закрытым группам через НКО. Публичный PR после спектакля. Иначе каннибализируем платные продажи.</p></div>
+      <div class="line"><b>$3-5 с билета на паузе</b><p>Commercial co-venturer регистрация в ряде штатов. Включаем только после юриста и только через собственную НКО в фазе 2.</p></div>
+      <div class="line"><b>Письма по правилам</b><p>Онтарио: CASL, только публичные рабочие адреса по теме роли. США: CAN-SPAM, отправитель, отписка, честная тема. Холодные письма с отдельного домена, чтобы не испортить основную рассылку.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="label">(Кто что делает)</div>
+    <h2>Четыре роли. <em>Без дублей.</em></h2>
+    <div class="roles">
+      <div class="role">
+        <div class="who">Digizen · Борис</div>
+        <h3>Продажи и клиент</h3>
+        <ul>
+          <li>Встреча с собственником, закрытие модели</li>
+          <li>Личный выход на ЛПР спонсоров</li>
+          <li>Стратегия и отношения с Classical Arts</li>
+          <li>Решения по лимитам и цене пакета</li>
+        </ul>
+      </div>
+      <div class="role">
+        <div class="who">Digizen · Влад + агент</div>
+        <h3>НКО и письма</h3>
+        <ul>
+          <li>Рассылка НКО по Tier A городам</li>
+          <li>Tickets for Kids: покрытие по городам</li>
+          <li>База спонсоров, имена ЛПР через LinkedIn</li>
+          <li>Учёт: кто, сколько, когда, фото</li>
+        </ul>
+      </div>
+      <div class="role">
+        <div class="who">Стас</div>
+        <h3>Архитектура НКО и контент</h3>
+        <ul>
+          <li>Юр-каркас: 501(c)(3), Form 1023, bylaws, board</li>
+          <li>Google for Nonprofits, Ad Grants, compliance</li>
+          <li>Контент-завод под миссию, письма и кейсы</li>
+          <li>Упаковка осенних данных под заявку</li>
+        </ul>
+      </div>
+      <div class="role">
+        <div class="who">Classical Arts · собственник</div>
+        <h3>Билеты и права</h3>
+        <ul>
+          <li>Кто вправе дарить и продавать пакеты</li>
+          <li>Потолок комп-билетов на город</li>
+          <li>Логотип на экране, слово со сцены</li>
+          <li>Согласие на фото и совместный релиз</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plan" style="background:#FAFAFA">
+  <div class="wrap">
+    <div class="label">(План)</div>
+    <h2>Три недели осени <em>и один квартал весны.</em></h2>
+    <div class="tl">
+      <div class="step"><div class="d">17-19.09<small>Борис + Стас</small></div><div><h4>Созвон: пять решений</h4><p>Роли, деньги, лимиты, юрист. Список внизу страницы. Без этого на встречу с собственником не идём.</p></div></div>
+      <div class="step"><div class="d">до 21.09<small>Борис</small></div><div><h4>Встреча с собственником</h4><p>Продаём одну модель в две фазы, а не два отдельных проекта. Получаем ответ по юрлицу, правам на билеты и потолку комп-билетов.</p></div></div>
+      <div class="step"><div class="d">16-19.09<small>Влад</small></div><div><h4>НКО по самым ранним датам</h4><p>Columbia (06.10), Greensboro (07.10), Trenton (16.10), Kingston NY (20.10). Только быстрые комп-билеты.</p></div></div>
+      <div class="step"><div class="d">17-20.09<small>Влад</small></div><div><h4>Tickets for Kids</h4><p>Какие из наших городов они покрывают. Один договор вместо десяти.</p></div></div>
+      <div class="step"><div class="d">19-25.09<small>Влад + агент</small></div><div><h4>НКО по остальным Tier A</h4><p>Akron, Chicagoland, Michigan, Michiana, Toledo.</p></div></div>
+      <div class="step"><div class="d">22.09-03.10<small>Борис</small></div><div><h4>Спонсоры лично</h4><p>ЛПР по Chicagoland, Michigan, Toledo, Michiana. До 06.10 заявка в Silver Cross (Joliet, лид-тайм 4 недели, шоу 03.11).</p></div></div>
+      <div class="step"><div class="d">до 26.09<small>Стас + юрист</small></div><div><h4>Консультация 501(c)(3) attorney</h4><p>Структура фонда, related-party правила, что можно обещать спонсорам про вычет. Бюджет $3-5K, закладываем сейчас.</p></div></div>
+      <div class="step spring"><div class="d">окт-ноя<small>Стас</small></div><div><h4>Осенние данные в формат заявки</h4><p>Партнёры, бенефициары, фото, письма спонсоров. Параллельно с туром, не после.</p></div></div>
+      <div class="step spring"><div class="d">дек 2026<small>Стас</small></div><div><h4>Регистрация фонда, Form 1023</h4><p>Florida domicile, независимый board, disclosure отношений с Classical Arts / We Dance.</p></div></div>
+      <div class="step spring"><div class="d">Q1 2027<small>Стас + Digizen</small></div><div><h4>TechSoup, Google for Nonprofits, Ad Grants</h4><p>Аккаунт, кампании под миссию, контент-завод. К весеннему туру фонд работает, спонсоры жертвуют с вычетом.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="decide">
+  <div class="wrap">
+    <div class="label">(Решаем на созвоне)</div>
+    <h2>Пять решений <em>до встречи с собственником.</em></h2>
+    <div class="dec">
+      <div class="hot"><div><b>Роль и деньги Стаса в осенней фазе</b><p>Осень - работа Digizen для своего клиента. Стас заходит либо фиксом за юр-архитектуру и упаковку, либо долей от спонсорских пакетов, либо только в фазу 2 по майской модели. Выбираем один вариант.</p></div></div>
+      <div><div><b>Юрлицо и права на билеты</b><p>Кто дарит и продаёт пакеты: Classical Arts, We Dance или площадка. От этого зависит и договор со спонсором, и будущая структура фонда.</p></div></div>
+      <div><div><b>Потолок комп-билетов и цена пакета</b><p>Предлагаем не больше 15% вместимости на город. Цена пакета от реальной средней цены билета, не от заглушки $45.</p></div></div>
+      <div><div><b>Бюджет на юриста и CPA</b><p>$3-5K на 501(c)(3) attorney до регистрации. Отдельный вопрос CPA по вычетам спонсора. Кто платит: Classical Arts, Digizen или пополам.</p></div></div>
+      <div><div><b>Как продаём собственнику</b><p>Одна модель в две фазы. Осень показывает результат, весна делает его постоянным. Без обещаний про списания и телевидение.</p></div></div>
+      <div><div><b>Домен и отправитель</b><p>Холодные письма НКО и спонсорам с отдельного домена. Основную рассылку, которую прогревает Настя, не трогаем.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="label" style="color:#D9C7FF">(Итог)</div>
+    <h2>Идея рабочая. Порядок правильный. Деньги не там, где казалось, и они появляются во второй фазе, а не в первой.</h2>
+    <p>Осень заполняет залы и собирает базу. Весна превращает базу в фонд с грантом Google. Один клиент, один кейс, потом модель для всего портфеля Digizen.</p>
+    <a class="pill" href="#decide">Созвон: пять решений</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>Digizen × Стас Жуковец</b> · Classical Arts / International Ballet Stars · рабочий документ 17.09.2026</div>
+    <div>Источники: документ Влада от 16.09.2026, данные продаж тура на 16.09, пилот IBS от 21.05.2026, IRS Topic 506. Не юридическая и не налоговая консультация.</div>
+  </div>
+</footer>
+
+<script>
+  const $=id=>document.getElementById(id);
+  const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+  function calc(){
+    const p=+$('price').value||0,q=+$('qty').value||0,d=+$('disc').value||0,s=+$('spons').value||0,c=+$('cities').value||0,e=+$('empty').value||0;
+    const check=p*q*(1-d/100);
+    $('o1').textContent=fmt(check);
+    $('o2').textContent=q.toLocaleString('ru-RU');
+    $('o3').textContent=fmt(check*s*c);
+    $('o4').textContent=q?Math.ceil(e/q):'-';
+  }
+  ['price','qty','disc','spons','cities','empty'].forEach(id=>$(id).addEventListener('input',calc));
+  calc();
+</script>
+</body>
+</html>
