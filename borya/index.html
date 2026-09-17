@@ -30,6 +30,7 @@
   .pill.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
   .pill.ghost:hover{background:var(--ink);color:#fff}
   @media(max-width:900px){nav{display:none}}
+  @media(max-width:600px){.logo span{display:none}header .pill{padding:10px 16px;font-size:14px}}
 
   /* hero */
   .hero{padding:80px 0 40px;position:relative;overflow:hidden}
@@ -47,10 +48,12 @@
   .orb .stat{position:absolute;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 14px 40px rgba(0,0,0,.12);font-size:14px;color:var(--grey)}
   .orb .stat b{display:block;font-size:26px;color:var(--ink);line-height:1.1}
   .orb .s1{top:6%;left:-6%} .orb .s2{bottom:12%;right:-8%} .orb .s3{bottom:-4%;left:18%}
-  @media(max-width:900px){.hero .grid{grid-template-columns:1fr}.orb{max-width:320px;margin:20px auto 0}.orb .s1{left:0}.orb .s2{right:0}}
+  @media(max-width:900px){.hero .grid{grid-template-columns:1fr}.orb{aspect-ratio:auto;border-radius:0;background:none;box-shadow:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}.orb::before{display:none}.orb .stat{position:static;box-shadow:none;border:1px solid var(--line)}}
+  @media(max-width:600px){.orb{grid-template-columns:1fr}}
 
   .big{font-size:clamp(46px,9vw,140px);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.03em;padding:30px 0 0;white-space:nowrap;overflow:hidden}
   .big span{display:inline-block;padding-right:.4em}
+  @media(max-width:700px){.big{white-space:normal;line-height:1;font-size:clamp(40px,13vw,64px)}}
   .big .o{-webkit-text-stroke:2px var(--ink);color:transparent}
 
   /* sections */
@@ -158,13 +161,13 @@
 
   /* decisions */
   .dec{counter-reset:d;margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .dec div{border-radius:20px;padding:24px 26px;background:var(--soft);display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
-  .dec div::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-weight:800;font-size:26px;color:var(--purple);line-height:1}
+  .dec > div{border-radius:20px;padding:24px 26px;background:var(--soft);display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+  .dec > div::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-weight:800;font-size:26px;color:var(--purple);line-height:1}
   .dec b{display:block;margin-bottom:4px;font-size:17px}
   .dec p{color:var(--grey);font-size:15px}
-  .dec div.hot{background:var(--ink);color:#fff}
-  .dec div.hot p{color:#BDBDBD}
-  .dec div.hot::before{color:#B58BFF}
+  .dec > div.hot{background:var(--ink);color:#fff}
+  .dec > div.hot p{color:#BDBDBD}
+  .dec > div.hot::before{color:#B58BFF}
   @media(max-width:800px){.dec{grid-template-columns:1fr}}
 
   /* final */
@@ -428,12 +431,12 @@
     <div class="label">(Решаем на созвоне)</div>
     <h2>Пять решений <em>до встречи с собственником.</em></h2>
     <div class="dec">
-      <div class="hot"><div><b>Роль и деньги Стаса в осенней фазе</b><p>Осень - работа Digizen для своего клиента. Стас заходит либо фиксом за юр-архитектуру и упаковку, либо долей от спонсорских пакетов, либо только в фазу 2 по майской модели. Выбираем один вариант.</p></div></div>
-      <div><div><b>Юрлицо и права на билеты</b><p>Кто дарит и продаёт пакеты: Classical Arts, We Dance или площадка. От этого зависит и договор со спонсором, и будущая структура фонда.</p></div></div>
-      <div><div><b>Потолок комп-билетов и цена пакета</b><p>Предлагаем не больше 15% вместимости на город. Цена пакета от реальной средней цены билета, не от заглушки $45.</p></div></div>
-      <div><div><b>Бюджет на юриста и CPA</b><p>$3-5K на 501(c)(3) attorney до регистрации. Отдельный вопрос CPA по вычетам спонсора. Кто платит: Classical Arts, Digizen или пополам.</p></div></div>
-      <div><div><b>Как продаём собственнику</b><p>Одна модель в две фазы. Осень показывает результат, весна делает его постоянным. Без обещаний про списания и телевидение.</p></div></div>
-      <div><div><b>Домен и отправитель</b><p>Холодные письма НКО и спонсорам с отдельного домена. Основную рассылку, которую прогревает Настя, не трогаем.</p></div></div>
+      <div class="hot"><b>Роль и деньги Стаса в осенней фазе</b><p>Осень - работа Digizen для своего клиента. Стас заходит либо фиксом за юр-архитектуру и упаковку, либо долей от спонсорских пакетов, либо только в фазу 2 по майской модели. Выбираем один вариант.</p></div>
+      <div><b>Юрлицо и права на билеты</b><p>Кто дарит и продаёт пакеты: Classical Arts, We Dance или площадка. От этого зависит и договор со спонсором, и будущая структура фонда.</p></div>
+      <div><b>Потолок комп-билетов и цена пакета</b><p>Предлагаем не больше 15% вместимости на город. Цена пакета от реальной средней цены билета, не от заглушки $45.</p></div>
+      <div><b>Бюджет на юриста и CPA</b><p>$3-5K на 501(c)(3) attorney до регистрации. Отдельный вопрос CPA по вычетам спонсора. Кто платит: Classical Arts, Digizen или пополам.</p></div>
+      <div><b>Как продаём собственнику</b><p>Одна модель в две фазы. Осень показывает результат, весна делает его постоянным. Без обещаний про списания и телевидение.</p></div>
+      <div><b>Домен и отправитель</b><p>Холодные письма НКО и спонсорам с отдельного домена. Основную рассылку, которую прогревает Настя, не трогаем.</p></div>
     </div>
   </div>
 </section>
