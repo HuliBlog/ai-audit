@@ -163,6 +163,8 @@
   .dec{counter-reset:d;margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .dec > div{border-radius:20px;padding:24px 26px;background:var(--soft);display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
   .dec > div::before{counter-increment:d;content:counter(d,decimal-leading-zero);font-weight:800;font-size:26px;color:var(--purple);line-height:1}
+  .dec > div b,.dec > div p{grid-column:2}
+  .dec > div p{margin-top:-12px}
   .dec b{display:block;margin-bottom:4px;font-size:17px}
   .dec p{color:var(--grey);font-size:15px}
   .dec > div.hot{background:var(--ink);color:#fff}
