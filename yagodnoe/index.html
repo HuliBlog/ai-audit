@@ -1,0 +1,528 @@
+<meta charset="utf-8">
+<title>Поле №18. Полная картина</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F1; --sheet:#FFFFFF; --ink:#17211C; --ink-2:#4A554E; --ink-3:#7C867F;
+  --line:#D6DCD4; --line-2:#E9EDE6;
+  --plot:#C2327A; --plot-soft:#F8E3EC;
+  --quarter:#2A3D8F; --quarter-soft:#E4E8F6;
+  --field:#4F7A3B; --field-soft:#E4EDDC;
+  --warn:#B4571A; --warn-soft:#F7E6D6;
+  --shadow:0 1px 2px rgba(23,33,28,.06),0 8px 24px rgba(23,33,28,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121714; --sheet:#1A211C; --ink:#E9EDE6; --ink-2:#B7C0B9; --ink-3:#8A948D;
+    --line:#2E3832; --line-2:#242D27;
+    --plot:#E4609C; --plot-soft:#3A1F2C;
+    --quarter:#93A4EA; --quarter-soft:#1F2640;
+    --field:#8FB86F; --field-soft:#1F2B1A;
+    --warn:#E0955A; --warn-soft:#3A2814;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121714; --sheet:#1A211C; --ink:#E9EDE6; --ink-2:#B7C0B9; --ink-3:#8A948D;
+  --line:#2E3832; --line-2:#242D27;
+  --plot:#E4609C; --plot-soft:#3A1F2C;
+  --quarter:#93A4EA; --quarter-soft:#1F2640;
+  --field:#8FB86F; --field-soft:#1F2B1A;
+  --warn:#E0955A; --warn-soft:#3A2814;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.deck{max-width:1120px;margin:0 auto;padding:32px 20px 80px;display:flex;flex-direction:column;gap:28px}
+.sheet{background:var(--sheet);border:1px solid var(--line);box-shadow:var(--shadow);padding:40px 48px 44px;position:relative;scroll-margin-top:16px}
+.sheet::before{content:attr(data-list);position:absolute;top:16px;right:20px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--plot);margin:0 0 14px}
+h1,h2{font-family:"Unbounded","IBM Plex Sans",sans-serif;font-weight:600;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4.6vw,50px);line-height:1.08}
+h2{font-size:clamp(22px,2.6vw,30px);line-height:1.15;margin-bottom:22px}
+h3{font-family:"IBM Plex Sans",sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px}
+p{margin:0 0 12px;max-width:68ch}
+.lead{font-size:19px;color:var(--ink-2);max-width:62ch}
+.mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:820px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.sheet{padding:28px 20px}}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px;margin:0}
+.kv dt{color:var(--ink-3);margin:0;white-space:nowrap}.kv dd{margin:0}
+.stat{border-top:2px solid var(--ink);padding-top:10px}
+.stat .n{font-family:"Unbounded",sans-serif;font-size:30px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .l{font-size:13px;color:var(--ink-2);margin-top:4px}
+.stat.plot{border-color:var(--plot)}.stat.plot .n{color:var(--plot)}
+.stat.field{border-color:var(--field)}.stat.field .n{color:var(--field)}
+.stat.quarter{border-color:var(--quarter)}.stat.quarter .n{color:var(--quarter)}
+.stat.warn{border-color:var(--warn)}.stat.warn .n{color:var(--warn)}
+figure{margin:0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+figcaption{font-size:13px;color:var(--ink-3);margin-top:8px;line-height:1.4}
+.tablewrap{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{text-align:left;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);background:var(--line-2);padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:7px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td.c{white-space:nowrap}
+tr.ours td{background:var(--plot-soft)}
+tr.fork td{background:var(--warn-soft)}
+.tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;padding:2px 7px;border-radius:2px;letter-spacing:.02em;white-space:nowrap}
+.tag.ok{background:var(--field-soft);color:var(--field)}
+.tag.bad{background:var(--plot-soft);color:var(--plot)}
+.tag.mid{background:var(--warn-soft);color:var(--warn)}
+.tag.na{background:var(--line-2);color:var(--ink-3)}
+.tag.q{background:var(--quarter-soft);color:var(--quarter)}
+.callout{border-left:3px solid var(--plot);background:var(--plot-soft);padding:14px 18px;margin:18px 0 0;font-size:15px}
+.callout.field{border-color:var(--field);background:var(--field-soft)}
+.callout.quarter{border-color:var(--quarter);background:var(--quarter-soft)}
+.callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+.callout p:last-child{margin:0}
+ul{margin:0 0 12px;padding-left:20px}li{margin-bottom:6px}
+ol{margin:0;padding-left:22px}ol li{margin-bottom:8px}
+.small{font-size:13px;color:var(--ink-3)}
+.foot{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line-2);padding-top:10px;margin-top:22px}
+.nav{position:fixed;right:18px;bottom:18px;display:flex;gap:6px;z-index:5}
+.nav button{background:var(--sheet);color:var(--ink);border:1px solid var(--line);padding:8px 12px;font:600 13px "IBM Plex Sans",sans-serif;cursor:pointer;box-shadow:var(--shadow)}
+.nav button:focus-visible{outline:2px solid var(--plot);outline-offset:2px}
+.decision{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line-2)}
+.decision:last-child{border-bottom:0}
+.decision .q{font-family:"Unbounded",sans-serif;font-size:18px;color:var(--plot);line-height:1.3}
+.decision .t{font-size:15.5px}
+.decision .t .my{display:block;font-size:13.5px;color:var(--ink-2);margin-top:3px}
+.dates{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:820px){.dates{grid-template-columns:1fr}}
+.date{border-top:3px solid var(--warn);padding-top:10px}
+.date .d{font-family:"Unbounded",sans-serif;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+.date .s{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:2px 0 8px}
+.date.past{border-color:var(--ink-3)}.date.x{border-color:var(--plot)}.date.x .d{color:var(--plot)}
+.date ul{font-size:14px;padding-left:18px}
+.col{border:1px solid var(--line);padding:16px 18px}
+.col.no{border-color:var(--plot)}.col.yes{border-color:var(--field)}
+.col h4{margin:0 0 10px;font-family:"Unbounded",sans-serif;font-size:15px;font-weight:600}
+.col.no h4{color:var(--plot)}.col.yes h4{color:var(--field)}
+.col ul{font-size:14.5px}
+.scen{border:1px solid var(--line);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.scen h4{margin:0;font-size:15px;font-weight:600}
+.scen .money{font-family:"Unbounded",sans-serif;font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+.scen .fam{font-size:13px;color:var(--ink-2)}
+.scen .note{font-size:13px;color:var(--ink-3);margin-top:auto}
+.scen.pick{border-color:var(--field);border-width:2px}
+.scen.dead{opacity:.6}
+
+@media print{
+  @page{size:A4 landscape;margin:10mm}
+  body{background:#fff}
+  .deck{max-width:none;padding:0;gap:0}
+  .sheet{break-after:page;box-shadow:none;border:0;padding:8mm 10mm 6mm;min-height:0}.sheet p,.sheet li{font-size:12.5px}.sheet .lead{font-size:16px}
+  .sheet:last-child{break-after:auto}
+  .nav{display:none}
+  .grid-2,.grid-3,.grid-4,.dates{display:grid}
+  .grid-2{grid-template-columns:1fr 1fr!important}.grid-3,.dates{grid-template-columns:repeat(3,1fr)!important}.grid-4{grid-template-columns:repeat(4,1fr)!important}
+  figure img{max-height:70mm;width:auto;max-width:100%;margin:0 auto}
+  h1{font-size:38px}h2{font-size:22px;margin-bottom:14px}
+  table{font-size:10px}td{padding:2px 7px}th{padding:3px 7px}
+  .kv{font-size:12px}.callout{font-size:12.5px;padding:8px 12px}.stat .n{font-size:24px}
+  .sheet .grid-2{align-items:start}.sheet .kv{font-size:10.5px;gap:2px 10px;line-height:1.35}.sheet h3{margin:6px 0 4px}#s3 figure img{max-height:62mm}figcaption{font-size:10.5px}.voice{font-size:11.5px}#s5 table{font-size:9.5px}#s5 td{padding:1px 6px}#s5 th{padding:2px 6px}#s5 .small{font-size:9.5px;margin-top:4px}#s5 h2{margin-bottom:8px;font-size:19px}#s5 .tag{font-size:9px;padding:1px 5px}.decision{padding:6px 0}.decision .t{font-size:13px}.decision .t .my{font-size:11.5px}#s14 .foot{font-size:10px;margin-top:8px}#s14 ul li{font-size:11.5px}
+}
+</style>
+
+<div class="deck">
+
+<section class="sheet" id="s1" data-list="Лист 1 из 14">
+  <p class="eyebrow">Поле №18 · с.п. Ягодное · полная картина на 20.09.2026</p>
+  <h1>Поле №18. Всё, что знаем, все возможности, все проблемы</h1>
+  <p class="lead" style="margin-top:18px">Семья держит 11,2 га в поле на 104 га между растущим селом и Обходом Тольятти. Актив стоит 3 млн ₽ как сельхозка и в 20-30 раз больше как жильё, но путь между этими цифрами лежит через Минсельхоз, 22 паевых семьи и пять подписей внутри нашей. За 14 недель до конца года перевести землю нельзя. Занять позицию - можно, и с 22 сентября тётя Нина уже идёт в администрацию.</p>
+  <div class="grid-4" style="margin-top:30px">
+    <div class="stat plot"><div class="n">11,2 га</div><div class="l">два смежных пая, ~10,7% поля, 5 совладельцев, 2 ограничения на каждом</div></div>
+    <div class="stat field"><div class="n">22 пая</div><div class="l">по протоколу 2009; по словам мамы «в поле 15 человек», больше половины умерли</div></div>
+    <div class="stat warn"><div class="n">01.03.2026</div><div class="l">новые правила для нашего пути уже действуют: генплан с угодьями согласует Минсельхоз РФ</div></div>
+    <div class="stat quarter"><div class="n">22.09</div><div class="l">тётя Нина едет в администрацию Ягодного за новыми хозяевами паёв</div></div>
+  </div>
+  <p class="foot">Собрано из: разборы 18-19.09, совет-инквизитор 19.09, таблица дольщиков, kadbase (ЕГРН 08-11.09), 52-ФЗ от 01.04.2025, чаты с мамой в Telegram (01.09-20.09) и WhatsApp (28.08-19.09), чат с Никитой (25.08-16.09). Голосовые мамы от 01.09, 02.09, 04.09 не расшифрованы. Всё, что помечено «оценка», не подтверждено документами.</p>
+</section>
+
+<section class="sheet" id="s2" data-list="Лист 2 из 14">
+  <p class="eyebrow">Что нового из чатов с мамой</p>
+  <h2>Одиннадцать фактов, которых не было в прошлых версиях</h2>
+  <div class="tablewrap"><table>
+    <tr><th class="c">Дата</th><th>Что сказала мама (или тётя Нина через неё)</th><th>Что это меняет</th></tr>
+    <tr><td class="c">20.09 TG</td><td>«Тёте Нине сказали, что больше половины уже умерли. Она в понедельник поедет в администрацию Ягодного и постарается узнать новых хозяев»</td><td>Первый живой шаг на месте - 22.09. Ей нужен список вопросов и правило: не говорить «продаём», говорить «наводим порядок в документах». Администрация поселения = источник наследников и одновременно утечка намерений</td></tr>
+    <tr><td class="c">08.09 WA</td><td>«Тётя Нина вроде нашла людей с нашего поля, все согласны, и рядом с нашим полем уже строительство идёт»</td><td>Дольщики хотят продать - опционы будут дешёвыми. Но «все согласны продать» значит «все продавцы, покупателя нет»: цена без консолидатора падает</td></tr>
+    <tr><td class="c">08.09 WA</td><td>«Люди с других полей узнали, там ещё есть поля, они тоже хотят продать»</td><td>Массив может быть больше 104 га - для девелопера это плюс (фронт по дороге), для нас - конкуренция паёв за одного покупателя</td></tr>
+    <tr><td class="c">01.09 TG</td><td>«Там очень много фамилий из элиты бывшего Ягодного. Шоков - агроном или кто-то, у Шокова вообще 30 гектаров. Не понимаю, почему они не заинтересованы в продаже, может какую-то цель преследуют»</td><td>Шоков А.И. - председатель собрания выдела 2009 и держатель 30 га. Кандидат №1 на роль «кто знает про генплан» и «кто консолидирует». Элита, которая не продаёт, - либо ждёт включения, либо уже договорилась</td></tr>
+    <tr><td class="c">01.09 TG</td><td>«В 18 поле оказывается всего 15 человек»</td><td>По протоколу 2009 - 22 строки. Либо мама считала по другому списку, либо часть паёв уже объединена. Сверить, когда тётя Нина вернётся из администрации</td></tr>
+    <tr><td class="c">01.09 TG</td><td>«Судаков, председатель бывший, сам ничего не заработал и родственникам не давал. Колхоз разделили между водителями, зоотехниками, агрономами»</td><td>Контекст: паи розданы «своим», наследники не деревенские. Это упрощает выкуп и усложняет поиск</td></tr>
+    <tr><td class="c">04.09 WA</td><td>«120 000 пай они покупали, не гектар. 19 лет назад это были хорошие деньги, доллар был 30»</td><td>Историческая цена: ~21 т.р./га в 2007, ~$4 000 за пай. Сегодняшние 1,5 млн за пай - рост в 12 раз, кадастр - в 10. Аргумент для дольщиков: «за 19 лет цена выросла, и вырастет ещё, если действовать вместе»</td></tr>
+    <tr><td class="c">04.09 WA</td><td>«Если что, и я могу поехать в Тольятти. Давно собиралась к тёте Маше на могилу»</td><td>Мама готова ехать - это доверенность у нотариуса, выписки через Госуслуги, разговор с четырьмя совладельцами лично</td></tr>
+    <tr><td class="c">02.09 WA</td><td>«Надо всё решать там, на месте. Нужны сильные, грамотные люди»</td><td>Мама сама называет вакансию №1 - юрист на месте. Не будет сопротивления найму</td></tr>
+    <tr><td class="c">31.08 WA</td><td>«Я налог плачу каждый год за Ягодинскую землю»</td><td>Платит мама одна за пять долей? Значит, четверо совладельцев пассивны - и подпишут доверенность тому, кто «занимается»</td></tr>
+    <tr><td class="c">22.07 TG</td><td>«У меня арестовали все счета, вместо 2 000 рублей ещё 4 000 принесли»</td><td><b>Критично.</b> У мамы исполнительное производство. Второе ограничение на участках может быть запретом регистрационных действий от приставов на её долю. Тогда её 1/3 не продать и не подарить, пока долг не закрыт</td></tr>
+  </table></div>
+  <p class="small" style="margin-top:10px">Мама на пять вопросов из документа для неё ещё не отвечала: сам PDF до неё не дошёл, ушёл только текст. Первый разговор с ней - по этим пяти пунктам, до поездки тёти Нины.</p>
+</section>
+
+<section class="sheet" id="s3" data-list="Лист 3 из 14">
+  <p class="eyebrow">Что знаем на 20.09</p>
+  <h2>Факты одним листом</h2>
+  <div class="grid-2">
+    <div>
+      <h3>Наши участки</h3>
+      <dl class="kv">
+        <dt>Кадастр</dt><dd><span class="mono">63:32:1603003:1383</span> (уч. 14, бабушка, свид. 63-АЕ 018144 от 17.05.2010) и <span class="mono">:1384</span> (уч. 15, дед, через суд 01.08.2011 оформлен на бабушку, свид. 63-АЖ 037477)</dd>
+        <dt>Площадь</dt><dd>2 × 56 000 м² = 11,2 га, две смежные полосы 55 × 1 020 м, ~10,7% поля</dd>
+        <dt>Категория</dt><dd>с/х назначения, для с/х производства. Кадастровая стоимость 207 тыс ₽ за участок (37 т.р./га)</dd>
+        <dt>ЕГРН сейчас</dt><dd>5 собственников (1/3 + 4 × 1/6) - родственники, наследство оформлено (со слов Стаса 20.09). 2 действующих ограничения на каждом: одно - аренда фермеру, второе неизвестно (гипотеза: запрет регдействий на долю мамы) + 2-3 в архиве</dd>
+        <dt>В продаже</dt><dd>объявление «1 500 т.р. за участок», риелтор Пичкурова. 268 т.р./га, в 7 раз выше кадастра. Кто из пяти дал - неизвестно</dd>
+        <dt>История</dt><dd>2007: пай покупали за 120 000 ₽ (~$4 000). Налог за землю каждый год платит мама</dd>
+        <dt>Подъезд</dt><dd>полевые дороги с севера и юга блока N10 по межевому плану, грунт</dd>
+      </dl>
+      <h3 style="margin-top:16px">Поле и соседи</h3>
+      <dl class="kv">
+        <dt>Поле №18</dt><dd>22 пая, ~104 га, протокол выдела 05.06.2009 (председатель собрания Шоков А.И.). Крупные: Мякоткина 11,2 га, Платковская 11,2, Замотин 9,1, Щеглова 5,6 (смежник)</dd>
+        <dt>Титулы</dt><dd>19 из 22 - один собственник, ноль ограничений (наследники оформлены). Наши два - самые грязные на поле</dd>
+        <dt>Движение</dt><dd>новые крупные участки: з/у 449 (11,2 га, 2020), 55 998 м² (2021), з/у 530 (9,1 га, 08.2024), з/у 527 (8,4 га, 2012, смежный с нами). Кто-то собирает</dd>
+        <dt>Место</dt><dd>~53.60 N 49.09 E, между кварталом Александровский и Обходом Тольятти. Село: 2 630 жителей (2007) -> 14 068 (2025). К востоку - пивоты орошения агрохолдинга</dd>
+        <dt>Рынок</dt><dd>ИЖС Ягодное: 70-90 т.р./сот без сетей, 150-270 в готовом КП, 59 объявлений на Циан</dd>
+      </dl>
+    </div>
+    <figure><img src="img/mezh.jpg" alt="Межевой план: наша полоса внутри блока N10, полевые дороги с севера и юга"><figcaption>Межевой план, лист 10. Розовым - наша полоса внутри блока N10. Полевые дороги по северной (54-58) и южной (55-59) границам. Карты и спутник - лист 4.</figcaption></figure>
+  </div>
+</section>
+
+<section class="sheet" id="s4" data-list="Лист 4 из 14">
+  <p class="eyebrow">Где это</p>
+  <h2>Поле между селом и Обходом Тольятти, вокруг уже строят</h2>
+  <div class="grid-2">
+    <figure><img src="img/osm.jpg" alt="Карта OSM: Ягодное, квартал Александровский, КП, Обход Тольятти; красная точка - центр участков"><figcaption>OpenStreetMap, z14. Красная точка - центр участков. Запад: с. Ягодное и квартал Александровский. Юго-запад: КП Ягодный Стан, Родной Простор, Усадьба, ЖК «Мечта». Юг: КП Мечта-3, Ладья Благополучия. Восток: Обход Тольятти.</figcaption></figure>
+    <figure><img src="img/sat.jpg" alt="Спутник: возделываемое поле, полосы паёв, круговое орошение к востоку"><figcaption>Спутник Esri, z15. Поле возделывается, полосы паёв читаются. К востоку - круговое орошение агрохолдинга: мелиорированные земли, кандидат в особо ценные.</figcaption></figure>
+  </div>
+  <div class="grid-3" style="margin-top:20px">
+    <div><h3>Село растёт</h3><p>Ягодное: 2 630 жителей в 2007, 14 068 в 2025. Один из самых быстрорастущих пригородов Тольятти. Тётя Нина: «рядом с нашим полем уже идёт строительство».</p></div>
+    <div><h3>Квартал уже жилой</h3><p>В квартале 63:32:1603003 больше 2 000 участков. ППТ на участок :3 - постановление №123 от 22.12.2021; слушания по ИЖС на :4743 - 2022. Включение в этом квартале уже проходили.</p></div>
+    <div><h3>Подъезд есть</h3><p>К блоку N10 с севера и юга примыкают полевые дороги. Грунт, но не тупик посреди чужого поля. Фронта по асфальту нет - девелоперу нужен блок от Александровского.</p></div>
+  </div>
+</section>
+
+<section class="sheet" id="s5" data-list="Лист 5 из 14">
+  <p class="eyebrow">Поле целиком</p>
+  <h2>22 пая по протоколу 2009, кадастр снят по 21. Мама насчитала 15 человек</h2>
+  <div class="tablewrap"><table>
+    <tr><th class="num">Уч.</th><th>Собственник по протоколу 2009</th><th class="num">Га</th><th>Кадастровый номер</th><th>ЕГРН, 09.2026</th><th>Роль в плане</th></tr>
+    <tr><td class="num">1</td><td>Первова Л. А.</td><td class="num">3,468</td><td class="mono">63:32:1603003:1387</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td></td></tr>
+    <tr><td class="num">2</td><td>Борисова В. Г.</td><td class="num">5,6</td><td class="mono">63:32:1603003:1382</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td>смежник с новым участком 2021</td></tr>
+    <tr><td class="num">3</td><td>Журавлева К. П.</td><td class="num">5,6</td><td class="mono">63:32:1603003:1385</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">4</td><td>Тарасов С. И.</td><td class="num">3,468</td><td class="mono">63:32:1603003:1388</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">5</td><td>Тарасова Г. П.</td><td class="num">3,468</td><td class="mono">63:32:1603003:1386</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">6</td><td>Рыбкина О. П.</td><td class="num">5,6</td><td class="mono">63:32:0000000:8642</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td></td></tr>
+    <tr><td class="num">7</td><td>Журавлева В. Л.</td><td class="num">1,866</td><td class="mono">63:32:1603003:1396</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">8</td><td>Окатьев А. Л.</td><td class="num">3,733</td><td class="mono">63:32:0000000:8633</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td>смежник з/у 449 (2020)</td></tr>
+    <tr><td class="num">9</td><td>Карцева О. Б.</td><td class="num">5,6</td><td class="mono">63:32:0000000:8643</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">10</td><td>Капленкова А. Д.</td><td class="num">2,8</td><td class="mono">63:32:1603003:1389</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">11</td><td>Веселов В. Д.</td><td class="num">2,8</td><td class="mono">63:32:0000000:8639</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">12</td><td>Мякоткина Е. Н.</td><td class="num">11,2</td><td class="mono">63:32:0000000:8638</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td><b>крупный, первый на опцион</b></td></tr>
+    <tr><td class="num">13</td><td>Семушина Л. Н.</td><td class="num">5,6</td><td class="mono">63:32:0000000:8634</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td></td></tr>
+    <tr class="ours"><td class="num">14</td><td><b>Асташкина Е. Т.</b> (бабушка)</td><td class="num">5,6</td><td class="mono">63:32:1603003:1383</td><td><span class="tag bad">5 собств. · 2 огр.</span></td><td>наш</td></tr>
+    <tr class="ours"><td class="num">15</td><td><b>Асташкин Г. И.</b> (дед)</td><td class="num">5,6</td><td class="mono">63:32:1603003:1384</td><td><span class="tag bad">5 собств. · 2 огр.</span></td><td>наш</td></tr>
+    <tr><td class="num">16</td><td>Щеглова А. И.</td><td class="num">5,6</td><td class="mono">63:32:1603003:1391</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td><b>смежник, первый на опцион</b></td></tr>
+    <tr><td class="num">17</td><td>Ерашкова М. С.</td><td class="num">1,866</td><td class="mono">63:32:1603003:1392</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">18</td><td>Шиманова А. С.</td><td class="num">1,866</td><td class="mono">63:32:0000000:8644</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td></td></tr>
+    <tr><td class="num">19</td><td>Ануфриева А. С.</td><td class="num">1,866</td><td class="mono">63:32:0000000:8647</td><td><span class="tag na">не снято</span></td><td></td></tr>
+    <tr><td class="num">20</td><td>Досова Г. М.</td><td class="num">3,47</td><td class="mono">63:32:0000000:8646</td><td><span class="tag ok">1 собств. · 0 огр.</span></td><td>смежник з/у 530 (2024)</td></tr>
+    <tr><td class="num">22</td><td>Платковская Е. Ф.</td><td class="num">11,2</td><td class="mono">63:32:0000000:8645</td><td><span class="tag mid">2 собств. по ½ · 0 огр.</span></td><td><b>крупный, смежник з/у 530</b></td></tr>
+    <tr><td class="num">23</td><td>Замотин А. В.</td><td class="num">9,07*</td><td class="mono">63:32:1603003:1381</td><td><span class="tag mid">2 собств. по ½ · 0 огр.</span></td><td>крупный</td></tr>
+  </table></div>
+  <p class="small" style="margin-top:6px;max-width:none">Фамилии - Приложение №2 к протоколу выдела 05.06.2009 (сдвиг строк в скане выровнен по нашим свидетельствам). Кадастр - kadbase.ru. * По кадастру уч. 23 = 56 000 м². «Не снято» - лимит запросов. Шокова (30 га) в поле №18 нет: его паи в других полях, он председатель собрания 2009.</p>
+</section>
+
+<section class="sheet" id="s6" data-list="Лист 6 из 14">
+  <p class="eyebrow">Закон · 52-ФЗ от 01.04.2025</p>
+  <h2>Новые правила для нашего пути действуют с 1 марта. 1 января 2027 закрывает обходные. Дата X - без числа</h2>
+  <div class="dates">
+    <div class="date past"><div class="d">01.03.2026</div><div class="s">уже действует полгода</div>
+      <ul>
+        <li>генплан, включающий угодья в границы населённого пункта, согласует Минсельхоз РФ (ПП №1143). Это наш путь, и Москва уже на нём</li>
+        <li>перевод сельхозземель: ходатайство в область, согласие губернатора, закон области, для угодий - заключение Минсельхоза</li>
+        <li>границы угодий устанавливает Минсельхоз с графикой в ЕГРН (ПП №1943)</li>
+      </ul>
+    </div>
+    <div class="date"><div class="d">01.01.2027</div><div class="s">через 103 дня</div>
+      <ul>
+        <li>перевод угодий - только 5 оснований: консервация/загрязнение, ООПТ, <b>границы населённого пункта</b>, гособъекты без альтернативы, недра</li>
+        <li>частная промка, ИЖС «переводом участка», КФХ-схемы - закрыты. У нас их и не было</li>
+        <li>переходных положений нет: рассматривают по правилам на день решения, не подачи</li>
+      </ul>
+    </div>
+    <div class="date x"><div class="d">Дата X</div><div class="s">не назначена</div>
+      <ul>
+        <li>Минсельхоз утверждает границы угодий по Самарской области - поле №18 в ЕГРН как «угодья»</li>
+        <li>область вносит поле в перечень <b>особо ценных продуктивных угодий</b> - выход невозможен вообще</li>
+        <li>орошение рядом = мелиорация = кандидат в особо ценные</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid-2" style="margin-top:18px">
+    <div class="callout warn"><p><b>Минсельхоз - одно окно на всю страну, мандат - не отдавать угодья.</b> Самим туда не ходить. Рабочих обхода два: подцепиться к корректировке генплана, которую область везёт в Москву пакетом поселений (если район сейчас правит генплан Ягодного), или продать блок тому, у кого ход в область уже есть (девелопер соседних КП, агрохолдинг с пивотами). Стена - его проблема, наша - цена.</p></div>
+    <div class="callout field"><p><b>«Успеть до 2027» на практике:</b> (1) семья одним голосом, (2) поле под контролем через опционы, (3) заявка на корректировку генплана от инициатора с деньгами зарегистрирована, (4) область знает, что поле №18 - под жильё. Не «утвердить генплан» - это 9-15 месяцев в идеале, 1,5-3 года по практике.</p></div>
+  </div>
+</section>
+
+<section class="sheet" id="s7" data-list="Лист 7 из 14">
+  <p class="eyebrow">Возможности</p>
+  <h2>Девять возможностей. Первые три не требуют ни рубля</h2>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Возможность</th><th>Почему реальна</th><th>Что нужно</th><th>Ценность (оценка)</th></tr>
+    <tr><td>1</td><td><b>Дольщики хотят продать</b></td><td>тётя Нина 08.09: «все согласны»; наследники не деревенские, паи им - бумажка</td><td>форма опциона от юриста, задаток 50-150 т.р. за пай, срок 12-18 мес</td><td>контроль над 50%+ поля за 1-2 млн задатков, не наших</td></tr>
+    <tr><td>2</td><td><b>Тётя Нина знает всех и уже идёт в администрацию</b></td><td>22.09 поездка за новыми хозяевами; раньше решала всё через главбуха Ягодного</td><td>список вопросов ей в руки до понедельника, легенда «наводим порядок»</td><td>карта поля за 2-3 недели вместо 2-3 месяцев</td></tr>
+    <tr><td>3</td><td><b>Мама готова ехать в Тольятти</b></td><td>04.09: «и я могу поехать»; платит налог одна, четверо пассивны</td><td>нотариус, Госуслуги, разговор с четырьмя лично</td><td>чистый титул за месяц</td></tr>
+    <tr><td>4</td><td><b>Шоков и «элита», которая не продаёт</b></td><td>председатель собрания 2009, 30 га, знает, куда идёт генплан</td><td>один разговор через тётю Нину: «почему не продаёте»</td><td>ответ на «дату X» и на «кто консолидатор» бесплатно</td></tr>
+    <tr><td>5</td><td><b>Квартал уже включали</b></td><td>ППТ 2021 на :3, слушания 2022 на :4743, Александровский рядом</td><td>выписка на любой участок внутри Александровского - кто провёл</td><td>готовый партнёр с ходом в область</td></tr>
+    <tr><td>6</td><td><b>Кто-то собирает поле</b> (з/у 449, 530, 527)</td><td>крупные участки сформированы в 2020-2024 рядом с нашими</td><td>выписки о переходе прав по трём номерам</td><td>покупатель блока с торгом от 3 млн вверх, если он есть</td></tr>
+    <tr><td>7</td><td><b>Соседние поля тоже продаются</b></td><td>08.09: «люди с других полей тоже хотят»</td><td>только после карты поля №18</td><td>для девелопера массив 150-200 га с фронтом - другой класс актива</td></tr>
+    <tr><td>8</td><td><b>Преимущественное право (ст. 250 ГК)</b></td><td>если кто-то из пяти продаёт долю чужому - мама выкупает первой</td><td>юрист, деньги на выкуп 1/6 (оценка 250-400 т.р.)</td><td>не пустить чужого внутрь участка</td></tr>
+    <tr><td>9</td><td><b>Продать блоком с чистым титулом</b></td><td>даже стоп-сценарий: два чистых участка + опционы соседей стоят дороже, чем два грязных с объявлением</td><td>всё из п. 1-3</td><td>3-4,5 млн + опцион вместо 1,4-2,5 сейчас</td></tr>
+  </table></div>
+  <div class="callout field"><p><b>Общий знаменатель:</b> все девять - про информацию и подписи, не про деньги. Деньги (генплан 2-5 млн, сети 40-70 т.р./сот) - партнёра. Наш вклад - 11,2 га, контроль над полем и организация.</p></div>
+</section>
+
+<section class="sheet" id="s8" data-list="Лист 8 из 14">
+  <p class="eyebrow">Проблемы</p>
+  <h2>Пятнадцать блоков. Три новых - из чатов с мамой</h2>
+  <div class="tablewrap"><table>
+    <tr><th>#</th><th>Проблема</th><th>Почему это блок</th><th>Что снимает</th><th>Кто</th><th class="c">Срок</th></tr>
+    <tr><td>1</td><td><b>5 совладельцев</b> на каждом участке</td><td>любая сделка, опцион, доверенность - 5 подписей; один несогласный = вето</td><td>одна нотариальная доверенность от пятерых на юриста; мама - доверитель</td><td>мама, юрист</td><td class="c">до 12.10</td></tr>
+    <tr><td>2</td><td><b>2 ограничения</b> неизвестного вида</td><td>если залог/арест - стоп; аренда на годы - фермер блокирует</td><td>выписки ЕГРН (объект + переход прав); договор аренды из рук мамы</td><td>мама</td><td class="c">до 05.10</td></tr>
+    <tr class="fork"><td>3</td><td><b>НОВОЕ. Долги мамы: арест счетов 22.07</b></td><td>исполнительное производство = вероятный запрет регдействий на её 1/3. Доля не продаётся и не дарится, пока долг не закрыт; приставы могут обратить взыскание на долю</td><td>проверить на сайте ФССП по ФИО; выписка покажет «запрет» и номер производства; закрыть долг до любой сделки</td><td>Стас, мама</td><td class="c">до 28.09</td></tr>
+    <tr><td>4</td><td><b>Объявление за 1,5 млн</b> висит публично</td><td>открытый резервейшн: консолидатор знает, что семья готова на 1,5</td><td>снять; узнать, кто из пяти дал и что обещал риелтору</td><td>мама</td><td class="c">до 28.09</td></tr>
+    <tr class="fork"><td>5</td><td><b>НОВОЕ. Тётя Нина идёт в администрацию с легендой «продаём»</b></td><td>администрация поселения = те же люди, что знают девелоперов и скупщиков. «Все согласны продать» дойдёт до покупателя раньше нас</td><td>до понедельника - другая легенда: «наследство, порядок в документах, ищем хозяев паёв». Список вопросов ей в руки</td><td>Стас через маму</td><td class="c">до 21.09</td></tr>
+    <tr><td>6</td><td><b>Стас за границей</b></td><td>всё через третьих лиц; девелопер: «семьи за границей соглашаются на первую цифру через два года»</td><td>юрист по земле в Тольятти как представитель; недельный отчёт одной страницей</td><td>Стас</td><td class="c">до 12.10</td></tr>
+    <tr class="fork"><td>7</td><td><b>НОВОЕ. 15 человек или 22 пая</b></td><td>если мама права, часть паёв уже объединена или перепродана - консолидатор есть и мы его не видим</td><td>тётя Нина после администрации: сверить со списком на листе 5</td><td>тётя Нина</td><td class="c">до 05.10</td></tr>
+    <tr><td>8</td><td>Полоса 110 м без фронта по дороге</td><td>девелоперу отдельно не нужна; заходит блоком от 25-30 га</td><td>опционы с соседями по блоку N10 (Щеглова, з/у 527) и крупными паями</td><td>юрист, тётя Нина</td><td class="c">ноябрь</td></tr>
+    <tr><td>9</td><td>Поле может попасть в угодья / особо ценные</td><td>тогда включение невозможно, актив = сельхозка навсегда</td><td>запросы: Минсельхоз области, перечень особо ценных, реестр мелиорированных</td><td>юрист</td><td class="c">до 26.10</td></tr>
+    <tr><td>10</td><td>Неизвестно, идёт ли корректировка генплана</td><td>своя - 2-5 млн и 1,5-3 года; чужая - подцепиться за месяцы</td><td>запрос в архитектуру м.р. Ставропольский; разговор с Шоковым</td><td>юрист, тётя Нина</td><td class="c">до 26.10</td></tr>
+    <tr><td>11</td><td>Кто-то уже собирает поле (з/у 449, 530, 527)</td><td>если у него 50%+ - мы продавец ему, не консолидатор</td><td>выписки о переходе прав; обзвон паёв</td><td>тётя Нина, ходок</td><td class="c">до 26.10</td></tr>
+    <tr><td>12</td><td>Нет юриста и нет ходока</td><td>без рук на месте план не исполняется; мама сама: «нужны сильные грамотные люди»</td><td>3 кандидата юриста (сельхозземли, 101-ФЗ, генплан); ходок с машиной</td><td>Стас, Катя</td><td class="c">до 05.10</td></tr>
+    <tr><td>13</td><td>Никита: 3 недели «непростой вопрос»</td><td>16.09 в Бишкеке занят ВНЖ и шенгеном, по земле ноль</td><td>один письменный вопрос «что у тебя есть под это»; пакет после ответа</td><td>Стас</td><td class="c">до 28.09</td></tr>
+    <tr><td>14</td><td>Партнёр с деньгами не найден</td><td>генплан + сети - не наши деньги по принципу</td><td>кто провёл Александровский; девелоперы соседних КП</td><td>Стас, юрист</td><td class="c">ноябрь</td></tr>
+    <tr><td>15</td><td>Рубли в РФ у мамы vs €1M на Кипре</td><td>семье треть, в рублях, через годы; путь на Кипр не решён; при аресте счетов мамы деньги от продажи уйдут приставам</td><td>сначала п. 3; потом /buh; в €1M не считать</td><td>Стас</td><td class="c">2027</td></tr>
+  </table></div>
+</section>
+
+<section class="sheet" id="s9" data-list="Лист 9 из 14">
+  <p class="eyebrow">Честная граница</p>
+  <h2>За 14 недель нельзя перевести землю. Можно занять позицию</h2>
+  <div class="grid-2">
+    <div class="col no">
+      <h4>Не успеть до 31.12.2026</h4>
+      <ul>
+        <li>утвердить изменения генплана: заявление, проектировщик, ФГИС ТП, Минсельхоз, слушания, Собрание - 9-15 месяцев в идеале</li>
+        <li>ПЗЗ (зона Ж1) и ППТ - после генплана</li>
+        <li>продать хоть один участок как ИЖС</li>
+        <li>«зафиксировать» что-либо подачей до 2027: переходных положений в законе нет</li>
+        <li>обойти Минсельхоз своими силами: одно окно, мандат «не отдавать»</li>
+      </ul>
+      <p class="small">Всё это - 2027-2028 в лучшем случае, и не нашими деньгами.</p>
+    </div>
+    <div class="col yes">
+      <h4>Успеть до 31.12.2026</h4>
+      <ul>
+        <li>чистый титул: понять ограничения, закрыть долг мамы, снять объявление, одна доверенность от пяти</li>
+        <li>карта поля: тётя Нина + администрация + обзвон: кто жив, кто наследник, кто продаёт, кто скупает</li>
+        <li>ответ на «дату X» и на генплан: 4 запроса юриста + разговор с Шоковым</li>
+        <li>опционы с крупными и смежными паями: 50%+ площади под одним голосом</li>
+        <li>партнёр-девелопер с письменными условиями</li>
+        <li>заявление о внесении изменений в генплан от инициатора - зарегистрировано</li>
+        <li>либо стоп по критериям: продать блоком одному покупателю от 3 млн вверх</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout quarter"><p><b>Почему заявление до конца года всё же важно, хотя закон его не фиксирует.</b> Границы угодий Минсельхоз утверждает по предложениям области. Поле, которое уже стоит в проекте корректировки генплана под жильё, области проще исключить из угодий, чем поле, о котором никто не заявил. Это оценка, не норма - проверить у юриста.</p></div>
+</section>
+
+<section class="sheet" id="s10" data-list="Лист 10 из 14">
+  <p class="eyebrow">Сценарии и деньги</p>
+  <h2>Четыре способа монетизировать. Разница в роли, не в земле</h2>
+  <div class="grid-4">
+    <div class="scen">
+      <h4>А. Продать сейчас как есть</h4>
+      <div class="money">1,4-2,5 млн ₽</div>
+      <div class="fam">семье (1/3): 0,5-0,8 млн · 1-3 мес</div>
+      <div class="note">После чистого титула. Покупатель - тот, кто потом заработает на нашем пае. Доля мамы - приставам, если долг открыт.</div>
+    </div>
+    <div class="scen">
+      <h4>Б. Блок консолидатору + опцион</h4>
+      <div class="money">3-4,5 млн + опцион</div>
+      <div class="fam">семье: 1-1,5 млн сейчас + 3-4 млн после Ж1 · 3-6 мес</div>
+      <div class="note">Если к 26.10 выяснится, что поле уже собирают. Ноль часов в администрацию.</div>
+    </div>
+    <div class="scen pick">
+      <h4>В. Консолидатор с партнёром</h4>
+      <div class="money">доля от массива</div>
+      <div class="fam">11,2 га как вклад + маржа на опционах 22 паёв · 1-3 года</div>
+      <div class="note">Если консолидатора нет и поле не в угодьях. Дольщики «все согласны» - опционы дешёвые. Деньги на генплан и сети - партнёра.</div>
+    </div>
+    <div class="scen dead">
+      <h4>Г. Девелопмент самому</h4>
+      <div class="money">15-35 млн чистыми</div>
+      <div class="fam">семье треть · 6-7 лет · 35-55 млн вперёд</div>
+      <div class="note">Снято советом 19.09. Не рассматриваем.</div>
+    </div>
+  </div>
+  <div class="grid-2" style="margin-top:18px">
+    <div>
+      <h3>Что говорят покупатели сегодня (оценка риэлтора и девелопера)</h3>
+      <ul>
+        <li>фермер-арендатор: 0,45-0,9 млн за оба</li>
+        <li>скупщик паёв: 1,1-2,8 млн</li>
+        <li>девелопер за примыкающую землю: 3,4-6,7 млн (наша не примыкает к дороге)</li>
+        <li>опцион после Ж1: 0,3-0,5 млн сейчас + 8-12 млн после</li>
+        <li>для сравнения: 2007 - 120 т.р. за пай; кадастр 2023 - 207 т.р.; объявление 2026 - 1,5 млн</li>
+      </ul>
+    </div>
+    <div>
+      <h3>К €1M это не относится, пока</h3>
+      <ul>
+        <li>в любом сценарии семье 1/3, остальное - четырём совладельцам</li>
+        <li>рубли, в РФ, на счетах резидентов; у мамы счета под арестом - деньги уйдут приставам, пока долг не закрыт</li>
+        <li>нерезидент при продаже своей доли - 30% НДФЛ; резиденты-наследники после 3 лет - без НДФЛ</li>
+        <li>в трекере €1M поле учитывать нулём до договора с партнёром или денег от блока</li>
+        <li>цена проекта для трека продаж Q4: 2-3 часа в неделю. Перерасход - стоп-критерий</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="s11" data-list="Лист 11 из 14">
+  <p class="eyebrow">Календарь</p>
+  <h2>14 недель, два поворота. Неделя 1 уже началась: тётя Нина в понедельник в администрации</h2>
+  <div class="tablewrap"><table>
+    <tr><th class="c">Нед.</th><th class="c">Даты</th><th>Что сделано к воскресенью</th><th>Кто</th></tr>
+    <tr class="fork"><td class="c">0</td><td class="c">20-21.09</td><td><b>Срочно.</b> Маме: список вопросов для тёти Нины в администрацию (лист 13) и легенда «наследство, порядок в документах» вместо «продаём». Проверить маму на сайте ФССП. Пять вопросов маме голосом, не PDF.</td><td>Стас</td></tr>
+    <tr><td class="c">1</td><td class="c">22-28.09</td><td>Тётя Нина: результат из администрации - новые хозяева паёв, сверка «15 или 22». Мама: кто четверо, доли, кто дал объявление, договор аренды. Заказаны выписки ЕГРН на :1383, :1384, :1391, з/у 527. Объявление снято. Никите один письменный вопрос.</td><td>тётя Нина, мама, Стас</td></tr>
+    <tr><td class="c">2</td><td class="c">29.09-05.10</td><td>Выписки прочитаны: вид, срок, бенефициар ограничений; есть ли запрет от приставов. Три кандидата юриста в Тольятти. Семейный созвон пятерых: согласие на одну доверенность. Разговор с Шоковым через тётю Нину.</td><td>Стас, Катя, тётя Нина</td></tr>
+    <tr><td class="c">3</td><td class="c">06-12.10</td><td>Юрист выбран. Мама едет в Тольятти: нотариальная доверенность от пяти. Юрист отправляет 4 запроса (лист 12). Долг мамы закрыт или план закрытия.</td><td>юрист, мама</td></tr>
+    <tr><td class="c">4</td><td class="c">13-19.10</td><td>Тётя Нина + ходок: обзвон паёв (жив / наследник / оформлено / продаёт / цена). Дозагружены 9 паёв «не снято». Переходы прав по з/у 449, 530, 527.</td><td>тётя Нина, ходок</td></tr>
+    <tr><td class="c">5</td><td class="c">20-26.10</td><td>Ответы администрации и Минсельхоза. Кто провёл Александровский. Карта поля готова: кто держит, кто продаёт, есть ли консолидатор.</td><td>юрист</td></tr>
+    <tr class="fork"><td class="c">6</td><td class="c">27.10-02.11</td><td><b>Поворот 1.</b> Поле в угодьях / залог-арест / долг мамы не закрывается - стоп, продаём блоком. Консолидатор с 50%+ есть - сценарий Б. Ничего из этого - сценарий В.</td><td>Стас</td></tr>
+    <tr><td class="c">7</td><td class="c">03-09.11</td><td>Юрист: форма опциона с дольщиком (цена, срок 12-18 мес, задаток). Список 2-3 девелоперов.</td><td>юрист</td></tr>
+    <tr><td class="c">8</td><td class="c">10-16.11</td><td>Встречи с девелоперами (юрист очно, Стас по видео). Предложение письменно: «блок под одним голосом, паи законтрактованы, поле не в угодьях».</td><td>Стас, юрист</td></tr>
+    <tr><td class="c">9</td><td class="c">17-23.11</td><td>Опционы с первыми 5-8 паями: Мякоткина, Платковская, Замотин, Щеглова, з/у 527.</td><td>юрист, тётя Нина</td></tr>
+    <tr><td class="c">10</td><td class="c">24-30.11</td><td>Партнёр: условия на бумаге - кто платит проект генплана, сети, как делим.</td><td>Стас</td></tr>
+    <tr class="fork"><td class="c">11</td><td class="c">01-07.12</td><td><b>Поворот 2.</b> Опционы на 50%+ и партнёр с условиями - идём на заявление. Партнёра нет - продаём блок с опционами или закрываем.</td><td>Стас</td></tr>
+    <tr><td class="c">12</td><td class="c">08-14.12</td><td>Заявление о внесении изменений в генплан с.п. Ягодное от инициатора - зарегистрировано.</td><td>юрист, партнёр</td></tr>
+    <tr><td class="c">13</td><td class="c">15-21.12</td><td>Договор с партнёром подписан. Или: сделка по блоку закрыта.</td><td>Стас, юрист</td></tr>
+    <tr><td class="c">14</td><td class="c">22-31.12</td><td>Итог года одной страницей: позиция семьи, % поля под контролем, номер заявления, ноль своих рублей в генплан.</td><td>Стас</td></tr>
+  </table></div>
+</section>
+
+<section class="sheet" id="s12" data-list="Лист 12 из 14">
+  <p class="eyebrow">Дата X</p>
+  <h2>Четыре запроса юриста и один разговор тёти Нины</h2>
+  <div class="grid-2">
+    <div>
+      <div class="tablewrap"><table>
+        <tr><th>Куда</th><th>Что спросить</th><th>Что означает ответ</th></tr>
+        <tr><td>Минсельхоз Самарской области</td><td>подготовлены ли предложения по границам угодий (ПП №1943); входит ли квартал 63:32:1603003, поле №18; срок направления в Минсельхоз РФ</td><td>в проекте - месяцы, не годы; утверждено - только продажа</td></tr>
+        <tr><td>Правительство / Минсельхоз области</td><td>перечень особо ценных продуктивных угодий: есть ли поле №18 или колхоз «Нива»</td><td>есть - стоп</td></tr>
+        <tr><td>Управление мелиорации</td><td>числится ли поле №18 или смежные в мелиорированных землях</td><td>числится - кандидат в особо ценные, стоп</td></tr>
+        <tr><td>Архитектура м.р. Ставропольский + с.п. Ягодное</td><td>действующий генплан и ПЗЗ; идёт ли корректировка; проектировщик; поле №18 в перспективных границах; как включили Александровский</td><td>корректировка идёт - подцепиться; нет - инициатор платит и ждёт</td></tr>
+      </table></div>
+    </div>
+    <div>
+      <h3>Разговор с Шоковым (через тётю Нину, без юриста)</h3>
+      <ul>
+        <li>«Почему вы и другие крупные не продаёте? Ждёте чего-то?»</li>
+        <li>«Кто в 2020-2024 собирал большие участки рядом с полем №18?»</li>
+        <li>«Администрация говорила про генплан, про включение полей в село?»</li>
+        <li>«Если бы поле переводили под жильё - вы бы вошли с паем или продали?»</li>
+      </ul>
+      <p class="small">Он подписывал протокол выдела 2009 как председатель собрания, держит 30 га и, по словам мамы, «преследует какую-то цель». Его ответ стоит больше четырёх запросов.</p>
+      <div class="callout"><p><b>Правило.</b> Ни одного опциона, ни рубля задатка, ни встречи с девелопером - до ответа по первым трём строкам. Иначе собираем поле, которое нельзя вывести.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="s13" data-list="Лист 13 из 14">
+  <p class="eyebrow">Люди</p>
+  <h2>Кто есть, кого нет, и что тёте Нине спросить в понедельник</h2>
+  <div class="grid-2">
+    <div>
+      <div class="tablewrap"><table>
+        <tr><th>Кто</th><th>Роль</th><th>Статус 20.09</th></tr>
+        <tr><td><b>Стас</b></td><td>организатор, развилки</td><td><span class="tag q">2-3 ч/нед</span></td></tr>
+        <tr><td><b>Мама</b></td><td>доверитель, связь с четырьмя</td><td><span class="tag mid">готова ехать в Тольятти; счета под арестом</span></td></tr>
+        <tr><td>4 совладельца</td><td>подписанты доверенности</td><td><span class="tag na">родственники, имена не известны, пассивны</span></td></tr>
+        <tr><td><b>Тётя Нина</b></td><td>связь с дольщиками, ходок №1</td><td><span class="tag ok">22.09 в администрации Ягодного</span></td></tr>
+        <tr><td>Шоков А.И.</td><td>источник по генплану и консолидатору</td><td><span class="tag mid">30 га, не продаёт, «цель»</span></td></tr>
+        <tr><td>Катя</td><td>поиск юриста и ходока</td><td><span class="tag mid">«готова», задач нет</span></td></tr>
+        <tr><td><b>Юрист по земле, Тольятти</b></td><td>главный человек проекта</td><td><span class="tag bad">вакансия №1</span></td></tr>
+        <tr><td>Ходок с машиной</td><td>22 пая, нотариус, документы</td><td><span class="tag bad">вакансия №2</span></td></tr>
+        <tr><td>Никита Кондратьев</td><td>не определена</td><td><span class="tag mid">Бишкек, ВНЖ/шенген, по земле ноль</span></td></tr>
+        <tr><td>Илья</td><td>?</td><td><span class="tag na">16.09 не ответил</span></td></tr>
+        <tr><td>Автор голосовых 17.09</td><td>?</td><td><span class="tag na">неизвестен</span></td></tr>
+        <tr><td>Зам мэра Тольятти</td><td>выход на девелоперов, не на генплан</td><td><span class="tag na">знакомство обещано 01.09</span></td></tr>
+        <tr><td><b>Партнёр-девелопер</b></td><td>платит генплан и сети</td><td><span class="tag bad">не найден</span></td></tr>
+      </table></div>
+    </div>
+    <div>
+      <h3>Тёте Нине в администрацию 22.09 - что спросить</h3>
+      <ol>
+        <li><b>Легенда:</b> «оформляем наследство, наводим порядок в документах по полю №18, ищем хозяев паёв». Слово «продаём» не произносить.</li>
+        <li>По списку из 22 фамилий (лист 5): кто умер, кто наследник, где живёт, телефон.</li>
+        <li>Кто платит земельный налог по паям поля №18 сейчас - это и есть реальные хозяева.</li>
+        <li>Кто арендует поле №18, договор с кем, до какого года.</li>
+        <li>Кто оформлял большие участки рядом в 2020, 2021, 2024 (з/у 449, 530).</li>
+        <li>Идёт ли работа над генпланом Ягодного, кто проектировщик, где вывешены материалы.</li>
+        <li>Шоков: как связаться.</li>
+      </ol>
+      <div class="callout warn"><p>Записать всё сразу после разговора голосовым маме - через день детали уходят.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="s14" data-list="Лист 14 из 14">
+  <p class="eyebrow">Стоп-критерии и решения</p>
+  <h2>Когда закрывать, и что решить до понедельника</h2>
+  <div class="grid-2">
+    <div>
+      <h3>Стоп - продавать блоком и закрывать</h3>
+      <ul>
+        <li>поле в границах угодий, в особо ценных или в контуре мелиорации</li>
+        <li>ограничение - залог, арест или аренда на годы; долг мамы не закрывается</li>
+        <li>из пяти совладельцев хотя бы один отказывается от доверенности после двух разговоров</li>
+        <li>кто-то уже держит 50%+ поля</li>
+        <li>к 07.12 нет партнёра, готового обсуждать деньги на генплан</li>
+        <li>проект тянет больше 3 часов в неделю или залезает в утренние часы трека продаж</li>
+      </ul>
+      <div class="callout"><p>Стоп - не поражение. Блок с чистым титулом и опционами на соседей стоит дороже, чем два грязных участка с объявлением. «Продать и закрыть» в декабре - лучше сентябрьской позиции.</p></div>
+    </div>
+    <div>
+      <h3>Решить до понедельника 21.09</h3>
+      <div class="decision"><div class="q">1</div><div class="t">Тётя Нина едет в администрацию с какой легендой?<span class="my">Моя позиция: «наследство и порядок в документах». Список вопросов с листа 13 - маме голосом сегодня.</span></div></div>
+      <div class="decision"><div class="q">2</div><div class="t">Долг мамы: проверяем ФССП сейчас и закрываем до сделок, или ждём выписку?<span class="my">Моя позиция: проверить сегодня, 2 минуты на сайте. Если производство есть - закрыть до любого движения по земле, иначе её доля уйдёт приставам.</span></div></div>
+      <div class="decision"><div class="q">3</div><div class="t">Кто ищет юриста и ходока: Катя или Стас сам?<span class="my">Моя позиция: Катя собирает три имени к 05.10, Стас созванивается сам.</span></div></div>
+      <div class="decision"><div class="q">4</div><div class="t">Никита: вопрос сейчас или ждём?<span class="my">Моя позиция: одно сообщение сейчас, дедлайн ответа 28.09. Молчание - ответ.</span></div></div>
+      <div class="decision"><div class="q">5</div><div class="t">Кто платит юристу до партнёра?<span class="my">Моя позиция: семья, из будущей выкупной цены; предел на этап проверок обозначить заранее.</span></div></div>
+    </div>
+  </div>
+  <p class="foot">Материалы: projects/zemlya-yagodnoe/ - разборы 18-19.09, SOVET-2026-09-19.md, POLE-18-DOLSHCHIKI.md, сканы в docs/, две предыдущие презентации (13 и 10 листов). Закон: 52-ФЗ от 01.04.2025 (kremlin.ru, garant.ru), обзор Birch Legal, КонсультантПлюс.</p>
+</section>
+
+</div>
+
+<div class="nav" aria-label="Навигация по листам">
+  <button type="button" data-dir="-1" aria-label="Предыдущий лист">↑</button>
+  <button type="button" data-dir="1" aria-label="Следующий лист">↓</button>
+</div>
+
+<script>
+(function(){
+  var sheets=[].slice.call(document.querySelectorAll('.sheet'));
+  function current(){var y=window.scrollY+40;var i=0;sheets.forEach(function(s,k){if(s.offsetTop<=y)i=k;});return i;}
+  function go(d){var i=Math.min(sheets.length-1,Math.max(0,current()+d));sheets[i].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+  document.querySelectorAll('.nav button').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.dir);});});
+  window.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(1);}if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();go(-1);}});
+})();
+</script>
