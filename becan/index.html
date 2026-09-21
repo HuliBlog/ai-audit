@@ -83,6 +83,9 @@
   .card h3{font-size:17.5px;font-weight:600;margin:3px 0 12px;letter-spacing:-.01em;line-height:1.2}
   .price{font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
   .price small{font-size:12px;color:var(--mut);font-weight:500}
+  .sale{display:inline-block;background:var(--accent);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:20px;margin:0 0 8px}
+  .old{display:block;font-size:12.5px;color:var(--mut);text-decoration:line-through;font-weight:500;margin-top:2px}
+  .flow .old{display:inline;margin:0 6px 0 0}
   .price .from{display:block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;font-weight:700}
   .card ul{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
   .card li{position:relative;padding-left:18px;font-size:13px;color:#41504A;line-height:1.45}
@@ -374,40 +377,39 @@
   <div class="sechead">
     <div class="eyebrow">Раздел 06</div>
     <h2>Стоимость</h2>
-    <p class="lead">Ежемесячное сопровождение по объёму операций, годовое закрытие - отдельно. Цены в долларах США.</p>
+    <p class="lead">Ежемесячное сопровождение по объёму операций, годовое закрытие - отдельно. Цены в USD, со скидкой 33% при старте до 1 декабря 2026.</p>
   </div>
 
   <div class="cards">
     <div class="card feat">
-      <div class="badge">рекомендуем сейчас</div>
-      <div class="tier">Пакет 01</div>
+      <div class="sale">-33% до 1 декабря 2026</div>
+      <div class="tier">Пакет 01 · рекомендуем</div>
       <h3>Старт</h3>
-      <div class="price"><span class="from">до 60 операций в месяц</span>от 950 USD <small>/ мес</small></div>
+      <div class="price"><span class="from">до 60 операций в месяц</span>от 640 USD <small>/ мес</small><span class="old">вместо 950 USD</span></div>
       <ul>
-        <li>Учёт, банк, первичка</li>
-        <li>Удержания при платежах нерезидентам</li>
+        <li>Учёт, банк, первичка, удержания</li>
         <li>Payroll и WPS</li>
         <li>Ежемесячный отчёт и календарь сроков</li>
       </ul>
     </div>
     <div class="card">
+      <div class="sale">-33% до 1 декабря 2026</div>
       <div class="tier">Пакет 02</div>
       <h3>Бизнес</h3>
-      <div class="price"><span class="from">до 100 операций в месяц</span>от 1 500 USD <small>/ мес</small></div>
+      <div class="price"><span class="from">до 100 операций в месяц</span>от 1 000 USD <small>/ мес</small><span class="old">вместо 1 500 USD</span></div>
       <ul>
-        <li>Всё из пакета Старт</li>
-        <li>Несколько счетов и валют</li>
+        <li>Всё из пакета Старт, несколько счетов и валют</li>
         <li>Проверка договоров до подписания</li>
         <li>Отчёт в формате вашего финдиректора</li>
       </ul>
     </div>
     <div class="card">
+      <div class="sale">-33% до 1 декабря 2026</div>
       <div class="tier">Пакет 03</div>
       <h3>Про</h3>
-      <div class="price"><span class="from">до 250 операций в месяц</span>от 2 500 USD <small>/ мес</small></div>
+      <div class="price"><span class="from">до 250 операций в месяц</span>от 1 680 USD <small>/ мес</small><span class="old">вместо 2 500 USD</span></div>
       <ul>
-        <li>Всё из пакета Бизнес</li>
-        <li>Группа компаний в одном контуре</li>
+        <li>Всё из пакета Бизнес, группа компаний</li>
         <li>Поддержка при проверках</li>
         <li>Приоритетные сроки ответов</li>
       </ul>
@@ -416,15 +418,15 @@
 
   <h3 class="sub">Годовое закрытие и разовые работы</h3>
   <div class="flow">
-    <div class="row"><span class="n">Годовой аудит: подготовка пакета, работа с лицензированным аудитором, заключение</span><span class="p">от 3 000 USD</span></div>
-    <div class="row"><span class="n">Годовая отчётность и декларация через Dhareeba</span><span class="p">входит в сопровождение</span></div>
-    <div class="row"><span class="n">Payroll, WPS и удержания при платежах нерезидентам</span><span class="p">входит в сопровождение</span></div>
-    <div class="row"><span class="n">Сертификат налогового резидентства</span><span class="p">от 600 USD</span></div>
-    <div class="row"><span class="n">Восстановление учёта с даты регистрации до старта</span><span class="p">по тарифу пакета <small>за месяц</small></span></div>
-    <div class="row"><span class="n">Годовая отчётность и аудит без ежемесячного ведения</span><span class="p">по объёму <small>после созвона</small></span></div>
+    <div class="row"><span class="n">Годовой аудит: пакет, лицензированный аудитор, заключение</span><span class="p"><span class="old">3 000</span>от 2 000 USD</span></div>
+    <div class="row"><span class="n">Отчётность и декларация через Dhareeba</span><span class="p">входит в сопровождение</span></div>
+    <div class="row"><span class="n">Payroll, WPS, удержания нерезидентам</span><span class="p">входит в сопровождение</span></div>
+    <div class="row"><span class="n">Сертификат налогового резидентства</span><span class="p"><span class="old">600</span>от 400 USD</span></div>
+    <div class="row"><span class="n">Восстановление учёта до старта</span><span class="p">по тарифу пакета <small>за месяц</small></span></div>
+    <div class="row"><span class="n">Закрытие года без ежемесячного ведения</span><span class="p">по объёму <small>после созвона</small></span></div>
   </div>
 
-  <div class="note"><b>Как выбрать пакет.</b> На старте достаточно пакета Старт. Когда операций становится больше лимита, переходите на следующий пакет с того месяца - без переоформления договора. Сверх сметы по факту оплачиваются государственные пошлины и сборы, суммы называем до платежа.</div>
+  <div class="note"><b>Условия до 1 декабря 2026.</b> Цены со скидкой 33% действуют при подписании договора до 1 декабря 2026 и сохраняются на весь первый год. Старта на первое время достаточно; при росте операций переходите на следующий пакет с того месяца, без переоформления договора. Госпошлины и сборы - по факту, суммы называем до платежа.</div>
 
   <div class="pfoot"><span><b>Mg Accounting</b> · Бухгалтерия, налоги и аудит в Катаре</span><span>Becan Technologies W.L.L · 7</span></div>
 </section>
