@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nadya.home - персональный ИИ для вашего дома</title>
+<title>Mg SHome - персональный ИИ для вашего дома</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 
-:root{color-scheme:light;--paper:#f5f2eb;--white:#fffdf8;--ink:#243a35;--muted:#58665f;--line:#d9dcd3;--olive:#526454;--gold:#9b7140;--sand:#e7decc;--serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Manrope',Arial,sans-serif}
+:root{color-scheme:light;--paper:#f5f2eb;--white:#fffdf8;--ink:#243a35;--muted:#58665f;--line:#d9dcd3;--olive:#526454;--gold:#9b7140;--sand:#e7decc;--serif:'Manrope',Arial,sans-serif;--sans:'Manrope',Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:32px}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}p,h1,h2,h3,ul{margin:0}p{max-width:65ch}svg{display:block;max-width:100%}::selection{background:#cedbcf;color:#163529}[hidden]{display:none!important}.wrap{width:min(1380px,100%);margin-inline:auto;padding-inline:clamp(20px,4.5vw,72px)}section{padding-block:112px}h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.03;letter-spacing:-.035em;text-wrap:balance}h1{font-size:clamp(52px,5.6vw,86px);max-width:12ch}h2{font-size:clamp(42px,4.2vw,64px);max-width:20ch}h3{font-size:32px;letter-spacing:-.02em;line-height:1.13}h1 em,h2 em{font-weight:400;color:var(--olive)}.eyebrow{font-size:10px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--olive);margin-bottom:24px;display:flex;align-items:center;gap:14px}.eyebrow:before{content:'';height:1px;width:26px;background:currentColor;flex:none}.lede{font-size:17px;line-height:1.85;color:var(--muted);margin-top:26px;max-width:48ch}.muted{color:var(--muted)}.k,.tag{font:600 10px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .skip-link{position:absolute;left:20px;top:-80px;padding:12px 20px;background:var(--ink);color:white;z-index:20}.skip-link:focus{top:8px}:focus-visible{outline:3px solid #94703c;outline-offset:5px}a,button{touch-action:manipulation}header{border-bottom:1px solid var(--line)}nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:96px}.brand{font:500 31px/1 var(--serif);letter-spacing:-.05em;white-space:nowrap}.brand span{color:var(--gold)}.navlinks{display:flex;gap:24px;margin-left:auto}.navlinks a{font-size:11px;text-decoration:none;color:var(--muted);padding:14px 0;white-space:nowrap}.navlinks a:hover{text-decoration:underline;text-underline-offset:6px}.nav-actions{display:flex;gap:22px;align-items:center}.language{display:flex;gap:2px;align-items:center}.language a{display:grid;place-items:center;min-height:44px;min-width:32px;text-decoration:none;color:var(--muted);font-size:10px;font-weight:600}.language a[aria-current=page]{color:var(--ink);text-decoration:underline;text-underline-offset:6px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:14px 22px;background:var(--ink);border:1px solid var(--ink);color:var(--white);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.015em;transition:background .2s,color .2s}.btn::after{content:'\2197';font-size:19px;font-weight:400;line-height:1}.btn:hover{background:#40574c;border-color:#40574c}.btn.ghost{background:transparent;color:var(--ink);border-color:#aeb8ad}.btn.ghost:hover{background:#e7ebe1}.nav-actions>.btn{min-height:44px;padding:10px 16px;font-size:11px}
 .hero{padding:76px 0 78px}.hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(36px,5vw,76px);align-items:center}.hero-copy .lede{font-size:15px;max-width:44ch}.hero-copy .eyebrow{margin-bottom:30px}.cta-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px}.cta-row>.ghost{border-color:transparent;padding-inline:9px}.trust{border-top:1px solid var(--line);padding-top:20px;margin-top:32px;display:flex;flex-wrap:wrap;gap:10px 20px;color:var(--muted);font-size:10px;line-height:1.8}.trust span:last-child{flex-basis:100%}.trust b{font-weight:600;color:var(--ink)}.residence{position:relative;padding:88px 24px 24px;min-width:0;background:#ded7c7;isolation:isolate}.architecture{position:absolute;inset:0;width:100%;height:100%;z-index:-1}.residence-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;position:absolute;top:24px;left:24px;right:24px;font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#3d554b}.residence-meta span:last-child{font-style:italic;font-family:var(--serif);font-size:17px;letter-spacing:0;text-transform:none}.screen{position:relative;background:#152e2a;color:#f2f0e7;border:6px solid #293e36;box-shadow:0 20px 38px #1c312829;padding:0;min-width:0}.screen-in{padding:26px 24px 20px;background:linear-gradient(150deg,#203e36,#102a25);display:grid;gap:20px}.who{display:flex;align-items:center;gap:15px;padding-bottom:18px;border-bottom:1px solid #416053}.orb{width:48px;height:48px;flex:none;border-radius:50%;position:relative;background:radial-gradient(circle at 38% 30%,#f4e8c6,#bdcbb5 40%,#466c58 72%,#244739);box-shadow:0 0 30px #c9d6b320}.orb:after{content:'';position:absolute;inset:-5px;border:1px solid #d2debd55;border-radius:50%;animation:breathe 5s ease-in-out 1}.nm{font:400 27px/1.1 var(--serif)}.st{font-size:9px;color:#b0c8ad;letter-spacing:.07em;margin-top:5px}.wave{display:flex;align-items:center;gap:3px;height:28px;margin-left:auto}.wave i{display:block;width:2px;background:#d4d9b9;height:35%;animation:speak .9s ease-in-out 5}.wave i:nth-child(2n){height:80%;animation-delay:.15s}.wave i:nth-child(3n){height:55%;animation-delay:.3s}.chat{display:grid;gap:13px}.msg{font-size:12px;line-height:1.8;max-width:94%;animation:arrive .65s both}.msg.you{justify-self:end;padding:8px 12px;background:#ffffff0d;color:#f0f0e4;border:1px solid #bfd3b51c;border-radius:2px}.msg.her{padding:0 0 0 12px;border-left:1px solid #bdc9a0;color:#d4e0ce}.msg:nth-child(2){animation-delay:.35s}.msg:nth-child(3){animation-delay:.7s}.msg:nth-child(4){animation-delay:1.05s}.log{display:grid;gap:5px;border-top:1px solid #416053;padding-top:14px;font:400 9px/1.65 ui-monospace,Menlo,monospace;color:#b3c5b9;overflow-wrap:anywhere}.log b{color:#e3e8cc;font-weight:500}.screen-foot{padding:11px 18px;display:flex;justify-content:space-between;gap:12px;color:#c3d3c5;background:#102620;font-size:8px;letter-spacing:.06em}.scene-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;color:#354e41;font-size:10px}.replay{padding:8px 0 8px 12px;background:transparent;border:0;color:#354e41;font:500 10px var(--sans);text-decoration:underline;text-underline-offset:4px;min-height:40px}.replaying .msg{animation:none}@keyframes arrive{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@keyframes breathe{50%{transform:scale(1.08);opacity:.3}}@keyframes speak{50%{transform:scaleY(.4)}}
@@ -35,6 +35,17 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}.hero-copy h1{font-size:64px;max-width:18ch}.hero-copy .lede{max-width:62ch}.hero-copy{max-width:100%;padding-top:0}.residence{max-width:none;padding:0}.architecture{max-height:430px}.screen-in{padding:25px}.msg{font-size:13px}.log{font-size:10px}.nm{font-size:22px}.st{font-size:10px}.screen-foot{font-size:9px}.feat h3{max-width:16ch}.amt{font-size:45px}.future-art span{font-size:22px}.plan ul{border-color:#bdc7ca}.premium-package h3{font-size:32px}}
 @media(max-width:600px){section{padding-block:62px}nav{min-height:0}.brand{font-size:24px}.navlinks a{font-size:9px}.hero{padding-top:32px}.hero-copy h1{font-size:clamp(40px,10.7vw,58px);max-width:14ch;line-height:1.1}.hero-copy .eyebrow{margin-bottom:25px}.hero-copy .lede{font-size:14px;margin-top:24px}.hero-grid{gap:28px}.cta-row>.btn{font-size:10px;padding-inline:13px}.residence-meta{font-size:8px;gap:8px;padding-block:12px}.residence-meta span:last-child{font-size:8px}.screen{border-width:1px}.screen-in{padding:21px 16px;gap:17px}.who{gap:12px}.nm{font-size:20px}.st{font-size:8px}.msg{font-size:12px}.log{font-size:8px}.screen-foot{font-size:7px;padding-inline:13px}.scene-caption,.replay{font-size:8px}.systems .sys{font-size:16px}h2{font-size:34px;line-height:1.12}.feat{grid-template-columns:1fr;gap:28px}.feat h3{font-size:24px;max-width:none}.feat p{font-size:14px}.q{font-size:22px}.aud article h3{font-size:28px}.future h2{font-size:36px}.future-points h3{font-size:25px}.future-art span{font-size:22px}.pricing-group>h3{font-size:26px}.amt{font-size:44px}.premium-package h3{font-size:30px}.premium-package .premium-price{font-size:25px}.step h3{font-size:26px}.person h3{font-size:24px}.demo h2{font-size:36px}.team-section{padding-top:0}}
 
+
+/* Mg SHome: readability floor + brand */
+.brand span{color:var(--muted)}
+.navlinks a{font-size:12px}
+.btn,.nav-actions>.btn,.cta-row>.btn{font-size:13px}
+.eyebrow,.k,.tag,.systems .lbl,.feat .k,.rules .k,.plan .tag,.role,.feat>div:before,.aud article:before,.step:before{font-size:11px}
+.trust,.amt small,.was,.note,.form-note,label,footer,footer .wrap,.future-note,.language a{font-size:12px}
+.t,.slot .t{font-size:12px}
+.msg{font-size:13px}
+.log,.st,.screen-foot,.scene-caption,.replay,.scene-caption,.replay,.residence-meta,.residence-meta span:last-child{font-size:10px}
+.residence-meta span:last-child{font-style:normal;font-family:var(--mono)}
 </style>
 </head>
 <body>
@@ -43,7 +54,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 
 <div class="wrap">
   <nav aria-label="Основная навигация">
-    <div class="brand">Nadya<span>.</span>home</div>
+    <div class="brand">Mg <span>S</span>Home</div>
     <div class="navlinks"><a href="#how">Как это работает</a><a href="#developers">Застройщикам</a><a href="#privacy">Приватность</a><a href="#pricing">Цены</a></div>
     <div class="nav-actions"><div class="language" aria-label="Язык"><a href="/home/" lang="ru" aria-current="page">RU</a><a href="/home/en/" lang="en">EN</a></div><a class="btn ghost" href="#demo">Живое демо</a></div>
   </nav>
@@ -54,9 +65,9 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">Кипр · Лимассол · Пафос</div>
-      <h1>Ваш умный дом <em>наконец</em> знает, кто в нём живёт.</h1>
-      <p class="lede">Наденька - персональный ИИ-агент поверх KNX, Control4 или Crestron, которые у вас уже стоят. Она разговаривает, помнит вашу семью, управляет домом и появляется на ваших экранах. Без нового оборудования.</p>
+      <div class="eyebrow">Mg&nbsp;SHome · Кипр · Лимассол · Пафос</div>
+      <h1>Все ждут личный ИИ. <em>Будущее</em> уже здесь.</h1>
+      <p class="lede">Личный ИИ, который знает вашу семью, разговаривает как человек и управляет домом. Mg&nbsp;SHome ставится поверх KNX, Control4 или Crestron, которые у вас уже стоят. Без нового оборудования. И мы можем сделать это будущее вашим уже сейчас.</p>
       <div class="cta-row">
         <a class="btn" href="#demo">Записаться на живое демо</a>
         <a class="btn ghost" href="#pricing">Цена для первых</a>
@@ -64,15 +75,15 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
       <div class="trust"><span><b>5</b> домов основателей в этом сезоне</span><span><b>45 дней</b> гарантия возврата</span><span>Русский · English · עברית · Ελληνικά</span></div>
     </div>
 
-    <div class="residence"><svg class="architecture" viewBox="0 0 960 540" role="img" aria-label="Архитектурная иллюстрация современной виллы с плоской крышей и бассейном"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d1d6"/><stop offset="1" stop-color="#e4e9e8"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343d"/><stop offset=".48" stop-color="#587075"/><stop offset="1" stop-color="#18272d"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#617f83"/><stop offset="1" stop-color="#bed0ce"/></linearGradient></defs><rect width="960" height="540" fill="url(#sky)"/><path d="M0 263L97 232 161 251 299 212 414 254 528 242 625 268 760 222 960 253V430H0Z" fill="#afbbb8"/><path d="M0 322L175 302 353 318 531 282 774 313 960 299V490H0Z" fill="#7d8f86"/><path d="M0 388H960V540H0Z" fill="#bfc4bf"/><path d="M52 428L826 338 960 410 960 540H0Z" fill="#d5d8d1"/><path d="M125 229L410 155 862 215 558 306Z" fill="#fcfcf6"/><path d="M125 229L558 286V316L125 263Z" fill="#c3c9c5"/><path d="M558 286L862 215V245L558 316Z" fill="#e8ebe5"/><path d="M148 263L548 313V429L148 372Z" fill="#edf0e9"/><path d="M548 313L840 246V365L548 429Z" fill="#c3cbc6"/><path d="M181 272L505 315V406L181 363Z" fill="url(#glass)"/><path d="M577 314L810 261V353L577 406Z" fill="url(#glass)"/><path d="M252 281V373M338 292V385M423 304V396M650 297V390M727 280V372" stroke="#0f2027" stroke-width="6"/><path d="M182 344L504 387V399L182 357Z" fill="#afaca0"/><path d="M183 348L504 391M578 392L808 341" stroke="#e3d6b5" stroke-width="3"/><path d="M312 161L479 121 737 154 561 199Z" fill="#f8f9f3"/><path d="M312 161L561 195V272L312 240Z" fill="#d5dbd5"/><path d="M561 195L737 154V230L561 272Z" fill="#ecefe8"/><path d="M341 178L530 203V245L341 220Z" fill="#34484f"/><path d="M584 207L712 178V218L584 248Z" fill="#30454b"/><path d="M435 189V232M646 194V234" stroke="#182a30" stroke-width="5"/><path d="M312 156L561 190 737 150V159L561 201 312 167Z" fill="#f9faf5"/><path d="M80 402L535 463 867 389" fill="none" stroke="#9aa59f" stroke-width="2"/><path d="M128 447L516 500 789 438 421 394Z" fill="#f4f5ef"/><path d="M163 449L516 491 751 440 421 403Z" fill="url(#water)"/><path d="M219 448L496 480M281 436L559 469M346 423L621 455" stroke="#d9e3df" opacity=".35"/><path d="M0 475L100 492M771 491L941 452M757 532L960 486" fill="none" stroke="#aab1a9"/><path d="M76 367V245M894 359V225" stroke="#57675b" stroke-width="6"/><path d="M76 229L42 309H110ZM894 208L855 300H930Z" fill="#64766a"/><path d="M82 381L122 386 140 382 104 377Z" fill="#526057" opacity=".35"/></svg><div class="residence-meta"><span>Диалог с домом</span><span>Cyprus, by evening</span></div><div class="screen" aria-label="Пример: Наденька на экране в гостиной">
+    <div class="residence"><svg class="architecture" viewBox="0 0 960 540" role="img" aria-label="Архитектурная иллюстрация современной виллы с плоской крышей и бассейном"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d1d6"/><stop offset="1" stop-color="#e4e9e8"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343d"/><stop offset=".48" stop-color="#587075"/><stop offset="1" stop-color="#18272d"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#617f83"/><stop offset="1" stop-color="#bed0ce"/></linearGradient></defs><rect width="960" height="540" fill="url(#sky)"/><path d="M0 263L97 232 161 251 299 212 414 254 528 242 625 268 760 222 960 253V430H0Z" fill="#afbbb8"/><path d="M0 322L175 302 353 318 531 282 774 313 960 299V490H0Z" fill="#7d8f86"/><path d="M0 388H960V540H0Z" fill="#bfc4bf"/><path d="M52 428L826 338 960 410 960 540H0Z" fill="#d5d8d1"/><path d="M125 229L410 155 862 215 558 306Z" fill="#fcfcf6"/><path d="M125 229L558 286V316L125 263Z" fill="#c3c9c5"/><path d="M558 286L862 215V245L558 316Z" fill="#e8ebe5"/><path d="M148 263L548 313V429L148 372Z" fill="#edf0e9"/><path d="M548 313L840 246V365L548 429Z" fill="#c3cbc6"/><path d="M181 272L505 315V406L181 363Z" fill="url(#glass)"/><path d="M577 314L810 261V353L577 406Z" fill="url(#glass)"/><path d="M252 281V373M338 292V385M423 304V396M650 297V390M727 280V372" stroke="#0f2027" stroke-width="6"/><path d="M182 344L504 387V399L182 357Z" fill="#afaca0"/><path d="M183 348L504 391M578 392L808 341" stroke="#e3d6b5" stroke-width="3"/><path d="M312 161L479 121 737 154 561 199Z" fill="#f8f9f3"/><path d="M312 161L561 195V272L312 240Z" fill="#d5dbd5"/><path d="M561 195L737 154V230L561 272Z" fill="#ecefe8"/><path d="M341 178L530 203V245L341 220Z" fill="#34484f"/><path d="M584 207L712 178V218L584 248Z" fill="#30454b"/><path d="M435 189V232M646 194V234" stroke="#182a30" stroke-width="5"/><path d="M312 156L561 190 737 150V159L561 201 312 167Z" fill="#f9faf5"/><path d="M80 402L535 463 867 389" fill="none" stroke="#9aa59f" stroke-width="2"/><path d="M128 447L516 500 789 438 421 394Z" fill="#f4f5ef"/><path d="M163 449L516 491 751 440 421 403Z" fill="url(#water)"/><path d="M219 448L496 480M281 436L559 469M346 423L621 455" stroke="#d9e3df" opacity=".35"/><path d="M0 475L100 492M771 491L941 452M757 532L960 486" fill="none" stroke="#aab1a9"/><path d="M76 367V245M894 359V225" stroke="#57675b" stroke-width="6"/><path d="M76 229L42 309H110ZM894 208L855 300H930Z" fill="#64766a"/><path d="M82 381L122 386 140 382 104 377Z" fill="#526057" opacity=".35"/></svg><div class="residence-meta"><span>Диалог с домом</span><span>Cyprus, by evening</span></div><div class="screen" aria-label="Пример: Mg&nbsp;SHome на экране в гостиной">
       <div class="screen-in">
         <div class="who">
           <div class="orb" aria-hidden="true"></div>
-          <div><div class="nm">Наденька</div><div class="st">В эфире · Гостиная</div></div>
+          <div><div class="nm">Mg&nbsp;SHome</div><div class="st">В эфире · Гостиная</div></div>
           <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
         <div class="chat" id="sample-dialogue">
-          <div class="msg you">Надя, мы ужинаем на террасе.</div>
+          <div class="msg you">SHome, мы ужинаем на террасе.</div>
           <div class="msg her">Добрый вечер. Свет на террасе 30%, джаз в колонках на террасе, бассейн греется до 28°. Саша просила разбудить её завтра в 7:15, комнату я настроила.</div>
           <div class="msg you">Кто у ворот?</div>
           <div class="msg her">Техник по бассейну, он приезжает по четвергам. Открыть?</div>
@@ -100,8 +111,8 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 <section id="how">
   <div class="wrap">
     <div class="eyebrow">Что меняется</div>
-    <h2>Вы заплатили за умный дом. <em>Наденька</em> делает его умным.</h2>
-    <p class="lede">В большинстве вилл на Кипре стоит автоматика на десятки тысяч евро и четыре приложения, которые никто не открывает. Наденька превращает всё это в один голос, который знает вашу семью.</p>
+    <h2>Вы заплатили за умный дом. <em>Mg&nbsp;SHome</em> делает его умным.</h2>
+    <p class="lede">В большинстве вилл на Кипре стоит автоматика на десятки тысяч евро и четыре приложения, которые никто не открывает. Mg&nbsp;SHome превращает всё это в один голос, который знает вашу семью.</p>
     <div class="feat">
       <div><span class="k">Голос</span><h3>Разговор, а не команды</h3><p>Живая речь на вашем языке. Она держит контекст и не теряется, если её перебить.</p></div>
       <div><span class="k">Память</span><h3>Знает вашу семью</h3><p>Привычки, предпочтения, кто когда встаёт, о чём вы просили на прошлой неделе. Помнит факты, а не записи.</p></div>
@@ -113,7 +124,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 
 <section class="day-section">
   <div class="wrap">
-    <div class="eyebrow">Четверг с Наденькой</div>
+    <div class="eyebrow">Четверг с Mg&nbsp;SHome</div>
     <h2>Один день в вилле в Тале</h2>
     <div class="day">
       <div class="slot"><span class="t">07:15</span><span class="q">«Доброе утро, Саша».</span><p>В её комнате медленно открываются шторы, на кухне 22°, на панели в прихожей напоминание про рюкзак.</p></div>
@@ -138,7 +149,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
       <article class="hl">
         <h3>Застройщикам</h3>
         <p class="muted">Первый проект на Кипре, где дом разговаривает с покупателем.</p>
-        <ul><li>Наденька встречает покупателя по имени в шоу-вилле, на его языке</li><li>Отвечает про виллу, ВНЖ, налоги и содержание дома</li><li>Каждый визит записан вместе с интересами покупателя</li><li>«Каждая вилла с личным агентом» как строка в вашем прайсе</li></ul>
+        <ul><li>Mg&nbsp;SHome встречает покупателя по имени в шоу-вилле, на его языке</li><li>Отвечает про виллу, ВНЖ, налоги и содержание дома</li><li>Каждый визит записан вместе с интересами покупателя</li><li>«Каждая вилла с личным агентом» как строка в вашем прайсе</li></ul>
       </article>
       <article>
         <h3>Аренде вилл</h3>
@@ -147,22 +158,22 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
       </article>
 <article class="companionship"><h3>Пожилым и тем, кто живёт один</h3><p class="muted">Знакомый голос в доме, спокойное общение и помощь в повседневных делах.</p><ul><li>Поговорить о прошедшем дне, интересах и планах</li><li>Вспомнить о договорённостях, прогулке или звонке близким</li><li>Попросить включить свет или музыку обычными словами</li><li>Подобрать удобный темп речи и сценарии вместе с пользователем</li></ul></article>
     </div>
-<p class="audiences-tail">Живое по ощущению общение с ИИ. Наденька помогает поддерживать связь с близкими и оставаться самостоятельным в привычном доме.</p>
+<p class="audiences-tail">Живое по ощущению общение с ИИ. Mg&nbsp;SHome помогает поддерживать связь с близкими и оставаться самостоятельным в привычном доме.</p>
   </div>
 </section>
 
-<section id="future" class="future"><div class="wrap"><div class="future-layout"><div><div class="eyebrow">Будущее вашего дома</div><h2>С годами знакомее.<br>С каждым шагом полезнее.</h2><p class="lede">Персональный помощник может развиваться вместе с вами. Наденька задумана так, чтобы сохранять выбранный вами контекст и со временем получать новые возможности общения и помощи по дому.</p></div><div class="future-art" aria-hidden="true"><svg viewBox="0 0 500 260" aria-hidden="true"><g fill="none" stroke="#667176" stroke-width="1"><path d="M20 50H155V130H185M20 210H155V130M315 130H355V50H480M355 130V210H480"/><rect x="185" y="80" width="130" height="100"/><path d="M210 50V80M230 50V80M250 50V80M270 50V80M290 50V80M210 180V210M230 180V210M250 180V210M270 180V210M290 180V210"/><rect x="20" y="35" width="32" height="30"/><rect x="20" y="195" width="32" height="30"/><rect x="448" y="35" width="32" height="30"/><rect x="448" y="195" width="32" height="30"/></g><g fill="#c2f36b"><circle cx="155" cy="130" r="4"/><circle cx="355" cy="130" r="4"/></g></svg><span>Nadya.</span></div></div><div class="future-points"><div><span class="k">Общение</span><h3>Почти как живая</h3><p>Естественная речь, внимание к контексту и знакомый голос. Разговор, в котором можно перебить, уточнить или вернуться к прежней мысли. Наденька всегда открыто представляется ИИ.</p></div><div><span class="k">Преемственность</span><h3>Знакомится постепенно</h3><p>Любимая музыка, привычный распорядок, важные для вас темы. Вы выбираете, что стоит помнить, а что забыть. Больше согласованного контекста для более личного общения.</p></div><div><span class="k">Развитие</span><h3>Растёт вместе с ИИ</h3><p>Более выразительный голос, новые сценарии и способы взаимодействия. Новые функции добавляются после проверки совместимости с вашим домом и по вашему выбору.</p></div></div><p class="future-note">Это направление развития продукта. Возможности конкретного дома, сроки обновлений и состав сервиса согласуем при подключении.</p></div></section>
+<section id="future" class="future"><div class="wrap"><div class="future-layout"><div><div class="eyebrow">Будущее вашего дома</div><h2>С годами знакомее.<br>С каждым шагом полезнее.</h2><p class="lede">Персональный помощник может развиваться вместе с вами. Mg&nbsp;SHome задуман так, чтобы сохранять выбранный вами контекст и со временем получать новые возможности общения и помощи по дому.</p></div><div class="future-art" aria-hidden="true"><svg viewBox="0 0 500 260" aria-hidden="true"><g fill="none" stroke="#667176" stroke-width="1"><path d="M20 50H155V130H185M20 210H155V130M315 130H355V50H480M355 130V210H480"/><rect x="185" y="80" width="130" height="100"/><path d="M210 50V80M230 50V80M250 50V80M270 50V80M290 50V80M210 180V210M230 180V210M250 180V210M270 180V210M290 180V210"/><rect x="20" y="35" width="32" height="30"/><rect x="20" y="195" width="32" height="30"/><rect x="448" y="35" width="32" height="30"/><rect x="448" y="195" width="32" height="30"/></g><g fill="#c2f36b"><circle cx="155" cy="130" r="4"/><circle cx="355" cy="130" r="4"/></g></svg><span>SHome.</span></div></div><div class="future-points"><div><span class="k">Общение</span><h3>Почти как живая</h3><p>Естественная речь, внимание к контексту и знакомый голос. Разговор, в котором можно перебить, уточнить или вернуться к прежней мысли. Mg&nbsp;SHome всегда открыто представляется ИИ.</p></div><div><span class="k">Преемственность</span><h3>Знакомится постепенно</h3><p>Любимая музыка, привычный распорядок, важные для вас темы. Вы выбираете, что стоит помнить, а что забыть. Больше согласованного контекста для более личного общения.</p></div><div><span class="k">Развитие</span><h3>Растёт вместе с ИИ</h3><p>Более выразительный голос, новые сценарии и способы взаимодействия. Новые функции добавляются после проверки совместимости с вашим домом и по вашему выбору.</p></div></div><p class="future-note">Это направление развития продукта. Возможности конкретного дома, сроки обновлений и состав сервиса согласуем при подключении.</p></div></section>
 
 <section id="privacy">
   <div class="wrap priv">
     <div>
       <div class="eyebrow">Приватность по умолчанию</div>
       <h2>Дом, который слушает, должен <em>забывать</em> по команде.</h2>
-      <p class="lede">Наденьку делает команда Mg Accounting: кипрская компания, которая ведёт компании, налоги и GDPR тех самых семей, что покупают эти виллы.</p>
+      <p class="lede">Mg&nbsp;SHome делает команда Mg Accounting: кипрская компания, которая ведёт компании, налоги и GDPR тех самых семей, что покупают эти виллы.</p>
     </div>
     <div class="rules">
       <div><span class="k">Звук</span><p>Просыпается на своё имя. Сырой звук никогда не хранится.</p></div>
-      <div><span class="k">Память</span><p>Хранится фактами, в ЕС. «Надя, забудь это» - и удалено.</p></div>
+      <div><span class="k">Память</span><p>Хранится фактами, в ЕС. «SHome, забудь это» - и удалено.</p></div>
       <div><span class="k">Замки</span><p>Ворота и двери только голос + PIN. Кто что может, решаете вы.</p></div>
       <div><span class="k">Журнал</span><p>Каждое её действие записано в журнал, который вы можете прочитать.</p></div>
       <div><span class="k">AI Act</span><p>Она всегда говорит, что она ИИ. Без распознавания эмоций.</p></div>
@@ -198,8 +209,8 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
     <div class="eyebrow">Как начать</div>
     <h2>Три шага, без новой проводки</h2>
     <div class="steps">
-      <div class="step"><h3>Живое демо</h3><p>25 минут с самой Наденькой, на экране у вас в вилле или в офисе. Демо ведёт она.</p></div>
-      <div class="step"><h3>Интегратор открывает доступ</h3><p>Работаем с компанией, которая ставила вашу систему. Она открывает доступ, мы подключаем Наденьку через Home Assistant.</p></div>
+      <div class="step"><h3>Живое демо</h3><p>25 минут с Mg&nbsp;SHome, на экране у вас в вилле или в офисе. Демо ведёт она.</p></div>
+      <div class="step"><h3>Интегратор открывает доступ</h3><p>Работаем с компанией, которая ставила вашу систему. Она открывает доступ, мы подключаем Mg&nbsp;SHome через Home Assistant.</p></div>
       <div class="step"><h3>Она изучает ваш дом</h3><p>Две недели настройки вместе с семьёй: комнаты, привычки, имена, правила. Дальше она ваша.</p></div>
     </div>
   </div>
@@ -209,7 +220,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
   <div class="wrap">
     <div class="eyebrow">Команда</div>
     <h2>Сделано на Кипре</h2>
-    <p class="lede">Наденьку делает команда Mg Accounting на Кипре.</p>
+    <p class="lede">Mg&nbsp;SHome делает команда Mg Accounting на Кипре.</p>
     <div class="team">
       <div class="person"><div class="ini">СЖ</div><div><h3>Станислав Жуковец</h3><div class="role">Mg Accounting</div></div></div>
       <div class="person"><div class="ini">MZ</div><div><h3>Mike Zelenin</h3><div class="role">Mg Accounting</div></div></div>
@@ -221,13 +232,13 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
   <div class="wrap demo">
     <div>
       <div class="eyebrow">Живое демо</div>
-      <h2>Познакомьтесь с Наденькой за <em>25 минут</em>.</h2>
+      <h2>Познакомьтесь с Mg&nbsp;SHome за <em>25 минут</em>.</h2>
       <p class="lede">Она представится, запустит сцену на настоящей системе и ответит на ваши вопросы. Решение за вами.</p>
     </div>
     <form id="demo-form" novalidate>
       <label for="f-name">Имя<input id="f-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
       <label for="f-contact">Телефон или Telegram<input id="f-contact" name="contact" placeholder="+357 … или @username"></label>
-      <label for="f-type">Я
+      <label for="f-type">Что вас интересует
         <select id="f-type" name="type"><option>Личная</option><option>Семья / готовое жильё</option><option>Бизнес-ассистент</option><option>Дом под ключ с вашим оборудованием</option><option>Владелец виллы</option><option>Застройщик</option><option>Оператор аренды вилл</option><option>Интегратор</option><option>Для пожилого человека или того, кто живёт один</option></select>
       </label>
       <label for="f-system">Какая система стоит
@@ -242,7 +253,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 
 </main>
 <footer>
-  <div class="wrap"><p id="token-costs" class="token-costs">* Расходы на токены ИИ оплачиваются клиентом отдельно.</p><span>Nadya.home · Пафос, Кипр · команда Mg Accounting</span><span>Концепт для Mike Zelenin · 2026</span></div>
+  <div class="wrap"><p id="token-costs" class="token-costs">* Расходы на токены ИИ оплачиваются клиентом отдельно.</p><span>Mg&nbsp;SHome · Пафос, Кипр · команда Mg Accounting</span><span>Концепт для Mike Zelenin · 2026</span></div>
 </footer>
 
 <script>

@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nadya.home - a personal AI for your home</title>
+<title>Mg SHome - a personal AI for your home</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 
-:root{color-scheme:light;--paper:#f5f2eb;--white:#fffdf8;--ink:#243a35;--muted:#58665f;--line:#d9dcd3;--olive:#526454;--gold:#9b7140;--sand:#e7decc;--serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Manrope',Arial,sans-serif}
+:root{color-scheme:light;--paper:#f5f2eb;--white:#fffdf8;--ink:#243a35;--muted:#58665f;--line:#d9dcd3;--olive:#526454;--gold:#9b7140;--sand:#e7decc;--serif:'Manrope',Arial,sans-serif;--sans:'Manrope',Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:32px}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}p,h1,h2,h3,ul{margin:0}p{max-width:65ch}svg{display:block;max-width:100%}::selection{background:#cedbcf;color:#163529}[hidden]{display:none!important}.wrap{width:min(1380px,100%);margin-inline:auto;padding-inline:clamp(20px,4.5vw,72px)}section{padding-block:112px}h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.03;letter-spacing:-.035em;text-wrap:balance}h1{font-size:clamp(52px,5.6vw,86px);max-width:12ch}h2{font-size:clamp(42px,4.2vw,64px);max-width:20ch}h3{font-size:32px;letter-spacing:-.02em;line-height:1.13}h1 em,h2 em{font-weight:400;color:var(--olive)}.eyebrow{font-size:10px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--olive);margin-bottom:24px;display:flex;align-items:center;gap:14px}.eyebrow:before{content:'';height:1px;width:26px;background:currentColor;flex:none}.lede{font-size:17px;line-height:1.85;color:var(--muted);margin-top:26px;max-width:48ch}.muted{color:var(--muted)}.k,.tag{font:600 10px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .skip-link{position:absolute;left:20px;top:-80px;padding:12px 20px;background:var(--ink);color:white;z-index:20}.skip-link:focus{top:8px}:focus-visible{outline:3px solid #94703c;outline-offset:5px}a,button{touch-action:manipulation}header{border-bottom:1px solid var(--line)}nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:96px}.brand{font:500 31px/1 var(--serif);letter-spacing:-.05em;white-space:nowrap}.brand span{color:var(--gold)}.navlinks{display:flex;gap:24px;margin-left:auto}.navlinks a{font-size:11px;text-decoration:none;color:var(--muted);padding:14px 0;white-space:nowrap}.navlinks a:hover{text-decoration:underline;text-underline-offset:6px}.nav-actions{display:flex;gap:22px;align-items:center}.language{display:flex;gap:2px;align-items:center}.language a{display:grid;place-items:center;min-height:44px;min-width:32px;text-decoration:none;color:var(--muted);font-size:10px;font-weight:600}.language a[aria-current=page]{color:var(--ink);text-decoration:underline;text-underline-offset:6px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:14px 22px;background:var(--ink);border:1px solid var(--ink);color:var(--white);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.015em;transition:background .2s,color .2s}.btn::after{content:'\2197';font-size:19px;font-weight:400;line-height:1}.btn:hover{background:#40574c;border-color:#40574c}.btn.ghost{background:transparent;color:var(--ink);border-color:#aeb8ad}.btn.ghost:hover{background:#e7ebe1}.nav-actions>.btn{min-height:44px;padding:10px 16px;font-size:11px}
 .hero{padding:76px 0 78px}.hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(36px,5vw,76px);align-items:center}.hero-copy .lede{font-size:15px;max-width:44ch}.hero-copy .eyebrow{margin-bottom:30px}.cta-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px}.cta-row>.ghost{border-color:transparent;padding-inline:9px}.trust{border-top:1px solid var(--line);padding-top:20px;margin-top:32px;display:flex;flex-wrap:wrap;gap:10px 20px;color:var(--muted);font-size:10px;line-height:1.8}.trust span:last-child{flex-basis:100%}.trust b{font-weight:600;color:var(--ink)}.residence{position:relative;padding:88px 24px 24px;min-width:0;background:#ded7c7;isolation:isolate}.architecture{position:absolute;inset:0;width:100%;height:100%;z-index:-1}.residence-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;position:absolute;top:24px;left:24px;right:24px;font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#3d554b}.residence-meta span:last-child{font-style:italic;font-family:var(--serif);font-size:17px;letter-spacing:0;text-transform:none}.screen{position:relative;background:#152e2a;color:#f2f0e7;border:6px solid #293e36;box-shadow:0 20px 38px #1c312829;padding:0;min-width:0}.screen-in{padding:26px 24px 20px;background:linear-gradient(150deg,#203e36,#102a25);display:grid;gap:20px}.who{display:flex;align-items:center;gap:15px;padding-bottom:18px;border-bottom:1px solid #416053}.orb{width:48px;height:48px;flex:none;border-radius:50%;position:relative;background:radial-gradient(circle at 38% 30%,#f4e8c6,#bdcbb5 40%,#466c58 72%,#244739);box-shadow:0 0 30px #c9d6b320}.orb:after{content:'';position:absolute;inset:-5px;border:1px solid #d2debd55;border-radius:50%;animation:breathe 5s ease-in-out 1}.nm{font:400 27px/1.1 var(--serif)}.st{font-size:9px;color:#b0c8ad;letter-spacing:.07em;margin-top:5px}.wave{display:flex;align-items:center;gap:3px;height:28px;margin-left:auto}.wave i{display:block;width:2px;background:#d4d9b9;height:35%;animation:speak .9s ease-in-out 5}.wave i:nth-child(2n){height:80%;animation-delay:.15s}.wave i:nth-child(3n){height:55%;animation-delay:.3s}.chat{display:grid;gap:13px}.msg{font-size:12px;line-height:1.8;max-width:94%;animation:arrive .65s both}.msg.you{justify-self:end;padding:8px 12px;background:#ffffff0d;color:#f0f0e4;border:1px solid #bfd3b51c;border-radius:2px}.msg.her{padding:0 0 0 12px;border-left:1px solid #bdc9a0;color:#d4e0ce}.msg:nth-child(2){animation-delay:.35s}.msg:nth-child(3){animation-delay:.7s}.msg:nth-child(4){animation-delay:1.05s}.log{display:grid;gap:5px;border-top:1px solid #416053;padding-top:14px;font:400 9px/1.65 ui-monospace,Menlo,monospace;color:#b3c5b9;overflow-wrap:anywhere}.log b{color:#e3e8cc;font-weight:500}.screen-foot{padding:11px 18px;display:flex;justify-content:space-between;gap:12px;color:#c3d3c5;background:#102620;font-size:8px;letter-spacing:.06em}.scene-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;color:#354e41;font-size:10px}.replay{padding:8px 0 8px 12px;background:transparent;border:0;color:#354e41;font:500 10px var(--sans);text-decoration:underline;text-underline-offset:4px;min-height:40px}.replaying .msg{animation:none}@keyframes arrive{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@keyframes breathe{50%{transform:scale(1.08);opacity:.3}}@keyframes speak{50%{transform:scaleY(.4)}}
@@ -35,6 +35,17 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}.hero-copy h1{font-size:64px;max-width:18ch}.hero-copy .lede{max-width:62ch}.hero-copy{max-width:100%;padding-top:0}.residence{max-width:none;padding:0}.architecture{max-height:430px}.screen-in{padding:25px}.msg{font-size:13px}.log{font-size:10px}.nm{font-size:22px}.st{font-size:10px}.screen-foot{font-size:9px}.feat h3{max-width:16ch}.amt{font-size:45px}.future-art span{font-size:22px}.plan ul{border-color:#bdc7ca}.premium-package h3{font-size:32px}}
 @media(max-width:600px){section{padding-block:62px}nav{min-height:0}.brand{font-size:24px}.navlinks a{font-size:9px}.hero{padding-top:32px}.hero-copy h1{font-size:clamp(40px,10.7vw,58px);max-width:14ch;line-height:1.1}.hero-copy .eyebrow{margin-bottom:25px}.hero-copy .lede{font-size:14px;margin-top:24px}.hero-grid{gap:28px}.cta-row>.btn{font-size:10px;padding-inline:13px}.residence-meta{font-size:8px;gap:8px;padding-block:12px}.residence-meta span:last-child{font-size:8px}.screen{border-width:1px}.screen-in{padding:21px 16px;gap:17px}.who{gap:12px}.nm{font-size:20px}.st{font-size:8px}.msg{font-size:12px}.log{font-size:8px}.screen-foot{font-size:7px;padding-inline:13px}.scene-caption,.replay{font-size:8px}.systems .sys{font-size:16px}h2{font-size:34px;line-height:1.12}.feat{grid-template-columns:1fr;gap:28px}.feat h3{font-size:24px;max-width:none}.feat p{font-size:14px}.q{font-size:22px}.aud article h3{font-size:28px}.future h2{font-size:36px}.future-points h3{font-size:25px}.future-art span{font-size:22px}.pricing-group>h3{font-size:26px}.amt{font-size:44px}.premium-package h3{font-size:30px}.premium-package .premium-price{font-size:25px}.step h3{font-size:26px}.person h3{font-size:24px}.demo h2{font-size:36px}.team-section{padding-top:0}}
 
+
+/* Mg SHome: readability floor + brand */
+.brand span{color:var(--muted)}
+.navlinks a{font-size:12px}
+.btn,.nav-actions>.btn,.cta-row>.btn{font-size:13px}
+.eyebrow,.k,.tag,.systems .lbl,.feat .k,.rules .k,.plan .tag,.role,.feat>div:before,.aud article:before,.step:before{font-size:11px}
+.trust,.amt small,.was,.note,.form-note,label,footer,footer .wrap,.future-note,.language a{font-size:12px}
+.t,.slot .t{font-size:12px}
+.msg{font-size:13px}
+.log,.st,.screen-foot,.scene-caption,.replay,.scene-caption,.replay,.residence-meta,.residence-meta span:last-child{font-size:10px}
+.residence-meta span:last-child{font-style:normal;font-family:var(--mono)}
 </style>
 </head>
 <body>
@@ -43,7 +54,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 
 <div class="wrap">
   <nav aria-label="Main navigation">
-    <div class="brand">Nadya<span>.</span>home</div>
+    <div class="brand">Mg <span>S</span>Home</div>
     <div class="navlinks"><a href="#how">How it works</a><a href="#developers">Developers</a><a href="#privacy">Privacy</a><a href="#pricing">Pricing</a></div>
     <div class="nav-actions"><div class="language" aria-label="Language"><a href="/home/" lang="ru">RU</a><a href="/home/en/" lang="en" aria-current="page">EN</a></div><a class="btn ghost" href="#demo">Book a live demo</a></div>
   </nav>
@@ -54,9 +65,9 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">Cyprus · Limassol · Paphos</div>
-      <h1>Your smart home, <em>finally</em> knows who lives in it.</h1>
-      <p class="lede">Nadya is a personal AI agent that sits on top of the KNX, Control4 or Crestron system you already own. She talks, remembers your family, runs the house and appears on your screens. No new hardware.</p>
+      <div class="eyebrow">Mg&nbsp;SHome · Cyprus · Limassol · Paphos</div>
+      <h1>Everyone is waiting for a personal AI. <em>The future</em> is already here.</h1>
+      <p class="lede">A personal AI that knows your family, talks like a person and runs your home. Mg&nbsp;SHome sits on top of the KNX, Control4 or Crestron system you already own. No new hardware. And we can make this future yours right now.</p>
       <div class="cta-row">
         <a class="btn" href="#demo">Book a live demo</a>
         <a class="btn ghost" href="#pricing">See Founding pricing</a>
@@ -64,15 +75,15 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
       <div class="trust"><span><b>5</b> Founding Homes this season</span><span><b>45-day</b> money-back guarantee</span><span>English · Русский · עברית · Ελληνικά</span></div>
     </div>
 
-    <div class="residence"><svg class="architecture" viewBox="0 0 960 540" role="img" aria-label="Architectural illustration of a contemporary flat-roof villa with a pool"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d1d6"/><stop offset="1" stop-color="#e4e9e8"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343d"/><stop offset=".48" stop-color="#587075"/><stop offset="1" stop-color="#18272d"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#617f83"/><stop offset="1" stop-color="#bed0ce"/></linearGradient></defs><rect width="960" height="540" fill="url(#sky)"/><path d="M0 263L97 232 161 251 299 212 414 254 528 242 625 268 760 222 960 253V430H0Z" fill="#afbbb8"/><path d="M0 322L175 302 353 318 531 282 774 313 960 299V490H0Z" fill="#7d8f86"/><path d="M0 388H960V540H0Z" fill="#bfc4bf"/><path d="M52 428L826 338 960 410 960 540H0Z" fill="#d5d8d1"/><path d="M125 229L410 155 862 215 558 306Z" fill="#fcfcf6"/><path d="M125 229L558 286V316L125 263Z" fill="#c3c9c5"/><path d="M558 286L862 215V245L558 316Z" fill="#e8ebe5"/><path d="M148 263L548 313V429L148 372Z" fill="#edf0e9"/><path d="M548 313L840 246V365L548 429Z" fill="#c3cbc6"/><path d="M181 272L505 315V406L181 363Z" fill="url(#glass)"/><path d="M577 314L810 261V353L577 406Z" fill="url(#glass)"/><path d="M252 281V373M338 292V385M423 304V396M650 297V390M727 280V372" stroke="#0f2027" stroke-width="6"/><path d="M182 344L504 387V399L182 357Z" fill="#afaca0"/><path d="M183 348L504 391M578 392L808 341" stroke="#e3d6b5" stroke-width="3"/><path d="M312 161L479 121 737 154 561 199Z" fill="#f8f9f3"/><path d="M312 161L561 195V272L312 240Z" fill="#d5dbd5"/><path d="M561 195L737 154V230L561 272Z" fill="#ecefe8"/><path d="M341 178L530 203V245L341 220Z" fill="#34484f"/><path d="M584 207L712 178V218L584 248Z" fill="#30454b"/><path d="M435 189V232M646 194V234" stroke="#182a30" stroke-width="5"/><path d="M312 156L561 190 737 150V159L561 201 312 167Z" fill="#f9faf5"/><path d="M80 402L535 463 867 389" fill="none" stroke="#9aa59f" stroke-width="2"/><path d="M128 447L516 500 789 438 421 394Z" fill="#f4f5ef"/><path d="M163 449L516 491 751 440 421 403Z" fill="url(#water)"/><path d="M219 448L496 480M281 436L559 469M346 423L621 455" stroke="#d9e3df" opacity=".35"/><path d="M0 475L100 492M771 491L941 452M757 532L960 486" fill="none" stroke="#aab1a9"/><path d="M76 367V245M894 359V225" stroke="#57675b" stroke-width="6"/><path d="M76 229L42 309H110ZM894 208L855 300H930Z" fill="#64766a"/><path d="M82 381L122 386 140 382 104 377Z" fill="#526057" opacity=".35"/></svg><div class="residence-meta"><span>A conversation with home</span><span>Cyprus, by evening</span></div><div class="screen" aria-label="Example of Nadya on the living room screen">
+    <div class="residence"><svg class="architecture" viewBox="0 0 960 540" role="img" aria-label="Architectural illustration of a contemporary flat-roof villa with a pool"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d1d6"/><stop offset="1" stop-color="#e4e9e8"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343d"/><stop offset=".48" stop-color="#587075"/><stop offset="1" stop-color="#18272d"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#617f83"/><stop offset="1" stop-color="#bed0ce"/></linearGradient></defs><rect width="960" height="540" fill="url(#sky)"/><path d="M0 263L97 232 161 251 299 212 414 254 528 242 625 268 760 222 960 253V430H0Z" fill="#afbbb8"/><path d="M0 322L175 302 353 318 531 282 774 313 960 299V490H0Z" fill="#7d8f86"/><path d="M0 388H960V540H0Z" fill="#bfc4bf"/><path d="M52 428L826 338 960 410 960 540H0Z" fill="#d5d8d1"/><path d="M125 229L410 155 862 215 558 306Z" fill="#fcfcf6"/><path d="M125 229L558 286V316L125 263Z" fill="#c3c9c5"/><path d="M558 286L862 215V245L558 316Z" fill="#e8ebe5"/><path d="M148 263L548 313V429L148 372Z" fill="#edf0e9"/><path d="M548 313L840 246V365L548 429Z" fill="#c3cbc6"/><path d="M181 272L505 315V406L181 363Z" fill="url(#glass)"/><path d="M577 314L810 261V353L577 406Z" fill="url(#glass)"/><path d="M252 281V373M338 292V385M423 304V396M650 297V390M727 280V372" stroke="#0f2027" stroke-width="6"/><path d="M182 344L504 387V399L182 357Z" fill="#afaca0"/><path d="M183 348L504 391M578 392L808 341" stroke="#e3d6b5" stroke-width="3"/><path d="M312 161L479 121 737 154 561 199Z" fill="#f8f9f3"/><path d="M312 161L561 195V272L312 240Z" fill="#d5dbd5"/><path d="M561 195L737 154V230L561 272Z" fill="#ecefe8"/><path d="M341 178L530 203V245L341 220Z" fill="#34484f"/><path d="M584 207L712 178V218L584 248Z" fill="#30454b"/><path d="M435 189V232M646 194V234" stroke="#182a30" stroke-width="5"/><path d="M312 156L561 190 737 150V159L561 201 312 167Z" fill="#f9faf5"/><path d="M80 402L535 463 867 389" fill="none" stroke="#9aa59f" stroke-width="2"/><path d="M128 447L516 500 789 438 421 394Z" fill="#f4f5ef"/><path d="M163 449L516 491 751 440 421 403Z" fill="url(#water)"/><path d="M219 448L496 480M281 436L559 469M346 423L621 455" stroke="#d9e3df" opacity=".35"/><path d="M0 475L100 492M771 491L941 452M757 532L960 486" fill="none" stroke="#aab1a9"/><path d="M76 367V245M894 359V225" stroke="#57675b" stroke-width="6"/><path d="M76 229L42 309H110ZM894 208L855 300H930Z" fill="#64766a"/><path d="M82 381L122 386 140 382 104 377Z" fill="#526057" opacity=".35"/></svg><div class="residence-meta"><span>A conversation with home</span><span>Cyprus, by evening</span></div><div class="screen" aria-label="Example of Mg&nbsp;SHome on the living room screen">
       <div class="screen-in">
         <div class="who">
           <div class="orb" aria-hidden="true"></div>
-          <div><div class="nm">Nadya</div><div class="st">Live · Living room</div></div>
+          <div><div class="nm">Mg&nbsp;SHome</div><div class="st">Live · Living room</div></div>
           <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
         <div class="chat" id="sample-dialogue">
-          <div class="msg you">Nadya, we're having dinner outside.</div>
+          <div class="msg you">SHome, we're having dinner outside.</div>
           <div class="msg her">Good evening. Terrace lights at 30%, jazz on the terrace speakers, pool heating to 28°. Sasha asked to be woken at 7:15 tomorrow, I've set her room for it.</div>
           <div class="msg you">Who's at the gate?</div>
           <div class="msg her">The pool technician, he comes every Thursday. Shall I open it?</div>
@@ -100,8 +111,8 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 <section id="how">
   <div class="wrap">
     <div class="eyebrow">What changes</div>
-    <h2>You paid for a smart home. <em>Nadya</em> makes it one.</h2>
-    <p class="lede">Most villas in Cyprus have tens of thousands of euros of automation and four apps nobody opens. Nadya turns all of it into one voice that knows your household.</p>
+    <h2>You paid for a smart home. <em>Mg&nbsp;SHome</em> makes it one.</h2>
+    <p class="lede">Most villas in Cyprus have tens of thousands of euros of automation and four apps nobody opens. Mg&nbsp;SHome turns all of it into one voice that knows your household.</p>
     <div class="feat">
       <div><span class="k">Voice</span><h3>Talk, don't command</h3><p>Natural conversation in your language. She follows context and interruptions the way a person would.</p></div>
       <div><span class="k">Memory</span><h3>Knows your family</h3><p>Routines, preferences, who wakes when, what you asked last week. Remembers facts, never recordings.</p></div>
@@ -113,7 +124,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 
 <section class="day-section">
   <div class="wrap">
-    <div class="eyebrow">A Thursday with Nadya</div>
+    <div class="eyebrow">A Thursday with Mg&nbsp;SHome</div>
     <h2>One day in a villa in Tala</h2>
     <div class="day">
       <div class="slot"><span class="t">07:15</span><span class="q">"Morning, Sasha."</span><p>Shades open slowly in her room, the kitchen is at 22°, school bag reminder on the hall panel.</p></div>
@@ -138,7 +149,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
       <article class="hl">
         <h3>Developers</h3>
         <p class="muted">The first project in Cyprus where the house talks to the buyer.</p>
-        <ul><li>Nadya greets buyers by name in your show villa, in their language</li><li>Answers about the villa, residency, taxes and running costs</li><li>Every visit logged with the buyer's interests</li><li>"Every villa with a personal agent" as a line in your price list</li></ul>
+        <ul><li>Mg&nbsp;SHome greets buyers by name in your show villa, in their language</li><li>Answers about the villa, residency, taxes and running costs</li><li>Every visit logged with the buyer's interests</li><li>"Every villa with a personal agent" as a line in your price list</li></ul>
       </article>
       <article>
         <h3>Villa rentals</h3>
@@ -147,22 +158,22 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
       </article>
 <article class="companionship"><h3>Older adults and people living alone</h3><p class="muted">A familiar voice at home, unhurried conversation and help with everyday routines.</p><ul><li>Talk about the day, interests and plans</li><li>Remember arrangements, a walk or a call to loved ones</li><li>Ask for the lights or music in everyday language</li><li>Choose a comfortable speaking pace and routines together</li></ul></article>
     </div>
-<p class="audiences-tail">A lifelike conversation with an AI. Nadya helps people stay connected to loved ones and independent in the home they know.</p>
+<p class="audiences-tail">A lifelike conversation with an AI. Mg&nbsp;SHome helps people stay connected to loved ones and independent in the home they know.</p>
   </div>
 </section>
 
-<section id="future" class="future"><div class="wrap"><div class="future-layout"><div><div class="eyebrow">The future of your home</div><h2>More familiar with time.<br>More helpful with every step.</h2><p class="lede">A personal assistant can evolve alongside you. Nadya is designed to retain the context you choose and, over time, gain new ways to converse and help around the home.</p></div><div class="future-art" aria-hidden="true"><svg viewBox="0 0 500 260" aria-hidden="true"><g fill="none" stroke="#667176" stroke-width="1"><path d="M20 50H155V130H185M20 210H155V130M315 130H355V50H480M355 130V210H480"/><rect x="185" y="80" width="130" height="100"/><path d="M210 50V80M230 50V80M250 50V80M270 50V80M290 50V80M210 180V210M230 180V210M250 180V210M270 180V210M290 180V210"/><rect x="20" y="35" width="32" height="30"/><rect x="20" y="195" width="32" height="30"/><rect x="448" y="35" width="32" height="30"/><rect x="448" y="195" width="32" height="30"/></g><g fill="#c2f36b"><circle cx="155" cy="130" r="4"/><circle cx="355" cy="130" r="4"/></g></svg><span>Nadya.</span></div></div><div class="future-points"><div><span class="k">Conversation</span><h3>A lifelike presence</h3><p>Natural speech, attention to context and a familiar voice. Interrupt, clarify or return to an earlier thought. Nadya always makes it clear that she is an AI.</p></div><div><span class="k">Continuity</span><h3>Gets to know you gradually</h3><p>Favourite music, daily routines and the things that matter to you. You decide what she remembers and what she forgets. More agreed context for a more personal conversation.</p></div><div><span class="k">Evolution</span><h3>Evolves alongside AI</h3><p>More expressive voice, new routines and new ways to interact. New features are introduced after compatibility checks for your home, and at your choice.</p></div></div><p class="future-note">This is our direction for the product. The capabilities of your home, update timing and service scope are agreed during onboarding.</p></div></section>
+<section id="future" class="future"><div class="wrap"><div class="future-layout"><div><div class="eyebrow">The future of your home</div><h2>More familiar with time.<br>More helpful with every step.</h2><p class="lede">A personal assistant can evolve alongside you. Mg&nbsp;SHome is designed to retain the context you choose and, over time, gain new ways to converse and help around the home.</p></div><div class="future-art" aria-hidden="true"><svg viewBox="0 0 500 260" aria-hidden="true"><g fill="none" stroke="#667176" stroke-width="1"><path d="M20 50H155V130H185M20 210H155V130M315 130H355V50H480M355 130V210H480"/><rect x="185" y="80" width="130" height="100"/><path d="M210 50V80M230 50V80M250 50V80M270 50V80M290 50V80M210 180V210M230 180V210M250 180V210M270 180V210M290 180V210"/><rect x="20" y="35" width="32" height="30"/><rect x="20" y="195" width="32" height="30"/><rect x="448" y="35" width="32" height="30"/><rect x="448" y="195" width="32" height="30"/></g><g fill="#c2f36b"><circle cx="155" cy="130" r="4"/><circle cx="355" cy="130" r="4"/></g></svg><span>SHome.</span></div></div><div class="future-points"><div><span class="k">Conversation</span><h3>A lifelike presence</h3><p>Natural speech, attention to context and a familiar voice. Interrupt, clarify or return to an earlier thought. Mg&nbsp;SHome always makes it clear that it is an AI.</p></div><div><span class="k">Continuity</span><h3>Gets to know you gradually</h3><p>Favourite music, daily routines and the things that matter to you. You decide what she remembers and what she forgets. More agreed context for a more personal conversation.</p></div><div><span class="k">Evolution</span><h3>Evolves alongside AI</h3><p>More expressive voice, new routines and new ways to interact. New features are introduced after compatibility checks for your home, and at your choice.</p></div></div><p class="future-note">This is our direction for the product. The capabilities of your home, update timing and service scope are agreed during onboarding.</p></div></section>
 
 <section id="privacy">
   <div class="wrap priv">
     <div>
       <div class="eyebrow">Privacy by design</div>
       <h2>A house that listens should <em>forget</em> on command.</h2>
-      <p class="lede">Nadya is built by the team behind Mg Accounting, a Cyprus firm that handles company, tax and GDPR matters for the same families who buy these villas.</p>
+      <p class="lede">Mg&nbsp;SHome is built by the team behind Mg Accounting, a Cyprus firm that handles company, tax and GDPR matters for the same families who buy these villas.</p>
     </div>
     <div class="rules">
       <div><span class="k">Audio</span><p>Wakes on her name. Raw audio is never stored.</p></div>
-      <div><span class="k">Memory</span><p>Stored as facts, in the EU. "Nadya, forget this" deletes it.</p></div>
+      <div><span class="k">Memory</span><p>Stored as facts, in the EU. "SHome, forget this" deletes it.</p></div>
       <div><span class="k">Locks</span><p>Gate and doors need voice plus PIN. You set who can do what.</p></div>
       <div><span class="k">Log</span><p>Every action she takes is written to a log you can read.</p></div>
       <div><span class="k">AI Act</span><p>She always says she is an AI. No emotion recognition.</p></div>
@@ -198,8 +209,8 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
     <div class="eyebrow">How it starts</div>
     <h2>Three steps, no new wiring</h2>
     <div class="steps">
-      <div class="step"><h3>Live demo</h3><p>25 minutes with Nadya herself, on a screen at your villa or office. She runs the demo.</p></div>
-      <div class="step"><h3>Your integrator connects</h3><p>We work with the company that installed your system. They open access, we connect Nadya through Home Assistant.</p></div>
+      <div class="step"><h3>Live demo</h3><p>25 minutes with Mg&nbsp;SHome itself, on a screen at your villa or office. She runs the demo.</p></div>
+      <div class="step"><h3>Your integrator connects</h3><p>We work with the company that installed your system. They open access, we connect Mg&nbsp;SHome through Home Assistant.</p></div>
       <div class="step"><h3>She learns your home</h3><p>Two weeks of setup with the family: rooms, routines, names, rules. Then she is yours.</p></div>
     </div>
   </div>
@@ -209,7 +220,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
   <div class="wrap">
     <div class="eyebrow">Team</div>
     <h2>Built in Cyprus</h2>
-    <p class="lede">Nadya is built by the Mg Accounting team in Cyprus.</p>
+    <p class="lede">Mg&nbsp;SHome is built by the Mg Accounting team in Cyprus.</p>
     <div class="team">
       <div class="person"><div class="ini">SZ</div><div><h3>Stas Zhukovets</h3><div class="role">Mg Accounting</div></div></div>
       <div class="person"><div class="ini">MZ</div><div><h3>Mike Zelenin</h3><div class="role">Mg Accounting</div></div></div>
@@ -221,13 +232,13 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
   <div class="wrap demo">
     <div>
       <div class="eyebrow">Live demo</div>
-      <h2>Meet Nadya in <em>25 minutes</em>.</h2>
+      <h2>Meet Mg&nbsp;SHome in <em>25 minutes</em>.</h2>
       <p class="lede">She will introduce herself, run a scene on a real system and answer your questions. You decide after.</p>
     </div>
     <form id="demo-form" novalidate>
       <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" placeholder="Your name"></label>
       <label for="f-contact">Phone or Telegram<input id="f-contact" name="contact" placeholder="+357 … or @username"></label>
-      <label for="f-type">I am
+      <label for="f-type">I am interested in
         <select id="f-type" name="type"><option>Personal</option><option>Family / existing home</option><option>Business Assistant</option><option>Turnkey home with your hardware</option><option>A villa owner</option><option>A developer</option><option>A villa rental operator</option><option>An integrator</option><option>For an older adult or someone living alone</option></select>
       </label>
       <label for="f-system">Current system
@@ -242,7 +253,7 @@ body{line-height:1.65}h1,h2,h3{font-weight:500;letter-spacing:-.055em;line-heigh
 
 </main>
 <footer>
-  <div class="wrap"><p id="token-costs" class="token-costs">* AI token usage is billed separately to the client.</p><span>Nadya.home · Paphos, Cyprus · by the team of Mg Accounting</span><span>Concept preview for Mike Zelenin · 2026</span></div>
+  <div class="wrap"><p id="token-costs" class="token-costs">* AI token usage is billed separately to the client.</p><span>Mg&nbsp;SHome · Paphos, Cyprus · by the team of Mg Accounting</span><span>Concept preview for Mike Zelenin · 2026</span></div>
 </footer>
 
 <script>
