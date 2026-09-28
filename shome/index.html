@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Mg SHome - личный ИИ для вашей виллы</title>
+<meta property="og:title" content="Mg SHome - ваш дом заговорит с вами">
+<meta property="og:description" content="Личный ИИ поверх умного дома, который у вас уже стоит. 5 домов по цене основателя, гарантия 45 дней.">
+<meta property="og:url" content="https://audit.maizongroup.com/shome/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#f7f8f7;--white:#fff;--ink:#161c20;--muted:#576167;--line:#d6dcdd;--soft:#eef1ef;--dark:#161c20;--dark2:#1f272c;--on-dark:#e9eeeb;--on-dark-muted:#a8b4b0;--accent:#a6d95b;--accent-ink:#3d6a1c;--sans:'Manrope',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:max(16px,5vw)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.06;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6vw,4.6rem)}
+h2{font-size:clamp(1.8rem,4vw,3rem);max-width:20ch}
+h3{font-size:1.15rem;letter-spacing:-.015em;line-height:1.25}
+p{max-width:62ch}
+.muted{color:var(--muted)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--ink)}
+.dark .eyebrow{color:var(--on-dark-muted)}
+.dark .eyebrow::before{background:var(--accent)}
+section{padding-block:clamp(64px,10vh,112px);border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;background:var(--ink);color:#fff;border:1px solid var(--ink);font:600 15px/1 var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:#000}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.accent{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.btn.accent:hover{background:#b8e573}
+.btn .arr{font-family:var(--mono)}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:22px;letter-spacing:-.05em;white-space:nowrap;text-decoration:none}
+.brand span{color:#7b878c}
+.nav-cta{min-height:44px;padding:0 16px;font-size:14px}
+
+/* hero */
+.hero{border-top:0;padding-block:clamp(40px,7vh,80px) clamp(56px,9vh,100px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1 em{font-style:normal;color:#7b878c}
+.lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted);margin-top:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{font-family:var(--mono);font-size:12px;padding:7px 11px;border:1px solid var(--line);background:var(--white)}
+.chip b{font-weight:500;color:var(--accent-ink)}
+.visual{position:relative}
+.villa{display:block;width:100%;height:auto;aspect-ratio:16/9;max-width:100%}
+.bubble{position:absolute;left:clamp(10px,4%,28px);bottom:-22px;right:clamp(10px,12%,90px);background:var(--dark);color:var(--on-dark);padding:16px 18px;font-size:15px;line-height:1.5;border-left:3px solid var(--accent)}
+.bubble .who{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+@media(max-width:560px){.bubble{position:relative;left:auto;right:auto;bottom:auto;margin-top:0}}
+
+/* pain */
+.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--ink)}
+@media(max-width:860px){.pain{grid-template-columns:1fr}}
+.pain div{padding:24px 24px 24px 0;border-bottom:1px solid var(--line)}
+.pain .n{font-family:var(--mono);font-size:30px;font-weight:500;letter-spacing:-.03em;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.pain p{color:var(--muted);font-size:.98rem}
+
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.col{padding:26px;border:1px solid var(--line);background:var(--white)}
+.col.good{background:var(--dark);color:var(--on-dark);border-color:var(--dark)}
+.col h3{margin-bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.col.good h3{color:var(--accent)}
+.col ul{list-style:none;display:grid;gap:12px}
+.col li{padding-left:26px;position:relative;font-size:.98rem}
+.col li::before{content:"×";position:absolute;left:0;top:0;font-family:var(--mono);color:#a34a3a}
+.col.good li::before{content:"✓";color:var(--accent)}
+.col.good li{color:var(--on-dark)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:8px;align-content:start}
+.step .when{font-family:var(--mono);font-size:12px;color:var(--accent-ink);letter-spacing:.08em;text-transform:uppercase}
+.step p{color:var(--muted);font-size:.97rem}
+
+/* offer */
+.dark{background:var(--dark);color:var(--on-dark);border-top:0}
+.dark h2{color:#fff}
+.dark .muted{color:var(--on-dark-muted)}
+.offer{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:start;margin-top:8px}
+@media(max-width:900px){.offer{grid-template-columns:1fr}}
+.incl{list-style:none;display:grid;gap:0;margin-top:28px;border-top:1px solid #33403f}
+.incl li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid #33403f;color:var(--on-dark)}
+.incl li::before{content:"+";font-family:var(--mono);color:var(--accent)}
+.price-card{background:var(--dark2);border:1px solid #33403f;padding:28px;display:grid;gap:14px}
+.price-card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.price-card .amt{font-size:clamp(3rem,7vw,4.2rem);font-weight:600;letter-spacing:-.05em;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.price-card .amt sup{font-size:.35em;vertical-align:super;margin-left:4px}
+.price-card .amt sup a{text-decoration:none;color:var(--on-dark-muted)}
+.price-card .was{color:var(--on-dark-muted);text-decoration:line-through}
+.price-card .sub{color:var(--on-dark)}
+.seats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:4px}
+.seats i{display:block;height:10px;background:var(--accent)}
+.seats-l{font-family:var(--mono);font-size:12px;color:var(--on-dark-muted)}
+.price-card .btn{width:100%;margin-top:6px}
+.guarantee{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;border:1px solid var(--accent);padding:18px;margin-top:6px}
+.guarantee .g{font-family:var(--mono);font-size:26px;font-weight:500;color:var(--accent);line-height:1}
+.guarantee p{font-size:.95rem;color:var(--on-dark)}
+
+/* faq */
+.faq{margin-top:36px;border-top:1px solid var(--ink)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-weight:600;font-size:1.05rem;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:18px;font-family:var(--mono);font-size:20px;font-weight:400}
+details[open] summary::after{content:"-"}
+details p{color:var(--muted);padding-bottom:20px}
+
+/* others */
+.others{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+@media(max-width:760px){.others{grid-template-columns:1fr}}
+.other{border:1px solid var(--line);background:var(--white);padding:24px;display:grid;gap:8px;align-content:start}
+.other .p{font-family:var(--mono);font-size:13px;color:var(--accent-ink)}
+.other p{color:var(--muted);font-size:.97rem}
+
+/* final */
+.final{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+@media(max-width:900px){.final{grid-template-columns:1fr}}
+form{display:grid;gap:14px;background:var(--white);border:1px solid var(--line);padding:24px}
+label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+input,select{font:500 16px var(--sans);color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:12px 14px;width:100%;border-radius:0}
+input:focus,select:focus{outline:none;border-color:var(--ink)}
+.form-note{font-size:13px;color:var(--muted)}
+.ok{font-weight:600;color:var(--accent-ink)}
+footer{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:grid;gap:8px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#top">Mg <span>S</span>Home</a>
+    <a class="btn nav-cta" href="#demo">Живое демо <span class="arr">→</span></a>
+  </nav>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Личный ИИ для виллы · Кипр</div>
+      <h1>Ваш дом заговорит с вами <em>через 30 дней.</em></h1>
+      <p class="lede">Mg SHome - личный ИИ поверх KNX, Control4 или Crestron, которые у вас уже стоят. Он знает вашу семью, понимает обычную речь и управляет домом. Без нового оборудования и без ремонта.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">Записаться на живое демо <span class="arr">→</span></a>
+        <a class="btn ghost" href="#offer">Цена для первых пяти</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>45 дней</b> гарантия возврата</span>
+        <span class="chip"><b>0</b> нового оборудования</span>
+        <span class="chip">RU · EN · HE · GR</span>
+      </div>
+    </div>
+    <div class="visual">
+      <svg class="villa" viewBox="0 0 960 540" role="img" aria-label="Архитектурная иллюстрация современной виллы с плоской крышей и бассейном"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d1d6"/><stop offset="1" stop-color="#e4e9e8"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343d"/><stop offset=".48" stop-color="#587075"/><stop offset="1" stop-color="#18272d"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#617f83"/><stop offset="1" stop-color="#bed0ce"/></linearGradient></defs><rect width="960" height="540" fill="url(#sky)"/><path d="M0 263L97 232 161 251 299 212 414 254 528 242 625 268 760 222 960 253V430H0Z" fill="#afbbb8"/><path d="M0 322L175 302 353 318 531 282 774 313 960 299V490H0Z" fill="#7d8f86"/><path d="M0 388H960V540H0Z" fill="#bfc4bf"/><path d="M52 428L826 338 960 410 960 540H0Z" fill="#d5d8d1"/><path d="M125 229L410 155 862 215 558 306Z" fill="#fcfcf6"/><path d="M125 229L558 286V316L125 263Z" fill="#c3c9c5"/><path d="M558 286L862 215V245L558 316Z" fill="#e8ebe5"/><path d="M148 263L548 313V429L148 372Z" fill="#edf0e9"/><path d="M548 313L840 246V365L548 429Z" fill="#c3cbc6"/><path d="M181 272L505 315V406L181 363Z" fill="url(#glass)"/><path d="M577 314L810 261V353L577 406Z" fill="url(#glass)"/><path d="M252 281V373M338 292V385M423 304V396M650 297V390M727 280V372" stroke="#0f2027" stroke-width="6"/><path d="M182 344L504 387V399L182 357Z" fill="#afaca0"/><path d="M183 348L504 391M578 392L808 341" stroke="#e3d6b5" stroke-width="3"/><path d="M312 161L479 121 737 154 561 199Z" fill="#f8f9f3"/><path d="M312 161L561 195V272L312 240Z" fill="#d5dbd5"/><path d="M561 195L737 154V230L561 272Z" fill="#ecefe8"/><path d="M341 178L530 203V245L341 220Z" fill="#34484f"/><path d="M584 207L712 178V218L584 248Z" fill="#30454b"/><path d="M435 189V232M646 194V234" stroke="#182a30" stroke-width="5"/><path d="M312 156L561 190 737 150V159L561 201 312 167Z" fill="#f9faf5"/><path d="M80 402L535 463 867 389" fill="none" stroke="#9aa59f" stroke-width="2"/><path d="M128 447L516 500 789 438 421 394Z" fill="#f4f5ef"/><path d="M163 449L516 491 751 440 421 403Z" fill="url(#water)"/><path d="M219 448L496 480M281 436L559 469M346 423L621 455" stroke="#d9e3df" opacity=".35"/><path d="M0 475L100 492M771 491L941 452M757 532L960 486" fill="none" stroke="#aab1a9"/><path d="M76 367V245M894 359V225" stroke="#57675b" stroke-width="6"/><path d="M76 229L42 309H110ZM894 208L855 300H930Z" fill="#64766a"/><path d="M82 381L122 386 140 382 104 377Z" fill="#526057" opacity=".35"/></svg>
+      <div class="bubble"><div class="who">Mg SHome · гостиная · 19:42</div>Добрый вечер. Свет на террасе 30%, музыка на террасе, бассейн греется до 28°. Саша просила разбудить её в 7:15, я настроила.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Узнаёте?</div>
+    <h2>Умный дом стоит как автомобиль. Пользуются им как выключателем.</h2>
+    <div class="pain">
+      <div><div class="n">€30-120K</div><h3>Стоит автоматика виллы</h3><p>KNX, Control4, Crestron. Свет, климат, шторы, аудио, камеры. Деньги потрачены.</p></div>
+      <div><div class="n">4+</div><h3>Приложения на телефоне</h3><p>Отдельно свет, отдельно климат, отдельно камеры и музыка. Жена и дети не пользуются ни одним.</p></div>
+      <div><div class="n">0</div><h3>Знаний о вашей семье</h3><p>Дом не помнит, кто когда встаёт, что любит и о чём вы просили вчера. Сценарии пишет интегратор раз в год.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Что меняется</div>
+    <h2>Одна фраза вместо трёх приложений</h2>
+    <div class="compare">
+      <div class="col">
+        <h3>Сейчас</h3>
+        <ul>
+          <li>Ищете нужное приложение, чтобы включить свет на террасе</li>
+          <li>Сценарий «вечер» один на всех, поменять может только интегратор</li>
+          <li>Кто у ворот - открываете камеру и смотрите сами</li>
+          <li>Уезжаете - вспоминаете, что выключить и что оставить</li>
+          <li>Родители и дети не справляются с управлением</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h3>С Mg SHome</h3>
+        <ul>
+          <li>«Ужинаем на террасе» - свет, музыка и подогрев бассейна сразу</li>
+          <li>Сценарии под каждого члена семьи, меняются словами</li>
+          <li>«Кто у ворот?» - «техник по бассейну, он по четвергам. Открыть?»</li>
+          <li>«Улетаем в пятницу» - режим отъезда готов, полив работает</li>
+          <li>Говорит с каждым на его языке, спокойно и без меню</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Как это происходит</div>
+    <h2>От демо до живого дома за 30-45 дней</h2>
+    <div class="steps">
+      <div class="step"><span class="when">День 1 · 25 минут</span><h3>Живое демо</h3><p>ИИ сам представится, запустит сцену на настоящей системе и ответит на ваши вопросы. У вас дома, в офисе или в Zoom.</p></div>
+      <div class="step"><span class="when">Неделя 1-2</span><h3>Подключаем ваш дом</h3><p>Работаем вместе с интегратором, который ставил систему. Он открывает доступ, мы подключаем Mg SHome. Проводку и железо не трогаем.</p></div>
+      <div class="step"><span class="when">Неделя 3-6</span><h3>Он узнаёт вашу семью</h3><p>Комнаты, привычки, имена, правила. Две недели настройки вместе с вами, дальше он ваш.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="offer">
+  <div class="wrap">
+    <div class="eyebrow">Дом основателя</div>
+    <div class="offer">
+      <div>
+        <h2>Первые пять домов на Кипре - по цене основателя</h2>
+        <p class="muted" style="margin-top:18px">Мы запускаем Mg SHome в пяти виллах этого сезона. Для них цена почти вдвое ниже и гарантия возврата. Дальше только по полной цене.</p>
+        <ul class="incl">
+          <li>Личный ИИ поверх вашей системы: KNX, Control4, Crestron, Home Assistant</li>
+          <li>Память о каждом члене семьи: привычки, расписание, напоминания</li>
+          <li>2-4 голосовые точки в доме, мультирум</li>
+          <li>Живой видео-аватар на главном экране</li>
+          <li>Русский, английский, иврит, греческий</li>
+          <li>3 месяца сопровождения включены</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <span class="tag">Дом основателя · сезон 2026</span>
+        <div class="amt">€6,900<sup><a href="#tokens" aria-label="Сноска про токены ИИ">*</a></sup></div>
+        <div><span class="was">€12,900</span> <span class="muted">после первых пяти домов</span></div>
+        <div class="sub">Сопровождение €390/мес с 4-го месяца</div>
+        <div class="seats" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="seats-l">Свободно 5 из 5 мест</div>
+        <a class="btn accent" href="#demo">Забронировать демо <span class="arr">→</span></a>
+        <div class="guarantee"><div class="g">45</div><p><b>Гарантия возврата.</b> Если за 45 дней после старта Mg SHome не заработал в вашем доме так, как показали на демо, возвращаем 100% оплаты.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+    <h2>Что обычно спрашивают на демо</h2>
+    <div class="faq">
+      <details><summary>Он подслушивает мою семью?</summary><p>Нет. Он просыпается на своё имя, сырой звук не хранится. Память хранится фактами, а не записями, на серверах в ЕС. Фраза «забудь это» удаляет запись. Нас делает команда Mg Accounting: мы ведём компании, налоги и GDPR для тех самых семей, что живут в этих виллах.</p></details>
+      <details><summary>У меня уже есть Control4 или Alexa. Зачем ещё?</summary><p>Мы не заменяем вашу систему, а садимся сверху. Alexa выполняет команды, но не помнит вашу семью и плохо понимает русский. Разница видна за первые 5 минут демо.</p></details>
+      <details><summary>А замки и ворота? Это безопасно?</summary><p>Ворота и двери открываются только голосом и PIN-кодом. Кто что может, решаете вы. Каждое действие ИИ записывается в журнал, который вы можете прочитать.</p></details>
+      <details><summary>Нужно менять оборудование или делать ремонт?</summary><p>Нет. Мы подключаемся к тому, что уже стоит, через вашего интегратора. Если нужны дополнительные колонки или экран, подскажем и посчитаем отдельно.</p></details>
+      <details><summary>Почему так дёшево для первых?</summary><p>Нам нужны первые пять домов на Кипре, которые покажут продукт другим. За это вы получаете цену основателя и гарантию возврата. После пятого дома цена €12,900.</p></details>
+      <details><summary>Он знает, что он ИИ?</summary><p>Да, и всегда об этом говорит. Это требование европейского закона об ИИ и наше правило.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Не владелец виллы?</div>
+    <h2>Mg SHome для бизнеса</h2>
+    <div class="others">
+      <div class="other"><span class="p">от €19,900 за шоу-виллу</span><h3>Застройщикам</h3><p>ИИ-консьерж в шоу-вилле встречает покупателя по имени, на его языке, и рассказывает про виллу, ВНЖ и содержание дома. Опция «каждая вилла с личным ИИ» в вашем прайсе.</p></div>
+      <div class="other"><span class="p">€119 в месяц за виллу</span><h3>Аренде вилл</h3><p>Консьерж прямо в вилле: язык гостя, знание дома, ответы про кондиционер, бассейн и ворота вместо вашего WhatsApp. Память стирается после выезда.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap final">
+    <div>
+      <div class="eyebrow">Живое демо</div>
+      <h2>Посмотрите, как ваш дом заговорит</h2>
+      <p class="muted" style="margin-top:18px">25 минут. ИИ сам представится, запустит сцену на настоящей системе и ответит на вопросы. Решение принимаете после.</p>
+      <div class="chips" style="margin-top:22px"><span class="chip"><b>5</b> мест по цене основателя</span><span class="chip"><b>45 дней</b> гарантия</span></div>
+    </div>
+    <form id="demo-form" novalidate>
+      <label for="f-name">Имя<input id="f-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+      <label for="f-contact">Телефон или Telegram<input id="f-contact" name="contact" placeholder="+357 … или @username"></label>
+      <label for="f-who">Что вас интересует
+        <select id="f-who" name="who"><option>Моя вилла</option><option>Шоу-вилла застройщика</option><option>Аренда вилл</option><option>Партнёрство (интегратор)</option></select>
+      </label>
+      <label for="f-sys">Какая система стоит
+        <select id="f-sys" name="sys"><option>KNX</option><option>Control4</option><option>Crestron</option><option>Savant / Loxone</option><option>Home Assistant</option><option>Не знаю / строюсь</option></select>
+      </label>
+      <button class="btn" type="submit">Записаться на демо <span class="arr">→</span></button>
+      <p class="form-note">Предварительная версия сайта. Форма не передаёт данные.</p>
+      <p class="ok" id="f-ok" hidden>Спасибо. Это предварительная версия сайта, заявки пока не отправляются.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span id="tokens">* Расходы на токены ИИ оплачиваются клиентом отдельно. Внешние подписки и видео-аватар согласуются отдельно. Цены предварительные, без НДС.</span>
+    <span>Mg SHome · Пафос, Кипр · команда Mg Accounting · <a href="https://audit.maizongroup.com/home/">подробнее о продукте</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('demo-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('f-ok').hidden = false;
+});
+</script>
+</body>
+</html>
