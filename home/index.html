@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadya.home - персональный ИИ для вашего дома</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root{color-scheme:light;--paper:#f5f2eb;--white:#fffdf8;--ink:#243a35;--muted:#58665f;--line:#d9dcd3;--olive:#526454;--gold:#9b7140;--sand:#e7decc;--serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'Manrope',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:32px}body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}p,h1,h2,h3,ul{margin:0}p{max-width:65ch}svg{display:block;max-width:100%}::selection{background:#cedbcf;color:#163529}[hidden]{display:none!important}.wrap{width:min(1380px,100%);margin-inline:auto;padding-inline:clamp(20px,4.5vw,72px)}section{padding-block:112px}h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.03;letter-spacing:-.035em;text-wrap:balance}h1{font-size:clamp(52px,5.6vw,86px);max-width:12ch}h2{font-size:clamp(42px,4.2vw,64px);max-width:20ch}h3{font-size:32px;letter-spacing:-.02em;line-height:1.13}h1 em,h2 em{font-weight:400;color:var(--olive)}.eyebrow{font-size:10px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--olive);margin-bottom:24px;display:flex;align-items:center;gap:14px}.eyebrow:before{content:'';height:1px;width:26px;background:currentColor;flex:none}.lede{font-size:17px;line-height:1.85;color:var(--muted);margin-top:26px;max-width:48ch}.muted{color:var(--muted)}.k,.tag{font:600 10px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.skip-link{position:absolute;left:20px;top:-80px;padding:12px 20px;background:var(--ink);color:white;z-index:20}.skip-link:focus{top:8px}:focus-visible{outline:3px solid #94703c;outline-offset:5px}a,button{touch-action:manipulation}header{border-bottom:1px solid var(--line)}nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:96px}.brand{font:500 31px/1 var(--serif);letter-spacing:-.05em;white-space:nowrap}.brand span{color:var(--gold)}.navlinks{display:flex;gap:24px;margin-left:auto}.navlinks a{font-size:11px;text-decoration:none;color:var(--muted);padding:14px 0;white-space:nowrap}.navlinks a:hover{text-decoration:underline;text-underline-offset:6px}.nav-actions{display:flex;gap:22px;align-items:center}.language{display:flex;gap:2px;align-items:center}.language a{display:grid;place-items:center;min-height:44px;min-width:32px;text-decoration:none;color:var(--muted);font-size:10px;font-weight:600}.language a[aria-current=page]{color:var(--ink);text-decoration:underline;text-underline-offset:6px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:14px 22px;background:var(--ink);border:1px solid var(--ink);color:var(--white);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.015em;transition:background .2s,color .2s}.btn::after{content:'\2197';font-size:19px;font-weight:400;line-height:1}.btn:hover{background:#40574c;border-color:#40574c}.btn.ghost{background:transparent;color:var(--ink);border-color:#aeb8ad}.btn.ghost:hover{background:#e7ebe1}.nav-actions>.btn{min-height:44px;padding:10px 16px;font-size:11px}
+.hero{padding:76px 0 78px}.hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(36px,5vw,76px);align-items:center}.hero-copy .lede{font-size:15px;max-width:44ch}.hero-copy .eyebrow{margin-bottom:30px}.cta-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px}.cta-row>.ghost{border-color:transparent;padding-inline:9px}.trust{border-top:1px solid var(--line);padding-top:20px;margin-top:32px;display:flex;flex-wrap:wrap;gap:10px 20px;color:var(--muted);font-size:10px;line-height:1.8}.trust span:last-child{flex-basis:100%}.trust b{font-weight:600;color:var(--ink)}.residence{position:relative;padding:88px 24px 24px;min-width:0;background:#ded7c7;isolation:isolate}.architecture{position:absolute;inset:0;width:100%;height:100%;z-index:-1}.residence-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;position:absolute;top:24px;left:24px;right:24px;font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#3d554b}.residence-meta span:last-child{font-style:italic;font-family:var(--serif);font-size:17px;letter-spacing:0;text-transform:none}.screen{position:relative;background:#152e2a;color:#f2f0e7;border:6px solid #293e36;box-shadow:0 20px 38px #1c312829;padding:0;min-width:0}.screen-in{padding:26px 24px 20px;background:linear-gradient(150deg,#203e36,#102a25);display:grid;gap:20px}.who{display:flex;align-items:center;gap:15px;padding-bottom:18px;border-bottom:1px solid #416053}.orb{width:48px;height:48px;flex:none;border-radius:50%;position:relative;background:radial-gradient(circle at 38% 30%,#f4e8c6,#bdcbb5 40%,#466c58 72%,#244739);box-shadow:0 0 30px #c9d6b320}.orb:after{content:'';position:absolute;inset:-5px;border:1px solid #d2debd55;border-radius:50%;animation:breathe 5s ease-in-out 1}.nm{font:400 27px/1.1 var(--serif)}.st{font-size:9px;color:#b0c8ad;letter-spacing:.07em;margin-top:5px}.wave{display:flex;align-items:center;gap:3px;height:28px;margin-left:auto}.wave i{display:block;width:2px;background:#d4d9b9;height:35%;animation:speak .9s ease-in-out 5}.wave i:nth-child(2n){height:80%;animation-delay:.15s}.wave i:nth-child(3n){height:55%;animation-delay:.3s}.chat{display:grid;gap:13px}.msg{font-size:12px;line-height:1.8;max-width:94%;animation:arrive .65s both}.msg.you{justify-self:end;padding:8px 12px;background:#ffffff0d;color:#f0f0e4;border:1px solid #bfd3b51c;border-radius:2px}.msg.her{padding:0 0 0 12px;border-left:1px solid #bdc9a0;color:#d4e0ce}.msg:nth-child(2){animation-delay:.35s}.msg:nth-child(3){animation-delay:.7s}.msg:nth-child(4){animation-delay:1.05s}.log{display:grid;gap:5px;border-top:1px solid #416053;padding-top:14px;font:400 9px/1.65 ui-monospace,Menlo,monospace;color:#b3c5b9;overflow-wrap:anywhere}.log b{color:#e3e8cc;font-weight:500}.screen-foot{padding:11px 18px;display:flex;justify-content:space-between;gap:12px;color:#c3d3c5;background:#102620;font-size:8px;letter-spacing:.06em}.scene-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;color:#354e41;font-size:10px}.replay{padding:8px 0 8px 12px;background:transparent;border:0;color:#354e41;font:500 10px var(--sans);text-decoration:underline;text-underline-offset:4px;min-height:40px}.replaying .msg{animation:none}@keyframes arrive{from{opacity:.25;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@keyframes breathe{50%{transform:scale(1.08);opacity:.3}}@keyframes speak{50%{transform:scaleY(.4)}}
+.systems{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:25px}.systems .row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 26px}.systems .lbl{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}.systems .sys{font:500 20px var(--serif);letter-spacing:-.02em}.feat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:56px;counter-reset:feature}.feat>div{counter-increment:feature;position:relative;padding-top:27px;border-top:1px solid #b9c2b5;display:grid;gap:15px;align-content:start}.feat>div:before{content:'0' counter(feature);position:absolute;right:0;top:27px;font-size:10px;color:#697867}.feat h3{font-size:29px;max-width:14ch}.feat p{font-size:14px;color:var(--muted);line-height:1.85}.day-section{background:#eae8df;border-block:1px solid #d8dace}.day{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:50px}.slot{padding-top:27px;border-top:1px solid #aebaab;position:relative;display:grid;align-content:start;gap:20px}.slot:before{content:'';position:absolute;width:5px;height:5px;top:-3px;left:0;border-radius:50%;background:#526454}.t{font-size:11px;letter-spacing:.08em;font-variant-numeric:tabular-nums;color:var(--olive)}.q{font:italic 27px/1.15 var(--serif);min-height:60px}.slot p{font-size:13px;color:var(--muted);line-height:1.85}.aud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:50px;border-top:1px solid var(--line);counter-reset:audience}.aud article{position:relative;border-bottom:1px solid var(--line);padding:38px 48px 38px 0;counter-increment:audience}.aud article:nth-child(even){padding-left:48px;border-left:1px solid var(--line)}.aud article:before{content:'0' counter(audience);display:block;color:var(--gold);font-size:10px;letter-spacing:.15em;margin-bottom:19px}.aud article h3{font-size:36px}.aud article>.muted{font-size:14px;line-height:1.8;margin-top:18px}.aud ul{list-style:none;display:grid;gap:10px;margin-top:23px;padding:0}.aud li{position:relative;padding-left:17px;font-size:13px;color:var(--muted);line-height:1.8}.aud li:before{content:'';position:absolute;left:0;top:.8em;width:5px;height:1px;background:var(--gold)}.aud .companionship{background:#eaecdf;padding-right:32px}.audiences-tail{max-width:70ch;font-size:13px;color:var(--muted);margin-top:24px}.future{position:relative;background:var(--ink);color:var(--paper);overflow:hidden}.future .eyebrow{color:#c1c7a4}.future h2{font-size:clamp(44px,4.8vw,72px);max-width:17ch}.future .lede{color:#c0cbbd;max-width:50ch;font-size:16px}.future-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}.future-art{height:230px;position:relative}.future-art svg{height:100%;width:100%}.future-art span{position:absolute;inset:0;display:grid;place-items:center;font:italic 64px var(--serif);color:#e5e7cf}.future-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:35px;margin-top:66px}.future-points>div{border-top:1px solid #5d7362;padding-top:24px}.future-points .k{color:#c3c9a7}.future-points h3{font-size:31px;margin:15px 0}.future-points p{font-size:14px;color:#c0cbbd;line-height:1.85}.future-note{color:#c0cbbd;font-size:12px;margin-top:30px;max-width:90ch}.priv{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}.rules{border-top:1px solid var(--line)}.rules>div{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}.rules p{font-size:14px;line-height:1.85;color:var(--muted)}#pricing{background:#eee9dd;border-block:1px solid #d6d7c8}.tw{margin-top:46px}.price{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #c8ccbc}.plan{padding:36px 30px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;min-width:0}.plan+.plan{border-left:1px solid #c8ccbc}.plan.hl{background:#f9f7f0}.plan .tag{min-height:30px;max-width:25ch;color:#586748}.amt{font:400 clamp(42px,3.8vw,58px)/1.1 var(--serif);letter-spacing:-.03em;font-variant-numeric:lining-nums;white-space:nowrap}.amt small{display:block;font:400 11px/1.8 var(--sans);color:var(--muted);letter-spacing:0;margin-top:7px;white-space:normal}.was{font-size:11px;line-height:1.8;color:var(--muted);min-height:36px;text-decoration:line-through}.plan ul{list-style:none;padding:23px 0 0;border-top:1px solid #c8ccbc;display:grid;gap:12px;width:100%}.plan li{position:relative;padding-left:16px;font-size:13px;line-height:1.85;color:var(--muted)}.plan li:before{content:'+';position:absolute;left:0;color:var(--gold)}.note{margin-top:22px;font-size:12px;line-height:1.8;color:var(--muted)}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:38px;margin-top:48px;counter-reset:step}.step{counter-increment:step;padding-top:24px;border-top:1px solid #acb7a6}.step:before{content:'0' counter(step);display:block;font-size:11px;color:var(--gold);margin-bottom:28px}.step h3{font-size:31px}.step p{color:var(--muted);font-size:14px;line-height:1.9;margin-top:20px}.team-section{padding-top:0}.team{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:38px}.person{display:flex;align-items:center;gap:24px;padding:28px 0;border-block:1px solid var(--line)}.ini{width:62px;height:62px;display:grid;place-items:center;flex:none;border:1px solid #b6bfaf;font:400 24px var(--serif);background:#eceee2;color:var(--olive)}.person h3{font-size:30px}.role{font-size:10px;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;margin-top:9px}#demo{background:#dfe5d8;border-top:1px solid #c8d1c0}.demo{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}.demo h2{max-width:13ch}form{display:grid;grid-template-columns:1fr 1fr;gap:27px 22px;min-width:0}label{display:grid;gap:12px;font-size:11px;font-weight:500;color:#354e41}input,select{width:100%;min-width:0;min-height:50px;border:0;border-bottom:1px solid #829380;border-radius:0;padding:12px 2px;color:var(--ink);background:transparent;font-size:14px;font-weight:400}input::placeholder{color:#576c5e;opacity:1}select{padding-right:8px;white-space:normal}input:focus,select:focus{outline:3px solid #94703c;outline-offset:4px}form>.btn,form>.ok,form>.form-note{grid-column:1/-1}form>.btn{justify-self:start;min-width:210px;margin-top:9px}.form-note{color:#425846;font-size:11px;line-height:1.8}.ok{font-size:14px;color:var(--ink);padding:18px;border-left:2px solid var(--olive);background:#f7f8ed}footer{padding:35px 0;color:var(--muted);font-size:10px;border-top:1px solid #c8d1c0}footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(min-width:1600px){.hero{padding-top:100px;padding-bottom:100px}}
+@media(max-width:1120px){.navlinks{gap:15px}.navlinks a{font-size:10px}.nav-actions{gap:12px}nav{gap:16px}.hero-grid{gap:32px;grid-template-columns:1fr 1fr}h1{font-size:64px}.hero-copy .lede{font-size:14px}.residence{padding:74px 18px 18px}.screen-in{padding:22px 18px}.screen-foot{font-size:7px}.msg{font-size:11px}.feat{gap:22px}.day{gap:20px}.q{font-size:24px}.plan{padding:28px 22px}.amt{font-size:42px}.priv,.demo{gap:45px}.nav-actions>.btn{display:none}}
+@media(max-width:900px){section{padding-block:80px}nav{min-height:80px}.hero-grid{grid-template-columns:1fr;gap:42px}.hero{padding:52px 0 50px}.hero-copy{max-width:700px}.hero-copy h1{max-width:15ch;font-size:72px}.hero-copy .lede{max-width:60ch;font-size:16px}.residence{max-width:660px;width:100%;justify-self:end;padding:82px 32px 24px}.screen-in{padding:25px}.msg{font-size:13px}.screen-foot{font-size:9px}.trust{max-width:570px}.systems .row{justify-content:flex-start;gap:16px 25px}.systems .lbl{flex-basis:100%}.feat{grid-template-columns:1fr 1fr;gap:32px}.feat h3{max-width:none}.day{grid-template-columns:1fr;gap:0}.slot{grid-template-columns:64px minmax(0,.8fr) minmax(0,1.2fr);gap:24px;padding:24px 0}.slot .q{min-height:0}.slot:before{display:none}.slot:last-child{border-bottom:1px solid #aebaab}.aud article{padding-right:28px}.aud article:nth-child(even){padding-left:28px}.future-layout{gap:20px}.future-art{height:200px}.future-art span{font-size:48px}.future-points{gap:24px}.priv,.demo{grid-template-columns:1fr;gap:40px}.priv h2,.demo h2{max-width:20ch}.priv .lede,.demo .lede{max-width:60ch}.price{grid-template-columns:1fr}.plan{padding:32px;display:grid;grid-template-columns:1fr 1.3fr;gap:15px 30px}.plan+.plan{border-left:0;border-top:1px solid #c8ccbc}.plan .tag{grid-column:1;min-height:0;max-width:none}.amt{grid-column:1;grid-row:2;font-size:48px}.was{grid-column:1;min-height:0}.plan ul{grid-column:2;grid-row:1/5;padding:0;border-top:0}.team{gap:24px}.person{gap:18px}.person h3{font-size:26px}.steps{gap:25px}.step h3{font-size:28px}.team-section{padding-top:0}}
+@media(max-width:600px){.wrap{padding-inline:20px}section{padding-block:64px}nav{gap:16px;flex-wrap:wrap;padding-block:15px;min-height:0}.brand{font-size:30px}.nav-actions{margin-left:auto}.navlinks{order:3;margin:0;width:100%;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:5px}.navlinks a{font-size:10px;padding:10px 0}.language a{min-width:35px;font-size:11px}.hero{padding:35px 0 42px}.hero-copy .eyebrow{margin-bottom:24px}.hero-copy h1{font-size:clamp(50px,13.4vw,70px);max-width:13ch}.hero-copy .lede{font-size:15px;line-height:1.9;margin-top:23px}.cta-row{gap:10px;margin-top:26px}.cta-row>.btn{font-size:11px;padding:14px 16px}.cta-row>.ghost{padding-inline:2px;border:0;min-height:44px}.trust{font-size:10px;margin-top:25px;gap:7px 18px}.hero-grid{gap:32px}.residence{padding:62px 13px 16px}.residence-meta{top:18px;left:17px;right:17px;font-size:8px}.residence-meta span:last-child{font-size:16px}.screen{border-width:4px}.screen-in{padding:21px 15px 16px;gap:17px}.who{gap:13px;padding-bottom:16px}.nm{font-size:27px}.st{font-size:8px}.orb{width:40px;height:40px}.msg{font-size:12px;max-width:97%}.log{font-size:8px;gap:6px;line-height:1.8}.screen-foot{font-size:7px;letter-spacing:0;padding:11px 12px;flex-wrap:wrap;gap:6px}.scene-caption{font-size:9px;gap:8px;margin-top:10px}.replay{font-size:9px}.systems{padding-block:24px}.systems .row{gap:14px 21px}.systems .sys{font-size:19px}.systems .lbl{font-size:9px;margin-bottom:1px}.eyebrow{font-size:9px;letter-spacing:.15em;margin-bottom:22px}h2{font-size:43px;max-width:18ch}.lede{font-size:15px;margin-top:22px}.feat{gap:28px 22px;margin-top:36px}.feat h3{font-size:27px}.feat p{font-size:13px;line-height:1.85}.feat>div{padding-top:22px;gap:13px}.feat>div:before{top:22px;font-size:9px}.feat .k{font-size:9px;letter-spacing:.1em}.day{margin-top:32px}.slot{grid-template-columns:54px 1fr;gap:9px 15px;padding:22px 0}.slot .t{grid-row:1/3;padding-top:5px;font-size:10px}.slot .q{font-size:26px}.slot p{grid-column:2;font-size:13px}.aud{grid-template-columns:1fr;margin-top:35px}.aud article,.aud article:nth-child(even){padding:30px 0;border-left:0}.aud article h3{font-size:34px;max-width:18ch}.aud article>.muted{font-size:14px;margin-top:16px}.aud article:before{margin-bottom:16px}.aud article.companionship{padding:30px 20px}.aud ul{margin-top:18px}.audiences-tail{font-size:12px}.future-layout{grid-template-columns:1fr;gap:20px}.future h2{font-size:47px}.future .lede{font-size:15px}.future-art{height:160px}.future-art span{font-size:44px}.future-points{grid-template-columns:1fr;gap:26px;margin-top:32px}.future-points h3{font-size:32px;margin:12px 0}.future-points p{font-size:14px}.future-note{font-size:11px}.priv{gap:30px}.rules>div{grid-template-columns:74px 1fr;gap:17px;padding:20px 0}.rules .k{font-size:9px;letter-spacing:.09em}.rules p{font-size:13px}.tw{margin-top:32px}.plan{display:flex;gap:17px;padding:27px 22px}.plan .tag{min-height:0;font-size:10px}.amt{font-size:49px}.amt small{font-size:12px}.was{min-height:0;font-size:11px}.was:empty{display:none}.plan ul{padding-top:18px;border-top:1px solid #c8ccbc}.plan li{font-size:13px}.note{font-size:11px;margin-top:19px}.steps{grid-template-columns:1fr;gap:28px;margin-top:33px}.step{padding-top:21px}.step:before{margin-bottom:16px}.step h3{font-size:32px}.step p{margin-top:14px;font-size:14px}.team-section{padding-top:0}.team{grid-template-columns:1fr;gap:0;margin-top:30px}.person+.person{border-top:0}.person{padding:24px 0;gap:20px}.person h3{font-size:29px}.ini{width:56px;height:56px}.role{font-size:9px}.demo{gap:36px}.demo h2{font-size:46px}form{grid-template-columns:1fr;gap:25px}input,select{font-size:16px}form>.btn{width:100%;font-size:12px}footer{padding:26px 0}footer .wrap{display:grid;gap:8px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.msg{opacity:1;transform:none}}
+
+.amt sup{font:400 20px var(--sans);vertical-align:top;display:inline-block;margin:5px 0 0 3px}.amt sup a{text-decoration:none;padding:4px}.token-costs{flex-basis:100%;max-width:none;font-size:12px;line-height:1.8;color:var(--ink)}
+
+.pricing-group{margin-top:48px}.pricing-group>h3{font-size:36px;margin-bottom:12px}.pricing-group>.muted{max-width:75ch;font-size:14px;margin-bottom:26px}.recurring{font-size:14px;line-height:1.8;color:var(--ink)}.recurring strong{font-weight:600}.equipment-note{font-size:12px;color:var(--muted);line-height:1.8}.premium-package{margin-top:42px;padding:42px;background:var(--ink);color:var(--paper);display:grid;grid-template-columns:1fr 1fr;gap:32px 50px}.premium-package .eyebrow{color:#c1c7a4}.premium-package h3{font-size:42px;margin-bottom:18px}.premium-package p,.premium-package li{font-size:14px;color:#c0cbbd;line-height:1.9}.premium-package ul{padding-left:18px;display:grid;gap:10px}.premium-package .premium-price{font:400 32px/1.2 var(--serif);color:var(--paper);margin-bottom:14px}.premium-package .btn{margin-top:24px;color:var(--paper);border-color:#b0beaa}.pricing-status{font-size:12px;line-height:1.8;max-width:85ch;color:var(--muted);margin-top:22px}.price .plan .recurring{margin-top:0}.price .plan .tag{min-height:30px}
+@media(min-width:601px) and (max-width:900px){.price .plan ul{grid-row:1/7}.price .plan .recurring,.price .plan .equipment-note{grid-column:1}}
+@media(max-width:600px){.pricing-group{margin-top:36px}.pricing-group>h3{font-size:32px}.premium-package{padding:28px 22px;grid-template-columns:1fr;gap:25px}.premium-package h3{font-size:36px}.premium-package .premium-price{font-size:30px}.price .plan .tag{min-height:0}}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">К содержанию</a>
+<header>
+
+<div class="wrap">
+  <nav aria-label="Основная навигация">
+    <div class="brand">Nadya<span>.</span>home</div>
+    <div class="navlinks"><a href="#how">Как это работает</a><a href="#developers">Застройщикам</a><a href="#privacy">Приватность</a><a href="#pricing">Цены</a></div>
+    <div class="nav-actions"><div class="language" aria-label="Язык"><a href="/home/" lang="ru" aria-current="page">RU</a><a href="/home/en/" lang="en">EN</a></div><a class="btn ghost" href="#demo">Живое демо</a></div>
+  </nav>
+</div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Кипр · Лимассол · Пафос</div>
+      <h1>Ваш умный дом <em>наконец</em> знает, кто в нём живёт.</h1>
+      <p class="lede">Наденька - персональный ИИ-агент поверх KNX, Control4 или Crestron, которые у вас уже стоят. Она разговаривает, помнит вашу семью, управляет домом и появляется на ваших экранах. Без нового оборудования.</p>
+      <div class="cta-row">
+        <a class="btn" href="#demo">Записаться на живое демо</a>
+        <a class="btn ghost" href="#pricing">Цена для первых</a>
+      </div>
+      <div class="trust"><span><b>5</b> домов основателей в этом сезоне</span><span><b>45 дней</b> гарантия возврата</span><span>Русский · English · עברית · Ελληνικά</span></div>
+    </div>
+
+    <div class="residence"><svg class="architecture" viewBox="0 0 700 860" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#c8d1c6"/><stop offset="1" stop-color="#e4ded0"/></linearGradient></defs><rect width="700" height="860" fill="#ddd7c9"/><path d="M60 0H640V670H60Z" fill="url(#sky)"/><path d="M60 220Q260 188 440 212T640 200V430H60Z" fill="#a3b7ab" opacity=".55"/><path d="M60 290Q330 265 640 280" fill="none" stroke="#eef0df" stroke-width="2"/><path d="M0 680H700V860H0Z" fill="#d5cbb8"/><path d="M0 850L160 680M700 850L540 680M0 740H700M235 680L210 860M465 680L490 860" stroke="#9c998452" fill="none"/><path d="M60 0V680M640 0V680M350 0V200" stroke="#b1ae9b" stroke-width="7"/><path d="M0 660H700" stroke="#b3ae9b" stroke-width="16"/><path d="M603 20C530 140 590 290 535 382" fill="none" stroke="#71816c" stroke-width="2"/><path d="M568 142q-58-25-67 14q47 22 67-14M567 192q45-50 72-18q-25 42-72 18M561 253q-48-25-65 8q30 26 65-8" fill="#87947a" opacity=".7"/></svg><div class="residence-meta"><span>Диалог с домом</span><span>Cyprus, by evening</span></div><div class="screen" aria-label="Пример: Наденька на экране в гостиной">
+      <div class="screen-in">
+        <div class="who">
+          <div class="orb" aria-hidden="true"></div>
+          <div><div class="nm">Наденька</div><div class="st">В эфире · Гостиная</div></div>
+          <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="chat" id="sample-dialogue">
+          <div class="msg you">Надя, мы ужинаем на террасе.</div>
+          <div class="msg her">Добрый вечер. Свет на террасе 30%, джаз в колонках на террасе, бассейн греется до 28°. Саша просила разбудить её завтра в 7:15, комнату я настроила.</div>
+          <div class="msg you">Кто у ворот?</div>
+          <div class="msg her">Техник по бассейну, он приезжает по четвергам. Открыть?</div>
+        </div>
+        <div class="log" aria-label="Журнал действий">
+          <span>19:42 · <b>KNX 1/2/14</b> диммер террасы → 30%</span>
+          <span>19:42 · <b>Sonos</b> терраса → «Вечерний джаз»</span>
+          <span>19:43 · <b>Бассейн</b> уставка подогрева → 28 °C</span>
+          <span>19:46 · <b>Камера ворот</b> снимок → ТВ в гостиной</span>
+        </div>
+      </div>
+      <div class="screen-foot"><span>Каждое действие в журнале</span><span>Звук не хранится</span></div>
+    </div>
+    <div class="scene-caption"><span>Иллюстрация сценария</span><button class="replay" type="button" aria-controls="sample-dialogue">Повторить диалог</button></div></div>
+  </div>
+</section>
+
+<section class="systems">
+  <div class="wrap row">
+    <span class="lbl">Работает поверх</span>
+    <span class="sys">KNX</span><span class="sys">Control4</span><span class="sys">Crestron</span><span class="sys">Savant</span><span class="sys">Loxone</span><span class="sys">Lutron</span><span class="sys">Sonos</span><span class="sys">Home Assistant</span>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow">Что меняется</div>
+    <h2>Вы заплатили за умный дом. <em>Наденька</em> делает его умным.</h2>
+    <p class="lede">В большинстве вилл на Кипре стоит автоматика на десятки тысяч евро и четыре приложения, которые никто не открывает. Наденька превращает всё это в один голос, который знает вашу семью.</p>
+    <div class="feat">
+      <div><span class="k">Голос</span><h3>Разговор, а не команды</h3><p>Живая речь на вашем языке. Она держит контекст и не теряется, если её перебить.</p></div>
+      <div><span class="k">Память</span><h3>Знает вашу семью</h3><p>Привычки, предпочтения, кто когда встаёт, о чём вы просили на прошлой неделе. Помнит факты, а не записи.</p></div>
+      <div><span class="k">Дом</span><h3>Управляет домом</h3><p>Свет, климат, шторы, ворота, камеры, бассейн и мультирум через систему, которая у вас уже есть.</p></div>
+      <div><span class="k">Лицо</span><h3>На любом экране</h3><p>Живой видео-аватар на телевизоре или настенной панели, когда вы её зовёте. В остальное время только голос.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="day-section">
+  <div class="wrap">
+    <div class="eyebrow">Четверг с Наденькой</div>
+    <h2>Один день в вилле в Тале</h2>
+    <div class="day">
+      <div class="slot"><span class="t">07:15</span><span class="q">«Доброе утро, Саша».</span><p>В её комнате медленно открываются шторы, на кухне 22°, на панели в прихожей напоминание про рюкзак.</p></div>
+      <div class="slot"><span class="t">09:30</span><span class="q">«В 11 придёт техник по бассейну».</span><p>Она впускает его, отключает камеры в детских и записывает визит в журнал.</p></div>
+      <div class="slot"><span class="t">13:00</span><span class="q">«Вы улетаете в пятницу».</span><p>Режим отъезда готов: свет по жилому расписанию, кондиционеры выключены, полив работает.</p></div>
+      <div class="slot"><span class="t">19:40</span><span class="q">«Ужинаем на террасе?»</span><p>Сцена для террасы, музыка, подогрев бассейна. Одна фраза вместо трёх приложений.</p></div>
+      <div class="slot"><span class="t">23:00</span><span class="q">«Спокойной ночи».</span><p>Двери проверены, сигнализация включена, дом затихает. Если что-то открыто, она скажет.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="developers">
+  <div class="wrap">
+    <div class="eyebrow">Для кого</div>
+    <h2>Владельцам, застройщикам и операторам вилл</h2>
+    <div class="aud">
+      <article>
+        <h3>Владельцам вилл</h3>
+        <p class="muted">Для домов, где уже стоит KNX, Control4, Crestron или Home Assistant.</p>
+        <ul><li>Личный агент для всей семьи</li><li>Русский, английский, иврит, греческий</li><li>Запуск за 30-45 дней вместе с вашим интегратором</li></ul>
+      </article>
+      <article class="hl">
+        <h3>Застройщикам</h3>
+        <p class="muted">Первый проект на Кипре, где дом разговаривает с покупателем.</p>
+        <ul><li>Наденька встречает покупателя по имени в шоу-вилле, на его языке</li><li>Отвечает про виллу, ВНЖ, налоги и содержание дома</li><li>Каждый визит записан вместе с интересами покупателя</li><li>«Каждая вилла с личным агентом» как строка в вашем прайсе</li></ul>
+      </article>
+      <article>
+        <h3>Аренде вилл</h3>
+        <p class="muted">Для операторов вилл от €400 за ночь.</p>
+        <ul><li>Консьерж прямо в вилле, на языке гостя</li><li>Закрывает вопросы, которыми забит ваш WhatsApp: кондиционер, бассейн, ворота, wifi</li><li>Память стирается после выезда</li></ul>
+      </article>
+<article class="companionship"><h3>Пожилым и тем, кто живёт один</h3><p class="muted">Знакомый голос в доме, спокойное общение и помощь в повседневных делах.</p><ul><li>Поговорить о прошедшем дне, интересах и планах</li><li>Вспомнить о договорённостях, прогулке или звонке близким</li><li>Попросить включить свет или музыку обычными словами</li><li>Подобрать удобный темп речи и сценарии вместе с пользователем</li></ul></article>
+    </div>
+<p class="audiences-tail">Живое по ощущению общение с ИИ. Наденька помогает поддерживать связь с близкими и оставаться самостоятельным в привычном доме.</p>
+  </div>
+</section>
+
+<section id="future" class="future"><div class="wrap"><div class="future-layout"><div><div class="eyebrow">Будущее вашего дома</div><h2>С годами знакомее.<br>С каждым шагом полезнее.</h2><p class="lede">Персональный помощник может развиваться вместе с вами. Наденька задумана так, чтобы сохранять выбранный вами контекст и со временем получать новые возможности общения и помощи по дому.</p></div><div class="future-art" aria-hidden="true"><svg viewBox="0 0 500 260"><g fill="none" stroke="#b7c4a5" stroke-width=".7"><ellipse cx="250" cy="130" rx="202" ry="92" opacity=".25"/><ellipse cx="250" cy="130" rx="165" ry="110" opacity=".4" transform="rotate(-20 250 130)"/><ellipse cx="250" cy="130" rx="127" ry="109" opacity=".6" transform="rotate(20 250 130)"/><circle cx="250" cy="130" r="93" opacity=".8"/></g></svg><span>Nadya.</span></div></div><div class="future-points"><div><span class="k">Общение</span><h3>Почти как живая</h3><p>Естественная речь, внимание к контексту и знакомый голос. Разговор, в котором можно перебить, уточнить или вернуться к прежней мысли. Наденька всегда открыто представляется ИИ.</p></div><div><span class="k">Преемственность</span><h3>Знакомится постепенно</h3><p>Любимая музыка, привычный распорядок, важные для вас темы. Вы выбираете, что стоит помнить, а что забыть. Больше согласованного контекста для более личного общения.</p></div><div><span class="k">Развитие</span><h3>Растёт вместе с ИИ</h3><p>Более выразительный голос, новые сценарии и способы взаимодействия. Новые функции добавляются после проверки совместимости с вашим домом и по вашему выбору.</p></div></div><p class="future-note">Это направление развития продукта. Возможности конкретного дома, сроки обновлений и состав сервиса согласуем при подключении.</p></div></section>
+
+<section id="privacy">
+  <div class="wrap priv">
+    <div>
+      <div class="eyebrow">Приватность по умолчанию</div>
+      <h2>Дом, который слушает, должен <em>забывать</em> по команде.</h2>
+      <p class="lede">Наденьку делает команда Mg Accounting: кипрская компания, которая ведёт компании, налоги и GDPR тех самых семей, что покупают эти виллы.</p>
+    </div>
+    <div class="rules">
+      <div><span class="k">Звук</span><p>Просыпается на своё имя. Сырой звук никогда не хранится.</p></div>
+      <div><span class="k">Память</span><p>Хранится фактами, в ЕС. «Надя, забудь это» - и удалено.</p></div>
+      <div><span class="k">Замки</span><p>Ворота и двери только голос + PIN. Кто что может, решаете вы.</p></div>
+      <div><span class="k">Журнал</span><p>Каждое её действие записано в журнал, который вы можете прочитать.</p></div>
+      <div><span class="k">AI Act</span><p>Она всегда говорит, что она ИИ. Без распознавания эмоций.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing"><div class="wrap"><div class="eyebrow">Тарифы</div><h2>Установка отдельно.<br>Подписка прозрачно.</h2><p class="lede">На ваших устройствах, в готовом жилье или с оборудованием, которое поставим мы. Выберите масштаб подключения.</p><p class="pricing-status">Предварительные тарифы. Возможности, совместимость, состав установки и условия подписки подтверждаем перед договором.</p><div class="pricing-group"><h3>Личный помощник и готовое жильё</h3><p class="muted">Для старта на ваших устройствах или с небольшим домашним комплектом.</p><div class="price"><article class="plan"><h4 class="tag">Личная</h4><div class="amt">€490<sup><a href="#token-costs" aria-label="О расходах на токены">*</a></sup><small>установка разово</small></div><p class="recurring">Подписка: <strong>€49 / месяц</strong></p><ul><li>На вашем телефоне и Mac</li><li>Характер под вас, долгосрочная память и голос</li><li>Напоминания в Telegram</li><li>1 час обучения</li></ul></article><article class="plan"><h4 class="tag">Семья</h4><div class="amt">€1,900<sup><a href="#token-costs" aria-label="О расходах на токены">*</a></sup><small>установка разово</small></div><p class="recurring">Подписка: <strong>€149 / месяц</strong></p><p class="equipment-note">Оборудование отдельно по себестоимости: ориентир €300-600.</p><ul><li>Всё из тарифа «Личная»</li><li>1-2 колонки или экран дома</li><li>Память о каждом члене семьи</li><li>Видео-аватар на экране</li><li>Для обычного жилья, пожилых родителей и тех, кто живёт один</li></ul></article><article class="plan"><h4 class="tag">Бизнес-ассистент</h4><div class="amt">€3,900<sup><a href="#token-costs" aria-label="О расходах на токены">*</a></sup><small>установка разово</small></div><p class="recurring">Подписка: <strong>€390 / месяц</strong></p><ul><li>Всё из тарифа «Личная»</li><li>Почта, календарь и Telegram</li><li>Отложенные сообщения</li><li>Агент для задач, сайтов и документов</li></ul></article></div></div><aside class="premium-package" aria-labelledby="premium-title"><div><div class="eyebrow">Премиум · оборудование от нас</div><h3 id="premium-title">Дом под ключ</h3><p>Отдельный проект для тех, кто хочет готовую систему с подобранным и поставленным нами оборудованием. Это не стандартный комплект «Семья».</p></div><div><p class="premium-price">Индивидуальная смета</p><ul><li>Обследование дома и проект подключения</li><li>Оборудование, поставка, монтаж и настройка отдельными строками</li><li>Состав работ и исполнители согласуются до начала проекта</li><li>Подписка на сопровождение рассчитывается отдельно по составу системы</li></ul><a class="btn" href="#demo">Обсудить комплектацию</a></div></aside><div class="pricing-group"><h3>Виллы, застройщики и аренда</h3><p class="muted">Сезон основателей, пять домов</p><div class="tw">
+      <div class="price">
+        <div class="plan hl">
+          <span class="tag">Дом основателя</span>
+          <div class="amt">€6,900<sup><a href="#token-costs" aria-label="О расходах на токены">*</a></sup> <small>разово</small></div>
+          <p class="recurring">Подписка: <strong>€390 / месяц</strong> с 4-го месяца; первые 3 месяца включены.</p><span class="was">€12,900 после первых пяти домов</span>
+          <ul><li>Агент поверх вашей системы</li><li>Память семьи, 2-4 голосовые точки</li><li>Аватар на главном экране</li><li>3 месяца сопровождения включены, дальше €390/мес</li><li>Гарантия возврата 45 дней</li></ul>
+        </div>
+        <div class="plan">
+          <span class="tag">Шоу-вилла застройщика</span>
+          <div class="amt">€19,900<sup><a href="#token-costs" aria-label="О расходах на токены">*</a></sup> <small>за шоу-виллу</small></div>
+          <p class="recurring">Подписка: <strong>€390 / месяц</strong><br>50% установки вперёд.</p>
+          <ul><li>Аватар-консьерж под вашим брендом за 3 недели</li><li>Языки покупателей, журнал каждого визита в CRM</li><li>Опция для покупателей €6,900 за виллу</li><li>2 места для застройщиков в октябре</li></ul>
+        </div>
+        <div class="plan">
+          <span class="tag">Консьерж для аренды</span>
+          <div class="amt">€119<sup><a href="#token-costs" aria-label="О расходах на токены">*</a></sup> <small>за виллу / мес</small></div>
+          <p class="recurring">Установка: <strong>€190 за виллу</strong><br>Подписка от 5 вилл.</p>
+          <ul><li>От 5 вилл, подключение €190 за каждую</li><li>Голос и экран внутри виллы</li><li>Язык гостя, знание дома</li><li>Память стирается после каждого гостя</li></ul>
+        </div>
+      </div>
+    </div></div><p class="note">Подключение Control4, Crestron или KNX делает ваш интегратор по своим расценкам. Цены без НДС.</p><p class="note">Токены ИИ оплачиваются отдельно во всех тарифах. Внешние подписки и расходы на видео-аватар согласуются отдельно до подключения.</p></div></section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Как начать</div>
+    <h2>Три шага, без новой проводки</h2>
+    <div class="steps">
+      <div class="step"><h3>Живое демо</h3><p>25 минут с самой Наденькой, на экране у вас в вилле или в офисе. Демо ведёт она.</p></div>
+      <div class="step"><h3>Интегратор открывает доступ</h3><p>Работаем с компанией, которая ставила вашу систему. Она открывает доступ, мы подключаем Наденьку через Home Assistant.</p></div>
+      <div class="step"><h3>Она изучает ваш дом</h3><p>Две недели настройки вместе с семьёй: комнаты, привычки, имена, правила. Дальше она ваша.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="wrap">
+    <div class="eyebrow">Команда</div>
+    <h2>Сделано на Кипре</h2>
+    <p class="lede">Наденьку делает команда Mg Accounting на Кипре.</p>
+    <div class="team">
+      <div class="person"><div class="ini">СЖ</div><div><h3>Станислав Жуковец</h3><div class="role">Mg Accounting</div></div></div>
+      <div class="person"><div class="ini">MZ</div><div><h3>Mike Zelenin</h3><div class="role">Mg Accounting</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap demo">
+    <div>
+      <div class="eyebrow">Живое демо</div>
+      <h2>Познакомьтесь с Наденькой за <em>25 минут</em>.</h2>
+      <p class="lede">Она представится, запустит сцену на настоящей системе и ответит на ваши вопросы. Решение за вами.</p>
+    </div>
+    <form id="demo-form" novalidate>
+      <label for="f-name">Имя<input id="f-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+      <label for="f-contact">Телефон или Telegram<input id="f-contact" name="contact" placeholder="+357 … или @username"></label>
+      <label for="f-type">Я
+        <select id="f-type" name="type"><option>Личная</option><option>Семья / готовое жильё</option><option>Бизнес-ассистент</option><option>Дом под ключ с вашим оборудованием</option><option>Владелец виллы</option><option>Застройщик</option><option>Оператор аренды вилл</option><option>Интегратор</option><option>Для пожилого человека или того, кто живёт один</option></select>
+      </label>
+      <label for="f-system">Какая система стоит
+        <select id="f-system" name="system"><option>Нет системы умного дома</option><option>KNX</option><option>Control4</option><option>Crestron</option><option>Savant / Loxone</option><option>Home Assistant</option><option>Не знаю / строюсь</option></select>
+      </label>
+      <button class="btn" type="submit">Записаться на демо</button>
+      <p class="form-note">Предварительная версия. Форма не передаёт данные.</p>
+      <p class="ok" id="f-ok" role="status" tabindex="-1" hidden>Спасибо. Это предварительная версия сайта, заявки пока не отправляются.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap"><p id="token-costs" class="token-costs">* Расходы на токены ИИ оплачиваются клиентом отдельно.</p><span>Nadya.home · Пафос, Кипр · команда Mg Accounting</span><span>Концепт для Mike Zelenin · 2026</span></div>
+</footer>
+
+<script>
+
+document.getElementById('demo-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const confirmation = document.getElementById('f-ok');
+  confirmation.hidden = false;
+  confirmation.focus({preventScroll: true});
+});
+document.querySelector('.replay').addEventListener('click', function () {
+  const screen = document.querySelector('.screen');
+  screen.classList.add('replaying');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { screen.classList.remove('replaying'); }); });
+});
+
+</script>
+
+</body>
+</html>
+
