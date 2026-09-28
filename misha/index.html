@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>Наденька для Миши</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Deliberately single light theme, same visual language as audit.maizongroup.com/home/ */
+  :root{
+    color-scheme:light;
+    --bg:#f7f7f5; --panel:#ffffff; --ink:#161c20; --muted:#58665f; --line:#d9dcd3;
+    --graphite:#1b2226; --graphite-2:#243037; --on-dark:#e7ece8; --on-dark-muted:#a9b6b0;
+    --accent:#8fd14f; --olive:#526454;
+    --sans:'Manrope',Arial,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding-inline:max(16px,5vw)}
+  header{padding-block:40px 28px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);display:flex;gap:10px;align-items:center}
+  .kicker::before{content:"";width:8px;height:8px;background:var(--ink)}
+  h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.035em;font-weight:600;margin-top:18px;text-wrap:balance}
+  h1 span{color:#7c878c}
+  .lede{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--muted);max-width:62ch;margin-top:16px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:500}
+  section{padding-block:44px;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.025em;font-weight:600;line-height:1.15;margin-bottom:14px;text-wrap:balance}
+  h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+  p{max-width:68ch}
+  .muted{color:var(--muted)}
+  .num{font-family:var(--mono);font-size:12px;color:var(--olive);letter-spacing:.1em;margin-bottom:10px}
+  .grid{display:grid;gap:14px;margin-top:22px}
+  .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);padding:18px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .stat .v{font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+  .stat .l{color:var(--muted);font-size:.9rem;margin-top:6px}
+  .principle{background:var(--graphite);color:var(--on-dark);padding:26px;margin-top:22px}
+  .principle p{color:var(--on-dark-muted)}
+  .principle b{color:#fff}
+  .principle .q{font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:600;color:#fff;letter-spacing:-.02em;margin-bottom:10px}
+  .principle .q span{color:var(--accent)}
+
+  /* architecture diagram */
+  .arch{margin-top:22px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .arch svg{display:block;min-width:720px;width:100%;height:auto}
+  .arch text{font-family:var(--sans)}
+  .arch .t{font-size:14px;font-weight:600;fill:var(--ink)}
+  .arch .s{font-size:11.5px;fill:var(--muted);font-family:var(--mono)}
+  .arch .td{font-size:14px;font-weight:600;fill:#fff}
+  .arch .sd{font-size:11.5px;fill:var(--on-dark-muted);font-family:var(--mono)}
+  .arch .box{fill:var(--panel);stroke:var(--line)}
+  .arch .core{fill:var(--graphite);stroke:var(--graphite)}
+  .arch .ln{stroke:#9aa6a0;stroke-width:1.4;fill:none}
+  .arch .dot{fill:var(--accent)}
+  .scroll-hint{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px}
+
+  table{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--panel)}
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:22px;border:1px solid var(--line)}
+  .tw table{min-width:620px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;background:#fbfbfa}
+  tr:last-child td{border-bottom:0}
+  td code,li code,p code{font-family:var(--mono);font-size:.85em;background:#eef0ec;padding:1px 5px}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 8px;border:1px solid var(--line);white-space:nowrap}
+  .pill.r{border-color:#b9d9a0;background:#f1f8ea;color:#355a1d}
+  .pill.w{border-color:#e3d3a8;background:#fbf6e8;color:#6d5412}
+  .pill.c{border-color:#e4b9b0;background:#fbefec;color:#7a2d1f}
+
+  ol.flow{list-style:none;counter-reset:f;display:grid;gap:0;margin-top:22px;border-top:1px solid var(--line)}
+  ol.flow li{counter-increment:f;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  ol.flow li::before{content:counter(f);font-family:var(--mono);font-size:13px;width:28px;height:28px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center}
+  ol.flow p{color:var(--muted);font-size:.95rem}
+
+  ul.plain{list-style:none;display:grid;gap:8px;margin-top:14px}
+  ul.plain li{padding-left:18px;position:relative;color:var(--muted)}
+  ul.plain li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1px;background:var(--ink)}
+  ul.plain b{color:var(--ink);font-weight:600}
+
+  .links{display:grid;gap:10px;margin-top:18px}
+  .links a{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:14px 16px;color:var(--ink);text-decoration:none;font-weight:600}
+  .links a:hover,.links a:focus-visible{border-color:var(--ink)}
+  .links a span{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400;overflow-wrap:anywhere;text-align:right}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Для Миши Зеленина · 28.09.2026</div>
+    <h1>Наденька: <span>что уже построено</span></h1>
+    <p class="lede">Личный ИИ-агент Стаса с голосом, памятью и руками. Работает каждый день с 27.09. Это основа продукта Mg SHome: тот же агент, но в доме клиента и поверх его умного дома.</p>
+    <div class="meta"><span><b>26</b> инструментов</span><span><b>44</b> автотеста</span><span><b>4</b> аудита за 27.09</span><span><b>~100</b> коммитов</span><span>Node 22 · TypeScript · MCP</span></div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="num">01 · Идея</div>
+    <h2>Голос покупаем, личность держим у себя</h2>
+    <p class="muted">Голос и разговор даёт ChatGPT по подписке: живая речь, перебивание, русский и английский, эмоции. Всё остальное наше: личность, память, доступ к Telegram, задачи, документы. Это отдельный MCP-сервер, который подключён к ChatGPT как плагин.</p>
+    <div class="principle">
+      <div class="q">Наденька = <span>файлы</span>, а не модель.</div>
+      <p>Личность, голос, память и история отношений лежат в открытых markdown-файлах в git. Модель - сменный двигатель: сегодня ChatGPT, завтра Claude, потом робот. <b>Проверка портируемости:</b> если удалить все аккаунты OpenAI, Наденька должна проснуться на другой модели и узнать Стаса.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">02 · Архитектура</div>
+    <h2>Как устроено сейчас</h2>
+    <div class="arch">
+      <svg viewBox="0 0 960 380" role="img" aria-label="Схема: ChatGPT голос на телефоне, MCP-сервер Наденьки на сервере, к нему подключены память в GitHub, workspace, Telegram, документы клиентов и Гермес">
+        <rect class="box" x="10" y="140" width="220" height="100"/>
+        <text class="t" x="28" y="172">iPhone / Mac</text>
+        <text class="s" x="28" y="194">ChatGPT, живой голос</text>
+        <text class="s" x="28" y="212">проект «Наденька»</text>
+        <text class="s" x="28" y="230">+ Gmail, Календарь</text>
+
+        <path class="ln" d="M230 190 H330"/>
+        <circle class="dot" cx="330" cy="190" r="4"/>
+        <text class="s" x="244" y="180">HTTPS</text>
+
+        <rect class="core" x="330" y="120" width="260" height="140"/>
+        <text class="td" x="350" y="152">MCP-сервер Наденьки</text>
+        <text class="sd" x="350" y="176">Node 22, streamable HTTP</text>
+        <text class="sd" x="350" y="196">26 инструментов</text>
+        <text class="sd" x="350" y="216">подтверждение «да»</text>
+        <text class="sd" x="350" y="236">таймеры: сон, отложенные</text>
+
+        <path class="ln" d="M590 190 H650"/>
+        <path class="ln" d="M650 40 V340"/>
+        <path class="ln" d="M650 40 H690 M650 110 H690 M650 180 H690 M650 250 H690 M650 320 H690"/>
+
+        <rect class="box" x="690" y="14" width="260" height="52"/>
+        <text class="t" x="706" y="36">memory/ в GitHub</text>
+        <text class="s" x="706" y="55">личность, голос, уроки, эпизоды</text>
+
+        <rect class="box" x="690" y="84" width="260" height="52"/>
+        <text class="t" x="706" y="106">Workspace (только чтение)</text>
+        <text class="s" x="706" y="125">база знаний Стаса и Mg</text>
+
+        <rect class="box" x="690" y="154" width="260" height="52"/>
+        <text class="t" x="706" y="176">Telegram</text>
+        <text class="s" x="706" y="195">общий мост с Гермесом</text>
+
+        <rect class="box" x="690" y="224" width="260" height="52"/>
+        <text class="t" x="706" y="246">Документы клиентов</text>
+        <text class="s" x="706" y="265">Nextcloud, KYC, отдельное «да»</text>
+
+        <rect class="box" x="690" y="294" width="260" height="52"/>
+        <text class="t" x="706" y="316">Гермес</text>
+        <text class="s" x="706" y="335">долгие задачи, браузер</text>
+      </svg>
+    </div>
+    <p class="scroll-hint">На телефоне схему можно прокрутить вбок</p>
+    <p class="muted" style="margin-top:14px">Сервер живёт на нашем облачном сервере рядом с Гермесом и использует его мосты. Наружу он открыт через Tailscale Funnel, входящие порты не открыты, сам сервис слушает только localhost.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">03 · Что умеет</div>
+    <h2>26 инструментов по уровням доступа</h2>
+    <div class="tw"><table>
+      <tr><th>Область</th><th>Что делает</th><th>Уровень</th></tr>
+      <tr><td>Память</td><td>Старт с личностью и памятью, заметки по ходу, итог разговора, уроки из поправок сразу, новое о Стасе сразу в файл, изменения ядра личности только после «да»</td><td><span class="pill r">своё</span></td></tr>
+      <tr><td>Workspace</td><td>Главное сейчас, поиск, чтение, что изменилось. Секреты вырезаются из ответов</td><td><span class="pill r">чтение</span></td></tr>
+      <tr><td>Люди</td><td>Ключевые люди из роли ассистента: семья, команда, партнёры</td><td><span class="pill r">чтение</span></td></tr>
+      <tr><td>Telegram</td><td>Быстро прочитать переписку (2-3 с), поиск по чатам через Гермеса, отправка текста и файлов, отложенные сообщения и напоминания, отмена</td><td><span class="pill w">после «да»</span></td></tr>
+      <tr><td>Instagram</td><td>Подписчики, посты, статистика, комментарии через официальный API</td><td><span class="pill r">чтение</span></td></tr>
+      <tr><td>Документы клиентов</td><td>Поиск KYC-документов, отправка только Стасу и команде, журнал каждого доступа</td><td><span class="pill c">отдельное «да»</span></td></tr>
+      <tr><td>Гермес</td><td>Долгие задачи и сайты в режиме чтения; действие на сайте (формы, кнопки) только после «да», платежи и удаление запрещены</td><td><span class="pill w">после «да»</span></td></tr>
+    </table></div>
+    <p class="muted" style="margin-top:14px">Почта и календарь - встроенные плагины ChatGPT, свои не писали.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">04 · Память</div>
+    <h2>Как она учится и не теряет себя</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Ядро</h3><p><code>IDENTITY.md</code>, <code>VOICE.md</code>, <code>RELATIONSHIP_MEMORY.md</code>. Кто она, как говорит, договорённости. Меняется только после «ок» Стаса.</p></div>
+      <div class="card"><h3>Живая память</h3><p><code>ABOUT_STAS.md</code>, <code>CONTEXT_SUMMARY</code>, <code>OPEN_LOOPS</code>, <code>DECISIONS</code>, <code>LESSONS</code>. Обновляется по ходу и ночью.</p></div>
+      <div class="card"><h3>История</h3><p><code>journal/</code> за день, <code>episodes/</code> итог дня, <code>GROWTH.md</code> журнал изменений личности.</p></div>
+    </div>
+    <ol class="flow">
+      <li><div><h3>Разговор</h3><p>По ходу она пишет заметки: «запомнила: не торопить до пробежки». Сразу в журнал дня в GitHub.</p></div></li>
+      <li><div><h3>Поправка</h3><p>Если Стас поправил, урок сразу пишется в <code>LESSONS.md</code>, до 3 повторов при конфликте записи.</p></div></li>
+      <li><div><h3>Ночной сон, 03:30</h3><p>Фоновая модель по подписке (<code>claude -p</code> или Codex) собирает эпизод дня и обновляет память. Инструменты у модели выключены, лимит 45 минут, пропущенные ночи догоняет.</p></div></li>
+      <li><div><h3>Предложение</h3><p>Хочет изменить свой характер или голос - кладёт предложение, а не правит сама.</p></div></li>
+      <li><div><h3>Утро</h3><p>«Я за ночь кое-что поняла про себя. Запишу?» После «да» правка ядра и строка в <code>GROWTH.md</code>.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">05 · Надёжность и безопасность</div>
+    <h2>Что работает само и что зашито в код</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Автоматика</h3>
+        <ul class="plain">
+          <li><b>Автообновление</b> кода и таймеров с main каждые 15 минут</li>
+          <li><b>Отложенные сообщения</b>: проверка каждые 30 секунд, опоздание больше 6 часов не шлёт</li>
+          <li><b>Ночной бэкап</b> данных, 14 дней</li>
+          <li><b>Сбой</b> отложенного или сна - сообщение Стасу в Избранное</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Правила в коде</h3>
+        <ul class="plain">
+          <li><b>Одно «да» = одна отправка</b>, черновик живёт 10 минут</li>
+          <li><b>Клиентам по существу не пишет</b>, KYC только себе и команде</li>
+          <li><b>GitHub</b>: пишет только в <code>memory/*.md</code>, даже если токен шире</li>
+          <li><b>Секреты</b> вырезаются из ответов и логов, в дочерние процессы не передаются</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="card stat"><div class="v">44</div><div class="l">автотеста: unit, отправка в Telegram, сон, e2e через настоящий MCP-клиент</div></div>
+      <div class="card stat"><div class="v">4</div><div class="l">аудита 27.09, последний - независимое ревью с нуля</div></div>
+      <div class="card stat"><div class="v">17</div><div class="l">находок последнего ревью исправлено в коде</div></div>
+      <div class="card stat"><div class="v">0</div><div class="l">входящих портов на сервере</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">06 · Лицо</div>
+    <h2>Живой видео-аватар</h2>
+    <p class="muted">Подписка HeyGen LiveAvatar оформлена 28.09, аватар Наденьки собирается. Путь в два шага:</p>
+    <div class="grid g2">
+      <div class="card"><h3>Сейчас: режим FULL</h3><p>Распознавание, ответ и голос на стороне HeyGen. Загружаем личность и базу знаний. Быстро, для демо на встречах. Около $0.20 за минуту.</p></div>
+      <div class="card"><h3>Дальше: режим LITE</h3><p>От HeyGen только лицо и губы, мозг наш: модель + этот MCP-сервер с памятью. Около $0.10 за минуту плюс модель. Это и есть продукт.</p></div>
+    </div>
+    <p class="muted" style="margin-top:14px">Аватар включается по требованию, а не стримит постоянно, иначе минута съедает маржу.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">07 · Продукт</div>
+    <h2>Как из Наденьки получается Mg SHome</h2>
+    <p class="muted">Тот же агент, та же схема памяти и подтверждений, но у клиента дома. Новое звено одно: Home Assistant как шина ко всему, что уже стоит в вилле.</p>
+    <div class="tw"><table>
+      <tr><th>Сейчас у Наденьки</th><th>В доме клиента</th></tr>
+      <tr><td>MCP-сервер с Telegram, памятью, Гермесом</td><td>MCP к Home Assistant: свет, климат, ворота, камеры, мультирум, белый список устройств</td></tr>
+      <tr><td>Память о Стасе в <code>memory/</code></td><td>Память о семье: каждый член семьи, привычки, правила, в ЕС, удаление одной командой</td></tr>
+      <tr><td>Подтверждение «да» перед отправкой</td><td>Голос + PIN для замков и ворот, права задаёт хозяин</td></tr>
+      <tr><td>Журнал действий</td><td>Append-only лог каждого действия в доме (как в проекте Николая)</td></tr>
+      <tr><td>ChatGPT-голос на телефоне</td><td>Колонки в комнатах + аватар на телевизоре по требованию</td></tr>
+    </table></div>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="card"><h3>KNX</h3><p>Родная интеграция Home Assistant. Нужен KNX/IP и выгрузка проекта ETS от интегратора.</p></div>
+      <div class="card"><h3>Control4</h3><p>pyControl4 в Home Assistant: свет, медиа, шторы, климат. Доступ открывает дилер.</p></div>
+      <div class="card"><h3>Crestron</h3><p>Официальный REST API, токен выпускает интегратор. Есть готовый crestron-mcp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">08 · Открыто</div>
+    <h2>Что ещё не доделано</h2>
+    <ul class="plain">
+      <li><b>Вход в плагин через OAuth</b> вместо ключа в адресе. Ключ уже светился на скриншотах, его меняем.</li>
+      <li><b>Ночной сон</b> ни разу не записал эпизод вживую, диагностика идёт.</li>
+      <li><b>Наденька в сторожке Гермеса</b>: если сервис лёг, сообщение в Избранное.</li>
+      <li><b>Бэкапы на Мак</b>, а не только на сервере; защита ветки main для кода и памяти Наденьки.</li>
+      <li><b>Для Mg SHome с нуля</b>: эталонная сборка Home Assistant + MCP, демо-стенд, первые инсталляции. Это зона Миши.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">09 · Ссылки</div>
+    <h2>Где смотреть</h2>
+    <div class="links">
+      <a href="https://audit.maizongroup.com/home/">Сайт Mg SHome (RU) <span>audit.maizongroup.com/home/</span></a>
+      <a href="https://audit.maizongroup.com/home/en/">Сайт Mg SHome (EN) <span>audit.maizongroup.com/home/en/</span></a>
+    </div>
+    <p class="muted" style="margin-top:14px">Код и документы в GitHub <code>HuliBlog/workspace</code>, ветка <code>claude/nice-keller-xrsqva</code>: сервер <code>projects/nadya/mcp-server/</code>, архитектура <code>projects/nadya/ARCHITECTURE-PROPOSAL.md</code>, продукт <code>projects/ai-home-agent/</code> (исследование рынка, интеграторы, застройщики, оффер, сценарий демо). Доступ к репо дам отдельно.</p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Mg Accounting · Кипр · 2026 · для Михаила Зеленина, не для распространения</div></footer>
+
+</body>
+</html>
