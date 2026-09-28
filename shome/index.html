@@ -1,340 +1,475 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<meta name="referrer" content="no-referrer">
-<title>Mg SHome - личный ИИ для вашей виллы</title>
-<meta property="og:title" content="Mg SHome - ваш дом заговорит с вами">
-<meta property="og:description" content="Личный ИИ поверх умного дома, который у вас уже стоит. 5 домов по цене основателя, гарантия 45 дней.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mg Intelligence Home - дом будущего уже здесь</title>
+<meta name="description" content="Персональный ИИ-агент для дома, семьи и бизнеса: голос, долговременная память, аватар и управление домом поверх существующей smart-home инфраструктуры. Пилотная программа на Кипре.">
+<link rel="canonical" href="https://audit.maizongroup.com/shome/">
+<link rel="alternate" hreflang="ru" href="https://audit.maizongroup.com/shome/">
+<link rel="alternate" hreflang="en" href="https://audit.maizongroup.com/shome/en/">
+<link rel="alternate" hreflang="x-default" href="https://audit.maizongroup.com/shome/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mg Intelligence Home">
+<meta property="og:title" content="Mg Intelligence Home - дом будущего уже здесь">
+<meta property="og:description" content="Голос, память, аватар и управление домом. Пилотная программа персонального ИИ-агента для вилл на Кипре.">
 <meta property="og:url" content="https://audit.maizongroup.com/shome/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mg Intelligence Home - дом будущего уже здесь">
+<meta name="twitter:description" content="Голос, память, аватар и управление домом. Пилотная программа персонального ИИ-агента для вилл на Кипре.">
+<meta name="theme-color" content="#f6f9fc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:light;--paper:#f7f8f7;--white:#fff;--ink:#161c20;--muted:#576167;--line:#d6dcdd;--soft:#eef1ef;--dark:#161c20;--dark2:#1f272c;--on-dark:#e9eeeb;--on-dark-muted:#a8b4b0;--accent:#a6d95b;--accent-ink:#3d6a1c;--sans:'Manrope',Arial,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.wrap{max-width:1160px;margin:0 auto;padding-inline:max(16px,5vw)}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.06;text-wrap:balance}
-h1{font-size:clamp(2.3rem,4.8vw,4rem);max-width:13ch}
-h2{font-size:clamp(1.8rem,4vw,3rem);max-width:20ch}
-h3{font-size:1.15rem;letter-spacing:-.015em;line-height:1.25}
-p{max-width:62ch}
-.muted{color:var(--muted)}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.eyebrow::before{content:"";width:8px;height:8px;background:var(--ink)}
-.dark .eyebrow{color:var(--on-dark-muted)}
-.dark .eyebrow::before{background:var(--accent)}
-section{padding-block:clamp(56px,10vh,112px);border-top:1px solid var(--line)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;background:var(--ink);color:#fff;border:1px solid var(--ink);font:600 15px/1 var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
-.btn:hover{background:#000}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:#fff}
-.btn.accent{background:var(--accent);border-color:var(--accent);color:var(--ink)}
-.btn.accent:hover{background:#b8e573}
-.btn .arr{font-family:var(--mono)}
-
-/* nav */
-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px;border-bottom:1px solid var(--line)}
-.brand{font-weight:700;font-size:22px;letter-spacing:-.05em;white-space:nowrap;text-decoration:none}
-.brand span{color:#7b878c}
-.nav-cta{min-height:44px;padding:0 16px;font-size:14px}
-
-/* hero */
-.hero{border-top:0;padding-block:clamp(40px,7vh,80px) clamp(56px,9vh,100px)}
-.hero-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
-.hero h1 em{font-style:normal;color:#7b878c}
-.lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted);margin-top:22px}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.cta-row .btn{padding:0 18px;font-size:14.5px}
-.chips{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
-.chip{font-family:var(--mono);font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
-.chip::before{content:"";width:6px;height:6px;background:var(--accent)}
-.chip b{font-weight:500;color:var(--ink)}
-.dark .chip{color:var(--on-dark-muted)}.dark .chip b{color:#fff}
-.visual{border:1px solid var(--line);background:var(--white);box-shadow:0 30px 60px -40px rgba(22,28,32,.35)}
-.villa{display:block;width:100%;height:auto;aspect-ratio:16/9;max-width:100%}
-.screen{background:var(--dark);color:var(--on-dark);padding:20px;display:grid;gap:12px}
-.screen-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-muted)}
-.screen-top b{color:var(--accent);font-weight:500}
-.live{display:inline-flex;align-items:center;gap:6px}.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.35}}
-.say{font-size:15px;line-height:1.5;padding:10px 12px;max-width:88%}
-.say.you{justify-self:end;background:var(--dark2);border:1px solid #33403f}
-.say.ai{border-left:2px solid var(--accent);padding-left:14px}
-.log{font-family:var(--mono);font-size:11px;color:var(--on-dark-muted);border-top:1px solid #33403f;padding-top:10px;display:grid;gap:3px;overflow-x:auto}
-.log span{white-space:nowrap}.log b{color:#fff;font-weight:500}
-
-
-/* pain */
-.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--ink)}
-@media(max-width:860px){.pain{grid-template-columns:1fr}}
-.pain div{padding:28px 28px 28px 0;border-bottom:1px solid var(--line)}
-@media(min-width:861px){.pain div+div{padding-left:28px;border-left:1px solid var(--line)}}
-.pain .n{font-size:clamp(2.2rem,4vw,3rem);font-weight:600;letter-spacing:-.05em;line-height:1;margin-bottom:14px;font-variant-numeric:tabular-nums}
-.pain p{color:var(--muted);font-size:.98rem}
-
-/* compare */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
-@media(max-width:760px){.compare{grid-template-columns:1fr}}
-.col{padding:26px;border:1px solid var(--line);background:var(--white)}
-.col.good{background:var(--dark);color:var(--on-dark);border-color:var(--dark)}
-.col h3{margin-bottom:16px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
-.col.good h3{color:var(--accent)}
-.col ul{list-style:none;display:grid;gap:12px}
-.col li{padding-left:26px;position:relative;font-size:.98rem}
-.col li::before{content:"×";position:absolute;left:0;top:0;font-family:var(--mono);color:#a34a3a}
-.col.good li::before{content:"✓";color:var(--accent)}
-.col.good li{color:var(--on-dark)}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-@media(max-width:860px){.steps{grid-template-columns:1fr}}
-.step{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:8px;align-content:start}
-.step .when{font-family:var(--mono);font-size:12px;color:var(--accent-ink);letter-spacing:.08em;text-transform:uppercase}
-.step p{color:var(--muted);font-size:.97rem}
-
-/* offer */
-.dark{background:var(--dark);color:var(--on-dark);border-top:0}
-.dark h2{color:#fff}
-.dark .muted{color:var(--on-dark-muted)}
-.offer{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:start;margin-top:8px}
-@media(max-width:900px){.offer{grid-template-columns:1fr}}
-.incl{list-style:none;display:grid;gap:0;margin-top:28px;border-top:1px solid #33403f}
-.incl li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid #33403f;color:var(--on-dark)}
-.incl li::before{content:"+";font-family:var(--mono);color:var(--accent)}
-.price-card{background:var(--dark2);border:1px solid #33403f;padding:28px;display:grid;gap:14px}
-.price-card .tag{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.price-card .amt{font-size:clamp(3rem,7vw,4.2rem);font-weight:600;letter-spacing:-.05em;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
-.price-card .amt sup{font-size:.35em;vertical-align:super;margin-left:4px}
-.price-card .amt sup a{text-decoration:none;color:var(--on-dark-muted)}
-.price-card .was{color:var(--on-dark-muted);text-decoration:line-through}
-.price-card .sub{color:var(--on-dark)}
-.seats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:4px}
-.seats i{display:block;height:10px;background:var(--accent)}
-.seats-l{font-family:var(--mono);font-size:12px;color:var(--on-dark-muted)}
-.price-card .btn{width:100%;margin-top:6px}
-.guarantee{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;border:1px solid var(--accent);padding:18px;margin-top:6px}
-.guarantee .g{font-family:var(--mono);font-size:26px;font-weight:500;color:var(--accent);line-height:1}
-.guarantee p{font-size:.95rem;color:var(--on-dark)}
-
-/* faq */
-.faq{margin-top:36px;border-top:1px solid var(--ink)}
-details{border-bottom:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-weight:600;font-size:1.05rem;position:relative}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:4px;top:18px;font-family:var(--mono);font-size:20px;font-weight:400}
-details[open] summary::after{content:"-"}
-details p{color:var(--muted);padding-bottom:20px}
-
-/* others */
-.others{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
-@media(max-width:760px){.others{grid-template-columns:1fr}}
-.other{border:1px solid var(--line);background:var(--white);padding:24px;display:grid;gap:8px;align-content:start}
-.other .p{font-family:var(--mono);font-size:13px;color:var(--accent-ink)}
-.other p{color:var(--muted);font-size:.97rem}
-
-/* final */
-.final{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
-@media(max-width:900px){.final{grid-template-columns:1fr}}
-form{display:grid;gap:14px;background:var(--white);border:1px solid var(--line);padding:24px}
-label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
-input,select{font:500 16px var(--sans);color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:12px 14px;width:100%;border-radius:0}
-input:focus,select:focus{outline:none;border-color:var(--ink)}
-.form-note{font-size:13px;color:var(--muted)}
-.ok{font-weight:600;color:var(--accent-ink)}
-footer{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:14px}
-.sticky{display:none}
-@media(max-width:700px){.sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:12px;align-items:center;justify-content:space-between;background:var(--dark);color:var(--on-dark);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 30px -12px rgba(0,0,0,.35)}.sticky .t{font-size:13px;line-height:1.3}.sticky .t b{color:#fff}.sticky .btn{min-height:44px;padding:0 16px;font-size:14px;white-space:nowrap}body{padding-bottom:84px}.nav-cta{display:none}}
-footer .wrap{display:grid;gap:8px}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shome/assets/styles.css">
 </head>
 <body>
-
-<div class="wrap">
-  <nav>
-    <a class="brand" href="#top">Mg <span>S</span>Home</a>
-    <a class="btn nav-cta" href="#demo">Живое демо <span class="arr">→</span></a>
-  </nav>
-</div>
-
+<a class="skip-link" href="#main">К содержанию</a>
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="/shome/" aria-label="Mg Intelligence Home">
+      <span class="brand__dot" aria-hidden="true"></span>Mg <span class="brand__accent">Intelligence</span> <span class="brand__muted">Home</span>
+    </a>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <a href="#product">Продукт</a>
+      <a href="#experience">Демо</a>
+      <a href="#usecases">Сценарии</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#privacy">Приватность</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="lang-switch" href="en/" hreflang="en" title="Switch to English">
+        <span aria-current="true">RU</span><span class="lang-switch__sep" aria-hidden="true">/</span><span>EN</span>
+      </a>
+      <a class="btn btn--primary btn--sm" href="#contact" data-analytics="cta-header">Запросить демо дома</a>
+    </div>
+  </div>
+</header>
+<nav class="audience-strip" aria-label="Экосистема Mg">
+  <div class="shell audience-strip__inner">
+    <span class="audience-strip__label">Экосистема Mg</span>
+    <div class="audience-strip__pills">
+      <span class="audience-pill audience-pill--current" aria-current="page">Владельцам вилл</span>
+      <a class="audience-pill" href="/shome/developers/">Застройщикам</a>
+      <a class="audience-pill" href="/shome/integrators/">Интеграторам</a>
+      <a class="audience-pill" href="/shome/partners/">Партнёрам</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
 <section class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Личный ИИ для виллы · Кипр</div>
-      <h1>Ваш дом заговорит с вами <em>через 30 дней.</em></h1>
-      <p class="lede">Mg SHome - личный ИИ поверх KNX, Control4 или Crestron, которые у вас уже стоят. Он знает вашу семью, понимает обычную речь и управляет домом. Без нового оборудования и без ремонта.</p>
-      <div class="cta-row">
-        <a class="btn" href="#demo">Записаться на живое демо <span class="arr">→</span></a>
-        <a class="btn ghost" href="#offer">Цена для первых пяти</a>
+  <canvas class="hero__net" data-hero-net aria-hidden="true"></canvas>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="shell hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Кипр - пилотная программа</p>
+      <h1 class="hero__title">Дом будущего уже здесь</h1>
+      <p class="hero__sub">Mg Intelligence Home - персональный ИИ-агент с голосом, долговременной памятью и аватаром. Агент говорит с семьёй, помнит контекст и управляет домом поверх той инфраструктуры, которая у вас уже стоит.</p>
+      <ul class="hero__points">
+        <li>Голос и живой диалог, а не кнопки в приложении</li>
+        <li>Память о людях, привычках и договорённостях</li>
+        <li>Работает поверх вашей системы - без пересборки умного дома; где нужно, добавляем микрофон, колонку или экран</li>
+      </ul>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact" data-analytics="cta-hero">Запросить демо дома</a>
+        <a class="btn btn--ghost" href="#pricing" data-analytics="cta-hero-pricing">Посмотреть тарифы</a>
       </div>
-      <div class="chips">
-        <span class="chip"><b>45 дней</b> гарантия возврата</span>
-        <span class="chip"><b>0</b> нового оборудования</span>
-        <span class="chip">RU · EN · HE · GR</span>
-      </div>
+      <p class="hero__note">Использование ИИ уже включено в тариф: голос без ограничений и никаких отдельных счетов.</p>
     </div>
-    <div class="visual">
-      <svg class="villa" viewBox="0 0 960 540" role="img" aria-label="Архитектурная иллюстрация современной виллы с плоской крышей и бассейном"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6d1d6"/><stop offset="1" stop-color="#e4e9e8"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#21343d"/><stop offset=".48" stop-color="#587075"/><stop offset="1" stop-color="#18272d"/></linearGradient><linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#617f83"/><stop offset="1" stop-color="#bed0ce"/></linearGradient></defs><rect width="960" height="540" fill="url(#sky)"/><path d="M0 263L97 232 161 251 299 212 414 254 528 242 625 268 760 222 960 253V430H0Z" fill="#afbbb8"/><path d="M0 322L175 302 353 318 531 282 774 313 960 299V490H0Z" fill="#7d8f86"/><path d="M0 388H960V540H0Z" fill="#bfc4bf"/><path d="M52 428L826 338 960 410 960 540H0Z" fill="#d5d8d1"/><path d="M125 229L410 155 862 215 558 306Z" fill="#fcfcf6"/><path d="M125 229L558 286V316L125 263Z" fill="#c3c9c5"/><path d="M558 286L862 215V245L558 316Z" fill="#e8ebe5"/><path d="M148 263L548 313V429L148 372Z" fill="#edf0e9"/><path d="M548 313L840 246V365L548 429Z" fill="#c3cbc6"/><path d="M181 272L505 315V406L181 363Z" fill="url(#glass)"/><path d="M577 314L810 261V353L577 406Z" fill="url(#glass)"/><path d="M252 281V373M338 292V385M423 304V396M650 297V390M727 280V372" stroke="#0f2027" stroke-width="6"/><path d="M182 344L504 387V399L182 357Z" fill="#afaca0"/><path d="M183 348L504 391M578 392L808 341" stroke="#e3d6b5" stroke-width="3"/><path d="M312 161L479 121 737 154 561 199Z" fill="#f8f9f3"/><path d="M312 161L561 195V272L312 240Z" fill="#d5dbd5"/><path d="M561 195L737 154V230L561 272Z" fill="#ecefe8"/><path d="M341 178L530 203V245L341 220Z" fill="#34484f"/><path d="M584 207L712 178V218L584 248Z" fill="#30454b"/><path d="M435 189V232M646 194V234" stroke="#182a30" stroke-width="5"/><path d="M312 156L561 190 737 150V159L561 201 312 167Z" fill="#f9faf5"/><path d="M80 402L535 463 867 389" fill="none" stroke="#9aa59f" stroke-width="2"/><path d="M128 447L516 500 789 438 421 394Z" fill="#f4f5ef"/><path d="M163 449L516 491 751 440 421 403Z" fill="url(#water)"/><path d="M219 448L496 480M281 436L559 469M346 423L621 455" stroke="#d9e3df" opacity=".35"/><path d="M0 475L100 492M771 491L941 452M757 532L960 486" fill="none" stroke="#aab1a9"/><path d="M76 367V245M894 359V225" stroke="#57675b" stroke-width="6"/><path d="M76 229L42 309H110ZM894 208L855 300H930Z" fill="#64766a"/><path d="M82 381L122 386 140 382 104 377Z" fill="#526057" opacity=".35"/></svg>
-      <div class="screen" aria-label="Пример разговора с Mg SHome"><div class="screen-top"><span><b>Mg SHome</b> · гостиная</span><span class="live">в эфире</span></div><div class="say you">Мы ужинаем на террасе.</div><div class="say ai">Добрый вечер. Свет на террасе 30%, музыка на террасе, бассейн греется до 28°. Саша просила разбудить её в 7:15, я настроила.</div><div class="log"><span>19:42 · <b>KNX 1/2/14</b> терраса → 30%</span><span>19:43 · <b>Бассейн</b> подогрев → 28 °C</span></div></div>
+    <aside class="hero__panel" aria-hidden="true">
+      <div class="hero__panel-top">
+        <span class="hero__panel-dot"></span>
+        <span class="hero__panel-title">Mg Intelligence Home</span>
+        <span class="hero__panel-status">онлайн</span>
+      </div>
+      <p class="hero__panel-quote">&laquo;Дом, приглуши свет в гостиной, включи музыку и закрой ворота&raquo;</p>
+      <ul class="hero__panel-list">
+        <li><span class="hero__panel-label">Свет в гостиной</span><span class="hero__panel-value">30%</span></li>
+        <li><span class="hero__panel-label">Музыка</span><span class="hero__panel-value">вечерний плейлист</span></li>
+        <li><span class="hero__panel-label">Ворота</span><span class="hero__panel-value">закрыты</span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+<section class="section section--b2b" id="b2b" aria-labelledby="b2b-title">
+  <div class="shell">
+    <h2 class="section__title" id="b2b-title">Не только для владельцев вилл</h2>
+    <p class="section__lead">Тот же ИИ-слой поверх умного дома - для тех, кто строит, интегрирует и продаёт недвижимость.</p>
+    <div class="grid grid--3 b2b-cards">
+    <article class="card card--b2b">
+      <p class="card__tag">Застройщикам</p>
+      <h3>AI-консьерж для каждой резиденции</h3>
+      <p>Выделите проект на рынке: шоу-вилла с AI-консьержем работает поверх вашей текущей системы автоматизации.</p>
+      <a class="card__link" href="/shome/developers/" data-analytics="cta-b2b-developers">Для застройщиков &rarr;</a>
+    </article>
+    <article class="card card--b2b">
+      <p class="card__tag">Интеграторам</p>
+      <h3>Ваша автоматизация. Наш AI-слой.</h3>
+      <p>Дополнительный доход с проекта без изменения вашей работы с KNX, Control4 или Crestron.</p>
+      <a class="card__link" href="/shome/integrators/" data-analytics="cta-b2b-integrators">Для интеграторов &rarr;</a>
+    </article>
+    <article class="card card--b2b">
+      <p class="card__tag">Партнёрам по недвижимости</p>
+      <h3>Аргумент, который запомнят покупатели</h3>
+      <p>Демонстрация Mg Intelligence Home на показе виллы - и реферальный доход с каждой сделки.</p>
+      <a class="card__link" href="/shome/partners/" data-analytics="cta-b2b-partners">Для партнёров &rarr;</a>
+    </article>
+  </div>
+  </div>
+</section>
+<section class="section " id="problem" aria-labelledby="problem-title">
+  <div class="shell">
+    <h2 class="section__title" id="problem-title">Умный дом сегодня - это приложения и сценарии</h2>
+    <p class="section__lead">Оборудование давно умное. Взаимодействие - нет.</p>
+    <div class="grid grid--2">
+    <article class="card "><h3>Нет диалога</h3><p>Дом исполняет команды, но не разговаривает. Любое отклонение от сценария - снова телефон и пальцы в приложении.</p></article>
+    <article class="card "><h3>Нет памяти</h3><p>Система не помнит, как вы любите свет вечером, во сколько приходит уборщица и что гость не ест молочное.</p></article>
+    <article class="card "><h3>Нет персональности</h3><p>Пять членов семьи получают один и тот же дом. Роли, привычки и языки не различаются.</p></article>
+    <article class="card "><h3>Нет ценности для гостя</h3><p>Гость виллы не будет изучать панель на стене. Он спросит человека - или не спросит никого.</p></article>
+  </div>
+  </div>
+</section>
+<section class="section " id="product" aria-labelledby="product-title">
+  <div class="shell">
+    <h2 class="section__title" id="product-title">Что такое Mg Intelligence Home</h2>
+    <p class="section__lead">Шесть частей одного агента. Одна личность, одна память, разные устройства.</p>
+    <div class="grid grid--3">
+    <article class="card card--icon"><span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></span><h3>Голос</h3><p>Разговор в свободной форме: на колонке, на телефоне, на экране в доме. Без ключевых фраз-заклинаний.</p></article>
+    <article class="card card--icon"><span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3Z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span><h3>Долговременная память</h3><p>Помнит людей, предпочтения, договорённости и историю дома. Память хранится отдельно от устройства.</p></article>
+    <article class="card card--icon"><span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><h3>Аватар</h3><p>Видео-аватар на ТВ или планшете для встречи гостей, показа дома и видеозвонков.</p></article>
+    <article class="card card--icon"><span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><h3>Управление домом</h3><p>Свет, климат, музыка, шторы, ворота - через интеграционный слой поверх вашей системы.</p></article>
+    <article class="card card--icon"><span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h10M4 12h7M4 17h13"/><circle cx="18" cy="7" r="2"/><circle cx="15" cy="12" r="2"/></svg></span><h3>Личные инструменты</h3><p>Напоминания, задачи, почта и календарь, подготовка документов - в тарифах с бизнес-функциями.</p></article>
+    <article class="card card--icon"><span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M4 12h16"/><path d="M12 4a14 14 0 0 1 0 16a14 14 0 0 1 0-16Z"/></svg></span><h3>Мультиязычность</h3><p>Один агент говорит с семьёй, персоналом и гостями на их языках в одном доме.</p></article>
+  </div>
+  </div>
+</section>
+<section class="section section--daily" id="daily" aria-labelledby="daily-title">
+  <div class="shell">
+    <h2 class="section__title" id="daily-title">Обычный день с Mg Intelligence Home</h2>
+    <p class="section__lead">Не только свет и музыка - вот как агент живёт внутри обычного семейного дня.</p>
+    <div class="grid grid--3">
+    <article class="card card--daily">
+      <p class="card__tag">Утро</p>
+      <p class="card__quote">&laquo;Доброе утро! Разбуди Соню в школу в 7:30&raquo;</p>
+      <p class="card__reply">Будильник поставлен, к завтраку - лёгкая музыка.</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">После школы</p>
+      <p class="card__quote">&laquo;Миша сделал уроки?&raquo;</p>
+      <p class="card__reply">Ещё нет, осталось два предмета - напомнить через час?</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">Вечер</p>
+      <p class="card__quote">&laquo;Пожелай детям спокойной ночи и выключи свет&raquo;</p>
+      <p class="card__reply">Спокойной ночи! Свет выключен, в детской остался тёплый ночник.</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">Пожилые родители</p>
+      <p class="card__quote">&laquo;Мама приняла лекарства?&raquo;</p>
+      <p class="card__reply">Да, в 9:15 подтвердила приём. Следующее напоминание - в 18:00.</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">Гости</p>
+      <p class="card__quote">&laquo;Встреть гостей и включи свет у входа&raquo;</p>
+      <p class="card__reply">Готово. Дверь открыта, гостям передан Wi-Fi-пароль.</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">Персонал</p>
+      <p class="card__quote">&laquo;Скажи уборщице, что мы вернёмся к 19:00&raquo;</p>
+      <p class="card__reply">Передано на испанском, уборщица подтвердила.</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">Безопасность</p>
+      <p class="card__quote">&laquo;Все двери и окна закрыты?&raquo;</p>
+      <p class="card__reply">Да, всё закрыто, кроме окна на веранде - закрыть его?</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">В отъезде</p>
+      <p class="card__quote">&laquo;Мы в отпуске, что дома?&raquo;</p>
+      <p class="card__reply">Всё спокойно: 23°, движения не было, почта не накопилась.</p>
+    </article>
+    <article class="card card--daily">
+      <p class="card__tag">Напоминания</p>
+      <p class="card__quote">&laquo;Напомни забрать детей из школы в 15:30&raquo;</p>
+      <p class="card__reply">Напоминание поставлено на 15:15, чтобы успеть выехать.</p>
+    </article>
+  </div>
+  </div>
+</section>
+<section class="section section--stage" id="experience" aria-labelledby="experience-title">
+  <div class="shell">
+    <h2 class="section__title" id="experience-title">Как это выглядит вживую</h2>
+    <p class="section__lead">Демо занимает 20 минут. Сценарий, который мы показываем при клиенте:</p>
+    <div class="stage" data-scene>
+    <div class="stage__phrase">
+      <span class="stage__mic" aria-hidden="true"></span>
+      <p class="stage__quote">&laquo;Дом, приглуши свет в гостиной, включи музыку и закрой ворота&raquo;</p>
+    </div>
+    <ul class="stage__states">
+      <li class="stage__state" data-step="1"><span class="stage__label">Свет в гостиной</span><span class="stage__value">30%</span></li>
+      <li class="stage__state" data-step="2"><span class="stage__label">Музыка</span><span class="stage__value">вечерний плейлист</span></li>
+      <li class="stage__state" data-step="3"><span class="stage__label">Ворота</span><span class="stage__value">закрыты</span></li>
+    </ul>
+    <p class="stage__reply">Готово. Свет в гостиной 30%, вечерний плейлист, ворота закрыты.</p>
+    <div class="stage__foot">
+      <button class="btn btn--ghost btn--sm" type="button" data-scene-replay>Повторить сценарий</button>
+      <p class="stage__caption">Визуализация реакции дома. В демо те же команды выполняются на живом стенде Home Assistant.</p>
+    </div>
+  </div>
+  </div>
+</section>
+<section class="section section--proof" id="proof" aria-labelledby="proof-title">
+  <div class="shell">
+    <h2 class="section__title" id="proof-title">Mg Intelligence Home в деле</h2>
+    <p class="section__lead">Пилотная программа на Кипре: вот что можно увидеть уже сейчас.</p>
+    <div class="grid grid--3">
+    <article class="card card--proof">
+      <p class="card__tag card__tag--soon">В подготовке</p>
+      <h3>Видео 60-90 секунд</h3>
+      <p>Голос, память и управление домом в реальном сценарии. Публикуем по мере готовности материалов пилота.</p>
+      
+    </article>
+    <article class="card card--proof">
+      <p class="card__tag card__tag--soon">В подготовке</p>
+      <h3>Скриншоты ассистента</h3>
+      <p>Как выглядит диалог, память и настройки доступа в интерфейсе агента.</p>
+      
+    </article>
+    <article class="card card--proof">
+      <p class="card__tag card__tag--live">Доступно сейчас</p>
+      <h3>Голосовой сценарий выше</h3>
+      <p>Тот же диалог, что и в живом демо на этой странице - его можно посмотреть прямо сейчас.</p>
+      <a class="card__link" href="#experience">Смотреть сценарий &rarr;</a>
+    </article>
+  </div>
+  <p class="note">Кейсы и отзывы появятся после завершения пилотной программы на Кипре. Мы показываем то, что можем показать лично, и не публикуем неподтверждённые цифры.</p>
+  </div>
+</section>
+<section class="section section--now" id="now" aria-labelledby="now-title">
+  <div class="shell">
+    <h2 class="section__title" id="now-title">Что работает сейчас</h2>
+    <p class="section__lead">Только то, что мы показываем вживую и записываем в договор.</p>
+    <ul class="checklist">
+    <li>Голосовой диалог и текстовый чат с долговременной памятью</li>
+    <li>Профили членов семьи и разграничение доступа</li>
+    <li>Видео-аватар для встречи гостей и видеозвонков</li>
+    <li>Управление домом через интеграционный слой поверх существующей системы</li>
+    <li>Мультиязычные ответы в одном доме</li>
+    <li>Личные инструменты: напоминания, календарь, почта, документы - в соответствующих тарифах</li>
+  </ul>
+  <p class="note">Состав интеграций фиксируется на этапе обследования дома до подписания.</p>
+  </div>
+</section>
+<section class="section " id="usecases" aria-labelledby="usecases-title">
+  <div class="shell">
+    <h2 class="section__title" id="usecases-title">Для кого</h2>
+    
+    <div class="grid grid--3">
+    <article class="card"><p class="card__tag">Персональный агент</p><h3>Для себя</h3><p>Личный агент на вашем телефоне и ноутбуке: характер под вас, память, напоминания, задачи.</p></article>
+    <article class="card"><p class="card__tag">Вилла</p><h3>Для семьи и виллы</h3><p>Голос в каждой комнате, память о детях, пожилых родителях и персонале, запуск за 30-45 дней.</p></article>
+    <article class="card"><p class="card__tag">Офис</p><h3>Для офиса</h3><p>Ресепшен, переговорки, общая память о клиентах и ассистент для собственника.</p></article>
+    <article class="card"><p class="card__tag">Полный пакет</p><h3>Всё сразу</h3><p>Вилла, офис и личные агенты всей семьи, личный менеджер и оборудование в одной подписке.</p></article>
+    <article class="card"><p class="card__tag">Villa Concierge</p><h3>Консьерж для вилл в аренду</h3><p>Гость говорит с домом на своём языке, память о госте стирается после выезда.</p></article>
+  </div>
+  </div>
+</section>
+<section class="section section--pricing" id="pricing" aria-labelledby="pricing-title">
+  <div class="shell">
+    <h2 class="section__title" id="pricing-title">Тарифы</h2>
+    <p class="section__lead">Цены в евро, без НДС. Использование ИИ включено в тариф. При оплате за год 2 месяца в подарок.</p>
+    <div class="program-panel">
+      <p class="badge badge--program">Founding Home Program</p>
+      <p>Первые 3 виллы на Кипре участвуют в Founding Home Program: установка €8 900 вместо €12 900, прямой доступ к команде продукта и приоритет на новые интеграции - в обмен на участие в первом запуске и открытый отзыв.</p>
+    </div>
+  <div class="plans plans--ladder">
+    <article class="plan" id="plan-personal">
+      
+      <h3 class="plan__name">Персональный агент</h3>
+      <p class="plan__audience">Для одного человека, на ваших устройствах</p>
+      <p class="plan__price"><span class="plan__amount">€1 200</span> <span class="plan__unit">установка</span></p>
+      <p class="plan__price plan__price--monthly"><span class="plan__amount">€129</span> <span class="plan__unit">в месяц</span></p>
+      <ul class="plan__features">
+        <li>Агент на телефоне, ноутбуке и планшете</li>
+        <li>Характер под вас и долговременная память</li>
+        <li>Голос, напоминания в Telegram и WhatsApp</li>
+        <li>Календарь, личные задачи и черновики писем</li>
+        <li>30 дней сопровождения после настройки</li>
+      </ul>
+      <a class="btn btn--ghost btn--block" href="#contact" data-analytics="cta-plan-personal">Запросить демо дома</a>
+    </article>
+    <article class="plan plan--featured" id="plan-villa">
+      <p class="plan__badge">Главный тариф</p>
+      <h3 class="plan__name">Вилла</h3>
+      <p class="plan__audience">Вилла или дом семьи, с умным домом или без</p>
+      <p class="plan__price"><span class="plan__amount">€12 900</span> <span class="plan__unit">установка</span><span class="plan__note">Founding Home Program: €8 900</span></p>
+      <p class="plan__price plan__price--monthly"><span class="plan__amount">€490</span> <span class="plan__unit">в месяц</span></p>
+      <ul class="plan__features">
+        <li>Агент поверх умного дома: Home Assistant, KNX, Control4, Crestron через интеграционный слой</li>
+        <li>Нет умного дома? Колонки или экран по себестоимости (~€300-€600)</li>
+        <li>2-4 голосовые точки, мультирум, аватар на ТВ, 4 языка</li>
+        <li>Память о каждом: дети, пожилые родители, персонал, гости</li>
+        <li>Поддержка команды Mg и регулярные обновления</li>
+        <li>Запуск 30-45 дней</li>
+        <li>Гарантия возврата 45 дней, если согласованное решение не работает</li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#contact" data-analytics="cta-plan-villa">Запросить демо дома</a>
+    </article>
+    <article class="plan" id="plan-office">
+      
+      <h3 class="plan__name">Офис</h3>
+      <p class="plan__audience">Офис на 10-50 человек</p>
+      <p class="plan__price"><span class="plan__amount">от €9 900</span> <span class="plan__unit">установка</span></p>
+      <p class="plan__price plan__price--monthly"><span class="plan__amount">€990 / €1 490</span> <span class="plan__unit">в месяц</span><span class="plan__note">до 20 / до 50 человек</span></p>
+      <ul class="plan__features">
+        <li>Голос на ресепшене и в переговорках</li>
+        <li>Общая память о клиентах, сотрудниках и договорённостях</li>
+        <li>Почта, календарь, Telegram и WhatsApp</li>
+        <li>Бизнес-ассистент для собственника: задачи, письма, документы</li>
+        <li>RU, EN, GR и другие языки</li>
+        <li>Свет, климат и доступ через существующие системы офиса</li>
+      </ul>
+      <a class="btn btn--ghost btn--block" href="#contact" data-analytics="cta-plan-office">Запросить демо дома</a>
+    </article>
+    <article class="plan" id="plan-full">
+      
+      <h3 class="plan__name">Полный пакет</h3>
+      <p class="plan__audience">Семья с несколькими домами, офисом и персоналом</p>
+      <p class="plan__price"><span class="plan__amount">от €29 000</span> <span class="plan__unit">установка</span></p>
+      <p class="plan__price plan__price--monthly"><span class="plan__amount">от €3 500</span> <span class="plan__unit">в месяц</span></p>
+      <ul class="plan__features">
+        <li>Вилла, офис и персональные агенты для каждого члена семьи</li>
+        <li>Оборудование включено</li>
+        <li>Личный менеджер Mg и приоритетная поддержка</li>
+        <li>Несколько домов и переезды между странами</li>
+        <li>Работа с персоналом, охраной и консьерж-сервисами</li>
+        <li>Точная цена после аудита домов и семьи</li>
+      </ul>
+      <a class="btn btn--ghost btn--block" href="#contact" data-analytics="cta-plan-full">Запросить демо дома</a>
+    </article>
+  </div>
+  <article class="plan-extra" id="plan-concierge">
+      <div class="plan-extra__head">
+        <h3 class="plan__name">Villa Concierge</h3>
+        <p class="plan__audience">Для операторов аренды вилл</p>
+      </div>
+      <p class="plan-extra__prices"><span class="plan__amount">€190</span> <span class="plan__unit">установка</span><span class="plan__note">за виллу</span><br><span class="plan__amount">€119</span> <span class="plan__unit">в месяц</span><span class="plan__note">за виллу, от 5 вилл</span></p>
+      <p class="plan-extra__features">Голос и экран в вилле · Язык гостя · Знание дома и окрестностей · Память о госте стирается после выезда</p>
+      <a class="btn btn--ghost btn--sm" href="#contact" data-analytics="cta-plan-concierge">Запросить демо дома</a>
+    </article>
+  <div class="usage">
+      <h3>Использование ИИ включено в тариф</h3>
+      <p>Отдельного счёта за ИИ нет. Голос и переписка без ограничений. Лимит есть только у видео-дворецкого (аватар на экране):</p>
+      <table class="usage__table">
+        <caption class="visually-hidden">Использование ИИ включено в тариф</caption>
+        <tbody>
+          <tr><th scope="row">Персональный агент</th><td>видео до 10 минут в день</td></tr>
+          <tr><th scope="row">Вилла</th><td>видео до 30 минут в день на семью</td></tr>
+          <tr><th scope="row">Офис</th><td>видео до 60 минут в день на офис</td></tr>
+          <tr><th scope="row">Полный пакет</th><td>видео без счётчика</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Если видео-лимит регулярно превышается, предупредим заранее и предложим следующий тариф. Внезапных счетов не будет.</p>
     </div>
   </div>
 </section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Узнаёте?</div>
-    <h2>Умный дом стоит как автомобиль. Пользуются им как выключателем.</h2>
-    <div class="pain">
-      <div><div class="n">€30-120K</div><h3>Стоит автоматика виллы</h3><p>KNX, Control4, Crestron. Свет, климат, шторы, аудио, камеры. Деньги потрачены.</p></div>
-      <div><div class="n">4+</div><h3>Приложения на телефоне</h3><p>Отдельно свет, отдельно климат, отдельно камеры и музыка. Жена и дети не пользуются ни одним.</p></div>
-      <div><div class="n">0</div><h3>Знаний о вашей семье</h3><p>Дом не помнит, кто когда встаёт, что любит и о чём вы просили вчера. Сценарии пишет интегратор раз в год.</p></div>
-    </div>
+<section class="section " id="integrations" aria-labelledby="integrations-title">
+  <div class="shell">
+    <h2 class="section__title" id="integrations-title">Интеграции</h2>
+    <p class="section__lead">Mg Intelligence Home работает поверх существующей smart-home инфраструктуры через интеграционный слой. Точный список сценариев подтверждается при обследовании дома.</p>
+    <ul class="logos">
+    <li class="logos__item">Home Assistant</li>
+    <li class="logos__item">KNX</li>
+    <li class="logos__item">Control4</li>
+    <li class="logos__item">Crestron</li>
+  </ul>
+  <p class="note">Мы не заявляем нативную сертифицированную интеграцию с этими системами: связь идёт через интеграционный слой и проверяется на вашем оборудовании до подписания.</p>
   </div>
 </section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Что меняется</div>
-    <h2>Одна фраза вместо трёх приложений</h2>
-    <div class="compare">
-      <div class="col">
-        <h3>Сейчас</h3>
-        <ul>
-          <li>Ищете нужное приложение, чтобы включить свет на террасе</li>
-          <li>Сценарий «вечер» один на всех, поменять может только интегратор</li>
-          <li>Кто у ворот - открываете камеру и смотрите сами</li>
-          <li>Уезжаете - вспоминаете, что выключить и что оставить</li>
-          <li>Родители и дети не справляются с управлением</li>
-        </ul>
-      </div>
-      <div class="col good">
-        <h3>С Mg SHome</h3>
-        <ul>
-          <li>«Ужинаем на террасе» - свет, музыка и подогрев бассейна сразу</li>
-          <li>Сценарии под каждого члена семьи, меняются словами</li>
-          <li>«Кто у ворот?» - «техник по бассейну, он по четвергам. Открыть?»</li>
-          <li>«Улетаем в пятницу» - режим отъезда готов, полив работает</li>
-          <li>Говорит с каждым на его языке, спокойно и без меню</li>
-        </ul>
-      </div>
-    </div>
+<section class="section " id="privacy" aria-labelledby="privacy-title">
+  <div class="shell">
+    <h2 class="section__title" id="privacy-title">Ваши данные дома остаются приватными</h2>
+    <p class="section__lead">Мы отделяем ИИ-слой от вашей физической системы и от данных других клиентов. Вот как именно.</p>
+    <div class="grid grid--2">
+    <article class="card card--quiet"><h3>Инфраструктура в ЕС</h3><p>Где применимо, данные обрабатываются и хранятся на серверах в ЕС.</p></article>
+    <article class="card card--quiet"><h3>Права доступа</h3><p>Роли для членов семьи, персонала и гостей: у каждого свой уровень доступа к дому и данным.</p></article>
+    <article class="card card--quiet"><h3>Журнал действий</h3><p>Каждое действие агента в доме фиксируется в журнале, доступном вам.</p></article>
+    <article class="card card--quiet"><h3>PIN для чувствительных действий</h3><p>Открыть ворота, отключить сигнализацию или изменить настройки безопасности - только после PIN-подтверждения.</p></article>
+    <article class="card card--quiet"><h3>Удаление памяти</h3><p>Вы можете попросить агента забыть конкретного человека, разговор или весь дом целиком.</p></article>
+    <article class="card card--quiet"><h3>Обработка аудио</h3><p>Голос обрабатывается для ответа и, при вашем согласии, для улучшения памяти. Сырые записи не продаются и не используются для рекламы.</p></article>
+    <article class="card card--quiet"><h3>Раскрытие роли ИИ</h3><p>Агент сообщает, что он ИИ, а не человек, когда это уместно - гостям, персоналу, по телефону.</p></article>
+    <article class="card card--quiet"><h3>Архитектура с оглядкой на GDPR</h3><p>Изоляция данных клиента, минимизация данных и право на удаление заложены в архитектуру с самого начала.</p></article>
+  </div>
+  <p class="note">Мы не заявляем сертификаций, которых у нас нет. GDPR-ориентированная архитектура - это принцип проектирования, а не юридическое заключение.</p>
   </div>
 </section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Как это происходит</div>
-    <h2>От демо до живого дома за 30-45 дней</h2>
-    <div class="steps">
-      <div class="step"><span class="when">День 1 · 25 минут</span><h3>Живое демо</h3><p>ИИ сам представится, запустит сцену на настоящей системе и ответит на ваши вопросы. У вас дома, в офисе или в Zoom.</p></div>
-      <div class="step"><span class="when">Неделя 1-2</span><h3>Подключаем ваш дом</h3><p>Работаем вместе с интегратором, который ставил систему. Он открывает доступ, мы подключаем Mg SHome. Проводку и железо не трогаем.</p></div>
-      <div class="step"><span class="when">Неделя 3-6</span><h3>Он узнаёт вашу семью</h3><p>Комнаты, привычки, имена, правила. Две недели настройки вместе с вами, дальше он ваш.</p></div>
-    </div>
+<section class="section section--vision" id="vision" aria-labelledby="vision-title">
+  <div class="shell">
+    <p class="badge badge--vision">Видение, не текущий продукт</p>
+    <h2 class="section__title" id="vision-title">Видение 2027</h2>
+    <p class="section__lead">Память и личность живут отдельно от устройства. Это архитектурное решение, а не обещание сроков.</p>
+    <ul class="checklist checklist--vision">
+    <li>Та же память и та же личность позже могут переноситься в физические воплощения, включая роботов-компаньонов</li>
+    <li>Дом, который заботится о пожилых родителях и о тех, кто живёт один</li>
+    <li>Агент, который сопровождает семью между домами и странами</li>
+  </ul>
+  <p class="note">Ничего из этого раздела не входит в договор и не продаётся сегодня.</p>
   </div>
 </section>
-
-<section class="dark" id="offer">
-  <div class="wrap">
-    <div class="eyebrow">Дом основателя</div>
-    <div class="offer">
-      <div>
-        <h2>Первые пять домов на Кипре - по цене основателя</h2>
-        <p class="muted" style="margin-top:18px">Мы запускаем Mg SHome в пяти виллах этого сезона. Для них цена почти вдвое ниже и гарантия возврата. Дальше только по полной цене.</p>
-        <ul class="incl">
-          <li>Личный ИИ поверх вашей системы: KNX, Control4, Crestron, Home Assistant</li>
-          <li>Память о каждом члене семьи: привычки, расписание, напоминания</li>
-          <li>2-4 голосовые точки в доме, мультирум</li>
-          <li>Живой видео-аватар на главном экране</li>
-          <li>Русский, английский, иврит, греческий</li>
-          <li>3 месяца сопровождения включены</li>
-        </ul>
-      </div>
-      <div class="price-card">
-        <span class="tag">Дом основателя · сезон 2026</span>
-        <div class="amt">€6,900<sup><a href="#tokens" aria-label="Сноска про токены ИИ">*</a></sup></div>
-        <div><span class="was">€12,900</span> <span class="muted">после первых пяти домов</span></div>
-        <div class="sub">Сопровождение €390/мес с 4-го месяца</div>
-        <div class="seats" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="seats-l">Свободно 5 из 5 мест</div>
-        <a class="btn accent" href="#demo">Забронировать демо <span class="arr">→</span></a>
-        <div class="guarantee"><div class="g">45</div><p><b>Гарантия возврата.</b> Если за 45 дней после старта Mg SHome не заработал в вашем доме так, как показали на демо, возвращаем 100% оплаты.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Частые вопросы</div>
-    <h2>Что обычно спрашивают на демо</h2>
+<section class="section " id="faq" aria-labelledby="faq-title">
+  <div class="shell">
+    <h2 class="section__title" id="faq-title">Вопросы</h2>
+    
     <div class="faq">
-      <details><summary>Он подслушивает мою семью?</summary><p>Нет. Он просыпается на своё имя, сырой звук не хранится. Память хранится фактами, а не записями, на серверах в ЕС. Фраза «забудь это» удаляет запись. Нас делает команда Mg Accounting: мы ведём компании, налоги и GDPR для тех самых семей, что живут в этих виллах.</p></details>
-      <details><summary>У меня уже есть Control4 или Alexa. Зачем ещё?</summary><p>Мы не заменяем вашу систему, а садимся сверху. Alexa выполняет команды, но не помнит вашу семью и плохо понимает русский. Разница видна за первые 5 минут демо.</p></details>
-      <details><summary>А замки и ворота? Это безопасно?</summary><p>Ворота и двери открываются только голосом и PIN-кодом. Кто что может, решаете вы. Каждое действие ИИ записывается в журнал, который вы можете прочитать.</p></details>
-      <details><summary>Нужно менять оборудование или делать ремонт?</summary><p>Нет. Мы подключаемся к тому, что уже стоит, через вашего интегратора. Если нужны дополнительные колонки или экран, подскажем и посчитаем отдельно.</p></details>
-      <details><summary>Почему так дёшево для первых?</summary><p>Нам нужны первые пять домов на Кипре, которые покажут продукт другим. За это вы получаете цену основателя и гарантию возврата. После пятого дома цена €12,900.</p></details>
-      <details><summary>Он знает, что он ИИ?</summary><p>Да, и всегда об этом говорит. Это требование европейского закона об ИИ и наше правило.</p></details>
-    </div>
+    <details class="faq__item"><summary>Нужно ли менять умный дом?</summary><div class="faq__answer"><p>Нет. Mg Intelligence Home работает поверх того, что уже установлено, через интеграционный слой - мы не пересобираем вашу систему. Иногда нужны микрофон, колонка или экран, если их ещё нет. Если умного дома нет вовсе, в тариф «Вилла» входят колонки или экран по себестоимости.</p></div></details>
+    <details class="faq__item"><summary>Сколько стоит использование ИИ?</summary><div class="faq__answer"><p>Оно уже включено в тариф. Голос и переписка без ограничений. Лимит есть только у видео-дворецкого: у персонального агента до 10 минут видео в день, у виллы до 30 минут, у офиса до 60 минут, в полном пакете счётчика нет. Если видео-лимит регулярно превышается, предупредим заранее и предложим следующий тариф.</p></div></details>
+    <details class="faq__item"><summary>Что если решение не подойдёт?</summary><div class="faq__answer"><p>В тарифе «Вилла» действует гарантия возврата 45 дней, если согласованное решение не работает.</p></div></details>
+    <details class="faq__item"><summary>Сколько занимает запуск?</summary><div class="faq__answer"><p>Вилла - 30-45 дней от подписания до работающего дома. Сроки для офиса и полного пакета называем после аудита.</p></div></details>
+    <details class="faq__item"><summary>На каких языках говорит агент?</summary><div class="faq__answer"><p>В доме одновременно поддерживается несколько языков: семья, персонал и гости общаются каждый на своём.</p></div></details>
+    <details class="faq__item"><summary>Чем Founding Home Program отличается от обычного тарифа?</summary><div class="faq__answer"><p>Это не распродажа: первые 3 виллы на Кипре получают установку за €8 900 вместо €12 900, прямой доступ к команде продукта и приоритет на новые интеграции. Взамен - участие в первом запуске и открытый отзыв.</p></div></details>
+    <details class="faq__item"><summary>Есть ли скидка при оплате за год?</summary><div class="faq__answer"><p>Да: при оплате абонентки за год 2 месяца в подарок.</p></div></details>
+  </div>
   </div>
 </section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Не владелец виллы?</div>
-    <h2>Mg SHome для бизнеса</h2>
-    <div class="others">
-      <div class="other"><span class="p">от €19,900 за шоу-виллу</span><h3>Застройщикам</h3><p>ИИ-консьерж в шоу-вилле встречает покупателя по имени, на его языке, и рассказывает про виллу, ВНЖ и содержание дома. Опция «каждая вилла с личным ИИ» в вашем прайсе.</p></div>
-      <div class="other"><span class="p">€119 в месяц за виллу</span><h3>Аренде вилл</h3><p>Консьерж прямо в вилле: язык гостя, знание дома, ответы про кондиционер, бассейн и ворота вместо вашего WhatsApp. Память стирается после выезда.</p></div>
+<section class="section section--contact" id="contact" aria-labelledby="contact-title">
+  <div class="shell">
+    <h2 class="section__title" id="contact-title">Запросить демо дома</h2>
+    <p class="section__lead">Двадцать минут: агент знакомится, помнит вас через пять минут и управляет домом на стенде. Дальше - смета по вашему объекту.</p>
+    <form class="form" data-demo-form novalidate>
+    <div class="form__row">
+      <label class="field"><span>Имя</span><input type="text" name="name" autocomplete="name" required></label>
+      <label class="field"><span>Телефон или email</span><input type="text" name="contact" autocomplete="email" required></label>
     </div>
+    <label class="field"><span>Объект (квартира, вилла)</span><input type="text" name="object" autocomplete="off"></label>
+    <label class="field"><span>Что хотите увидеть</span><textarea name="message" rows="3"></textarea></label>
+    <button class="btn btn--primary btn--block" type="submit" data-analytics="cta-form">Запросить демо дома</button>
+    <p class="form__consent">Отправляя форму, вы соглашаетесь на обработку контактных данных для ответа на заявку.</p>
+    <p class="form__status" data-form-status role="status" aria-live="polite"></p>
+  </form>
+  <p class="note">Или напишите напрямую: <a href="mailto:info@maizongroup.com" data-analytics="cta-email">info@maizongroup.com</a></p>
   </div>
 </section>
-
-<section id="demo">
-  <div class="wrap final">
-    <div>
-      <div class="eyebrow">Живое демо</div>
-      <h2>Посмотрите, как ваш дом заговорит</h2>
-      <p class="muted" style="margin-top:18px">25 минут. ИИ сам представится, запустит сцену на настоящей системе и ответит на вопросы. Решение принимаете после.</p>
-      <div class="chips" style="margin-top:22px"><span class="chip"><b>5</b> мест по цене основателя</span><span class="chip"><b>45 дней</b> гарантия</span></div>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    <p class="site-footer__tagline">Mg Intelligence Home - персональный ИИ-агент для дома, семьи и бизнеса.</p>
+    <p class="note">Цены указаны в евро без НДС. Использование ИИ включено в тариф, голос без ограничений.</p>
+    <div class="footer-eco">
+      <span class="footer-eco__label">Mg Intelligence Home для:</span>
+      <span class="footer-eco__item footer-eco__item--current" aria-current="page">Владельцам вилл</span>
+      <a class="footer-eco__item" href="/shome/developers/">Застройщикам</a>
+      <a class="footer-eco__item" href="/shome/integrators/">Интеграторам</a>
+      <a class="footer-eco__item" href="/shome/partners/">Партнёрам</a>
     </div>
-    <form id="demo-form" novalidate>
-      <label for="f-name">Имя<input id="f-name" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
-      <label for="f-contact">Телефон или Telegram<input id="f-contact" name="contact" placeholder="+357 … или @username"></label>
-      <label for="f-who">Что вас интересует
-        <select id="f-who" name="who"><option>Моя вилла</option><option>Шоу-вилла застройщика</option><option>Аренда вилл</option><option>Партнёрство (интегратор)</option></select>
-      </label>
-      <label for="f-sys">Какая система стоит
-        <select id="f-sys" name="sys"><option>KNX</option><option>Control4</option><option>Crestron</option><option>Savant / Loxone</option><option>Home Assistant</option><option>Не знаю / строюсь</option></select>
-      </label>
-      <button class="btn" type="submit">Записаться на демо <span class="arr">→</span></button>
-      <p class="form-note">Предварительная версия сайта. Форма не передаёт данные.</p>
-      <p class="ok" id="f-ok" hidden>Спасибо. Это предварительная версия сайта, заявки пока не отправляются.</p>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span id="tokens">* Расходы на токены ИИ оплачиваются клиентом отдельно. Внешние подписки и видео-аватар согласуются отдельно. Цены предварительные, без НДС.</span>
-    <span>Mg SHome · Пафос, Кипр · команда Mg Accounting · <a href="https://audit.maizongroup.com/home/">подробнее о продукте</a></span>
+    <p class="site-footer__rights">&copy; 2026 Mg Intelligence Home</p>
   </div>
 </footer>
-
-<div class="sticky"><span class="t"><b>€6,900</b> вместо €12,900<br>5 мест · гарантия 45 дней</span><a class="btn accent" href="#demo">Демо →</a></div>
-
-<script>
-document.getElementById('demo-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.getElementById('f-ok').hidden = false;
-});
-</script>
+<div class="sticky-cta" data-sticky-cta>
+  <a class="btn btn--primary btn--block" href="#contact" data-analytics="cta-sticky">Запросить демо дома</a>
+</div>
+<script src="/shome/assets/app.js" defer></script>
 </body>
 </html>
