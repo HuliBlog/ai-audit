@@ -105,6 +105,7 @@ p { margin: 0 0 14px; }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .brand__muted { color: var(--muted); font-weight: 500; }
+.nocaps { text-transform: none; }
 .site-nav { display: none; gap: 22px; margin-left: auto; font-size: 14px; color: var(--muted); }
 .site-nav a { text-decoration: none; transition: color 0.2s var(--ease); }
 .site-nav a:hover { color: var(--text); }
@@ -147,7 +148,7 @@ p { margin: 0 0 14px; }
 
 /* ---------- buttons ---------- */
 .btn {
-  display: inline-flex; align-items: center; justify-content: center;
+  display: inline-block; text-align: center; vertical-align: middle; line-height: 1.35;
   padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 15px;
   text-decoration: none; border: 1px solid transparent; cursor: pointer;
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
@@ -500,7 +501,7 @@ p { margin: 0 0 14px; }
 @media (min-width: 900px) {
   body { padding-bottom: 0; font-size: 17px; }
   .site-nav { display: flex; }
-  .site-header__actions .btn { display: inline-flex; }
+  .site-header__actions .btn { display: inline-block; }
   .hero { padding: 110px 0 90px; }
   .hero__inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; align-items: center; }
   .hero__panel {
