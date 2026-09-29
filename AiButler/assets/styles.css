@@ -207,7 +207,7 @@ p { margin: 0 0 14px; }
   animation: pulse 2.4s infinite;
 }
 .hero__panel-title {
-  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted);
 }
 .hero__panel-status {
   margin-left: auto; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
