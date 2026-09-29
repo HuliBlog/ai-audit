@@ -1,5 +1,5 @@
 /* Mg Intelligence Home - минимальный клиентский слой для всей экосистемы (главная + 3 B2B-страницы):
-   sticky CTA, reveal, демо-сцена, форма, hero-сеть.
+   sticky CTA, демо-сцена, форма, hero-сеть.
    Ключей и токенов здесь нет: аналитика подключается позже через window.mgShomeAnalytics. */
 (function () {
   'use strict';
@@ -34,26 +34,6 @@
       },
       { rootMargin: '-40% 0px 0px 0px' }
     ).observe(hero);
-  }
-
-  /* --- reveal on scroll --- */
-  var revealTargets = document.querySelectorAll('.section, .hero__points, .plan');
-  Array.prototype.forEach.call(revealTargets, function (el) { el.setAttribute('data-reveal', ''); });
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    Array.prototype.forEach.call(revealTargets, function (el) { io.observe(el); });
-  } else {
-    Array.prototype.forEach.call(revealTargets, function (el) { el.classList.add('is-in'); });
   }
 
   /* --- live demo scene --- */
