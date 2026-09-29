@@ -1,6 +1,6 @@
 /* Mg Intelligence Home - минимальный клиентский слой для всей экосистемы (главная + 3 B2B-страницы):
    sticky CTA, демо-сцена, форма, hero-сеть.
-   Ключей и токенов здесь нет: аналитика подключается позже через window.mgShomeAnalytics. */
+   Ключей и токенов здесь нет: аналитика подключается позже через window.mgAiButlerAnalytics. */
 (function () {
   'use strict';
 
@@ -9,7 +9,7 @@
 
   /* --- analytics hook (placeholder, реальный провайдер подключается при деплое) --- */
   function track(event, payload) {
-    var sink = window.mgShomeAnalytics;
+    var sink = window.mgAiButlerAnalytics;
     if (typeof sink === 'function') {
       try { sink(event, payload || {}); } catch (e) { /* аналитика не должна ломать страницу */ }
     }
@@ -17,7 +17,7 @@
       Object.assign({ event: event }, payload || {})
     );
   }
-  window.mgShomeTrack = track;
+  window.mgAiButlerTrack = track;
 
   document.addEventListener('click', function (e) {
     var el = e.target.closest('[data-analytics]');
