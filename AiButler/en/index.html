@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#f6f9fc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/AiButler/assets/styles.css">
 </head>
 <body>
@@ -61,9 +61,7 @@
 </nav>
 <main id="main">
 <section class="hero" id="top">
-  <canvas class="hero__net" data-hero-net aria-hidden="true"></canvas>
   <div class="hero__glow" aria-hidden="true"></div>
-  <div class="hero__grid" aria-hidden="true"></div>
   <div class="shell hero__inner">
     <div class="hero__copy">
       <p class="eyebrow">Cyprus - pilot program</p>
@@ -250,7 +248,7 @@
       <rect class="illu-bar" style="animation-delay:0.00s" x="402" y="248" width="6" height="10" rx="3" fill="#5eead4"/><rect class="illu-bar" style="animation-delay:0.12s" x="414" y="242" width="6" height="22" rx="3" fill="#5eead4"/><rect class="illu-bar" style="animation-delay:0.24s" x="426" y="236" width="6" height="34" rx="3" fill="#5eead4"/><rect class="illu-bar" style="animation-delay:0.36s" x="438" y="244" width="6" height="18" rx="3" fill="#5eead4"/><rect class="illu-bar" style="animation-delay:0.48s" x="450" y="239" width="6" height="28" rx="3" fill="#5eead4"/><rect class="illu-bar" style="animation-delay:0.60s" x="462" y="246" width="6" height="14" rx="3" fill="#5eead4"/><rect class="illu-bar" style="animation-delay:0.72s" x="474" y="241" width="6" height="24" rx="3" fill="#5eead4"/>
       <rect x="436" y="70" width="62" height="20" rx="10" fill="#2dd4bf" opacity="0.22"/>
       <circle cx="448" cy="80" r="3.5" fill="#5eead4"/>
-      <text x="456" y="84" font-family="JetBrains Mono, monospace" font-size="10" fill="#b8fff3">online</text>
+      <text x="456" y="84" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#b8fff3">online</text>
     </g>
     <rect x="300" y="282" width="40" height="18" fill="#c9d2e1"/>
     <rect x="150" y="300" width="340" height="30" rx="8" fill="#ffffff" stroke="#dfe5ef"/>
@@ -343,7 +341,7 @@
     <p class="stage__reply">Done. Living room at 30%, evening playlist on, gates closed.</p>
     <div class="stage__foot">
       <button class="btn btn--ghost btn--sm" type="button" data-scene-replay>Replay the scene</button>
-      <p class="stage__caption">A visualisation of the response. In the demo the same commands run on a live Home Assistant rig.</p>
+      <p class="stage__caption">In the demo the same commands run on a live Home Assistant rig.</p>
     </div>
   </div>
   </div>
@@ -506,7 +504,7 @@
     <li class="logos__item">Control4</li>
     <li class="logos__item">Crestron</li>
   </ul>
-  <p class="note">We do not claim certified native integration with these systems: the link goes through an integration layer and is verified on your hardware before signing.</p>
+  <p class="note">We confirm the list of scenarios on your system before signing.</p>
   </div>
 </section>
 <section class="section " id="privacy" aria-labelledby="privacy-title">
@@ -523,7 +521,24 @@
     <article class="card card--quiet"><h3>AI disclosure</h3><p>The butler discloses that it is AI, not a person, when it is relevant - to guests, staff, on the phone.</p></article>
     <article class="card card--quiet"><h3>GDPR-oriented architecture</h3><p>Client data isolation, data minimisation and the right to delete are built into the architecture from the start.</p></article>
   </div>
-  <p class="note">We do not claim certifications we do not hold. A GDPR-oriented architecture is a design principle, not a legal opinion.</p>
+  
+  </div>
+</section>
+<section class="section " id="faq" aria-labelledby="faq-title">
+  <div class="shell">
+    <h2 class="section__title" id="faq-title">FAQ</h2>
+    
+    <div class="faq">
+    <details class="faq__item"><summary>Do I need to replace my smart home?</summary><div class="faq__answer"><p>No. <span class="nocaps">Mg Intelligence Home</span> runs on top of what is already installed, through an integration layer - we do not rebuild your system.</p></div></details>
+    <details class="faq__item"><summary>Do you sell devices?</summary><div class="faq__answer"><p>No. We sell the AI butler, setup on your system, onboarding, support and updates. Devices and installation stay with you and your integrator: during the survey we tell you what already works.</p></div></details>
+    <details class="faq__item"><summary>How much does AI usage cost?</summary><div class="faq__answer"><p>It is already included in the plan. Voice and chat are unlimited. Only the video butler has a limit: up to 30 minutes of video a day for the villa, 60 for the office, 90 for Villa + Office, and no meter in the full package. If the video limit is regularly exceeded, we warn you in advance and suggest the next plan.</p></div></details>
+    <details class="faq__item"><summary>How long is the launch?</summary><div class="faq__answer"><p>A villa takes 30-45 days from signing to a working home. For the office and the full package we give the timeline after the audit.</p></div></details>
+    <details class="faq__item"><summary>Is Alex a man or a woman?</summary><div class="faq__answer"><p>Your call. Alex works as a name for both: you pick a male or female voice and avatar look during setup.</p></div></details>
+    <details class="faq__item"><summary>Which languages are supported?</summary><div class="faq__answer"><p>Several languages work inside one house at the same time: family, staff and guests each get their own.</p></div></details>
+    <details class="faq__item"><summary>How is the Founding Home Program different from a regular plan?</summary><div class="faq__answer"><p>It is not a clearance sale: the first 5 clients get 30% off a package, direct access to the product team and priority on new integrations. In return they take part in the initial rollout and give an open testimonial.</p></div></details>
+    <details class="faq__item"><summary>What is not part of the product today?</summary><div class="faq__answer"><p>Integration with KNX, Control4 and Crestron is not native or certified: the link goes through an integration layer and is verified on your system before signing. We hold no data-protection certifications yet; a GDPR-oriented architecture is a design principle, not a legal opinion. The Vision 2027 section is a direction of development, not something we sell today.</p></div></details>
+    <details class="faq__item"><summary>Is there a discount for paying annually?</summary><div class="faq__answer"><p>Yes: pay for support a year ahead and get 2 months free.</p></div></details>
+  </div>
   </div>
 </section>
 <section class="section section--vision" id="vision" aria-labelledby="vision-title">
@@ -537,7 +552,7 @@
     <li>A home that looks after elderly parents and people who live alone</li>
     <li>A butler that follows the family between homes and countries</li>
   </ul>
-  <p class="note">Nothing in this section is part of a contract or on sale today.</p>
+  
     </div>
     <figure class="vision__art">
       <svg class="illu illu--holo" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-illu="holo">
@@ -569,24 +584,8 @@
     <g class="illu-float" style="animation-delay:0.0s"><rect x="36" y="112" width="183" height="34" rx="17" fill="#ffffff" opacity="0.9" stroke="#e1e6f2"/><circle cx="54" cy="129" r="4" fill="#2dd4bf"/><text x="66" y="134" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="600" fill="#0b1324">Good night, Sophie</text></g><g class="illu-float" style="animation-delay:0.8s"><rect x="404" y="168" width="190" height="34" rx="17" fill="#ffffff" opacity="0.9" stroke="#e1e6f2"/><circle cx="422" cy="185" r="4" fill="#2dd4bf"/><text x="434" y="190" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="600" fill="#0b1324">Medication at 18:00</text></g><g class="illu-float" style="animation-delay:1.6s"><rect x="52" y="262" width="150" height="34" rx="17" fill="#ffffff" opacity="0.9" stroke="#e1e6f2"/><circle cx="70" cy="279" r="4" fill="#2dd4bf"/><text x="82" y="284" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="600" fill="#0b1324">Gates closed</text></g>
   </g>
 </svg>
-      <figcaption class="showcase__caption">Vision: a holographic butler instead of a screen. Not on sale today.</figcaption>
+      <figcaption class="showcase__caption">Vision: a holographic butler instead of a screen.</figcaption>
     </figure>
-  </div>
-</section>
-<section class="section " id="faq" aria-labelledby="faq-title">
-  <div class="shell">
-    <h2 class="section__title" id="faq-title">FAQ</h2>
-    
-    <div class="faq">
-    <details class="faq__item"><summary>Do I need to replace my smart home?</summary><div class="faq__answer"><p>No. <span class="nocaps">Mg Intelligence Home</span> runs on top of what is already installed, through an integration layer - we do not rebuild your system.</p></div></details>
-    <details class="faq__item"><summary>Do you sell devices?</summary><div class="faq__answer"><p>No. We sell the AI butler, setup on your system, onboarding, support and updates. Devices and installation stay with you and your integrator: during the survey we tell you what already works.</p></div></details>
-    <details class="faq__item"><summary>How much does AI usage cost?</summary><div class="faq__answer"><p>It is already included in the plan. Voice and chat are unlimited. Only the video butler has a limit: up to 30 minutes of video a day for the villa, 60 for the office, 90 for Villa + Office, and no meter in the full package. If the video limit is regularly exceeded, we warn you in advance and suggest the next plan.</p></div></details>
-    <details class="faq__item"><summary>How long is the launch?</summary><div class="faq__answer"><p>A villa takes 30-45 days from signing to a working home. For the office and the full package we give the timeline after the audit.</p></div></details>
-    <details class="faq__item"><summary>Is Alex a man or a woman?</summary><div class="faq__answer"><p>Your call. Alex works as a name for both: you pick a male or female voice and avatar look during setup.</p></div></details>
-    <details class="faq__item"><summary>Which languages are supported?</summary><div class="faq__answer"><p>Several languages work inside one house at the same time: family, staff and guests each get their own.</p></div></details>
-    <details class="faq__item"><summary>How is the Founding Home Program different from a regular plan?</summary><div class="faq__answer"><p>It is not a clearance sale: the first 5 clients get 30% off a package, direct access to the product team and priority on new integrations. In return they take part in the initial rollout and give an open testimonial.</p></div></details>
-    <details class="faq__item"><summary>Is there a discount for paying annually?</summary><div class="faq__answer"><p>Yes: pay for support a year ahead and get 2 months free.</p></div></details>
-  </div>
   </div>
 </section>
 <section class="cta-band" aria-labelledby="cta-band-title">
