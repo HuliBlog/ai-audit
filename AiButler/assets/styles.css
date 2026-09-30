@@ -299,6 +299,12 @@ p { margin: 0 0 14px; }
 
 /* ---------- live stage ---------- */
 .section--stage { background: linear-gradient(180deg, rgba(255,255,255,0.55), transparent); }
+.film { margin: 0 0 28px; }
+.film__video {
+  display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #0f172a;
+  box-shadow: var(--shadow-lift);
+}
+.film__caption { margin-top: 10px; font-size: 13px; color: var(--muted); }
 .stage {
   border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 28px; padding: 26px; box-shadow: var(--shadow-lift);
   background: radial-gradient(600px 240px at 20% 0%, var(--accent-soft), transparent 70%), var(--panel-strong);
