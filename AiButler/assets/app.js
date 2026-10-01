@@ -127,4 +127,16 @@
       }
     });
   }
+  /* --- светлая / тёмная тема: тёмная по умолчанию, выбор запоминается --- */
+  var themeBtn = document.querySelectorAll('[data-theme-toggle]');
+  Array.prototype.forEach.call(themeBtn, function (btn) {
+    btn.addEventListener('click', function () {
+      var root = document.documentElement;
+      var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('mg-theme', next); } catch (e) {}
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', next === 'light' ? '#f4f7fb' : '#060912');
+    });
+  });
 })();
