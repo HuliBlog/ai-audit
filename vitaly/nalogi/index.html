@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://audit.maizongroup.com/vitaly/nalogi/">
 <meta property="og:title" content="Mg · Налоговое заключение и предложение по ООО в Грузии">
-<meta property="og:description" content="Как сейчас и как будет с ООО, риски прошлого, сравнение вариантов, НДС, команда, структура ООО, сроки и стоимость. 9 страниц, PDF внутри.">
+<meta property="og:description" content="Как сейчас и как будет с ООО, риски прошлого, сравнение вариантов, вариант с ООО на гражданине Грузии, НДС, команда, структура ООО, сроки и стоимость. 10 страниц, PDF внутри.">
 <meta property="og:image" content="https://audit.maizongroup.com/vitaly/nalogi/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -164,17 +164,94 @@
     .page{margin:0;box-shadow:none;width:auto;min-height:297mm}
   }
 
-  /* веб-версия: центрирование, подгонка под ширину экрана, кнопка PDF */
+  /* веб-версия: центрирование, кнопка PDF */
   :root{color-scheme:light only}
-  #deck{width:210mm;margin:0 auto;zoom:var(--fit,1)}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  #deck{width:210mm;margin:0 auto}
   .dl{position:fixed;right:20px;bottom:20px;z-index:999;display:inline-flex;align-items:center;gap:9px;
     background:var(--ink);color:#fff;text-decoration:none;padding:13px 22px;border-radius:999px;
     font-size:15px;font-weight:600;letter-spacing:-.01em;box-shadow:0 4px 20px rgba(0,0,0,.25);
     transition:transform .15s ease,background .15s ease}
   .dl:hover,.dl:focus-visible{background:#000;transform:translateY(-2px)}
   .dl svg{width:16px;height:16px;flex:none}
-  @media (max-width:700px){.dl{right:12px;bottom:12px;padding:11px 18px;font-size:14px}}
-  @media print{.dl{display:none !important}#deck{zoom:1 !important}}
+  @media print{.dl{display:none !important}}
+</style>
+<style>
+/* телефон и планшет: вместо уменьшенного листа A4 - вёрстка в одну колонку.
+   Печать и PDF не затрагивает: только screen. */
+@media screen and (max-width:840px){
+  body{background:#E9E4DC;font-size:15px}
+  #deck{width:auto}
+  #deck .page{width:auto;min-height:0;margin:0 0 8px;padding:34px 18px 26px;overflow:visible}
+  #deck .page:last-child{margin-bottom:0;padding-bottom:96px}
+  #deck .pfoot{position:static;margin-top:26px;gap:12px;font-size:10px;letter-spacing:.06em}
+  #deck .pfoot b{font-size:11px}
+  #deck .pfoot span:last-child{white-space:nowrap}
+
+  #deck .cover{padding:36px 20px 30px}
+  #deck .cover .brand{font-size:24px}
+  #deck .cover .mid{margin-top:64px}
+  #deck .cover .eyebrow{font-size:11px;letter-spacing:.14em}
+  #deck .cover h1{font-size:34px;line-height:1.1;margin:12px 0 16px}
+  #deck .cover .sub{font-size:15.5px;line-height:1.6}
+  #deck .cnums{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:40px;padding-top:24px}
+  #deck .cnums div{padding:0}
+  #deck .cnums b{font-size:19px}
+  #deck .cnums span{font-size:12.5px;color:#A3B0AA}
+  #deck .cmeta{margin-top:24px;font-size:11px;line-height:1.55;letter-spacing:.08em}
+
+  #deck .eyebrow{font-size:11px}
+  #deck h2{font-size:24px;line-height:1.2}
+  #deck .lead{font-size:15.5px;line-height:1.55}
+  #deck .sechead{margin-bottom:18px}
+  #deck h3.sub{font-size:17px;margin:26px 0 10px}
+  #deck p.body{font-size:14.5px;line-height:1.6}
+  #deck .verdict{padding:20px 18px;border-radius:12px}
+  #deck .verdict p{font-size:15px;line-height:1.55}
+  #deck .verdict p + p{margin-top:12px}
+  #deck .note{font-size:14.5px;line-height:1.55;padding:15px 16px;margin-top:16px}
+
+  #deck .incl,#deck .risk,#deck .ask,#deck .steps,#deck .cards{grid-template-columns:1fr}
+  #deck .incl{gap:12px;margin-top:14px}
+  #deck .incl div{font-size:15px}
+  #deck .risk{gap:18px;margin-top:18px}
+  #deck .risk-item h4{font-size:16px}
+  #deck .risk-item p{font-size:14.5px}
+
+  #deck .flow{grid-template-columns:1fr}
+  #deck .flow .row{padding:11px 14px;font-size:14.5px;border-right:0;border-bottom:1px solid var(--line)}
+  #deck .flow .row:last-child{border-bottom:0}
+  #deck .flow .p{text-align:right}
+
+  /* таблицы: строка = карточка, подпись колонки над значением */
+  #deck .tbl,#deck .tbl tbody,#deck .tbl tr,#deck .tbl td{display:block;width:auto}
+  #deck .tbl th,#deck .tbl tr:first-child{display:none}
+  #deck .tbl tr{padding:13px 15px;border-bottom:1px solid var(--line)}
+  #deck .tbl tr:last-child{border-bottom:0}
+  #deck .tbl td{padding:0;border:0;font-size:14.5px;line-height:1.5}
+  #deck .tbl td:first-child{font-size:15px}
+  #deck .tbl td + td{margin-top:7px}
+  #deck .tbl td[data-label]::before{content:attr(data-label);display:block;margin-bottom:1px;
+    font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);font-weight:700}
+  #deck .tbl .num{white-space:normal}
+
+  #deck .tl-item h4{font-size:16px}
+  #deck .tl-item p{font-size:14.5px}
+
+  #deck .cards{gap:12px}
+  #deck .card{padding:18px}
+  #deck .card.feat{order:-1}
+  #deck .card li{font-size:14.5px}
+  #deck .price small{font-size:13px}
+
+  #deck .final{padding:22px 18px}
+  #deck .final h2{font-size:22px}
+  #deck .final p{font-size:15px}
+  #deck .contact{font-size:14px}
+  #deck .legal{font-size:11.5px;line-height:1.6}
+
+  .dl{right:12px;bottom:12px;padding:11px 18px;font-size:14px}
+}
 </style>
 <style>
 .card .price small{display:block;margin-top:4px;font-size:12.5px;white-space:nowrap}
@@ -252,16 +329,16 @@
 
   <table class="tbl compact">
     <tr><th style="width:20%"></th><th style="width:40%">Сейчас: 2-3 сменяемых ИП</th><th>С ООО</th></tr>
-    <tr><td><b>Ответственность</b></td><td>Владелец каждого ИП своим имуществом. При проверке - вы, как реальный владелец</td><td>В пределах компании</td></tr>
-    <tr><td><b>Кто управляет</b></td><td>Вы из Берлина, формально владельцы ИП</td><td>Директор в Тбилиси, ваше доверенное лицо. Вы учредитель</td></tr>
-    <tr><td><b>Налог на доход</b></td><td>1% с оборота каждого ИП, ~9&nbsp;000-18&nbsp;000&nbsp;GEL на всех. При объединении оборота - 20% с прибыли</td><td>0%, пока прибыль в бизнесе. 19,25% при выплате вам</td></tr>
-    <tr><td><b>НДС</b></td><td>Каждое ИП под порогом 100&nbsp;000&nbsp;GEL. При объединении - 18% на весь оборот: до ~143&nbsp;000&nbsp;GEL плюс штраф и пеня</td><td>С первого дня, в ценах для компаний-клиентов, декларации ежемесячно</td></tr>
-    <tr><td><b>Команда</b></td><td>44 человека вне трудового поля, выплаты без документов</td><td>10 в штате, 30-34 исполнителя со своим ИП, выплаты безналично по актам</td></tr>
-    <tr><td><b>Налоги за людей</b></td><td>Положено удерживать 20% с выплат физлицам: риск до ~145&nbsp;000&nbsp;GEL в год</td><td>~61&nbsp;000&nbsp;GEL НДФЛ и взносов за штатное ядро, исполнители платят сами 0-1%</td></tr>
-    <tr><td><b>Право на работу</b></td><td>У иностранцев нет: 2&nbsp;000 + 2&nbsp;000&nbsp;GEL за человека при проверке</td><td>У всех, продления на нашем контроле</td></tr>
-    <tr><td><b>Германия</b></td><td>Доход ваш, на чьё ИП пришёл - не важно</td><td>Дивиденды в декларации, §138 AO</td></tr>
-    <tr><td><b>Налоги в год</b> (без НДС)</td><td class="num">~9&nbsp;000-18&nbsp;000&nbsp;GEL + риски объединения</td><td class="num">~61&nbsp;000&nbsp;GEL при реинвесте, ~94&nbsp;000&nbsp;GEL при полной выплате</td></tr>
-    <tr><td><b>Вам на руки</b></td><td>Зависит не от вас, а от того, придёт ли проверка</td><td class="num">~109&nbsp;000&nbsp;GEL (~36&nbsp;000&nbsp;EUR) при полной выплате</td></tr>
+    <tr><td><b>Ответственность</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">Владелец каждого ИП своим имуществом. При проверке - вы, как реальный владелец</td><td data-label="С ООО">В пределах компании</td></tr>
+    <tr><td><b>Кто управляет</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">Вы из Берлина, формально владельцы ИП</td><td data-label="С ООО">Директор в Тбилиси, ваше доверенное лицо. Вы учредитель</td></tr>
+    <tr><td><b>Налог на доход</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">1% с оборота каждого ИП, ~9&nbsp;000-18&nbsp;000&nbsp;GEL на всех. При объединении оборота - 20% с прибыли</td><td data-label="С ООО">0%, пока прибыль в бизнесе. 19,25% при выплате вам</td></tr>
+    <tr><td><b>НДС</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">Каждое ИП под порогом 100&nbsp;000&nbsp;GEL. При объединении - 18% на весь оборот: до ~143&nbsp;000&nbsp;GEL плюс штраф и пеня</td><td data-label="С ООО">С первого дня, в ценах для компаний-клиентов, декларации ежемесячно</td></tr>
+    <tr><td><b>Команда</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">44 человека вне трудового поля, выплаты без документов</td><td data-label="С ООО">10 в штате, 30-34 исполнителя со своим ИП, выплаты безналично по актам</td></tr>
+    <tr><td><b>Налоги за людей</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">Положено удерживать 20% с выплат физлицам: риск до ~145&nbsp;000&nbsp;GEL в год</td><td data-label="С ООО">~61&nbsp;000&nbsp;GEL НДФЛ и взносов за штатное ядро, исполнители платят сами 0-1%</td></tr>
+    <tr><td><b>Право на работу</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">У иностранцев нет: 2&nbsp;000 + 2&nbsp;000&nbsp;GEL за человека при проверке</td><td data-label="С ООО">У всех, продления на нашем контроле</td></tr>
+    <tr><td><b>Германия</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">Доход ваш, на чьё ИП пришёл - не важно</td><td data-label="С ООО">Дивиденды в декларации, §138 AO</td></tr>
+    <tr><td><b>Налоги в год</b> (без НДС)</td><td data-label="Сейчас: 2-3 сменяемых ИП" class="num">~9&nbsp;000-18&nbsp;000&nbsp;GEL + риски объединения</td><td data-label="С ООО" class="num">~61&nbsp;000&nbsp;GEL при реинвесте, ~94&nbsp;000&nbsp;GEL при полной выплате</td></tr>
+    <tr><td><b>Вам на руки</b></td><td data-label="Сейчас: 2-3 сменяемых ИП">Зависит не от вас, а от того, придёт ли проверка</td><td data-label="С ООО" class="num">~109&nbsp;000&nbsp;GEL (~36&nbsp;000&nbsp;EUR) при полной выплате</td></tr>
   </table>
 
   <div class="note"><b>Итог.</b> С ООО налогов больше: ~61&nbsp;000&nbsp;GEL в год против ~9&nbsp;000-18&nbsp;000 на сменяемых ИП. Но это бизнес, который можно масштабировать и продать, а прибыль на развитие в ООО не облагается вовсе.</div>
@@ -287,11 +364,11 @@
   <h3 class="sub">Цена вопроса на проверке</h3>
   <table class="tbl compact">
     <tr><th style="width:34%">Что</th><th>Почему</th><th style="width:22%">Ориентир в год</th></tr>
-    <tr><td><b>Объединение оборота</b></td><td>Один бизнес, одни клиенты, одна команда: налоговая считает по сути (ст. 73 НК) и может предъявить НДС 18% на весь оборот владельцам ИП и вам, плюс штраф 5% и пеня</td><td class="num">до ~143&nbsp;000&nbsp;GEL</td></tr>
-    <tr><td><b>Выплаты людям без оформления</b></td><td>С выплат физлицам без своего ИП положено удерживать 20% НДФЛ, выплаченное считают чистым</td><td class="num">до ~145&nbsp;000&nbsp;GEL</td></tr>
-    <tr><td><b>Иностранцы без права на работу</b></td><td>С 1 марта 2026: 2&nbsp;000&nbsp;GEL с работодателя и 2&nbsp;000 с работника за человека</td><td class="num">до 120&nbsp;000&nbsp;GEL за проверку</td></tr>
-    <tr><td><b>Счета ИП</b></td><td>Банк видит на счёте ИП чужой оборот: запрос документов, заморозка, деньги застревают</td><td class="num">простой бизнеса</td></tr>
-    <tr><td><b>Германия</b></td><td>Доход через ИП, в том числе чужие, для Германии ваш. Данные о счетах уходят туда с 2024 года. Раскрытие работает, пока налоговая не узнала сама: к Steuerberater до регистрации ООО</td><td class="num">считает ваш Steuerberater</td></tr>
+    <tr><td><b>Объединение оборота</b></td><td data-label="Почему">Один бизнес, одни клиенты, одна команда: налоговая считает по сути (ст. 73 НК) и может предъявить НДС 18% на весь оборот владельцам ИП и вам, плюс штраф 5% и пеня</td><td data-label="Ориентир в год" class="num">до ~143&nbsp;000&nbsp;GEL</td></tr>
+    <tr><td><b>Выплаты людям без оформления</b></td><td data-label="Почему">С выплат физлицам без своего ИП положено удерживать 20% НДФЛ, выплаченное считают чистым</td><td data-label="Ориентир в год" class="num">до ~145&nbsp;000&nbsp;GEL</td></tr>
+    <tr><td><b>Иностранцы без права на работу</b></td><td data-label="Почему">С 1 марта 2026: 2&nbsp;000&nbsp;GEL с работодателя и 2&nbsp;000 с работника за человека</td><td data-label="Ориентир в год" class="num">до 120&nbsp;000&nbsp;GEL за проверку</td></tr>
+    <tr><td><b>Счета ИП</b></td><td data-label="Почему">Банк видит на счёте ИП чужой оборот: запрос документов, заморозка, деньги застревают</td><td data-label="Ориентир в год" class="num">простой бизнеса</td></tr>
+    <tr><td><b>Германия</b></td><td data-label="Почему">Доход через ИП, в том числе чужие, для Германии ваш. Данные о счетах уходят туда с 2024 года. Раскрытие работает, пока налоговая не узнала сама: к Steuerberater до регистрации ООО</td><td data-label="Ориентир в год" class="num">считает ваш Steuerberater</td></tr>
   </table>
 
   <div class="note"><b>Что с этим делать.</b> ООО прошлое не закрывает: те же клиенты и люди. В диагностике по выпискам считаем сумму и план по каждому ИП. Уточнённая декларация до уведомления о проверке снимает штраф за занижение, пеня остаётся; подаёт её владелец ИП, мы даём расчёт. До проверки - на ваших условиях, после - на условиях налоговой. ООО начинает с чистой даты: с неё все договоры и оплаты только на ООО.</div>
@@ -308,16 +385,17 @@
   </div>
 
   <table class="tbl compact">
-    <tr><th>Вариант</th><th style="width:22%">Налоги и взносы в Грузии</th><th style="width:25%">Вам на руки после Германии, если выплатить всё</th></tr>
-    <tr><td><b>Как сейчас:</b> 2-3 сменяемых ИП, люди без оформления</td><td class="num">~9&nbsp;000-18&nbsp;000&nbsp;GEL</td><td>не вариант: риски раздела 03</td></tr>
-    <tr><td><b>ИП, общий режим 20%</b>, команда гибридом</td><td class="num">~96&nbsp;000&nbsp;GEL</td><td>по вашей немецкой шкале, считает Steuerberater</td></tr>
-    <tr><td><b>ООО, команда гибридом, прибыль остаётся в бизнесе</b></td><td class="num">~61&nbsp;000&nbsp;GEL</td><td>~173&nbsp;000&nbsp;GEL в год копится в ООО без налога</td></tr>
-    <tr><td><b>ООО, команда гибридом, вся прибыль вам</b></td><td class="num">~94&nbsp;000&nbsp;GEL</td><td class="num">~109&nbsp;000&nbsp;GEL (~36&nbsp;000&nbsp;EUR)</td></tr>
-    <tr><td><b>ООО, все 44 человека в штате, вся прибыль вам</b></td><td class="num">~165&nbsp;000&nbsp;GEL</td><td class="num">~54&nbsp;000&nbsp;GEL (~18&nbsp;000&nbsp;EUR)</td></tr>
-    <tr><td><b>ООО, все 44 на подряде</b>, вся прибыль вам</td><td class="num">~45&nbsp;000&nbsp;GEL на бумаге</td><td>не вариант: менеджеры и бригадиры - по сути найм, при проверке 20% с выплат за весь период</td></tr>
+    <tr><th>Вариант</th><th style="width:24%">Налоги и взносы в Грузии</th><th style="width:33%">Вам на руки после Германии, если выплатить всё</th></tr>
+    <tr><td><b>Как сейчас:</b> 2-3 сменяемых ИП, люди без оформления</td><td data-label="Налоги и взносы в Грузии" class="num">~9&nbsp;000-18&nbsp;000&nbsp;GEL</td><td data-label="Вам на руки после Германии, если выплатить всё">не вариант: риски раздела 03</td></tr>
+    <tr><td><b>ИП, общий режим 20%</b>, команда гибридом</td><td data-label="Налоги и взносы в Грузии" class="num">~96&nbsp;000&nbsp;GEL</td><td data-label="Вам на руки после Германии, если выплатить всё">по вашей немецкой шкале, считает Steuerberater</td></tr>
+    <tr><td><b>ООО, команда гибридом, прибыль остаётся в бизнесе</b></td><td data-label="Налоги и взносы в Грузии" class="num">~61&nbsp;000&nbsp;GEL</td><td data-label="Вам на руки после Германии, если выплатить всё">~173&nbsp;000&nbsp;GEL в год копится в ООО без налога</td></tr>
+    <tr><td><b>ООО, команда гибридом, вся прибыль вам</b></td><td data-label="Налоги и взносы в Грузии" class="num">~94&nbsp;000&nbsp;GEL</td><td data-label="Вам на руки после Германии, если выплатить всё" class="num">~109&nbsp;000&nbsp;GEL (~36&nbsp;000&nbsp;EUR)</td></tr>
+    <tr><td><b>ООО, все 44 человека в штате, вся прибыль вам</b></td><td data-label="Налоги и взносы в Грузии" class="num">~165&nbsp;000&nbsp;GEL</td><td data-label="Вам на руки после Германии, если выплатить всё" class="num">~54&nbsp;000&nbsp;GEL (~18&nbsp;000&nbsp;EUR)</td></tr>
+    <tr><td><b>ООО, все 44 на подряде</b>, вся прибыль вам</td><td data-label="Налоги и взносы в Грузии" class="num">~45&nbsp;000&nbsp;GEL на бумаге</td><td data-label="Вам на руки после Германии, если выплатить всё">не вариант: менеджеры и бригадиры - по сути найм, при проверке 20% с выплат за весь период</td></tr>
+    <tr><td><b>ООО на гражданине и резиденте Грузии</b>, вся прибыль ему</td><td data-label="Налоги и взносы в Грузии" class="num">~94&nbsp;000&nbsp;GEL</td><td data-label="Вам на руки после Германии, если выплатить всё">~140&nbsp;000&nbsp;GEL ему, не вам: раздел 05</td></tr>
   </table>
 
-  <p class="body" style="margin-top:10px">Налоги в Грузии: НДФЛ 20% и пенсия за штат при той же сумме на руки, 15% на прибыль ООО и 5% на дивиденды. Германия: 25% + Soli на дивиденды с зачётом грузинских 5%, если ООО реально управляется из Грузии (раздел 06).</p>
+  <p class="body" style="margin-top:10px">Налоги в Грузии: НДФЛ 20% и пенсия за штат при той же сумме на руки, 15% на прибыль ООО и 5% на дивиденды. Германия: 25% + Soli на дивиденды с зачётом грузинских 5%, если ООО реально управляется из Грузии (раздел 07).</p>
 
   <div class="verdict" style="margin-top:14px">
     <h4>НДС: главный вопрос вашей маржи</h4>
@@ -328,21 +406,57 @@
   <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 5</span></div>
 </section>
 
-<!-- ============ 05 КОМАНДА ============ -->
-<section class="page tight">
+<!-- ============ 05 ВАРИАНТ: ООО НА ГРАЖДАНИНЕ ГРУЗИИ ============ -->
+<section class="page tight dense">
   <div class="sechead">
     <div class="eyebrow">Раздел 05</div>
+    <h2>Вариант: ООО целиком на гражданине Грузии</h2>
+    <p class="lead">Учредитель на 100% и директор - гражданин и налоговый резидент Грузии, ваше доверенное лицо в Тбилиси. Прибыль та же, ~173&nbsp;000&nbsp;GEL в год, выплачивается вся.</p>
+  </div>
+
+  <table class="tbl compact">
+    <tr><th style="width:24%"></th><th style="width:30%">Учредитель - вы</th><th>Учредитель - гражданин Грузии</th></tr>
+    <tr><td><b>Германия</b></td><td data-label="Учредитель - вы">Доплата ~31&nbsp;000&nbsp;GEL после зачёта грузинских 5%</td><td data-label="Гражданин Грузии">0: в Грузии 5% с дивидендов окончательные</td></tr>
+    <tr><td><b>На руки владельцу</b></td><td data-label="Учредитель - вы" class="num">~109&nbsp;000&nbsp;GEL вам</td><td data-label="Гражданин Грузии" class="num">~140&nbsp;000&nbsp;GEL (~47&nbsp;000&nbsp;EUR) ему, не вам</td></tr>
+    <tr><td><b>Чья компания</b></td><td data-label="Учредитель - вы">Ваша</td><td data-label="Гражданин Грузии">Его: доли, счёт, договоры, прибыль. Вас в реестре нет</td></tr>
+    <tr><td><b>Деньги до вас</b></td><td data-label="Учредитель - вы">Дивиденды</td><td data-label="Гражданин Грузии">Зарплата или гонорар - по вашей шкале до 45%, подарок - налог на дарение от 30%</td></tr>
+  </table>
+
+  <div class="note"><b>Налоги в Грузии те же, ~94&nbsp;000&nbsp;GEL.</b> Вся выгода - ~31&nbsp;000&nbsp;GEL немецкого налога в год, и только пока деньги у грузинского владельца. Дошли до вас - Германия облагает их снова.</div>
+
+  <h3 class="sub">Если владелец только на бумаге</h3>
+  <div class="risk" style="margin-top:10px;gap:12px 28px">
+    <div class="risk-item"><h4>Для Германии владелец - вы</h4><p>Решения и прибыль ваши - компания ваша по сути (§39 AO), плюс прошлые годы.</p></div>
+    <div class="risk-item"><h4>Управление из Берлина</h4><p>Место управления в Германии: налог ~30% на всю прибыль ООО, ~52&nbsp;000&nbsp;GEL в год.</p></div>
+    <div class="risk-item"><h4>Банк и бенефициар</h4><p>Банк спрашивает конечного бенефициара. Указать не вас - ложные сведения банку и блокировка счёта.</p></div>
+    <div class="risk-item"><h4>Бизнес без защиты</h4><p>Юридически всё его: ссора, развод, долги - и бизнес не ваш. Договор защитил бы вас, но он же доказывает, что владелец вы.</p></div>
+  </div>
+
+  <div class="verdict" style="margin-top:14px">
+    <h4>Наш вывод</h4>
+    <p><b>На бумаге - не вариант.</b> Это нынешняя схема с чужими ИП, только крупнее. Mg такое ООО не регистрирует и не ведёт.</p>
+    <p><b>Законная форма - доля директору.</b> Доверенное лицо получает реальную долю, например 10-30%, за результат. Его дивиденды облагаются только в Грузии: каждые 10% доли - ~14&nbsp;000&nbsp;GEL в год ему на руки. Ваша часть - как в разделе 07.</p>
+    <p><b>19,25% итогом для вас</b> - только если резидентом Грузии станете вы, с переездом семьи, как с Кипром. Супруга не подходит: при семье в Берлине её резидентство за Германией.</p>
+  </div>
+
+  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 6</span></div>
+</section>
+
+<!-- ============ 06 КОМАНДА ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 06</div>
     <h2>Команда: как оформить 44 человека</h2>
     <p class="lead">Гибрид даёт законную схему и экономит ~88&nbsp;000&nbsp;GEL в год против варианта "все в штате".</p>
   </div>
 
   <table class="tbl compact">
     <tr><th style="width:24%"></th><th>Штатное ядро: 10 человек</th><th>Исполнители: 30-34 человека</th></tr>
-    <tr><td><b>Кто</b></td><td>4 менеджера и 6 бригадиров или постоянных уборщиков</td><td>Гибкий пул: сами берут заказы, могут отказаться и работать на других</td></tr>
-    <tr><td><b>Оформление</b></td><td>Трудовой договор с ООО</td><td>Своё ИП со статусом малого бизнеса, договор услуг с ООО</td></tr>
-    <tr><td><b>Налоги</b></td><td>20% НДФЛ удерживает ООО, пенсия 2% + 2% только для граждан Грузии и ПМЖ. ~61&nbsp;000&nbsp;GEL в год при той же сумме на руки</td><td>Платит сам исполнитель: 1% со статусом малого бизнеса или 0% со статусом микробизнеса при доходе до 30&nbsp;000&nbsp;GEL в год. Для ООО 0</td></tr>
-    <tr><td><b>Оплата</b></td><td>Оклад и премия по KPI</td><td>За объект или м², по актам, только безналично</td></tr>
-    <tr><td><b>Право на работу</b></td><td>Для иностранцев оформляет ООО после вакансии на госпортале</td><td>Оформляет сам исполнитель как самозанятый (бизнес-план, подтверждение средств, интервью), пакет готовим мы</td></tr>
+    <tr><td><b>Кто</b></td><td data-label="Штатное ядро: 10 человек">4 менеджера и 6 бригадиров или постоянных уборщиков</td><td data-label="Исполнители: 30-34 человека">Гибкий пул: сами берут заказы, могут отказаться и работать на других</td></tr>
+    <tr><td><b>Оформление</b></td><td data-label="Штатное ядро: 10 человек">Трудовой договор с ООО</td><td data-label="Исполнители: 30-34 человека">Своё ИП со статусом малого бизнеса, договор услуг с ООО</td></tr>
+    <tr><td><b>Налоги</b></td><td data-label="Штатное ядро: 10 человек">20% НДФЛ удерживает ООО, пенсия 2% + 2% только для граждан Грузии и ПМЖ. ~61&nbsp;000&nbsp;GEL в год при той же сумме на руки</td><td data-label="Исполнители: 30-34 человека">Платит сам исполнитель: 1% со статусом малого бизнеса или 0% со статусом микробизнеса при доходе до 30&nbsp;000&nbsp;GEL в год. Для ООО 0</td></tr>
+    <tr><td><b>Оплата</b></td><td data-label="Штатное ядро: 10 человек">Оклад и премия по KPI</td><td data-label="Исполнители: 30-34 человека">За объект или м², по актам, только безналично</td></tr>
+    <tr><td><b>Право на работу</b></td><td data-label="Штатное ядро: 10 человек">Для иностранцев оформляет ООО после вакансии на госпортале</td><td data-label="Исполнители: 30-34 человека">Оформляет сам исполнитель как самозанятый (бизнес-план, подтверждение средств, интервью), пакет готовим мы</td></tr>
   </table>
 
   <h3 class="sub">Чтобы подряд не переквалифицировали в найм</h3>
@@ -355,13 +469,13 @@
 
   <div class="note"><b>Право на трудовую деятельность.</b> Нужно всем иностранцам без ПМЖ, работающим в Грузии, в том числе директору ООО. Пошлина 200&nbsp;GEL (30 дней) или 400&nbsp;GEL (10 рабочих дней), на 30 человек 6&nbsp;000-12&nbsp;000&nbsp;GEL разово, дальше ежегодное продление. Оформляем партиями по 10 человек, первая партия - директор и штатное ядро.</div>
 
-  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 6</span></div>
+  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 7</span></div>
 </section>
 
-<!-- ============ 06 ПРЕДЛОЖЕНИЕ ПО ООО ============ -->
+<!-- ============ 07 ПРЕДЛОЖЕНИЕ ПО ООО ============ -->
 <section class="page tight">
   <div class="sechead">
-    <div class="eyebrow">Раздел 06</div>
+    <div class="eyebrow">Раздел 07</div>
     <h2>Предложение: ваше ООО в Грузии</h2>
     <p class="lead">Конкретная структура, которую мы регистрируем и ведём.</p>
   </div>
@@ -383,13 +497,13 @@
     <p>ООО со счётом и НДС, 44 человека оформлены законно, ни одного чужого ИП в цепочке, прошлое посчитано и закрывается по плану, прибыль на развитие копится без налога.</p>
   </div>
 
-  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 7</span></div>
+  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 8</span></div>
 </section>
 
-<!-- ============ 07 ЭТАПЫ ============ -->
+<!-- ============ 08 ЭТАПЫ ============ -->
 <section class="page tight">
   <div class="sechead">
-    <div class="eyebrow">Раздел 07</div>
+    <div class="eyebrow">Раздел 08</div>
     <h2>Этапы и сроки</h2>
     <p class="lead">От созвона до работающего ООО с оформленной командой 6-10 недель. Сроки банка и разрешений зависят от госорганов и банка.</p>
   </div>
@@ -412,13 +526,13 @@
     </div>
   </div>
 
-  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 8</span></div>
+  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 9</span></div>
 </section>
 
-<!-- ============ 08 СТОИМОСТЬ ============ -->
+<!-- ============ 09 СТОИМОСТЬ ============ -->
 <section class="page tight">
   <div class="sechead">
-    <div class="eyebrow">Раздел 08</div>
+    <div class="eyebrow">Раздел 09</div>
     <h2>Стоимость</h2>
     <p class="lead">Первый шаг - диагностика за <b>900&nbsp;EUR</b>, 5 рабочих дней. При выборе пакета до 15 октября засчитывается полностью.</p>
   </div>
@@ -437,7 +551,7 @@
     </div>
     <div class="card feat">
       <div class="badge">Рекомендуем</div>
-      <div class="tier">Структура из раздела 05</div>
+      <div class="tier">Структура из разделов 06-07</div>
       <h3>Под ключ</h3>
       <div class="price">6&nbsp;900&nbsp;EUR <small>+ 490&nbsp;EUR/мес</small></div>
       <ul>
@@ -467,7 +581,7 @@
     <b>Maizon Group LLC-FZ</b> · Лицензия 2423151.01 · Документ подготовлен 1 октября 2026 года. Расчёт ориентировочный: построен на обороте, который вы назвали, и допущениях из раздела 01, ставки Грузии и Германии на 2026 год по открытым источникам (Налоговый кодекс и Закон о трудовой миграции Грузии, PwC, KPMG, Andersen Georgia, BMF). Точные суммы фиксируем в диагностике по выпискам. Mg не меняет ваше налоговое резидентство и не обещает его избежать: оно определяется тем, где живёте вы и ваша семья, и немецким законом, а не структурой компании. Наша задача - построить ООО так, чтобы оно облагалось в Грузии как грузинская компания, а на немецкой стороне у вас оставалось одно: задекларировать полученные дивиденды. Mg не консультирует по немецкому налоговому праву, немецкую часть подтверждает ваш налоговый консультант. До договора проводим стандартную проверку клиента, оплата услуг только с вашего личного счёта. Номинальных директоров не предоставляем, людей, фактически работающих по найму, подрядчиками не оформляем, схемы сокрытия доходов или резидентства не предлагаем, оборот через ИП третьих лиц не оформляем и не сопровождаем, деньги клиента через Mg не проходят. Не является публичной офертой.
   </div>
 
-  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 9</span></div>
+  <div class="pfoot"><span><b>Mg Accounting</b> · Налоговое заключение</span><span>Для Виталия · 10</span></div>
 </section>
 
 </div>
@@ -477,22 +591,6 @@
   Скачать PDF
 </a>
 
-<script>
-(function(){
-  var PW=794, tries=0;
-  function measure(){return document.documentElement.clientWidth||window.innerWidth||0}
-  function fit(){
-    var deck=document.getElementById('deck'); if(!deck) return;
-    var w=measure();
-    if(!w){deck.style.setProperty('--fit',1); if(tries++<30) requestAnimationFrame(fit); return}
-    tries=0; var s=Math.min(1,w/PW); if(!(s>0)) s=1;
-    deck.style.setProperty('--fit',s);
-  }
-  ['resize','orientationchange','pageshow','load','DOMContentLoaded'].forEach(function(ev){window.addEventListener(ev,fit)});
-  if(window.ResizeObserver){var ro=new ResizeObserver(fit); ro.observe(document.documentElement); if(document.body) ro.observe(document.body)}
-  fit();
-})();
-</script>
 
 </body>
 </html>

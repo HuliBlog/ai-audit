@@ -164,17 +164,94 @@
     .page{margin:0;box-shadow:none;width:auto;min-height:297mm}
   }
 
-  /* веб-версия: центрирование, подгонка под ширину экрана, кнопка PDF */
+  /* веб-версия: центрирование, кнопка PDF */
   :root{color-scheme:light only}
-  #deck{width:210mm;margin:0 auto;zoom:var(--fit,1)}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  #deck{width:210mm;margin:0 auto}
   .dl{position:fixed;right:20px;bottom:20px;z-index:999;display:inline-flex;align-items:center;gap:9px;
     background:var(--ink);color:#fff;text-decoration:none;padding:13px 22px;border-radius:999px;
     font-size:15px;font-weight:600;letter-spacing:-.01em;box-shadow:0 4px 20px rgba(0,0,0,.25);
     transition:transform .15s ease,background .15s ease}
   .dl:hover,.dl:focus-visible{background:#000;transform:translateY(-2px)}
   .dl svg{width:16px;height:16px;flex:none}
-  @media (max-width:700px){.dl{right:12px;bottom:12px;padding:11px 18px;font-size:14px}}
-  @media print{.dl{display:none !important}#deck{zoom:1 !important}}
+  @media print{.dl{display:none !important}}
+</style>
+<style>
+/* телефон и планшет: вместо уменьшенного листа A4 - вёрстка в одну колонку.
+   Печать и PDF не затрагивает: только screen. */
+@media screen and (max-width:840px){
+  body{background:#E9E4DC;font-size:15px}
+  #deck{width:auto}
+  #deck .page{width:auto;min-height:0;margin:0 0 8px;padding:34px 18px 26px;overflow:visible}
+  #deck .page:last-child{margin-bottom:0;padding-bottom:96px}
+  #deck .pfoot{position:static;margin-top:26px;gap:12px;font-size:10px;letter-spacing:.06em}
+  #deck .pfoot b{font-size:11px}
+  #deck .pfoot span:last-child{white-space:nowrap}
+
+  #deck .cover{padding:36px 20px 30px}
+  #deck .cover .brand{font-size:24px}
+  #deck .cover .mid{margin-top:64px}
+  #deck .cover .eyebrow{font-size:11px;letter-spacing:.14em}
+  #deck .cover h1{font-size:34px;line-height:1.1;margin:12px 0 16px}
+  #deck .cover .sub{font-size:15.5px;line-height:1.6}
+  #deck .cnums{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:40px;padding-top:24px}
+  #deck .cnums div{padding:0}
+  #deck .cnums b{font-size:19px}
+  #deck .cnums span{font-size:12.5px;color:#A3B0AA}
+  #deck .cmeta{margin-top:24px;font-size:11px;line-height:1.55;letter-spacing:.08em}
+
+  #deck .eyebrow{font-size:11px}
+  #deck h2{font-size:24px;line-height:1.2}
+  #deck .lead{font-size:15.5px;line-height:1.55}
+  #deck .sechead{margin-bottom:18px}
+  #deck h3.sub{font-size:17px;margin:26px 0 10px}
+  #deck p.body{font-size:14.5px;line-height:1.6}
+  #deck .verdict{padding:20px 18px;border-radius:12px}
+  #deck .verdict p{font-size:15px;line-height:1.55}
+  #deck .verdict p + p{margin-top:12px}
+  #deck .note{font-size:14.5px;line-height:1.55;padding:15px 16px;margin-top:16px}
+
+  #deck .incl,#deck .risk,#deck .ask,#deck .steps,#deck .cards{grid-template-columns:1fr}
+  #deck .incl{gap:12px;margin-top:14px}
+  #deck .incl div{font-size:15px}
+  #deck .risk{gap:18px;margin-top:18px}
+  #deck .risk-item h4{font-size:16px}
+  #deck .risk-item p{font-size:14.5px}
+
+  #deck .flow{grid-template-columns:1fr}
+  #deck .flow .row{padding:11px 14px;font-size:14.5px;border-right:0;border-bottom:1px solid var(--line)}
+  #deck .flow .row:last-child{border-bottom:0}
+  #deck .flow .p{text-align:right}
+
+  /* таблицы: строка = карточка, подпись колонки над значением */
+  #deck .tbl,#deck .tbl tbody,#deck .tbl tr,#deck .tbl td{display:block;width:auto}
+  #deck .tbl th,#deck .tbl tr:first-child{display:none}
+  #deck .tbl tr{padding:13px 15px;border-bottom:1px solid var(--line)}
+  #deck .tbl tr:last-child{border-bottom:0}
+  #deck .tbl td{padding:0;border:0;font-size:14.5px;line-height:1.5}
+  #deck .tbl td:first-child{font-size:15px}
+  #deck .tbl td + td{margin-top:7px}
+  #deck .tbl td[data-label]::before{content:attr(data-label);display:block;margin-bottom:1px;
+    font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);font-weight:700}
+  #deck .tbl .num{white-space:normal}
+
+  #deck .tl-item h4{font-size:16px}
+  #deck .tl-item p{font-size:14.5px}
+
+  #deck .cards{gap:12px}
+  #deck .card{padding:18px}
+  #deck .card.feat{order:-1}
+  #deck .card li{font-size:14.5px}
+  #deck .price small{font-size:13px}
+
+  #deck .final{padding:22px 18px}
+  #deck .final h2{font-size:22px}
+  #deck .final p{font-size:15px}
+  #deck .contact{font-size:14px}
+  #deck .legal{font-size:11.5px;line-height:1.6}
+
+  .dl{right:12px;bottom:12px;padding:11px 18px;font-size:14px}
+}
 </style>
 <style>.card .price small{display:block;margin-top:4px;font-size:12.5px;white-space:nowrap}</style>
 </head>
@@ -237,11 +314,11 @@
 
   <table class="tbl compact">
     <tr><th style="width:24%"></th><th>ИП, статус малого бизнеса</th><th>ИП, общий режим</th><th>ООО</th></tr>
-    <tr><td><b>Налог на доход</b></td><td>1% с оборота до 500 000 GEL в год, 3% с суммы сверх</td><td>20% с прибыли</td><td class="num">0%, пока прибыль в бизнесе</td></tr>
-    <tr><td><b>При выплате владельцу</b></td><td>нет</td><td>нет</td><td>15% + 5% на дивиденды, итого 19,25%</td></tr>
-    <tr><td><b>Ограничения</b></td><td>Статус снимают после двух лет превышения подряд. Не применяется к трудовому по сути доходу</td><td>Налог со всей прибыли сразу</td><td>15% и с расходов без документов или не для бизнеса</td></tr>
-    <tr><td><b>Ответственность</b></td><td>Личным имуществом</td><td>Личным имуществом</td><td>В пределах компании</td></tr>
-    <tr><td><b>Для масштаба</b></td><td>Нет</td><td>Частично</td><td class="num">Да</td></tr>
+    <tr><td><b>Налог на доход</b></td><td data-label="ИП, статус малого бизнеса">1% с оборота до 500 000 GEL в год, 3% с суммы сверх</td><td data-label="ИП, общий режим">20% с прибыли</td><td data-label="ООО" class="num">0%, пока прибыль в бизнесе</td></tr>
+    <tr><td><b>При выплате владельцу</b></td><td data-label="ИП, статус малого бизнеса">нет</td><td data-label="ИП, общий режим">нет</td><td data-label="ООО">15% + 5% на дивиденды, итого 19,25%</td></tr>
+    <tr><td><b>Ограничения</b></td><td data-label="ИП, статус малого бизнеса">Статус снимают после двух лет превышения подряд. Не применяется к трудовому по сути доходу</td><td data-label="ИП, общий режим">Налог со всей прибыли сразу</td><td data-label="ООО">15% и с расходов без документов или не для бизнеса</td></tr>
+    <tr><td><b>Ответственность</b></td><td data-label="ИП, статус малого бизнеса">Личным имуществом</td><td data-label="ИП, общий режим">Личным имуществом</td><td data-label="ООО">В пределах компании</td></tr>
+    <tr><td><b>Для масштаба</b></td><td data-label="ИП, статус малого бизнеса">Нет</td><td data-label="ИП, общий режим">Частично</td><td data-label="ООО" class="num">Да</td></tr>
   </table>
 
   <h3 class="sub">Что это даёт на каждые 100 000 GEL прибыли</h3>
@@ -271,10 +348,10 @@
 
   <table class="tbl compact">
     <tr><th style="width:24%"></th><th>Штат (трудовой договор)</th><th>Подряд (исполнитель-ИП)</th></tr>
-    <tr><td><b>Налог</b></td><td>20% НДФЛ удерживает компания. Пенсионные 2% + 2% только для граждан Грузии и владельцев ПМЖ</td><td>Исполнитель платит сам: 1% со статусом малого бизнеса.</td></tr>
-    <tr><td><b>Право на работу</b></td><td>Оформляет работодатель после вакансии на госпортале: пошлина 200 GEL (30 дней) или 400 GEL (10 раб. дней)</td><td>Оформляет сам исполнитель, на свою сферу деятельности</td></tr>
-    <tr><td><b>Оплата</b></td><td>Оклад, сдельная часть за объект или м², премия по KPI</td><td>Цена за результат: объект, м², заказ, по актам</td></tr>
-    <tr><td><b>Риск</b></td><td>Переквалификации нет</td><td>Если отношения по сути трудовые, налоговая доначисляет компании 20% с пенёй и штрафом</td></tr>
+    <tr><td><b>Налог</b></td><td data-label="Штат (трудовой договор)">20% НДФЛ удерживает компания. Пенсионные 2% + 2% только для граждан Грузии и владельцев ПМЖ</td><td data-label="Подряд (исполнитель-ИП)">Исполнитель платит сам: 1% со статусом малого бизнеса.</td></tr>
+    <tr><td><b>Право на работу</b></td><td data-label="Штат (трудовой договор)">Оформляет работодатель после вакансии на госпортале: пошлина 200 GEL (30 дней) или 400 GEL (10 раб. дней)</td><td data-label="Подряд (исполнитель-ИП)">Оформляет сам исполнитель, на свою сферу деятельности</td></tr>
+    <tr><td><b>Оплата</b></td><td data-label="Штат (трудовой договор)">Оклад, сдельная часть за объект или м², премия по KPI</td><td data-label="Подряд (исполнитель-ИП)">Цена за результат: объект, м², заказ, по актам</td></tr>
+    <tr><td><b>Риск</b></td><td data-label="Штат (трудовой договор)">Переквалификации нет</td><td data-label="Подряд (исполнитель-ИП)">Если отношения по сути трудовые, налоговая доначисляет компании 20% с пенёй и штрафом</td></tr>
   </table>
 
   <h3 class="sub">Рекомендуем гибрид</h3>
@@ -300,10 +377,10 @@
 
   <table class="tbl compact">
     <tr><th>Где вы налоговый резидент и где управляется ООО</th><th style="width:22%">Остаётся вам</th><th style="width:18%">Нагрузка</th></tr>
-    <tr><td><b>Германия, ООО управляется в Грузии.</b> Грузия 15% + 5%, в Германии 25% + Soli с зачётом грузинских 5%</td><td class="num">~62 800 EUR</td><td>~37%</td></tr>
-    <tr><td><b>Германия, решения по ООО принимаются из Германии.</b> ООО становится немецким налогоплательщиком: около 30% с прибыли, потом налог на дивиденды. Ориентир худшего случая</td><td class="num">~51 400 EUR</td><td>~49%</td></tr>
-    <tr><td><b>Вы с семьёй переезжаете в Грузию</b> и не сохраняете жильё в Германии</td><td class="num">~80 750 EUR</td><td>~19%</td></tr>
-    <tr><td><b>Вы с семьёй переезжаете на Кипр</b>, статус non-dom: 0% на дивиденды, взнос GESY 2,65%</td><td class="num">~82 700 EUR</td><td>~17%</td></tr>
+    <tr><td><b>Германия, ООО управляется в Грузии.</b> Грузия 15% + 5%, в Германии 25% + Soli с зачётом грузинских 5%</td><td data-label="Остаётся вам" class="num">~62 800 EUR</td><td data-label="Нагрузка">~37%</td></tr>
+    <tr><td><b>Германия, решения по ООО принимаются из Германии.</b> ООО становится немецким налогоплательщиком: около 30% с прибыли, потом налог на дивиденды. Ориентир худшего случая</td><td data-label="Остаётся вам" class="num">~51 400 EUR</td><td data-label="Нагрузка">~49%</td></tr>
+    <tr><td><b>Вы с семьёй переезжаете в Грузию</b> и не сохраняете жильё в Германии</td><td data-label="Остаётся вам" class="num">~80 750 EUR</td><td data-label="Нагрузка">~19%</td></tr>
+    <tr><td><b>Вы с семьёй переезжаете на Кипр</b>, статус non-dom: 0% на дивиденды, взнос GESY 2,65%</td><td data-label="Остаётся вам" class="num">~82 700 EUR</td><td data-label="Нагрузка">~17%</td></tr>
   </table>
 
   <p class="body" style="margin-top:12px"><b>Прибыль, которая остаётся в ООО на развитие, не облагается</b>, если бизнес реально ведётся в Грузии и вы не участвуете в оказании услуг из Германии. Иначе немецкое правило о контролируемых иностранных компаниях (§§7-8 AStG) облагает её ежегодно, даже без выплат. Если вы остаётесь в Германии надолго, для накопления есть вариант с немецким холдингом (GmbH): около 20% до холдинга, но с этапом 2 он сочетается плохо.</p>
@@ -468,22 +545,6 @@
   Скачать PDF
 </a>
 
-<script>
-(function(){
-  var PW=794, tries=0;
-  function measure(){return document.documentElement.clientWidth||window.innerWidth||0}
-  function fit(){
-    var deck=document.getElementById('deck'); if(!deck) return;
-    var w=measure();
-    if(!w){deck.style.setProperty('--fit',1); if(tries++<30) requestAnimationFrame(fit); return}
-    tries=0; var s=Math.min(1,w/PW); if(!(s>0)) s=1;
-    deck.style.setProperty('--fit',s);
-  }
-  ['resize','orientationchange','pageshow','load','DOMContentLoaded'].forEach(function(ev){window.addEventListener(ev,fit)});
-  if(window.ResizeObserver){var ro=new ResizeObserver(fit); ro.observe(document.documentElement); if(document.body) ro.observe(document.body)}
-  fit();
-})();
-</script>
 
 </body>
 </html>
