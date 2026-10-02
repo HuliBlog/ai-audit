@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Google Ad Grants для American Marketing Association: до $10 000 в месяц бесплатной рекламы в поиске Google. Получение гранта, страницы сайта, ведение, стоимость.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://audit.maizongroup.com/ama/">
+<meta property="og:title" content="Mg · Google Ad Grants для American Marketing Association">
+<meta property="og:description" content="До $10 000 в месяц бесплатной рекламы в Google: получение гранта, страницы сайта, ведение и стоимость.">
+<meta property="og:image" content="https://audit.maizongroup.com/ama/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://audit.maizongroup.com/ama/og.png">
+<title>Mg - Google Ad Grants для AMA</title>
+<style>
+  :root{
+    --ink:#10241E; --soft:#5C6B65; --mut:#8B9A94;
+    --paper:#FAF8F5; --card:#FFFFFF; --line:#E3DED5;
+    --accent:#9E2A2B; --accent-2:#7E2122; --accent-soft:#F6E7E4;
+    --on-dark:#E3B7A8; --ok:#2F6B52;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:0}
+  body{background:#CFCAC1;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:14.5px}
+
+  .page{position:relative;width:210mm;min-height:297mm;margin:0 auto 10px;
+    background:var(--paper);padding:19mm 18mm 22mm;overflow:hidden;
+    display:flex;flex-direction:column;break-after:page;page-break-after:always}
+  .page:last-child{break-after:auto;page-break-after:auto;margin-bottom:0}
+  .pfoot{position:absolute;left:18mm;right:18mm;bottom:11mm;
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-top:1px solid var(--line);padding-top:7px;
+    font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut)}
+  .pfoot b{color:var(--soft);font-weight:600;text-transform:none;letter-spacing:.04em;font-size:10.5px}
+
+  /* обложка */
+  .cover{background:var(--ink);color:#F2EFE9;justify-content:space-between;padding:26mm 20mm}
+  .cover .brand{font-size:27px;font-weight:600;letter-spacing:-.01em}
+  .cover .brand b{color:var(--on-dark);font-weight:600}
+  .cover .mid{margin-top:auto}
+  .cover .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark);font-weight:600}
+  .cover h1{font-size:46px;line-height:1.08;font-weight:600;letter-spacing:-.025em;margin:14px 0 20px;max-width:15ch}
+  .cover h1 span{color:var(--on-dark)}
+  .cover .sub{font-size:15.5px;color:#C3CCC7;max-width:56ch;line-height:1.62}
+  .cover .rule{height:3px;width:56px;background:var(--accent);margin:26px 0 0;border-radius:2px}
+  .cnums{display:flex;gap:0;margin-top:auto;padding-top:34px;border-top:1px solid rgba(227,183,168,.22)}
+  .cnums div{flex:1;padding-right:14px}
+  .cnums b{display:block;font-size:22px;font-weight:600;color:#fff;letter-spacing:-.01em}
+  .cnums span{font-size:11.5px;color:#93A29B;line-height:1.4;display:block;margin-top:3px}
+  .cmeta{margin-top:26px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8D9B94}
+
+  /* типографика полос */
+  .eyebrow{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+  h2{font-size:27px;font-weight:600;letter-spacing:-.018em;margin:8px 0 10px;line-height:1.18}
+  h3.sub{font-size:17.5px;font-weight:600;margin:22px 0 10px}
+  .lead{color:var(--soft);max-width:66ch;font-size:15.4px;line-height:1.55}
+  p.body{margin-top:14px;font-size:14.8px;color:#3A4642;max-width:70ch;line-height:1.65}
+  .sechead{margin-bottom:18px}
+
+  .verdict{background:var(--ink);color:#EDE8E0;border-radius:14px;padding:24px 30px;margin-top:4px}
+  .verdict h4{color:var(--on-dark);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;font-weight:700}
+  .verdict p{font-size:14.6px;line-height:1.56;color:#DCD6CD}
+  .verdict p + p{margin-top:11px}
+  .verdict b{color:#fff;font-weight:600}
+
+  .incl{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;margin-top:20px}
+  .incl div{position:relative;padding-left:26px;font-size:14.6px;color:#33403B;line-height:1.5}
+  .incl div::before{content:"✓";position:absolute;left:0;top:-1px;color:var(--accent);font-weight:700}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 16px;display:flex;flex-direction:column}
+  .card.feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .badge{display:inline-block;align-self:flex-start;background:var(--accent-soft);color:var(--accent-2);
+    font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:20px;margin-bottom:12px}
+  .tier{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);font-weight:700}
+  .card h3{font-size:17.5px;font-weight:600;margin:3px 0 12px;letter-spacing:-.01em;line-height:1.2}
+  .price{font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
+  .price small{font-size:12px;color:var(--mut);font-weight:500}
+  .sale{display:inline-block;background:var(--accent);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:20px;margin:0 0 8px}
+  .old{display:block;font-size:12.5px;color:var(--mut);text-decoration:line-through;font-weight:500;margin-top:2px}
+  .flow .old{display:inline;margin:0 6px 0 0}
+  .price .from{display:block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;font-weight:700}
+  .card ul{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .card li{position:relative;padding-left:18px;font-size:13px;color:#41504A;line-height:1.45}
+  .card li::before{content:"";position:absolute;left:2px;top:7px;width:4.5px;height:4.5px;border-radius:50%;background:var(--accent)}
+
+  .note{margin-top:20px;font-size:13.4px;color:#5F534F;background:var(--accent-soft);border-radius:10px;padding:16px 20px;line-height:1.6}
+  .note b{color:var(--accent-2)}
+
+  .tbl{width:100%;border-collapse:collapse;margin-top:13px;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.6px}
+  .tbl th{background:#F1EDE6;text-align:left;padding:12px 16px;font-size:10.5px;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--soft);font-weight:700;border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 15px;border-bottom:1px solid var(--line);vertical-align:top;color:#3A4642;line-height:1.5}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td b{color:var(--ink);font-weight:600}
+  .tbl .num{white-space:nowrap;font-weight:700;color:var(--accent-2)}
+  .tbl.compact td{padding:9px 15px}
+  .tbl.compact .num{white-space:normal}
+  .page.tight .incl{gap:10px 30px;margin-top:16px}
+  .page.tight h3.sub{margin-top:16px}
+  .page.tight .steps{margin-top:14px}
+  .page.tight .note{margin-top:14px}
+  .page.tight .card ul{gap:6px;margin-top:11px;padding-top:11px}
+  .page.tight .cards{margin-top:14px}
+
+  .flow{margin-top:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);display:grid;grid-template-columns:1fr 1fr}
+  .flow .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:8px 15px;border-bottom:1px solid var(--line);font-size:12.7px}
+  .flow .row:nth-child(odd){border-right:1px solid var(--line)}
+  .flow .row:nth-last-child(-n+2){border-bottom:0}
+  .flow .n{color:#3A4642}
+  .flow .p{font-weight:700;white-space:nowrap;color:var(--accent-2)}
+  .flow .p small{color:var(--mut);font-weight:500;font-size:11.5px}
+
+  .risk{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;margin-top:22px}
+  .risk-item{padding-left:20px;position:relative}
+  .risk-item::before{content:"";position:absolute;left:0;top:5px;width:8px;height:8px;background:var(--accent);border-radius:2px;transform:rotate(45deg)}
+  .risk-item h4{font-size:15.5px;font-weight:600;margin-bottom:5px;line-height:1.3}
+  .risk-item p{font-size:13.4px;color:var(--soft);line-height:1.55}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+  .step .num{width:31px;height:31px;border-radius:50%;background:var(--ink);color:var(--on-dark);
+    display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;margin-bottom:11px}
+  .step h4{font-size:15.6px;font-weight:600;margin-bottom:5px}
+  .step p{font-size:13.4px;color:var(--soft);line-height:1.55}
+
+  /* календарь */
+  .tl{margin-top:18px;display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);padding-left:0}
+  .tl-item{position:relative;padding:0 0 18px 26px}
+  .tl-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+  .tl-item.done::before{background:var(--ok);border-color:var(--ok)}
+  .tl-item .when{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+  .tl-item h4{font-size:15.6px;font-weight:600;margin:3px 0 4px;line-height:1.3}
+  .tl-item p{font-size:13.4px;color:var(--soft);line-height:1.55;max-width:68ch}
+
+  .ask{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;counter-reset:q}
+  .ask div{font-size:13.6px;padding-left:25px;position:relative;color:#33403B;line-height:1.5}
+  .ask div::before{content:counter(q);counter-increment:q;position:absolute;left:0;top:1px;
+    font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+    width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+  .final{background:var(--ink);color:#EFEBE4;border-radius:12px;padding:24px 28px;margin-top:20px}
+  .final .eyebrow{color:var(--on-dark)}
+  .final h2{font-size:25px;font-weight:600;margin:9px 0 10px;color:#fff}
+  .final p{color:#C4CCC7;max-width:60ch;font-size:14.4px}
+  .contacts{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:20px}
+  .contact{display:flex;align-items:center;gap:8px;background:rgba(227,183,168,.12);
+    border:1px solid rgba(227,183,168,.28);border-radius:10px;padding:10px 14px;font-size:13.2px}
+  .contact span{color:#94A39C;font-size:11px}
+  .contact b{font-weight:600;color:#fff}
+  .legal{margin-top:12px;font-size:10px;line-height:1.55;color:var(--mut)}
+  .legal b{color:var(--soft);font-weight:600}
+
+  @media print{
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;width:auto;min-height:297mm}
+  }
+
+  /* веб-версия: центрирование, кнопка PDF */
+  :root{color-scheme:light only}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  #deck{width:210mm;margin:0 auto}
+  .dl{position:fixed;right:20px;bottom:20px;z-index:999;display:inline-flex;align-items:center;gap:9px;
+    background:var(--ink);color:#fff;text-decoration:none;padding:13px 22px;border-radius:999px;
+    font-size:15px;font-weight:600;letter-spacing:-.01em;box-shadow:0 4px 20px rgba(0,0,0,.25);
+    transition:transform .15s ease,background .15s ease}
+  .dl:hover,.dl:focus-visible{background:#000;transform:translateY(-2px)}
+  .dl svg{width:16px;height:16px;flex:none}
+  @media print{.dl{display:none !important}}
+</style>
+<style>
+/* телефон и планшет: вместо уменьшенного листа A4 - вёрстка в одну колонку.
+   Печать и PDF не затрагивает: только screen. */
+@media screen and (max-width:840px){
+  body{background:#E9E4DC;font-size:15px}
+  #deck{width:auto}
+  #deck .page{width:auto;min-height:0;margin:0 0 8px;padding:34px 18px 26px;overflow:visible}
+  #deck .page:last-child{margin-bottom:0;padding-bottom:96px}
+  #deck .pfoot{position:static;margin-top:26px;gap:12px;font-size:10px;letter-spacing:.06em}
+  #deck .pfoot b{font-size:11px}
+  #deck .pfoot span:last-child{white-space:nowrap}
+
+  #deck .cover{padding:36px 20px 30px}
+  #deck .cover .brand{font-size:24px}
+  #deck .cover .mid{margin-top:64px}
+  #deck .cover .eyebrow{font-size:11px;letter-spacing:.14em}
+  #deck .cover h1{font-size:34px;line-height:1.1;margin:12px 0 16px}
+  #deck .cover .sub{font-size:15.5px;line-height:1.6}
+  #deck .cnums{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:40px;padding-top:24px}
+  #deck .cnums div{padding:0}
+  #deck .cnums b{font-size:19px}
+  #deck .cnums span{font-size:12.5px;color:#A3B0AA}
+  #deck .cmeta{margin-top:24px;font-size:11px;line-height:1.55;letter-spacing:.08em}
+
+  #deck .eyebrow{font-size:11px}
+  #deck h2{font-size:24px;line-height:1.2}
+  #deck .lead{font-size:15.5px;line-height:1.55}
+  #deck .sechead{margin-bottom:18px}
+  #deck h3.sub{font-size:17px;margin:26px 0 10px}
+  #deck p.body{font-size:14.5px;line-height:1.6}
+  #deck .verdict{padding:20px 18px;border-radius:12px}
+  #deck .verdict p{font-size:15px;line-height:1.55}
+  #deck .verdict p + p{margin-top:12px}
+  #deck .note{font-size:14.5px;line-height:1.55;padding:15px 16px;margin-top:16px}
+
+  #deck .incl,#deck .risk,#deck .ask,#deck .steps,#deck .cards{grid-template-columns:1fr}
+  #deck .incl{gap:12px;margin-top:14px}
+  #deck .incl div{font-size:15px}
+  #deck .risk{gap:18px;margin-top:18px}
+  #deck .risk-item h4{font-size:16px}
+  #deck .risk-item p{font-size:14.5px}
+
+  #deck .flow{grid-template-columns:1fr}
+  #deck .flow .row{padding:11px 14px;font-size:14.5px;border-right:0;border-bottom:1px solid var(--line)}
+  #deck .flow .row:last-child{border-bottom:0}
+  #deck .flow .p{text-align:right}
+
+  /* таблицы: строка = карточка, подпись колонки над значением */
+  #deck .tbl,#deck .tbl tbody,#deck .tbl tr,#deck .tbl td{display:block;width:auto}
+  #deck .tbl th,#deck .tbl tr:first-child{display:none}
+  #deck .tbl tr{padding:13px 15px;border-bottom:1px solid var(--line)}
+  #deck .tbl tr:last-child{border-bottom:0}
+  #deck .tbl td{padding:0;border:0;font-size:14.5px;line-height:1.5}
+  #deck .tbl td:first-child{font-size:15px}
+  #deck .tbl td + td{margin-top:7px}
+  #deck .tbl td[data-label]::before{content:attr(data-label);display:block;margin-bottom:1px;
+    font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);font-weight:700}
+  #deck .tbl .num{white-space:normal}
+
+  #deck .tl-item h4{font-size:16px}
+  #deck .tl-item p{font-size:14.5px}
+
+  #deck .cards{gap:12px}
+  #deck .card{padding:18px}
+  #deck .card.feat{order:-1}
+  #deck .card li{font-size:14.5px}
+  #deck .price small{font-size:13px}
+
+  #deck .final{padding:22px 18px}
+  #deck .final h2{font-size:22px}
+  #deck .final p{font-size:15px}
+  #deck .contact{font-size:14px}
+  #deck .legal{font-size:11.5px;line-height:1.6}
+
+  .dl{right:12px;bottom:12px;padding:11px 18px;font-size:14px}
+}
+</style>
+<style>.card .price small{display:block;margin-top:4px;font-size:12.5px;white-space:nowrap}</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- ============ ОБЛОЖКА ============ -->
+<section class="page cover">
+  <div class="brand">M<b>g</b></div>
+  <div class="mid">
+    <div class="eyebrow">Коммерческое предложение</div>
+    <h1>Google Ad Grants для <span>American Marketing Association</span></h1>
+    <div class="sub">Google бесплатно даёт некоммерческим организациям до $10&nbsp;000 в месяц на рекламу в поиске. AMA уже имеет статус <span style="white-space:nowrap">501(c)(3)</span>, поэтому право на грант есть. Mg оформит грант, подготовит сайт, настроит рекламу и будет вести её так, чтобы грант работал и его не отключили.</div>
+    <div class="rule"></div>
+  </div>
+  <div class="cnums">
+    <div><b>$120&nbsp;000</b><span>в год бесплатной рекламы в поиске Google</span></div>
+    <div><b>4-6&nbsp;недель</b><span>до первых объявлений</span></div>
+    <div><b>7 кампаний</b><span>по темам миссии AMA</span></div>
+    <div><b>50%</b><span>оплаты за настройку только после одобрения Google</span></div>
+  </div>
+  <div class="cmeta">Подготовлено для American Marketing Association · 2 октября 2026 · Действительно до 16 октября 2026</div>
+</section>
+
+<!-- ============ 01 КОРОТКО ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 01</div>
+    <h2>Коротко: что предлагаем</h2>
+    <p class="lead">Сначала вывод, дальше работы, сроки и стоимость.</p>
+  </div>
+
+  <div class="verdict">
+    <h4>Предложение</h4>
+    <p>Mg получает для AMA <b>Google Ad Grants</b> и ведёт его: до <b>$10&nbsp;000 в месяц</b> бесплатной рекламы в поиске Google, первые объявления через 4-6&nbsp;недель после старта.</p>
+    <p>Создавать новую организацию не нужно. American Marketing Association Inc уже <b><span style="white-space:nowrap">501(c)(3)</span></b> (EIN 36-2130315), а в США Google даёт гранты только таким организациям. Главная работа до подачи: <b>подготовить сайт</b> под требования Google.</p>
+  </div>
+
+  <h3 class="sub">Что получает AMA</h3>
+  <table class="tbl compact">
+    <tr><th style="width:34%">Что</th><th>Подробно</th></tr>
+    <tr><td><b>Бесплатная реклама в поиске Google</b></td><td data-label="Подробно">До $10&nbsp;000 в месяц, до $120&nbsp;000 в год. Текстовые объявления в поиске Google.</td></tr>
+    <tr><td><b>Программы Google for Nonprofits</b></td><td data-label="Подробно">YouTube Nonprofit Program и Google Workspace for Nonprofits в том же кабинете.</td></tr>
+    <tr><td><b>Кого приводит реклама</b></td><td data-label="Подробно">Студентов, начинающих маркетологов, преподавателей и исследователей, которые ищут знания о маркетинге.</td></tr>
+    <tr><td><b>Что это даёт AMA</b></td><td data-label="Подробно">Подписки на рассылку, скачивания отчётов, заявки на стипендии, контакты с отделениями, новых членов.</td></tr>
+  </table>
+
+  <div class="note"><b>Важно понимать:</b> грант не заменяет платную рекламу. Объявления по гранту показываются ниже платных, поэтому лучше всего работают на информационных запросах («что такое маркетинг», «стипендии для студентов-маркетологов»), где у AMA уже есть сильный бесплатный контент. Платная реклама AMA, если она есть, продолжает работать отдельно.</div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 2</span></div>
+</section>
+
+<!-- ============ 02 ЧТО ДЕЛАЕМ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 02</div>
+    <h2>Что мы делаем</h2>
+    <p class="lead">Четыре этапа: от проверки права на грант до ежемесячного ведения.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h4>Право и заявка</h4><p>Проверяем, что у AMA нет действующего или отключённого гранта. Регистрируем AMA в Google for Nonprofits, проходим проверку Goodstack и подаём заявку на Ad Grants.</p></div>
+    <div class="step"><div class="num">2</div><h4>Сайт</h4><p>Проверяем ama.org по требованиям Google: спонсорский контент, баннеры, коммерческие страницы. Даём список правок и делаем новые страницы (раздел 03).</p></div>
+    <div class="step"><div class="num">3</div><h4>Сборка аккаунта</h4><p>Семь поисковых кампаний, ключевые слова, объявления, быстрые ссылки, гео США и Канада. Настройка целевых действий в GA4 и Google Tag Manager.</p></div>
+    <div class="step"><div class="num">4</div><h4>Ведение</h4><p>Еженедельная оптимизация, контроль правил Google каждый месяц, ежегодная анкета Google, понятный отчёт для AMA раз в месяц.</p></div>
+  </div>
+
+  <h3 class="sub">Семь кампаний по темам миссии AMA</h3>
+  <div class="incl">
+    <div><b>Основы маркетинга:</b> определение маркетинга, 4P, исследования рынка</div>
+    <div><b>Карьера в маркетинге:</b> профессии, резюме, навыки, вакансии</div>
+    <div><b>Развитие и сертификация:</b> что такое PCM, бесплатный пробный экзамен</div>
+    <div><b>Студенты и стипендии:</b> стипендии AMA Foundation, студенческие отделения</div>
+    <div><b>Тренды и исследования:</b> отчёт о трендах 2026, гайды</div>
+    <div><b>Наука и преподаватели:</b> журналы AMA, публикации, вакансии в вузах</div>
+    <div><b>Бренд AMA:</b> членство, отделения, Journal of Marketing</div>
+    <div><b>Защита бюджета:</b> минус-слова против других «AMA» (медицинская, мотоциклетная и другие ассоциации)</div>
+  </div>
+
+  <div class="note"><b>Почему это важно:</b> аббревиатуру AMA используют как минимум пять крупных организаций. Без минус-слов объявления показываются людям, которые ищут медицинскую или мотоциклетную ассоциацию, кликабельность падает ниже 5%, и Google отключает грант.</div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 3</span></div>
+</section>
+
+<!-- ============ 03 САЙТ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 03</div>
+    <h2>Сайт: что изменить и что добавить</h2>
+    <p class="lead">Главный риск при одобрении - сайт, а не статус AMA. Google хочет сайт о миссии, где продажи вторичны, а на ama.org много баннеров и спонсорских материалов. До подачи предлагаем две правки и пять новых страниц.</p>
+  </div>
+
+  <table class="tbl compact">
+    <tr><th style="width:30%">Страница или правка</th><th>Зачем это Google</th><th style="width:22%">Что отслеживаем</th></tr>
+    <tr><td><b>Новая: «Наше влияние» (Our Impact)</b><br>ama.org/impact</td><td data-label="Зачем это Google">Показывает, как взносы, сертификация, конференции и спонсорство финансируют отделения, стипендии и бесплатные материалы. Со ссылками на годовой отчёт и Form 990.</td><td data-label="Что отслеживаем">Страница доверия, ссылка из каждой кампании</td></tr>
+    <tr><td><b>Новая: «Начните здесь» (Start Here)</b><br>ama.org/learn</td><td data-label="Зачем это Google">Открытая страница под широкие обучающие запросы: определение маркетинга, 4P, карьера, отчёт о трендах, пробный экзамен, стипендии.</td><td data-label="Что отслеживаем">Подписка, скачивание отчёта</td></tr>
+    <tr><td><b>Новая: гид по карьере в маркетинге</b></td><td data-label="Зачем это Google">Посадочная страница под кампанию «Карьера».</td><td data-label="Что отслеживаем">Скачивание отчёта о карьере</td></tr>
+    <tr><td><b>Новая: стипендии для студентов</b></td><td data-label="Зачем это Google">Посадочная страница под кампанию «Студенты».</td><td data-label="Что отслеживаем">Клик «Подать заявку»</td></tr>
+    <tr><td><b>Новая: что такое сертификат PCM</b></td><td data-label="Зачем это Google">Под кампанию «Сертификация»: сначала польза, покупка вторым шагом.</td><td data-label="Что отслеживаем">Старт пробного экзамена</td></tr>
+    <tr><td><b>Правка: спонсорский контент и баннеры</b></td><td data-label="Зачем это Google">Реклама только по теме миссии, без AdSense и партнёрских ссылок; спонсорское помечаем «Sponsored».</td><td data-label="Что отслеживаем">Соответствие правилам</td></tr>
+    <tr><td><b>Правка: целевые действия в GA4</b></td><td data-label="Зачем это Google">Google требует минимум одно целевое действие в месяц. Настраиваем шесть: подписка, отчёт, вебинар, пробный экзамен, стипендия, вступление в AMA.</td><td data-label="Что отслеживаем">Все действия выше</td></tr>
+  </table>
+
+  <div class="note"><b>Опционально:</b> бесплатные версии двух шаблонов из Toolkits (маркетинговый план и SWOT). Тексты и макеты делаем мы, публикует команда AMA или мы сами в WordPress.</div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 4</span></div>
+</section>
+
+<!-- ============ 04 СРОКИ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 04</div>
+    <h2>Сроки: первые объявления через 4-6&nbsp;недель</h2>
+    <p class="lead">Сайт и регистрация в Google идут параллельно: Google проверяет сайт вместе с заявкой.</p>
+  </div>
+
+  <div class="tl">
+    <div class="tl-item"><div class="when">Неделя 1</div><h4>Проверка и документы</h4><p>Нет ли у AMA гранта, письма IRS, почта adgrants@ama.org, доступы к аналитике.</p></div>
+    <div class="tl-item"><div class="when">Недели 1-3, параллельно</div><h4>Сайт под требования Google</h4><p>Новые страницы, правки спонсорского контента, целевые действия в GA4.</p></div>
+    <div class="tl-item"><div class="when">Недели 1-3, параллельно</div><h4>Google for Nonprofits</h4><p>Регистрация и проверка Goodstack: обычно 3-5 рабочих дней, максимум 14.</p></div>
+    <div class="tl-item"><div class="when">Недели 3-4</div><h4>Заявка на Ad Grants</h4><p>Google рассматривает заявку около 3 рабочих дней.</p></div>
+    <div class="tl-item"><div class="when">Недели 4-6</div><h4>Запуск: первые объявления</h4><p>Семь кампаний, автоматические ставки на целевые действия, минус-слова с первого дня.</p></div>
+    <div class="tl-item"><div class="when">Недели 6-14</div><h4>Первые 60 дней</h4><p>Еженедельная чистка, отчёт раз в месяц, стабильная кликабельность.</p></div>
+  </div>
+
+  <h3 class="sub">За что Google отключает грант и как мы это держим</h3>
+  <div class="risk">
+    <div class="risk-item"><h4>Кликабельность ниже 5%</h4><p>Два месяца подряд ниже 5% - отключение. Проверяем каждую неделю.</p></div>
+    <div class="risk-item"><h4>Нет целевых действий</h4><p>Нужно минимум одно в месяц. Шесть настроены до запуска.</p></div>
+    <div class="risk-item"><h4>Слабые ключевые слова</h4><p>Оценка качества 1-2 и однословные запросы запрещены.</p></div>
+    <div class="risk-item"><h4>Ежегодная анкета Google</h4><p>Без ответа отключают. Заполняем вместе с AMA.</p></div>
+  </div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 5</span></div>
+</section>
+
+<!-- ============ 05 СТОИМОСТЬ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 05</div>
+    <h2>Стоимость</h2>
+    <p class="lead">Рекомендуемый пакет на первый год: $24&nbsp;300, грант даёт до $120&nbsp;000 рекламы в год. Для сравнения: ведение Ad Grants у агентств в США стоит $250-2&nbsp;000 в месяц.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="tier">Этап 1</div>
+      <h3>Настройка и подача заявки</h3>
+      <div class="price">$2&nbsp;400 <small>разово</small></div>
+      <ul>
+        <li>Проверка права на грант</li>
+        <li>Google for Nonprofits и Goodstack</li>
+        <li>Заявка на Ad Grants</li>
+        <li>Сборка 7 кампаний</li>
+        <li>Целевые действия в GA4</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="tier">Этап 2</div>
+      <h3>Страницы сайта</h3>
+      <div class="price">$3&nbsp;900 <small>разово</small></div>
+      <ul>
+        <li>«Наше влияние»</li>
+        <li>«Начните здесь»</li>
+        <li>3 тематические посадочные страницы</li>
+        <li>Тексты, макеты, базовое SEO</li>
+        <li>Публикация в WordPress при доступе</li>
+      </ul>
+    </div>
+    <div class="card feat">
+      <div class="badge">Рекомендуем</div>
+      <div class="tier">Этап 3</div>
+      <h3>Ведение Growth</h3>
+      <div class="price">$1&nbsp;500 <small>в месяц</small></div>
+      <ul>
+        <li>Всё из Essential</li>
+        <li>Новая посадочная страница или кампания каждый месяц</li>
+        <li>A/B-тесты объявлений</li>
+        <li>Анализ целевых действий</li>
+        <li>Стратегический созвон раз в квартал</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="row"><span class="n">Ведение Essential: оптимизация, контроль правил, анкета Google, отчёт</span><span class="p">$750 <small>/ мес</small></span></div>
+    <div class="row"><span class="n">Опционально: бесплатные версии двух шаблонов</span><span class="p">$900 <small>разово</small></span></div>
+    <div class="row"><span class="n">Год 1, рекомендуемый пакет: $2&nbsp;400 + $3&nbsp;900 + 12 × $1&nbsp;500</span><span class="p">$24&nbsp;300</span></div>
+    <div class="row"><span class="n">Реклама в Google по гранту</span><span class="p">$0 <small>платит Google</small></span></div>
+  </div>
+
+  <h3 class="sub">Условия</h3>
+  <div class="incl">
+    <div>Настройка: 50% на старте, 50% после одобрения Google. Если Google откажет, вторую половину не берём.</div>
+    <div>Страницы сайта: 50% на старте, 50% при сдаче.</div>
+    <div>Ведение: оплата помесячно вперёд, минимум 3 месяца, дальше помесячно.</div>
+    <div>Если грант отключат во время нашего ведения, восстановление бесплатно.</div>
+  </div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 6</span></div>
+</section>
+
+<!-- ============ 06 ПОЧТА И ДОСТУПЫ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 06</div>
+    <h2>Почта и доступы для подачи заявки</h2>
+    <p class="lead">AMA создаёт один общий ящик <b>adgrants@ama.org</b>, через него мы подаём заявку. Грант остаётся собственностью AMA: если мы когда-нибудь закончим работу, все аккаунты остаются у вас.</p>
+  </div>
+
+  <div class="tl">
+    <div class="tl-item"><div class="when">Шаг 1</div><h4>Общий ящик adgrants@ama.org</h4><p>IT-отдел AMA создаёт общий ящик или группу. Письма приходят ответственному за маркетинг в AMA и руководителю проекта в Mg.</p></div>
+    <div class="tl-item"><div class="when">Шаг 2</div><h4>Google-аккаунт на этот адрес</h4><p>Работает и на Microsoft 365: Google позволяет зарегистрироваться с существующей рабочей почтой.</p></div>
+    <div class="tl-item"><div class="when">Шаг 3</div><h4>Регистрация в Google for Nonprofits</h4><p>Этот аккаунт становится администратором. Домен почты совпадает с ama.org, поэтому Goodstack подтверждает связь с AMA автоматически и быстрее.</p></div>
+    <div class="tl-item"><div class="when">Шаг 4</div><h4>Защита</h4><p>Двухэтапная проверка на телефон AMA, пароль хранит AMA.</p></div>
+    <div class="tl-item"><div class="when">Шаг 5</div><h4>Доступы для Mg</h4><p>После одобрения AMA приглашает менеджерский аккаунт Mg в Google Ads со стандартным доступом и даёт права редактора в GA4, Google Tag Manager и Search Console.</p></div>
+  </div>
+
+  <div class="note"><b>Почему не личная почта и не почта Mg:</b> Goodstack проверяет, что заявитель работает в организации, а Google привязывает грант к владельцу аккаунта. Общий ящик AMA не зависит от смены сотрудников и оставляет права собственности за AMA.</div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 7</span></div>
+</section>
+
+<!-- ============ 07 ЧТО НУЖНО ============ -->
+<section class="page">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 07</div>
+    <h2>Что нужно от AMA</h2>
+    <p class="lead">Первые четыре пункта открывают подачу заявки, остальное можно в первую неделю.</p>
+  </div>
+
+  <div class="ask">
+    <div>Подтверждение, что у AMA нет и не было аккаунта Google for Nonprofits или Ad Grants</div>
+    <div>Письма IRS о статусе <span style="white-space:nowrap">501(c)(3)</span> и 147C в PDF без правок</div>
+    <div>Юридическое название, EIN и адрес точно как в записях IRS</div>
+    <div>Общий ящик adgrants@ama.org (раздел 06)</div>
+    <div>Миссия в одном-двух абзацах и 3-5 программ с цифрами</div>
+    <div>Контактное лицо: согласует объявления и отвечает на анкету Google</div>
+    <div>Доступы к GA4, Google Tag Manager, Search Console и редактор WordPress, если страницы делаем мы</div>
+    <div>Решение по пометкам спонсорского контента и баннерам</div>
+    <div>Текущие цифры в месяц: подписки, новые члены, скачивания отчётов</div>
+  </div>
+
+  <div class="final">
+    <div class="eyebrow">Следующий шаг</div>
+    <h2>Созвон 30 минут</h2>
+    <p>Пройдём предложение, ответим на вопросы, выберем тариф ведения. После подписания договора и оплаты начинаем работу в течение двух рабочих дней.</p>
+    <div class="contacts">
+      <div class="contact"><span>Сайт</span><b>maizongroup.com</b></div>
+      <div class="contact"><span>Email</span><b>hello@maizongroup.com</b></div>
+      <div class="contact"><span>Telegram</span><b>@stanistar888</b></div>
+    </div>
+  </div>
+
+  <div class="legal">
+    <b>Maizon Group LLC-FZ</b> · Лицензия 2423151.01<br>
+    Документ подготовлен 2 октября 2026 года. Правила Google Ad Grants и данные об AMA сверены по открытым источникам на эту дату: справка Google for Nonprofits, Goodstack, IRS (через ProPublica Nonprofit Explorer и GuideStar), годовой отчёт AMA за FY24. Решение об одобрении гранта принимает Google.
+  </div>
+
+  <div class="pfoot"><span><b>Mg</b> · Google Ad Grants для AMA</span><span>Для AMA · 8</span></div>
+</section>
+
+</div>
+
+<a class="dl" href="Mg-Google-Ad-Grants-AMA.pdf" download>
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5v8.5M4.5 7L8 10.5 11.5 7M2 13.5h12"/></svg>
+  Скачать PDF
+</a>
+
+</body>
+</html>
