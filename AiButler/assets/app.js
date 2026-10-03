@@ -92,39 +92,84 @@
   }
 
   /* --- demo request form: без бэкенда шлём письмо, статус через aria-live --- */
+  /* --- форма заявки: уходит в хаб Apps Script, хаб пишет Стасу в Telegram (@MgGlobalinfo_bot).
+         event "call" = только пинг в Telegram, без почты, таблицы и сделки ИИзации. --- */
   var form = document.querySelector('[data-demo-form]');
   if (form) {
     var status = form.querySelector('[data-form-status]');
+    var submitBtn = form.querySelector('[type="submit"]');
     var isRu = (document.documentElement.lang || 'ru').indexOf('ru') === 0;
+    var endpoint = form.getAttribute('data-endpoint');
+    var tgHref = form.getAttribute('data-telegram') || 'https://t.me/stanistar888';
+    var sending = false;
+
+    function field(key) {
+      var el = form.elements[key];
+      return el ? el.value.toString().trim().slice(0, 1500) : '';
+    }
+    function labelOf(key) {
+      var el = form.elements[key];
+      var span = el && el.closest('label') && el.closest('label').querySelector('span');
+      return span ? span.textContent.trim() : key;
+    }
+    function setStatus(text, withTg) {
+      if (!status) return;
+      status.textContent = text;
+      if (withTg) {
+        var a = document.createElement('a');
+        a.href = tgHref;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = '@' + tgHref.split('/').pop();
+        status.appendChild(a);
+      }
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var data = new FormData(form);
-      var name = (data.get('name') || '').toString().trim();
-      var contact = (data.get('contact') || '').toString().trim();
+      if (sending) return;
+      var name = field('name');
+      var contact = field('contact');
       if (!name || !contact) {
-        if (status) status.textContent = isRu ? 'Заполните имя и контакт.' : 'Please fill in name and contact.';
+        setStatus(isRu ? 'Заполните имя и контакт.' : 'Please fill in name and contact.');
         return;
       }
       track('demo_request', { lang: document.documentElement.lang });
-      var pageTitle = (document.title || 'Mg Intelligence Home').split(' - ')[0];
-      var subject = pageTitle + (isRu ? ' - заявка с сайта' : ' - website inquiry');
-      var body = [
-        (isRu ? 'Имя: ' : 'Name: ') + name,
-        (isRu ? 'Контакт: ' : 'Contact: ') + contact,
-        (isRu ? 'Объект: ' : 'Property: ') + ((data.get('object') || '').toString().trim()),
-        '',
-        (data.get('message') || '').toString().trim()
-      ].join('\n');
-      window.location.href =
-        'mailto:info@maizongroup.com?subject=' +
-        encodeURIComponent(subject) +
-        '&body=' +
-        encodeURIComponent(body);
-      if (status) {
-        status.textContent = isRu
-          ? 'Открываем почтовый клиент. Если не открылся, напишите на info@maizongroup.com.'
-          : 'Opening your mail client. If nothing happened, write to info@maizongroup.com.';
-      }
+
+      var details = ['AiButler, заявка с сайта', 'Страница: ' + location.pathname];
+      ['object', 'message'].forEach(function (key) {
+        var v = field(key);
+        if (v) details.push(labelOf(key) + ': ' + v);
+      });
+
+      var fail = function () {
+        sending = false;
+        if (submitBtn) submitBtn.disabled = false;
+        setStatus(isRu ? 'Не получилось отправить. Напишите нам в Telegram: ' : 'Could not send. Message us on Telegram: ', true);
+      };
+      if (!endpoint || !window.fetch) { fail(); return; }
+
+      sending = true;
+      if (submitBtn) submitBtn.disabled = true;
+      setStatus(isRu ? 'Отправляем...' : 'Sending...');
+      // text/plain + no-cors: простой запрос без CORS-префлайта, Apps Script его принимает
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          event: 'call',
+          source: 'aibutler', // метка для будущего отдельного бота заявок; хаб пока её не читает
+          company: details.join('\n'),
+          contactName: name,
+          contactHandle: contact
+        })
+      }).then(function () {
+        sending = false;
+        form.reset();
+        if (submitBtn) submitBtn.disabled = false;
+        setStatus(isRu ? 'Заявка отправлена. Мы свяжемся с вами по указанному контакту.' : 'Request sent. We will get back to you at the contact you left.');
+      }, fail);
     });
   }
   /* --- светлая / тёмная тема: тёмная по умолчанию, выбор запоминается --- */
