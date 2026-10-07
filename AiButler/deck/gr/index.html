@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AiButler Alex για developers ακινήτων - Mg Intelligence Home</title>
+<meta name="description" content="Ένας AI μπάτλερ για κάθε κατοικία πάνω από KNX, Control4, Crestron και Home Assistant: τι είναι, γιατί το επιλέγουν οι developers και τα στάδια εργασιών από το demo ως την υποστήριξη.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#FBF9F5">
+<link rel="canonical" href="https://audit.maizongroup.com/AiButler/deck/gr/">
+<link rel="alternate" hreflang="ru" href="https://audit.maizongroup.com/AiButler/deck/">
+<link rel="alternate" hreflang="en" href="https://audit.maizongroup.com/AiButler/deck/en/">
+<link rel="alternate" hreflang="el" href="https://audit.maizongroup.com/AiButler/deck/gr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AiButler Alex για developers ακινήτων - Mg Intelligence Home">
+<meta property="og:description" content="Ένας AI μπάτλερ για κάθε κατοικία πάνω από KNX, Control4, Crestron και Home Assistant: τι είναι, γιατί το επιλέγουν οι developers και τα στάδια εργασιών από το demo ως την υποστήριξη.">
+<meta property="og:url" content="https://audit.maizongroup.com/AiButler/deck/gr/">
+<meta property="og:locale" content="el_GR">
+<meta property="og:site_name" content="Mg Intelligence Home">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23F4EFE6%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23C9A45C%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%224%22%20fill%3D%22%23C9A45C%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..700&family=Manrope:wght@300..800&display=swap">
+<style>*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:#EAE3D6;color:#101820;font-family:'Manrope',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:rgba(251,249,245,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #E2D9C8}
+.brand{color:#101820;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{color:#7A5A1E;font-weight:600}
+.tools{display:flex;align-items:center;gap:10px;flex:none}
+.langs{display:flex;border:1px solid #DCC8A0;border-radius:999px;overflow:hidden;background:#FBF9F5}
+.langs a{padding:7px 13px;font-size:13px;font-weight:700;letter-spacing:.6px;color:#7A5A1E;text-decoration:none}
+.langs a[aria-current=page]{background:#7A5A1E;color:#FBF9F5}
+.btn{border:0;border-radius:999px;background:#101820;color:#FBF9F5;padding:8px 16px;font:700 13px 'Manrope',Arial,sans-serif;letter-spacing:.3px;cursor:pointer}
+.btn:focus-visible,.langs a:focus-visible{outline:2px solid #C9A45C;outline-offset:2px}
+.hint{display:none;margin:16px 16px 0;padding:10px 14px;border-radius:10px;background:#F4EFE6;border:1px solid #E2D9C8;color:#4A4F57;font-size:14px;line-height:1.4}
+@media (max-width:640px) and (orientation:portrait){.hint{display:block}.brand span{display:none}}
+.deck{max-width:1280px;margin:0 auto;padding:24px 16px 40px;display:flex;flex-direction:column;gap:20px}
+.frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:#FBF9F5;box-shadow:0 12px 32px rgba(70,52,20,.12),0 1px 2px rgba(70,52,20,.08);scroll-margin-top:72px}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transform:scale(var(--k,.5))}
+.stage>section{position:relative;width:1920px;height:1080px;overflow:hidden}
+.stage h1,.stage h2,.stage h3,.stage p,.stage ul{margin:0}
+.stage ul{padding-left:1.15em}
+.stage li::marker{color:#B08A45}
+.stage hr{border:0;margin:0;height:0;align-self:stretch}
+.xs{display:block;flex:none}
+.xs-ellipse{border-radius:50%}
+.xs-arrow-right{clip-path:polygon(0 30%,60% 30%,60% 0,100% 50%,60% 100%,60% 70%,0 70%)}
+.xi{display:block;flex:none}
+.foot{max-width:1280px;margin:0 auto;padding:8px 16px 40px;display:flex;flex-wrap:wrap;gap:8px 20px;color:#62666D;font-size:14px}
+.foot a{color:#7A5A1E;text-decoration:none;font-weight:600}
+.pctl{display:none}
+body.presenting{overflow:hidden;background:#14110C}
+body.presenting .bar,body.presenting .foot,body.presenting .hint{display:none}
+body.presenting .deck{position:fixed;inset:0;max-width:none;margin:0;padding:0;display:block;background:#14110C}
+body.presenting .frame{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100vh * 16 / 9));border-radius:0;box-shadow:none;cursor:pointer}
+body.presenting .frame.cur{display:block}
+body.presenting .pctl{display:flex;position:fixed;right:16px;bottom:16px;z-index:30;gap:6px;align-items:center;padding:6px;border-radius:999px;background:rgba(251,249,245,.9);opacity:.35;transition:opacity .2s}
+body.presenting .pctl:hover,body.presenting .pctl:focus-within{opacity:1}
+.pctl button{border:0;background:transparent;color:#101820;font:700 14px 'Manrope',Arial,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer}
+.pctl button:hover{background:#EFE3CB}
+.pctl .cnt{font:600 13px 'Manrope',Arial,sans-serif;color:#62666D;min-width:52px;text-align:center}
+@media print{.bar,.foot,.hint,.pctl{display:none}body{background:#fff}.deck{padding:0;gap:0}.frame{break-after:page;border-radius:0;box-shadow:none}}</style>
+</head>
+<body>
+<header class="bar">
+<a class="brand" href="/AiButler/developers/en/">Mg Intelligence Home <span>· AiButler Alex</span></a>
+<div class="tools">
+<nav class="langs" aria-label="Language"><a href="/AiButler/deck/" hreflang="ru">RU</a><a href="/AiButler/deck/en/" hreflang="en">EN</a><a href="/AiButler/deck/gr/" hreflang="el" aria-current="page">GR</a></nav>
+<button class="btn present" type="button">Παρουσίαση</button>
+</div>
+</header>
+<p class="hint">Γυρίστε το κινητό οριζόντια ή πατήστε «Παρουσίαση» για μεγαλύτερες διαφάνειες.</p>
+<main class="deck">
+<div class="frame" id="s-cover"><div class="stage"><section id="cover" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1152px;top:220px;width:640px;height:640px;background:transparent;border:2px solid #C9A45C;opacity:0.5"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1272px;top:340px;width:400px;height:400px;background:transparent;border:2px solid #C9A45C;opacity:0.85"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1440px;top:508px;width:64px;height:64px;background:#C9A45C"></div>
+<p style="font-size:28px;font-weight:600;letter-spacing:1px;color:#7A5A1E">Mg Intelligence Home · για developers ακινήτων</p>
+<h1 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820">AiButler Alex</h1>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:400;line-height:1.15;color:#101820;width:960px">Ένας AI μπάτλερ για κάθε κατοικία</h2>
+<p style="font-size:28px;line-height:1.45;width:900px">Ένα επίπεδο τεχνητής νοημοσύνης πάνω από KNX, Control4, Crestron και Home Assistant. Φωνή, μνήμη και χαρακτήρας για κάθε ένοικο - χωρίς να ξαναστηθεί το έξυπνο σπίτι.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Maizon Group · audit.maizongroup.com/AiButler</p>
+</section></div></div>
+<div class="frame" id="s-market"><div class="stage"><section id="market" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΑΓΟΡΑ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Το έξυπνο σπίτι σήμερα: εφαρμογές και σενάρια</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Ο αγοραστής μιας premium κατοικίας παίρνει τον ίδιο πίνακα στον τοίχο με το διπλανό έργο. Για να κλείσει την καγκελόπορτα, ανοίγει τρίτη εφαρμογή.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Χωρίς διάλογο</h3>
+<p style="font-size:24px;line-height:1.45">Το σπίτι εκτελεί εντολές, αλλά δεν μιλά. Ένα βήμα εκτός σεναρίου - πάλι στο κινητό.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>Με τον μπάτλερ:</b></span> μιλάτε όπως σε άνθρωπο, χωρίς εφαρμογές και μαγικές φράσεις.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Χωρίς μνήμη</h3>
+<p style="font-size:24px;line-height:1.45">Το σύστημα δεν θυμάται πώς θέλει η οικογένεια τα φώτα το βράδυ ή τι ώρα έρχεται το προσωπικό.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>Με τον μπάτλερ:</b></span> άνθρωποι, συνήθειες και συμφωνίες μένουν στη μνήμη για χρόνια.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Χωρίς προσωπική προσέγγιση</h3>
+<p style="font-size:24px;line-height:1.45">Πέντε μέλη της οικογένειας παίρνουν το ίδιο σπίτι: ρόλοι, συνήθειες και γλώσσες δεν ξεχωρίζουν.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>Με τον μπάτλερ:</b></span> κάθε μέλος έχει τον δικό του ρόλο, γλώσσα και συνήθειες.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Τίποτα για τον επισκέπτη</h3>
+<p style="font-size:24px;line-height:1.45">Ο επισκέπτης δεν θα μελετήσει τον πίνακα στον τοίχο. Θα ρωτήσει έναν άνθρωπο - ή κανέναν.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>Με τον μπάτλερ:</b></span> ο επισκέπτης ρωτά το σπίτι στη γλώσσα του και παίρνει αμέσως απάντηση.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">02</p>
+</section></div></div>
+<div class="frame" id="s-product"><div class="stage"><section id="product" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΠΡΟΪΟΝ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Μία προσωπικότητα, μία μνήμη, πολλές συσκευές</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Κάθε ένοικος αποκτά έναν μπάτλερ με φωνή, μνήμη και χαρακτήρα. Ανδρική ή γυναικεία εμφάνιση και φωνή - επιλογή του ενοίκου.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Φωνή</h3></div>
+<p style="font-size:24px;line-height:1.45">Ελεύθερη συζήτηση στο κινητό και στις συσκευές που υπάρχουν ήδη στο σπίτι.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Μακροχρόνια μνήμη</h3></div>
+<p style="font-size:24px;line-height:1.45">Άνθρωποι, προτιμήσεις, συμφωνίες και η ιστορία του σπιτιού.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Avatar</h3></div>
+<p style="font-size:24px;line-height:1.45">Στην τηλεόραση ή στο tablet υποδέχεται επισκέπτες και δέχεται βιντεοκλήσεις.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Έλεγχος σπιτιού</h3></div>
+<p style="font-size:24px;line-height:1.45">Φώτα, κλιματισμός, μουσική, ρολά, καγκελόπορτες - μέσα από ένα επίπεδο πάνω από το σύστημά σας.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Προσωπικά εργαλεία</h3></div>
+<p style="font-size:24px;line-height:1.45">Υπενθυμίσεις, εργασίες, email, ημερολόγιο και έγγραφα.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Πολλές γλώσσες</h3></div>
+<p style="font-size:24px;line-height:1.45">Ένας μπάτλερ μιλά με την οικογένεια, το προσωπικό και τους επισκέπτες στη γλώσσα τους.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">03</p>
+</section></div></div>
+<div class="frame" id="s-scenes"><div class="stage"><section id="scenes" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΣΕΝΑΡΙΑ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Τι ακούει ο ένοικος</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">09:15 · ΗΛΙΚΙΩΜΕΝΟΙ ΓΟΝΕΙΣ</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Πήρε η μαμά τα φάρμακά της;»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Ναι, επιβεβαίωσε στις 9:15. Επόμενη υπενθύμιση στις 18:00.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">11:00 · ΠΡΟΣΩΠΙΚΟ</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Πες στην καθαρίστρια ότι θα γυρίσουμε μέχρι τις 19:00»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Μεταφέρθηκε στα ισπανικά, η καθαρίστρια επιβεβαίωσε.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">14:00 · ΣΕ ΤΑΞΙΔΙ</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Είμαστε διακοπές, τι γίνεται στο σπίτι;»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Όλα ήσυχα: 23°, καμία κίνηση, δεν έχει μαζευτεί αλληλογραφία.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">21:30 · ΒΡΑΔΥ</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Πες καληνύχτα στα παιδιά και σβήσε τα φώτα»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Καληνύχτα! Τα φώτα έσβησαν, στο παιδικό δωμάτιο μένει αναμμένο ένα απαλό φωτάκι νυκτός.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">04</p>
+</section></div></div>
+<div class="frame" id="s-benefits"><div class="stage"><section id="benefits" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΟΦΕΛΗ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Γιατί το επιλέγουν οι developers</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px 24px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Διαφοροποίηση στην αγορά</h3>
+<p style="font-size:24px;line-height:1.45">Μια κατοικία με AI μπάτλερ ξεχωρίζει ανάμεσα σε τυπικά έργα με έξυπνο σπίτι.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Νέο επιχείρημα πώλησης</h3>
+<p style="font-size:24px;line-height:1.45">Η ομάδα πωλήσεων δείχνει ζωντανό διάλογο με το σπίτι, όχι πίνακα στον τοίχο.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Μεγαλύτερη αξία για τον αγοραστή</h3>
+<p style="font-size:24px;line-height:1.45">Το επίπεδο AI γίνεται αντιληπτό ως premium τεχνολογία, όχι ως επιλογή από λίστα.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ένοικοι σε κάθε γλώσσα</h3>
+<p style="font-size:24px;line-height:1.45">Ένας μπάτλερ μιλά με οικογένεια, προσωπικό και επισκέπτες στη γλώσσα τους.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">05</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Πρότυπη βίλα για ξεναγήσεις</h3>
+<p style="font-size:24px;line-height:1.45">Στην οθόνη υποδέχεται τον αγοραστή και κάνει την ξενάγηση στη γλώσσα του.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">06</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Πάνω από το σύστημά σας</h3>
+<p style="font-size:24px;line-height:1.45">KNX, Control4, Crestron, Home Assistant: συνδεόμαστε με ό,τι είναι ήδη εγκατεστημένο.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">07</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Το brand σας</h3>
+<p style="font-size:24px;line-height:1.45">White-label ή κοινό branding: ο μπάτλερ ακούγεται και μοιάζει μέρος του έργου.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">08</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Υποστήριξη μετά την παράδοση</h3>
+<p style="font-size:24px;line-height:1.45">Μετά την παράδοση, το επίπεδο AI το αναλαμβάνει η ομάδα της Mg.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">05</p>
+</section></div></div>
+<div class="frame" id="s-showhome"><div class="stage"><section id="showhome" data-transition="fade" style="background:#EADBBE;color:#101820;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#101820">ΠΡΟΤΥΠΗ ΒΙΛΑ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820;width:1500px">Πρότυπη βίλα που κάνει μόνη της την ξενάγηση</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Υποδέχεται τον αγοραστή στην οθόνη με το brand του developer</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Συνομιλεί ζωντανά στη γλώσσα του αγοραστή</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Απαντά με φωνή, όχι με πίνακα στον τοίχο</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Κάθε επίσκεψη καταγράφεται στο CRM των πωλήσεων</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#2B2618">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#2B2618;text-align:right">06</p>
+</section></div></div>
+<div class="frame" id="s-chain"><div class="stage"><section id="chain" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΠΩΣ ΛΕΙΤΟΥΡΓΕΙ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Μπαίνει στην αλυσίδα χωρίς να αντικαθιστά κανέναν</h2>
+</div>
+<div style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Developer</h3>
+<p style="font-size:24px;line-height:1.45">Ορίζει τις κατοικίες και το χρονοδιάγραμμα παράδοσης.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Εγκαταστάτης</h3>
+<p style="font-size:24px;line-height:1.45">Σχεδιάζει και εγκαθιστά KNX, Control4 ή Crestron όπως πάντα.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Mg Intelligence Home</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A4F57">Συνδέεται από πάνω ως επίπεδο AI: μπάτλερ με φωνή και μνήμη.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ένοικος</h3>
+<p style="font-size:24px;line-height:1.45">Αποκτά προσωπικό μπάτλερ από την πρώτη μέρα.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Η Mg δεν αντικαθιστά τον εγκαταστάτη και δεν αναλαμβάνει την εγκατάσταση ή τη συντήρηση του αυτοματισμού.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">07</p>
+</section></div></div>
+<div class="frame" id="s-architecture"><div class="stage"><section id="architecture" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΑΡΧΙΤΕΚΤΟΝΙΚΗ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Πέντε επίπεδα: από τη φωνή ως τα φώτα του σαλονιού</h2>
+</div>
+<div style="display:flex;gap:56px">
+<div style="flex:3;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">1</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Φωνή ή chat του ενοίκου</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#101820;width:40px">2</p>
+<p style="font-size:28px;line-height:1.3;color:#101820"><b>Επίπεδο AI Mg Intelligence Home:</b> προσωπικότητα, μνήμη, λογική</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">3</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Επίπεδο ενσωμάτωσης: API και drivers</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">4</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Το σύστημά σας: KNX, Control4, Crestron, Home Assistant</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">5</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Φώτα, κλιματισμός, ρολά, καγκελόπορτες, media</p>
+</div>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:32px;justify-content:center">
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">Διαβάζουμε και στέλνουμε εντολές μέσω του υπάρχοντος API ή driver.</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">Δεν αντικαθιστούμε τον πίνακα ελέγχου και δεν αλλάζουμε τη ρύθμιση του εγκαταστάτη.</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">Τα σενάρια επιβεβαιώνονται στο σύστημά σας πριν από την υπογραφή.</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">08</p>
+</section></div></div>
+<div class="frame" id="s-roles"><div class="stage"><section id="roles" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΡΟΛΟΙ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Ποιος είναι υπεύθυνος για τι</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Developer</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Ορίζει κατοικίες και χρονοδιάγραμμα παράδοσης</li>
+<li>Δίνει πρόσβαση στην πρότυπη βίλα και στα ακίνητα</li>
+<li>Επιλέγει μορφή brand: white-label ή κοινό</li>
+<li>Η ομάδα πωλήσεων κάνει ξεναγήσεις μαζί με τον μπάτλερ</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Εγκαταστάτης</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Εξοπλισμός αυτοματισμού</li>
+<li>Ρύθμιση KNX, Control4 ή Crestron</li>
+<li>Φυσική εγκατάσταση</li>
+<li>Συντήρηση του συστήματος αυτοματισμού</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px;color:#4A4F57">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Mg Intelligence Home</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Μπάτλερ Alex: προσωπικότητα, εμφάνιση, φωνή</li>
+<li>Φωνητική διεπαφή και διάλογος</li>
+<li>Μνήμη και εξατομίκευση</li>
+<li>Ενσωματώσεις AI και λογική διαλόγου</li>
+<li>Δικαιώματα πρόσβασης και ασφάλεια</li>
+<li>Συνεχείς ενημερώσεις AI</li>
+</ul>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45">Η Mg δεν πουλά και δεν εγκαθιστά εξοπλισμό: συσκευές και εγκατάσταση μένουν στον developer και στον εγκαταστάτη.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">09</p>
+</section></div></div>
+<div class="frame" id="s-stages"><div class="stage"><section id="stages" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΣΤΑΔΙΑ ΕΡΓΑΣΙΩΝ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Επτά βήματα: από το πρώτο demo ως το σπίτι που μιλά</h2>
+</div>
+<div style="display:flex;gap:0px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ζωντανό demo</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">20 λεπτά, ο μπάτλερ σε δοκιμαστική διάταξη</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Αυτοψία</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">εύρος και τιμή πριν την υπογραφή</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Σύμβαση</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">σταθερή τιμή και χρονοδιάγραμμα</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Πρότυπη βίλα</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">περίπου 3 εβδομάδες μετά την πρόσβαση</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">05</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Κατοικίες</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">κατά το χρονοδιάγραμμα παράδοσης</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">06</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Παράδοση</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">μπάτλερ από την πρώτη μέρα</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 0 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">07</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Υποστήριξη</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">η ομάδα της Mg μετά την παράδοση</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Οι προθεσμίες για την πρότυπη βίλα και τις κατοικίες ορίζονται στη σύμβαση μετά την αυτοψία.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">10</p>
+</section></div></div>
+<div class="frame" id="s-start"><div class="stage"><section id="start" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΣΤΑΔΙΑ 01-03</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Έναρξη: demo, αυτοψία, σύμβαση</h2>
+<div style="display:flex;gap:24px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ζωντανό demo</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">20 λεπτά</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>Ο μπάτλερ γνωρίζει την ομάδα σας και θυμάται ποιος είναι ποιος</li>
+<li>Ελέγχει με τη φωνή το σπίτι της δοκιμαστικής διάταξης</li>
+<li>Εξετάζουμε το τρέχον σύστημα αυτοματισμού σας</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Αποτέλεσμα:</b> βλέπετε πώς θα λειτουργεί στο έργο σας</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Αυτοψία ακινήτου</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">πριν την υπογραφή</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>Εξετάζουμε το σύστημα αυτοματισμού και τις συσκευές</li>
+<li>Καταγράφουμε σενάρια και γλώσσες</li>
+<li>Επιβεβαιώνουμε τις ενσωματώσεις στο σύστημά σας</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Αποτέλεσμα:</b> εύρος εργασιών και τιμή πριν την υπογραφή</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Σύμβαση</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">έναρξη εργασιών</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>Η σύμβαση περιλαμβάνει μόνο ό,τι δείξαμε ζωντανά</li>
+<li>Σταθερή τιμή για την πρότυπη βίλα</li>
+<li>Τιμή ανά κατοικία: πλήθος, ενσωματώσεις, παραδόσεις</li>
+<li>Χρονοδιάγραμμα: πρότυπη βίλα και σειρά κατοικιών</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Αποτέλεσμα:</b> προκαταβολή και έναρξη εργασιών</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">11</p>
+</section></div></div>
+<div class="frame" id="s-showhome-launch"><div class="stage"><section id="showhome-launch" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΣΤΑΔΙΟ 04</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Πρότυπη βίλα: λειτουργία σε περίπου 3 εβδομάδες από την πρόσβαση στο ακίνητο</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:3;display:flex;flex-direction:column;gap:16px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Τι κάνουμε</h3>
+<ul style="font-size:24px;line-height:1.6">
+<li>Προσαρμόζουμε τον μπάτλερ στο brand του developer: εμφάνιση, φωνή, ύφος</li>
+<li>Φορτώνουμε στη μνήμη του στοιχεία του έργου για τις ξεναγήσεις</li>
+<li>Συνδέουμε τον μπάτλερ με τον αυτοματισμό της πρότυπης βίλας</li>
+<li>Ρυθμίζουμε τις γλώσσες ξενάγησης για τους αγοραστές σας</li>
+<li>Συνδέουμε την καταγραφή επισκέψεων στο CRM</li>
+<li>Εκπαιδεύουμε την ομάδα πωλήσεων για ξεναγήσεις μαζί με τον μπάτλερ</li>
+</ul>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:20px;background:#FFFDF9;border:2px solid #C9A45C;border-radius:16px;padding:32px 40px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Τι κερδίζει η ομάδα πωλήσεων</h3>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Ο μπάτλερ υποδέχεται τον αγοραστή στην οθόνη</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Ξενάγηση στη γλώσσα του αγοραστή</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Ζωντανός διάλογος με το σπίτι αντί για πίνακα στον τοίχο</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Κάθε επίσκεψη στο CRM</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">12</p>
+</section></div></div>
+<div class="frame" id="s-residences"><div class="stage"><section id="residences" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΣΤΑΔΙΑ 05-06</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Κατοικίες: από την εγκατάσταση ως την πρώτη συζήτηση</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">05</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Κατοικίες</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">κατά το χρονοδιάγραμμα παράδοσης</p>
+<ul style="font-size:24px;line-height:1.55">
+<li>Ο εγκαταστάτης τοποθετεί τον αυτοματισμό όπως πάντα</li>
+<li>Η Mg συνδέει το επίπεδο AI με το σύστημα κάθε κατοικίας</li>
+<li>Ελέγχουμε τα σενάρια επί τόπου: φώτα, κλιματισμός, ρολά, καγκελόπορτες, media</li>
+<li>Η κατοικία παραδίδεται με μπάτλερ σε λειτουργία</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">06</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Παράδοση στον ένοικο</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">από την πρώτη μέρα</p>
+<ul style="font-size:24px;line-height:1.55">
+<li>Ο ένοικος επιλέγει εμφάνιση και φωνή: ανδρική ή γυναικεία</li>
+<li>Προφίλ και δικαιώματα: οικογένεια, προσωπικό, επισκέπτες</li>
+<li>Γλώσσες: ο καθένας μιλά με το σπίτι στη δική του</li>
+<li>PIN για καγκελόπορτες, συναγερμό και ρυθμίσεις ασφαλείας</li>
+<li>Εκπαίδευση οικογένειας και προσωπικού</li>
+</ul>
+</div>
+</div>
+<div style="display:flex;gap:20px;align-items:center;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:24px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+<p style="font-size:28px;line-height:1.35;color:#101820"><b>Αποτέλεσμα:</b> ο ένοικος έχει προσωπικό μπάτλερ από την πρώτη μέρα στο νέο σπίτι</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">13</p>
+</section></div></div>
+<div class="frame" id="s-support"><div class="stage"><section id="support" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΣΤΑΔΙΟ 07</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Μετά την παράδοση, την υποστήριξη αναλαμβάνει η ομάδα της Mg</h2>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.25;color:#7A5A1E;width:1500px">Η ομάδα πωλήσεών σας έκλεισε τη συμφωνία. Από εκεί και πέρα, τον ένοικο τον αναλαμβάνει η Mg.</p>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Το AI περιλαμβάνεται</h3>
+<p style="font-size:24px;line-height:1.45">Φωνή και μηνύματα χωρίς όρια και χωρίς ξεχωριστούς λογαριασμούς για AI.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /><circle cx="12" cy="12" r="3" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ενημερώσεις</h3>
+<p style="font-size:24px;line-height:1.45">Συνεχείς ενημερώσεις λογισμικού AI χωρίς κόπο για τον developer.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Υποστήριξη σε messenger</h3>
+<p style="font-size:24px;line-height:1.45">Αλλαγές σε σενάρια και μνήμη κατόπιν αιτήματος του ενοίκου.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Επίπεδα υποστήριξης</h3>
+<p style="font-size:24px;line-height:1.45">Care, Premium, Concierge: έως προσωπικό manager της Mg και επίσκεψη επί τόπου.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">14</p>
+</section></div></div>
+<div class="frame" id="s-privacy"><div class="stage"><section id="privacy" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΙΔΙΩΤΙΚΟΤΗΤΑ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Τα δεδομένα των ενοίκων μένουν ιδιωτικά</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Υποδομή στην ΕΕ</h3></div>
+<p style="font-size:24px;line-height:1.45">Όπου εφαρμόζεται, τα δεδομένα επεξεργάζονται και αποθηκεύονται σε servers στην ΕΕ.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Δικαιώματα πρόσβασης</h3></div>
+<p style="font-size:24px;line-height:1.45">Ξεχωριστοί ρόλοι για οικογένεια, προσωπικό και επισκέπτες, ο καθένας με τη δική του πρόσβαση.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Αρχείο ενεργειών</h3></div>
+<p style="font-size:24px;line-height:1.45">Κάθε ενέργεια του μπάτλερ στο σπίτι καταγράφεται και είναι διαθέσιμη στον ιδιοκτήτη.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Επιβεβαίωση με PIN</h3></div>
+<p style="font-size:24px;line-height:1.45">Καγκελόπορτες, συναγερμός και ρυθμίσεις ασφαλείας - μόνο με PIN.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Διαγραφή μνήμης</h3></div>
+<p style="font-size:24px;line-height:1.45">Ο μπάτλερ ξεχνά ένα πρόσωπο, μια συζήτηση ή όλο το σπίτι κατόπιν αιτήματος.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ειλικρίνεια για το AI</h3></div>
+<p style="font-size:24px;line-height:1.45">Επισκέπτες και προσωπικό γνωρίζουν ότι μιλούν με AI και όχι με άνθρωπο.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Αρχιτεκτονική με γνώμονα τον GDPR: απομόνωση δεδομένων κάθε πελάτη, ελαχιστοποίηση δεδομένων και δικαίωμα διαγραφής.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">15</p>
+</section></div></div>
+<div class="frame" id="s-pricing"><div class="stage"><section id="pricing" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΚΟΣΤΟΣ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Πώς διαμορφώνεται το κόστος</h2>
+<p style="font-size:28px;line-height:1.45">Δίνουμε τιμή μετά την αυτοψία και την κλειδώνουμε πριν την υπογραφή.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Πρότυπη βίλα</h3>
+<p style="font-size:24px;line-height:1.45">Σταθερή τιμή για μία πρότυπη βίλα. Λειτουργία σε περίπου 3 εβδομάδες από την πρόσβαση στο ακίνητο.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Έργο με πολλές κατοικίες</h3>
+<p style="font-size:24px;line-height:1.45">Η τιμή ανά κατοικία εξαρτάται από το πλήθος μονάδων, τις ενσωματώσεις και τις ημερομηνίες παράδοσης.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Επιλογή για τον αγοραστή</h3>
+<p style="font-size:24px;line-height:1.45">Μετά την αγορά, ο αγοραστής μπορεί να προσθέσει το πακέτο «Βίλα» για την οικογένειά του με ειδικούς όρους.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Υποστήριξη</h3>
+<p style="font-size:24px;line-height:1.45">Η υποστήριξη της πρότυπης βίλας είναι μηνιαία συνδρομή. Η χρήση AI περιλαμβάνεται, φωνή χωρίς όρια.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Ο εξοπλισμός και η εγκατάσταση αυτοματισμού μένουν στον developer και στον εγκαταστάτη. Η Mg είναι υπεύθυνη για το επίπεδο AI.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">16</p>
+</section></div></div>
+<div class="frame" id="s-vision"><div class="stage"><section id="vision" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="align-self:start;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E;background:#EFE5D2;padding:6px 20px;border-radius:999px">ΟΡΑΜΑ, ΟΧΙ ΤΡΕΧΟΝ ΠΡΟΪΟΝ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Από τη φωνή στο ρομπότ: μία μνήμη, νέα σώματα</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Η προσωπικότητα και η μνήμη του μπάτλερ ζουν ανεξάρτητα από τη συσκευή. Σήμερα είναι φωνή και οθόνη, στη συνέχεια η ίδια μνήμη περνά σε νέες μορφές.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">ΤΩΡΑ · 2026</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Φωνή και avatar</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A4F57">Σε τηλεοράσεις, κινητά και συσκευές που υπάρχουν ήδη στο σπίτι. Περιλαμβάνεται στα πακέτα.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">ΟΡΑΜΑ · 2027</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Ολόγραμμα</h3>
+<p style="font-size:24px;line-height:1.45">Ο μπάτλερ σε τρεις διαστάσεις στη μέση του σαλονιού, χωρίς οθόνη.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">ΟΡΑΜΑ · 2028+</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Ρομπότ-σύντροφος</h3>
+<p style="font-size:24px;line-height:1.45">Η ίδια προσωπικότητα και μνήμη σε σώμα ρομπότ: φροντίδα για ηλικιωμένους γονείς και για όσους ζουν μόνοι.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Το ολόγραμμα και το ρομπότ-σύντροφος είναι κατεύθυνση ανάπτυξης, όχι δέσμευση χρόνου. Δεν περιλαμβάνονται στη σύμβαση.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">17</p>
+</section></div></div>
+<div class="frame" id="s-next"><div class="stage"><section id="next" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1152px;top:220px;width:640px;height:640px;background:transparent;border:2px solid #C9A45C;opacity:0.5"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1272px;top:340px;width:400px;height:400px;background:transparent;border:2px solid #C9A45C;opacity:0.85"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1440px;top:508px;width:64px;height:64px;background:#C9A45C"></div>
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">ΕΠΟΜΕΝΟ ΒΗΜΑ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820;width:1000px">Ζωντανό demo<br>20 λεπτών</h2>
+<p style="font-size:28px;line-height:1.45;width:960px">Ο μπάτλερ γνωρίζει την ομάδα σας, θυμάται ποιος είναι ποιος και ελέγχει το σπίτι της δοκιμαστικής διάταξης. Μετά κάνουμε αυτοψία στο ακίνητο και κλειδώνουμε την τιμή πριν την υπογραφή.</p>
+<div style="display:grid;grid-template-columns:200px 600px;gap:12px 24px;width:824px">
+<p style="font-size:24px;color:#62666D">Telegram</p><p style="font-size:28px;font-weight:600;color:#101820">@stanistar888</p>
+<p style="font-size:24px;color:#62666D">Κύπρος</p><p style="font-size:28px;font-weight:600;color:#101820">+357 959 03 806</p>
+<p style="font-size:24px;color:#62666D">ΗΑΕ</p><p style="font-size:28px;font-weight:600;color:#101820">+971 50 693 0343</p>
+<p style="font-size:24px;color:#62666D">Ιστότοπος</p><p style="font-size:28px;font-weight:600;color:#101820">audit.maizongroup.com/AiButler</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#62666D">Stanislav Zhukovets, ιδρυτής και CEO της Mg · Maizon Group, Meydan Grandstand, Dubai</p>
+</section></div></div>
+</main>
+<footer class="foot">
+<span>Mg Intelligence Home · Maizon Group</span>
+<a href="/AiButler/developers/en/">Σελίδα για developers</a>
+<a href="https://t.me/stanistar888">Telegram</a>
+<a href="https://maizongroup.com">maizongroup.com</a>
+</footer>
+<div class="pctl" role="toolbar"><button type="button" data-a="prev" aria-label="Πίσω">‹</button><span class="cnt"></span><button type="button" data-a="next" aria-label="Επόμενο">›</button><button type="button" data-a="exit" aria-label="Έξοδος">✕</button></div>
+<script>(function(){
+  var frames=[].slice.call(document.querySelectorAll('.frame'));
+  var cur=0, body=document.body, cnt=document.querySelector('.pctl .cnt');
+  function fit(f){var w=f.clientWidth;if(w)f.style.setProperty('--k',w/1920);}
+  if('ResizeObserver' in window){var ro=new ResizeObserver(function(es){es.forEach(function(e){fit(e.target);});});frames.forEach(function(f){ro.observe(f);});}
+  else{var all=function(){frames.forEach(fit);};window.addEventListener('resize',all);all();}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!body.classList.contains('presenting'))cur=frames.indexOf(e.target);});},{threshold:0.55});frames.forEach(function(f){io.observe(f);});}
+  [].forEach.call(document.querySelectorAll('.langs a'),function(a){a.addEventListener('click',function(e){var f=frames[cur];if(f&&cur>0){e.preventDefault();location.href=a.getAttribute('href')+'#'+f.id;}});});
+  function show(i){cur=Math.max(0,Math.min(frames.length-1,i));frames.forEach(function(f,j){f.classList.toggle('cur',j===cur);});fit(frames[cur]);cnt.textContent=(cur+1)+' / '+frames.length;}
+  function enter(){body.classList.add('presenting');show(cur);var el=document.documentElement;if(el.requestFullscreen){el.requestFullscreen().catch(function(){});}}
+  function exit(){if(!body.classList.contains('presenting'))return;body.classList.remove('presenting');frames.forEach(function(f){f.classList.remove('cur');});if(document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(function(){});}frames[cur].scrollIntoView({block:'center',behavior:'auto'});}
+  document.querySelector('.present').addEventListener('click',enter);
+  document.querySelector('.pctl').addEventListener('click',function(e){var a=e.target.getAttribute('data-a');if(a==='prev')show(cur-1);else if(a==='next')show(cur+1);else if(a==='exit')exit();});
+  document.querySelector('.deck').addEventListener('click',function(e){if(!body.classList.contains('presenting'))return;show(e.clientX<window.innerWidth/3?cur-1:cur+1);});
+  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement)exit();});
+  document.addEventListener('keydown',function(e){if(!body.classList.contains('presenting'))return;var k=e.key;
+    if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();show(cur+1);}
+    else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(cur-1);}
+    else if(k==='Home'){show(0);}else if(k==='End'){show(frames.length-1);}else if(k==='Escape'){exit();}});
+})();</script>
+</body>
+</html>

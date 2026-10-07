@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AiButler Alex for developers - Mg Intelligence Home</title>
+<meta name="description" content="An AI butler for every residence on top of KNX, Control4, Crestron and Home Assistant: what it is, why developers add it and the stages of work from demo to support after handover.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#FBF9F5">
+<link rel="canonical" href="https://audit.maizongroup.com/AiButler/deck/en/">
+<link rel="alternate" hreflang="ru" href="https://audit.maizongroup.com/AiButler/deck/">
+<link rel="alternate" hreflang="en" href="https://audit.maizongroup.com/AiButler/deck/en/">
+<link rel="alternate" hreflang="el" href="https://audit.maizongroup.com/AiButler/deck/gr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AiButler Alex for developers - Mg Intelligence Home">
+<meta property="og:description" content="An AI butler for every residence on top of KNX, Control4, Crestron and Home Assistant: what it is, why developers add it and the stages of work from demo to support after handover.">
+<meta property="og:url" content="https://audit.maizongroup.com/AiButler/deck/en/">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Mg Intelligence Home">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23F4EFE6%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23C9A45C%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%224%22%20fill%3D%22%23C9A45C%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..700&family=Manrope:wght@300..800&display=swap">
+<style>*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:#EAE3D6;color:#101820;font-family:'Manrope',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:rgba(251,249,245,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #E2D9C8}
+.brand{color:#101820;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{color:#7A5A1E;font-weight:600}
+.tools{display:flex;align-items:center;gap:10px;flex:none}
+.langs{display:flex;border:1px solid #DCC8A0;border-radius:999px;overflow:hidden;background:#FBF9F5}
+.langs a{padding:7px 13px;font-size:13px;font-weight:700;letter-spacing:.6px;color:#7A5A1E;text-decoration:none}
+.langs a[aria-current=page]{background:#7A5A1E;color:#FBF9F5}
+.btn{border:0;border-radius:999px;background:#101820;color:#FBF9F5;padding:8px 16px;font:700 13px 'Manrope',Arial,sans-serif;letter-spacing:.3px;cursor:pointer}
+.btn:focus-visible,.langs a:focus-visible{outline:2px solid #C9A45C;outline-offset:2px}
+.hint{display:none;margin:16px 16px 0;padding:10px 14px;border-radius:10px;background:#F4EFE6;border:1px solid #E2D9C8;color:#4A4F57;font-size:14px;line-height:1.4}
+@media (max-width:640px) and (orientation:portrait){.hint{display:block}.brand span{display:none}}
+.deck{max-width:1280px;margin:0 auto;padding:24px 16px 40px;display:flex;flex-direction:column;gap:20px}
+.frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:#FBF9F5;box-shadow:0 12px 32px rgba(70,52,20,.12),0 1px 2px rgba(70,52,20,.08);scroll-margin-top:72px}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transform:scale(var(--k,.5))}
+.stage>section{position:relative;width:1920px;height:1080px;overflow:hidden}
+.stage h1,.stage h2,.stage h3,.stage p,.stage ul{margin:0}
+.stage ul{padding-left:1.15em}
+.stage li::marker{color:#B08A45}
+.stage hr{border:0;margin:0;height:0;align-self:stretch}
+.xs{display:block;flex:none}
+.xs-ellipse{border-radius:50%}
+.xs-arrow-right{clip-path:polygon(0 30%,60% 30%,60% 0,100% 50%,60% 100%,60% 70%,0 70%)}
+.xi{display:block;flex:none}
+.foot{max-width:1280px;margin:0 auto;padding:8px 16px 40px;display:flex;flex-wrap:wrap;gap:8px 20px;color:#62666D;font-size:14px}
+.foot a{color:#7A5A1E;text-decoration:none;font-weight:600}
+.pctl{display:none}
+body.presenting{overflow:hidden;background:#14110C}
+body.presenting .bar,body.presenting .foot,body.presenting .hint{display:none}
+body.presenting .deck{position:fixed;inset:0;max-width:none;margin:0;padding:0;display:block;background:#14110C}
+body.presenting .frame{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100vh * 16 / 9));border-radius:0;box-shadow:none;cursor:pointer}
+body.presenting .frame.cur{display:block}
+body.presenting .pctl{display:flex;position:fixed;right:16px;bottom:16px;z-index:30;gap:6px;align-items:center;padding:6px;border-radius:999px;background:rgba(251,249,245,.9);opacity:.35;transition:opacity .2s}
+body.presenting .pctl:hover,body.presenting .pctl:focus-within{opacity:1}
+.pctl button{border:0;background:transparent;color:#101820;font:700 14px 'Manrope',Arial,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer}
+.pctl button:hover{background:#EFE3CB}
+.pctl .cnt{font:600 13px 'Manrope',Arial,sans-serif;color:#62666D;min-width:52px;text-align:center}
+@media print{.bar,.foot,.hint,.pctl{display:none}body{background:#fff}.deck{padding:0;gap:0}.frame{break-after:page;border-radius:0;box-shadow:none}}</style>
+</head>
+<body>
+<header class="bar">
+<a class="brand" href="/AiButler/developers/en/">Mg Intelligence Home <span>· AiButler Alex</span></a>
+<div class="tools">
+<nav class="langs" aria-label="Language"><a href="/AiButler/deck/" hreflang="ru">RU</a><a href="/AiButler/deck/en/" hreflang="en" aria-current="page">EN</a><a href="/AiButler/deck/gr/" hreflang="el">GR</a></nav>
+<button class="btn present" type="button">Present</button>
+</div>
+</header>
+<p class="hint">Turn your phone sideways or tap “Present” to see the slides larger.</p>
+<main class="deck">
+<div class="frame" id="s-cover"><div class="stage"><section id="cover" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1152px;top:220px;width:640px;height:640px;background:transparent;border:2px solid #C9A45C;opacity:0.5"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1272px;top:340px;width:400px;height:400px;background:transparent;border:2px solid #C9A45C;opacity:0.85"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1440px;top:508px;width:64px;height:64px;background:#C9A45C"></div>
+<p style="font-size:28px;font-weight:600;letter-spacing:1px;color:#7A5A1E">Mg Intelligence Home · for developers</p>
+<h1 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820">AiButler Alex</h1>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:400;line-height:1.15;color:#101820;width:960px">An AI butler for every residence</h2>
+<p style="font-size:28px;line-height:1.45;width:900px">An AI layer on top of KNX, Control4, Crestron and Home Assistant. Voice, memory and personality for every resident - without rebuilding the smart home.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Maizon Group · audit.maizongroup.com/AiButler</p>
+</section></div></div>
+<div class="frame" id="s-market"><div class="stage"><section id="market" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Market</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Today's smart home: apps and scenes</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">A buyer of a premium residence gets the same wall panel as in the project next door. To close the gate, they open a third app.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">No conversation</h3>
+<p style="font-size:24px;line-height:1.45">The house executes commands but does not talk. One step off the script - back to the phone.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>With Alex:</b></span> talk as you would to a person, no apps or magic phrases.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">No memory</h3>
+<p style="font-size:24px;line-height:1.45">The system does not remember how the family likes the lights in the evening or when the staff arrive.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>With Alex:</b></span> people, habits and arrangements are remembered for years.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">No personal touch</h3>
+<p style="font-size:24px;line-height:1.45">Five family members get the same house: roles, habits and languages are not told apart.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>With Alex:</b></span> everyone in the family has their own role, language and habits.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Nothing for guests</h3>
+<p style="font-size:24px;line-height:1.45">A guest will not study a wall panel. They ask a person - or nobody.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>With Alex:</b></span> a guest asks the house in their own language and gets an answer right away.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">02</p>
+</section></div></div>
+<div class="frame" id="s-product"><div class="stage"><section id="product" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Product</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">One personality, one memory, many devices</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Every resident gets a butler with a voice, memory and character. Male or female look and voice - the resident chooses.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Voice</h3></div>
+<p style="font-size:24px;line-height:1.45">Free conversation on the phone and on the devices already in the home.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Long-term memory</h3></div>
+<p style="font-size:24px;line-height:1.45">People, preferences, arrangements and the history of the home.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Avatar</h3></div>
+<p style="font-size:24px;line-height:1.45">Alex on a TV or tablet greets guests and takes video calls.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Home control</h3></div>
+<p style="font-size:24px;line-height:1.45">Lights, climate, music, blinds, gates - through a layer on top of your system.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Personal tools</h3></div>
+<p style="font-size:24px;line-height:1.45">Reminders, tasks, email, calendar and documents.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Many languages</h3></div>
+<p style="font-size:24px;line-height:1.45">One butler speaks with the family, staff and guests in their languages.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">03</p>
+</section></div></div>
+<div class="frame" id="s-scenes"><div class="stage"><section id="scenes" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Scenarios</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">What the resident hears</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">09:15 · Elderly parents</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">“Has Mum taken her medicine?”</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Yes, confirmed at 9:15. Next reminder at 18:00.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">11:00 · Staff</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">“Tell the housekeeper we'll be back by 19:00”</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Passed on in Spanish, the housekeeper confirmed.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">14:00 · Away</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">“We're on holiday - how is the house?”</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> All calm: 23°, no motion, no mail piling up.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">21:30 · Evening</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">“Say good night to the kids and turn off the lights”</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Good night! Lights are off, a warm night light stays on in the kids' room.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">04</p>
+</section></div></div>
+<div class="frame" id="s-benefits"><div class="stage"><section id="benefits" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Value</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Why developers add it</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Stand out on the market</h3>
+<p style="font-size:24px;line-height:1.45">A residence with an AI butler stands out among standard smart-home projects.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">A new sales argument</h3>
+<p style="font-size:24px;line-height:1.45">Your sales team shows a live conversation with the house, not a wall panel.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Higher value for the buyer</h3>
+<p style="font-size:24px;line-height:1.45">The AI layer reads as premium technology, not a checklist option.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Residents in any language</h3>
+<p style="font-size:24px;line-height:1.45">One butler speaks with the family, staff and guests in their languages.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">05</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Show home for viewings</h3>
+<p style="font-size:24px;line-height:1.45">Alex on screen greets the buyer and leads the viewing in their language.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">06</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">On top of your system</h3>
+<p style="font-size:24px;line-height:1.45">KNX, Control4, Crestron, Home Assistant: we connect to what is already installed.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">07</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Your brand</h3>
+<p style="font-size:24px;line-height:1.45">White-label or co-branded: the butler sounds and looks like part of the project.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">08</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Support after handover</h3>
+<p style="font-size:24px;line-height:1.45">After the keys are handed over, the Mg team runs the AI layer, not your sales team.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">05</p>
+</section></div></div>
+<div class="frame" id="s-showhome"><div class="stage"><section id="showhome" data-transition="fade" style="background:#EADBBE;color:#101820;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#101820">Show home</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820;width:1400px">A show home that leads the viewing itself</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Greets the buyer on screen under the developer's brand</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Holds a live conversation in the buyer's language</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Answers by voice, not with a wall panel</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Every visit goes into the sales team's CRM</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#2B2618">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#2B2618;text-align:right">06</p>
+</section></div></div>
+<div class="frame" id="s-chain"><div class="stage"><section id="chain" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">How it works</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Fits into the chain without replacing anyone</h2>
+</div>
+<div style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Developer</h3>
+<p style="font-size:24px;line-height:1.45">Defines the residences and the handover schedule.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Integrator</h3>
+<p style="font-size:24px;line-height:1.45">Designs and installs KNX, Control4 or Crestron as usual.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Mg Intelligence Home</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A4F57">Connects on top as an AI layer: a butler with voice and memory.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Resident</h3>
+<p style="font-size:24px;line-height:1.45">Gets a personal butler from day one.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Mg does not replace the integrator and does not take over installation or maintenance of the automation.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">07</p>
+</section></div></div>
+<div class="frame" id="s-architecture"><div class="stage"><section id="architecture" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Architecture</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Five layers: from a voice to the living-room lights</h2>
+</div>
+<div style="display:flex;gap:56px">
+<div style="flex:3;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">1</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Resident's voice or chat</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#101820;width:40px">2</p>
+<p style="font-size:28px;line-height:1.3;color:#101820"><b>Mg Intelligence Home AI layer:</b> personality, memory, logic</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">3</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Integration layer: APIs and drivers</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">4</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Your system: KNX, Control4, Crestron, Home Assistant</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">5</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Lights, climate, blinds, gates, media</p>
+</div>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:32px;justify-content:center">
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">We read and send commands through your existing API or driver.</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">We do not replace the control panel or rewrite the integrator's configuration.</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">The list of scenarios is confirmed on your system before signing.</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">08</p>
+</section></div></div>
+<div class="frame" id="s-roles"><div class="stage"><section id="roles" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Roles</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Who is responsible for what</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Developer</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Defines the residences and the handover schedule</li>
+<li>Provides access to the show home and properties</li>
+<li>Chooses the brand format: white-label or co-branded</li>
+<li>The sales team runs viewings together with Alex</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Integrator</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Automation hardware</li>
+<li>KNX, Control4 or Crestron setup</li>
+<li>Physical installation</li>
+<li>Maintenance of the automation system</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px;color:#4A4F57">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Mg Intelligence Home</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>The butler Alex: personality, look, voice</li>
+<li>Voice and conversational interface</li>
+<li>Memory and personalisation</li>
+<li>AI integrations and dialogue logic</li>
+<li>Access rights and security</li>
+<li>Continuous AI updates</li>
+</ul>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45">Mg does not sell or install hardware: devices and installation stay with the developer and the integrator.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">09</p>
+</section></div></div>
+<div class="frame" id="s-stages"><div class="stage"><section id="stages" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Stages of work</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Seven steps: from the first demo to a home that talks</h2>
+</div>
+<div style="display:flex;gap:0px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Live demo</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">20 minutes, the butler on a test stand</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Site survey</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">scope and price before signing</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Contract</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">fixed price and schedule</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Show home</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">about 3 weeks after site access</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">05</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Residences</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">on the handover schedule</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">06</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Handover</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">a butler from day one</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 0 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">07</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Support</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">the Mg team after handover</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Timelines for the show home and residences are fixed in the contract after the site survey.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">10</p>
+</section></div></div>
+<div class="frame" id="s-start"><div class="stage"><section id="start" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Stages 01-03</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Kick-off: demo, survey, contract</h2>
+<div style="display:flex;gap:24px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Live demo</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">20 minutes</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>Alex meets your team and remembers who is who</li>
+<li>Controls the home on the stand by voice</li>
+<li>We review your current automation system</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Result:</b> you see how it will work in your project</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Site survey</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">before signing</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>We review the automation system and devices</li>
+<li>We fix the scenarios and languages</li>
+<li>We confirm the integrations on your system</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Result:</b> scope of work and price before signing</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Contract</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">work starts</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>The contract covers only what was shown live</li>
+<li>Fixed price for the show home</li>
+<li>Price per residence: units, integrations, handover dates</li>
+<li>Schedule: show home and order of residences</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Result:</b> advance payment and work starts</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">11</p>
+</section></div></div>
+<div class="frame" id="s-showhome-launch"><div class="stage"><section id="showhome-launch" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Stage 04</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Show home: launch in about 3 weeks after site access</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:3;display:flex;flex-direction:column;gap:16px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">What we do</h3>
+<ul style="font-size:24px;line-height:1.6">
+<li>Tailor Alex to the developer's brand: look, voice, manner of speech</li>
+<li>Load project information into the butler's memory for viewings</li>
+<li>Connect the butler to the show home's automation system</li>
+<li>Set up viewing languages for your buyers</li>
+<li>Connect visit tracking to your CRM</li>
+<li>Train the sales team to run viewings with Alex</li>
+</ul>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:20px;background:#FFFDF9;border:2px solid #C9A45C;border-radius:16px;padding:32px 40px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">What the sales team gets</h3>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Alex greets the buyer on screen</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Viewings in the buyer's language</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">A live conversation with the home instead of a wall panel</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Every visit in the CRM</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">12</p>
+</section></div></div>
+<div class="frame" id="s-residences"><div class="stage"><section id="residences" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Stages 05-06</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Residences: from installation to the first conversation</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">05</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Residences</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">on the handover schedule</p>
+<ul style="font-size:24px;line-height:1.55">
+<li>The integrator installs the automation as usual</li>
+<li>Mg connects the AI layer to each residence's system</li>
+<li>We test scenarios on site: lights, climate, blinds, gates, media</li>
+<li>The residence is handed over with a working butler</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">06</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Handover to the resident</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">from day one</p>
+<ul style="font-size:24px;line-height:1.55">
+<li>The resident chooses the look and voice of Alex: male or female</li>
+<li>Profiles and access rights: family, staff, guests</li>
+<li>Languages: everyone talks to the home in their own</li>
+<li>PIN for gates, alarm and security settings</li>
+<li>Training for the family and staff</li>
+</ul>
+</div>
+</div>
+<div style="display:flex;gap:20px;align-items:center;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:24px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+<p style="font-size:28px;line-height:1.35;color:#101820"><b>Result:</b> the resident gets a personal butler from the first day in the new home</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">13</p>
+</section></div></div>
+<div class="frame" id="s-support"><div class="stage"><section id="support" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Stage 07</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">After handover, the Mg team takes over support</h2>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.25;color:#7A5A1E;width:1400px">Your sales team closed the deal. From there, Mg looks after the resident.</p>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">AI included</h3>
+<p style="font-size:24px;line-height:1.45">Voice and messaging without limits and without separate AI bills.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /><circle cx="12" cy="12" r="3" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Updates</h3>
+<p style="font-size:24px;line-height:1.45">Continuous AI software updates with no effort from the developer.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Messenger support</h3>
+<p style="font-size:24px;line-height:1.45">Changes to scenarios and memory at the resident's request.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Support levels</h3>
+<p style="font-size:24px;line-height:1.45">Care, Premium, Concierge: up to a personal Mg manager and on-site visits.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">14</p>
+</section></div></div>
+<div class="frame" id="s-privacy"><div class="stage"><section id="privacy" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Privacy</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Residents' data stays private</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">EU infrastructure</h3></div>
+<p style="font-size:24px;line-height:1.45">Where applicable, data is processed and stored on servers in the EU.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Access rights</h3></div>
+<p style="font-size:24px;line-height:1.45">Separate roles for family, staff and guests, each with its own access to the home and data.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Activity log</h3></div>
+<p style="font-size:24px;line-height:1.45">Every action the butler takes in the home is logged and available to the owner.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">PIN confirmation</h3></div>
+<p style="font-size:24px;line-height:1.45">Gates, alarm and security settings - only after a PIN.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Memory deletion</h3></div>
+<p style="font-size:24px;line-height:1.45">The butler forgets a person, a conversation or the whole home on request.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Honest about AI</h3></div>
+<p style="font-size:24px;line-height:1.45">Guests and staff know they are talking to an AI, not a person.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">GDPR-minded architecture: isolation of each client's data, data minimisation and the right to deletion.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">15</p>
+</section></div></div>
+<div class="frame" id="s-pricing"><div class="stage"><section id="pricing" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Pricing</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">How the price is built</h2>
+<p style="font-size:28px;line-height:1.45">We quote after the site survey and fix the price before signing.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Show home</h3>
+<p style="font-size:24px;line-height:1.45">A fixed price for one show home. Launch in about 3 weeks after site access.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Multi-residence project</h3>
+<p style="font-size:24px;line-height:1.45">The price per residence depends on the number of units, the integration scope and handover dates.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Buyer option</h3>
+<p style="font-size:24px;line-height:1.45">After the sale, the buyer can add the Villa package for their family on special terms.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Support</h3>
+<p style="font-size:24px;line-height:1.45">Show home support is a monthly subscription. AI usage included, unlimited voice.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Hardware and automation installation stay with the developer and the integrator. Mg is responsible for the AI layer.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">16</p>
+</section></div></div>
+<div class="frame" id="s-vision"><div class="stage"><section id="vision" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="align-self:start;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E;background:#EFE5D2;padding:6px 20px;border-radius:999px">Vision, not the current product</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">From voice to robot: one memory, new bodies</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">The personality and memory of Alex live separately from the device. Today it is a voice and a screen; next, the same memory moves into new forms.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">Now · 2026</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Voice and avatar</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A4F57">On TVs, phones and the devices already in the home. Included in the packages.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">Vision · 2027</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Hologram</h3>
+<p style="font-size:24px;line-height:1.45">Alex in 3D in the middle of the living room, no screen.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">Vision · 2028+</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Companion robot</h3>
+<p style="font-size:24px;line-height:1.45">The same personality and memory in a robot body: care for elderly parents and for people who live alone.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Hologram and companion robot are a direction of development, not a promised timeline. They are not part of the contract.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">17</p>
+</section></div></div>
+<div class="frame" id="s-next"><div class="stage"><section id="next" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1152px;top:220px;width:640px;height:640px;background:transparent;border:2px solid #C9A45C;opacity:0.5"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1272px;top:340px;width:400px;height:400px;background:transparent;border:2px solid #C9A45C;opacity:0.85"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1440px;top:508px;width:64px;height:64px;background:#C9A45C"></div>
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Next step</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820;width:1000px">A 20-minute<br>live demo</h2>
+<p style="font-size:28px;line-height:1.45;width:960px">Alex meets your team, remembers who is who and controls the home on the stand. Then we survey your site and fix the price before signing.</p>
+<div style="display:grid;grid-template-columns:200px 600px;gap:12px 24px;width:824px">
+<p style="font-size:24px;color:#62666D">Telegram</p><p style="font-size:28px;font-weight:600;color:#101820">@stanistar888</p>
+<p style="font-size:24px;color:#62666D">Cyprus</p><p style="font-size:28px;font-weight:600;color:#101820">+357 959 03 806</p>
+<p style="font-size:24px;color:#62666D">UAE</p><p style="font-size:28px;font-weight:600;color:#101820">+971 50 693 0343</p>
+<p style="font-size:24px;color:#62666D">Website</p><p style="font-size:28px;font-weight:600;color:#101820">audit.maizongroup.com/AiButler</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#62666D">Stanislav Zhukovets, Founder and CEO of Mg · Maizon Group, Meydan Grandstand, Dubai</p>
+</section></div></div>
+</main>
+<footer class="foot">
+<span>Mg Intelligence Home · Maizon Group</span>
+<a href="/AiButler/developers/en/">Page for developers</a>
+<a href="https://t.me/stanistar888">Telegram</a>
+<a href="https://maizongroup.com">maizongroup.com</a>
+</footer>
+<div class="pctl" role="toolbar"><button type="button" data-a="prev" aria-label="Back">‹</button><span class="cnt"></span><button type="button" data-a="next" aria-label="Next">›</button><button type="button" data-a="exit" aria-label="Exit">✕</button></div>
+<script>(function(){
+  var frames=[].slice.call(document.querySelectorAll('.frame'));
+  var cur=0, body=document.body, cnt=document.querySelector('.pctl .cnt');
+  function fit(f){var w=f.clientWidth;if(w)f.style.setProperty('--k',w/1920);}
+  if('ResizeObserver' in window){var ro=new ResizeObserver(function(es){es.forEach(function(e){fit(e.target);});});frames.forEach(function(f){ro.observe(f);});}
+  else{var all=function(){frames.forEach(fit);};window.addEventListener('resize',all);all();}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!body.classList.contains('presenting'))cur=frames.indexOf(e.target);});},{threshold:0.55});frames.forEach(function(f){io.observe(f);});}
+  [].forEach.call(document.querySelectorAll('.langs a'),function(a){a.addEventListener('click',function(e){var f=frames[cur];if(f&&cur>0){e.preventDefault();location.href=a.getAttribute('href')+'#'+f.id;}});});
+  function show(i){cur=Math.max(0,Math.min(frames.length-1,i));frames.forEach(function(f,j){f.classList.toggle('cur',j===cur);});fit(frames[cur]);cnt.textContent=(cur+1)+' / '+frames.length;}
+  function enter(){body.classList.add('presenting');show(cur);var el=document.documentElement;if(el.requestFullscreen){el.requestFullscreen().catch(function(){});}}
+  function exit(){if(!body.classList.contains('presenting'))return;body.classList.remove('presenting');frames.forEach(function(f){f.classList.remove('cur');});if(document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(function(){});}frames[cur].scrollIntoView({block:'center',behavior:'auto'});}
+  document.querySelector('.present').addEventListener('click',enter);
+  document.querySelector('.pctl').addEventListener('click',function(e){var a=e.target.getAttribute('data-a');if(a==='prev')show(cur-1);else if(a==='next')show(cur+1);else if(a==='exit')exit();});
+  document.querySelector('.deck').addEventListener('click',function(e){if(!body.classList.contains('presenting'))return;show(e.clientX<window.innerWidth/3?cur-1:cur+1);});
+  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement)exit();});
+  document.addEventListener('keydown',function(e){if(!body.classList.contains('presenting'))return;var k=e.key;
+    if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();show(cur+1);}
+    else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(cur-1);}
+    else if(k==='Home'){show(0);}else if(k==='End'){show(frames.length-1);}else if(k==='Escape'){exit();}});
+})();</script>
+</body>
+</html>

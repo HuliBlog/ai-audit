@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AiButler Alex для застройщиков - Mg Intelligence Home</title>
+<meta name="description" content="ИИ-дворецкий для каждой резиденции поверх KNX, Control4, Crestron и Home Assistant: что это, зачем застройщику и этапы работ от демо до поддержки после сдачи.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#FBF9F5">
+<link rel="canonical" href="https://audit.maizongroup.com/AiButler/deck/">
+<link rel="alternate" hreflang="ru" href="https://audit.maizongroup.com/AiButler/deck/">
+<link rel="alternate" hreflang="en" href="https://audit.maizongroup.com/AiButler/deck/en/">
+<link rel="alternate" hreflang="el" href="https://audit.maizongroup.com/AiButler/deck/gr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AiButler Alex для застройщиков - Mg Intelligence Home">
+<meta property="og:description" content="ИИ-дворецкий для каждой резиденции поверх KNX, Control4, Crestron и Home Assistant: что это, зачем застройщику и этапы работ от демо до поддержки после сдачи.">
+<meta property="og:url" content="https://audit.maizongroup.com/AiButler/deck/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Mg Intelligence Home">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23F4EFE6%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23C9A45C%22%20stroke-width%3D%222%22%2F%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%224%22%20fill%3D%22%23C9A45C%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..700&family=Manrope:wght@300..800&display=swap">
+<style>*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:#EAE3D6;color:#101820;font-family:'Manrope',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:rgba(251,249,245,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #E2D9C8}
+.brand{color:#101820;text-decoration:none;font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{color:#7A5A1E;font-weight:600}
+.tools{display:flex;align-items:center;gap:10px;flex:none}
+.langs{display:flex;border:1px solid #DCC8A0;border-radius:999px;overflow:hidden;background:#FBF9F5}
+.langs a{padding:7px 13px;font-size:13px;font-weight:700;letter-spacing:.6px;color:#7A5A1E;text-decoration:none}
+.langs a[aria-current=page]{background:#7A5A1E;color:#FBF9F5}
+.btn{border:0;border-radius:999px;background:#101820;color:#FBF9F5;padding:8px 16px;font:700 13px 'Manrope',Arial,sans-serif;letter-spacing:.3px;cursor:pointer}
+.btn:focus-visible,.langs a:focus-visible{outline:2px solid #C9A45C;outline-offset:2px}
+.hint{display:none;margin:16px 16px 0;padding:10px 14px;border-radius:10px;background:#F4EFE6;border:1px solid #E2D9C8;color:#4A4F57;font-size:14px;line-height:1.4}
+@media (max-width:640px) and (orientation:portrait){.hint{display:block}.brand span{display:none}}
+.deck{max-width:1280px;margin:0 auto;padding:24px 16px 40px;display:flex;flex-direction:column;gap:20px}
+.frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:#FBF9F5;box-shadow:0 12px 32px rgba(70,52,20,.12),0 1px 2px rgba(70,52,20,.08);scroll-margin-top:72px}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transform:scale(var(--k,.5))}
+.stage>section{position:relative;width:1920px;height:1080px;overflow:hidden}
+.stage h1,.stage h2,.stage h3,.stage p,.stage ul{margin:0}
+.stage ul{padding-left:1.15em}
+.stage li::marker{color:#B08A45}
+.stage hr{border:0;margin:0;height:0;align-self:stretch}
+.xs{display:block;flex:none}
+.xs-ellipse{border-radius:50%}
+.xs-arrow-right{clip-path:polygon(0 30%,60% 30%,60% 0,100% 50%,60% 100%,60% 70%,0 70%)}
+.xi{display:block;flex:none}
+.foot{max-width:1280px;margin:0 auto;padding:8px 16px 40px;display:flex;flex-wrap:wrap;gap:8px 20px;color:#62666D;font-size:14px}
+.foot a{color:#7A5A1E;text-decoration:none;font-weight:600}
+.pctl{display:none}
+body.presenting{overflow:hidden;background:#14110C}
+body.presenting .bar,body.presenting .foot,body.presenting .hint{display:none}
+body.presenting .deck{position:fixed;inset:0;max-width:none;margin:0;padding:0;display:block;background:#14110C}
+body.presenting .frame{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100vh * 16 / 9));border-radius:0;box-shadow:none;cursor:pointer}
+body.presenting .frame.cur{display:block}
+body.presenting .pctl{display:flex;position:fixed;right:16px;bottom:16px;z-index:30;gap:6px;align-items:center;padding:6px;border-radius:999px;background:rgba(251,249,245,.9);opacity:.35;transition:opacity .2s}
+body.presenting .pctl:hover,body.presenting .pctl:focus-within{opacity:1}
+.pctl button{border:0;background:transparent;color:#101820;font:700 14px 'Manrope',Arial,sans-serif;padding:6px 10px;border-radius:999px;cursor:pointer}
+.pctl button:hover{background:#EFE3CB}
+.pctl .cnt{font:600 13px 'Manrope',Arial,sans-serif;color:#62666D;min-width:52px;text-align:center}
+@media print{.bar,.foot,.hint,.pctl{display:none}body{background:#fff}.deck{padding:0;gap:0}.frame{break-after:page;border-radius:0;box-shadow:none}}</style>
+</head>
+<body>
+<header class="bar">
+<a class="brand" href="/AiButler/developers/">Mg Intelligence Home <span>· AiButler Alex</span></a>
+<div class="tools">
+<nav class="langs" aria-label="Language"><a href="/AiButler/deck/" hreflang="ru" aria-current="page">RU</a><a href="/AiButler/deck/en/" hreflang="en">EN</a><a href="/AiButler/deck/gr/" hreflang="el">GR</a></nav>
+<button class="btn present" type="button">Показ</button>
+</div>
+</header>
+<p class="hint">Поверните телефон горизонтально или нажмите «Показ», чтобы слайды были крупнее.</p>
+<main class="deck">
+<div class="frame" id="s-cover"><div class="stage"><section id="cover" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1152px;top:220px;width:640px;height:640px;background:transparent;border:2px solid #C9A45C;opacity:0.5"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1272px;top:340px;width:400px;height:400px;background:transparent;border:2px solid #C9A45C;opacity:0.85"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1440px;top:508px;width:64px;height:64px;background:#C9A45C"></div>
+<p style="font-size:28px;font-weight:600;letter-spacing:1px;color:#7A5A1E">Mg Intelligence Home · для застройщиков</p>
+<h1 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820">AiButler Alex</h1>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:400;line-height:1.15;color:#101820;width:960px">ИИ-дворецкий для каждой резиденции</h2>
+<p style="font-size:28px;line-height:1.45;width:900px">ИИ-слой поверх KNX, Control4, Crestron и Home Assistant. Голос, память и характер для каждого резидента - без пересборки умного дома.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Maizon Group · audit.maizongroup.com/AiButler</p>
+</section></div></div>
+<div class="frame" id="s-market"><div class="stage"><section id="market" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Рынок</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Умный дом сегодня: приложения и сценарии</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Покупатель премиальной резиденции получает ту же панель на стене, что и в соседнем проекте. Чтобы закрыть ворота, открывает третье приложение.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Нет диалога</h3>
+<p style="font-size:24px;line-height:1.45">Дом исполняет команды, но не разговаривает. Шаг в сторону от сценария - снова телефон.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>С Alex:</b></span> разговор как с человеком, без приложений и фраз-заклинаний.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Нет памяти</h3>
+<p style="font-size:24px;line-height:1.45">Система не помнит, какой свет семья любит вечером и во сколько приходит персонал.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>С Alex:</b></span> помнит людей, привычки и договорённости годами.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Нет личного подхода</h3>
+<p style="font-size:24px;line-height:1.45">Пять членов семьи получают один и тот же дом: роли, привычки и языки не различаются.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>С Alex:</b></span> у каждого в семье своя роль, свой язык и свои привычки.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Нет пользы для гостя</h3>
+<p style="font-size:24px;line-height:1.45">Гость не будет изучать панель на стене. Он спросит человека - или никого.</p>
+<hr style="border-top:1px solid #E2D9C8">
+<p style="font-size:24px;line-height:1.45;color:#101820"><span style="color:#7A5A1E"><b>С Alex:</b></span> гость спрашивает дом на своём языке и сразу получает ответ.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">02</p>
+</section></div></div>
+<div class="frame" id="s-product"><div class="stage"><section id="product" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Продукт</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Одна личность, одна память, разные устройства</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Каждый резидент получает дворецкого с голосом, памятью и характером. Облик и голос - мужской или женский, на выбор резидента.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Голос</h3></div>
+<p style="font-size:24px;line-height:1.45">Свободный разговор на телефоне и на устройствах, которые уже есть в доме.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Долговременная память</h3></div>
+<p style="font-size:24px;line-height:1.45">Помнит людей, предпочтения, договорённости и историю дома.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Аватар</h3></div>
+<p style="font-size:24px;line-height:1.45">Alex на ТВ или планшете встречает гостей и принимает видеозвонки.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Управление домом</h3></div>
+<p style="font-size:24px;line-height:1.45">Свет, климат, музыка, шторы, ворота - через слой поверх вашей системы.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Личные инструменты</h3></div>
+<p style="font-size:24px;line-height:1.45">Напоминания, задачи, почта, календарь и документы.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Много языков</h3></div>
+<p style="font-size:24px;line-height:1.45">Один дворецкий говорит с семьёй, персоналом и гостями на их языках.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">03</p>
+</section></div></div>
+<div class="frame" id="s-scenes"><div class="stage"><section id="scenes" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Сценарии</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Что слышит резидент</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">09:15 · Пожилые родители</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Мама приняла лекарства?»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Да, в 9:15 подтвердила приём. Следующее напоминание - в 18:00.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">11:00 · Персонал</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Скажи уборщице, что мы вернёмся к 19:00»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Передано на испанском, уборщица подтвердила.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">14:00 · В отъезде</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Мы в отпуске, что дома?»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Всё спокойно: 23°, движения не было, почта не накопилась.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 40px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">21:30 · Вечер</p>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.2;color:#101820">«Пожелай детям спокойной ночи и выключи свет»</p>
+<p style="font-size:24px;line-height:1.45"><b>Alex:</b> Спокойной ночи! Свет выключен, в детской остался тёплый ночник.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">04</p>
+</section></div></div>
+<div class="frame" id="s-benefits"><div class="stage"><section id="benefits" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Выгода</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Зачем это застройщику</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Отличие на рынке</h3>
+<p style="font-size:24px;line-height:1.45">Резиденция с ИИ-дворецким выделяется среди типовых проектов с умным домом.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Новый аргумент продаж</h3>
+<p style="font-size:24px;line-height:1.45">Отдел продаж показывает живой диалог с домом, а не панель на стене.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Выше ценность для покупателя</h3>
+<p style="font-size:24px;line-height:1.45">ИИ-слой считывается как премиальная технология, а не опция из списка.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Резидент на любом языке</h3>
+<p style="font-size:24px;line-height:1.45">Один дворецкий говорит с семьёй, персоналом и гостями на их языках.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">05</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Шоу-вилла для показов</h3>
+<p style="font-size:24px;line-height:1.45">Alex на экране встречает покупателя и ведёт показ на его языке.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">06</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Поверх вашей системы</h3>
+<p style="font-size:24px;line-height:1.45">KNX, Control4, Crestron, Home Assistant: подключаемся к тому, что уже стоит.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">07</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Ваш бренд</h3>
+<p style="font-size:24px;line-height:1.45">White-label или совместный бренд: дворецкий звучит и выглядит как часть проекта.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">08</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Поддержка после сдачи</h3>
+<p style="font-size:24px;line-height:1.45">После передачи ключей ИИ-слой ведёт команда Mg, а не ваш отдел продаж.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">05</p>
+</section></div></div>
+<div class="frame" id="s-showhome"><div class="stage"><section id="showhome" data-transition="fade" style="background:#EADBBE;color:#101820;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#101820">Шоу-вилла</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820;width:1400px">Шоу-вилла, которая сама ведёт показ</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Встречает покупателя на экране под брендом застройщика</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Ведёт живой диалог на языке покупателя</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Отвечает голосом, а не панелью на стене</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:2px solid #101820;padding:24px 0 0 0">
+<p style="font-size:28px;font-weight:600;line-height:1.35">Каждый визит попадает в CRM отдела продаж</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#2B2618">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#2B2618;text-align:right">06</p>
+</section></div></div>
+<div class="frame" id="s-chain"><div class="stage"><section id="chain" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Как это работает</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Встраивается в цепочку, никого не заменяя</h2>
+</div>
+<div style="display:flex;gap:20px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Застройщик</h3>
+<p style="font-size:24px;line-height:1.45">Определяет резиденции и график сдачи.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Интегратор</h3>
+<p style="font-size:24px;line-height:1.45">Проектирует и монтирует KNX, Control4 или Crestron как обычно.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Mg Intelligence Home</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A4F57">Подключается поверх как ИИ-слой: дворецкий с голосом и памятью.</p>
+</div>
+<div class="xs xs-arrow-right" aria-hidden="true" style="width:44px;height:22px;background:#C9A45C;align-self:center"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Резидент</h3>
+<p style="font-size:24px;line-height:1.45">Получает личного дворецкого с первого дня.</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Mg не заменяет интегратора и не берёт на себя монтаж или обслуживание автоматизации.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">07</p>
+</section></div></div>
+<div class="frame" id="s-architecture"><div class="stage"><section id="architecture" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Архитектура</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Пять слоёв: от голоса до света в гостиной</h2>
+</div>
+<div style="display:flex;gap:56px">
+<div style="flex:3;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">1</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Голос или чат резидента</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#101820;width:40px">2</p>
+<p style="font-size:28px;line-height:1.3;color:#101820"><b>ИИ-слой Mg Intelligence Home:</b> личность, память, логика</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">3</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Интеграционный слой: API и драйверы</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">4</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Ваша система: KNX, Control4, Crestron, Home Assistant</p>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:12px;padding:24px 32px">
+<p style="font-size:24px;font-weight:700;color:#7A5A1E;width:40px">5</p>
+<p style="font-size:28px;line-height:1.3;color:#101820">Свет, климат, шторы, ворота, медиа</p>
+</div>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:32px;justify-content:center">
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">Читаем и отправляем команды через существующий API или драйвер.</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">Не заменяем панель управления и не переписываем конфигурацию интегратора.</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 6 9 17l-5-5" /></svg><p style="font-size:24px;line-height:1.45">Список сценариев подтверждаем на вашей системе до подписания.</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">08</p>
+</section></div></div>
+<div class="frame" id="s-roles"><div class="stage"><section id="roles" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Роли</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Кто за что отвечает</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Застройщик</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Определяет резиденции и график сдачи</li>
+<li>Даёт доступ к шоу-вилле и объектам</li>
+<li>Выбирает формат бренда: white-label или совместный</li>
+<li>Отдел продаж ведёт показы вместе с Alex</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Интегратор</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Оборудование автоматизации</li>
+<li>Настройка KNX, Control4 или Crestron</li>
+<li>Физический монтаж</li>
+<li>Обслуживание системы автоматизации</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px;color:#4A4F57">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Mg Intelligence Home</h3>
+<ul style="font-size:24px;line-height:1.5">
+<li>Дворецкий Alex: личность, облик, голос</li>
+<li>Голосовой и разговорный интерфейс</li>
+<li>Память и персонализация</li>
+<li>ИИ-интеграции и логика диалога</li>
+<li>Права доступа и безопасность</li>
+<li>Постоянные обновления ИИ</li>
+</ul>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45">Оборудование Mg не продаёт и не монтирует: устройства и монтаж остаются за застройщиком и интегратором.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">09</p>
+</section></div></div>
+<div class="frame" id="s-stages"><div class="stage"><section id="stages" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Этапы работ</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Семь шагов: от первого демо до разговора с домом</h2>
+</div>
+<div style="display:flex;gap:0px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">01</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Живое демо</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">20 минут, дворецкий на стенде</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">02</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Обследование</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">состав работ и цена до подписания</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">03</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Договор</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">фиксированная цена и график</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">04</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Шоу-вилла</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">около 3 недель после доступа к объекту</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">05</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Резиденции</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">по графику сдачи</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 20px 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">06</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Передача</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">дворецкий с первого дня</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #C9A45C;padding:28px 0 0 0">
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:64px;line-height:1;color:#7A5A1E">07</p>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Поддержка</h3>
+<p style="font-size:24px;line-height:1.4;color:#62666D">команда Mg после сдачи</p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Сроки по шоу-вилле и резиденциям фиксируем в договоре после обследования объекта.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">10</p>
+</section></div></div>
+<div class="frame" id="s-start"><div class="stage"><section id="start" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Этапы 01-03</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Старт: демо, обследование, договор</h2>
+<div style="display:flex;gap:24px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">01</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Живое демо</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">20 минут</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>Alex знакомится с вашей командой и запоминает собеседников</li>
+<li>Управляет домом на стенде голосом</li>
+<li>Разбираем вашу текущую систему автоматизации</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Итог:</b> понятно, как это будет работать в вашем проекте</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">02</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Обследование объекта</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">до подписания</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>Смотрим систему автоматизации и устройства</li>
+<li>Фиксируем сценарии и языки</li>
+<li>Подтверждаем список интеграций на вашей системе</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Итог:</b> состав работ и цена до подписания</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">03</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Договор</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">старт работ</p>
+<ul style="font-size:24px;line-height:1.5">
+<li>В договоре только то, что показано вживую</li>
+<li>Фиксированная цена шоу-виллы</li>
+<li>Цена за резиденцию: количество, интеграции, сроки сдачи</li>
+<li>График: шоу-вилла и очерёдность резиденций</li>
+</ul>
+<div style="flex:1"></div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-top:1px solid #E2D9C8;padding:16px 0 0 0"><b>Итог:</b> предоплата и старт работ</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">11</p>
+</section></div></div>
+<div class="frame" id="s-showhome-launch"><div class="stage"><section id="showhome-launch" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Этап 04</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Шоу-вилла: запуск около 3 недель после доступа к объекту</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:3;display:flex;flex-direction:column;gap:16px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Что делаем</h3>
+<ul style="font-size:24px;line-height:1.6">
+<li>Настраиваем Alex под бренд застройщика: облик, голос, манера речи</li>
+<li>Наполняем память дворецкого данными о проекте для показов</li>
+<li>Подключаем дворецкого к системе автоматизации шоу-виллы</li>
+<li>Настраиваем языки показа под ваших покупателей</li>
+<li>Подключаем учёт визитов в CRM</li>
+<li>Обучаем отдел продаж вести показ вместе с Alex</li>
+</ul>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:20px;background:#FFFDF9;border:2px solid #C9A45C;border-radius:16px;padding:32px 40px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Что получает отдел продаж</h3>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Alex встречает покупателя на экране</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Показ на языке покупателя</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Живой диалог с домом вместо панели на стене</p></div>
+<div style="display:flex;gap:16px;align-items:start"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:32px;height:32px"><circle cx="12" cy="12" r="10" /><path d="m16 9-5.5 5.5L8 12" /></svg><p style="font-size:24px;line-height:1.45;color:#101820">Каждый визит в CRM</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">12</p>
+</section></div></div>
+<div class="frame" id="s-residences"><div class="stage"><section id="residences" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Этапы 05-06</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Резиденции: от монтажа до первого разговора</h2>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">05</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Резиденции</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">по графику сдачи</p>
+<ul style="font-size:24px;line-height:1.55">
+<li>Интегратор монтирует автоматизацию как обычно</li>
+<li>Mg подключает ИИ-слой к системе каждой резиденции</li>
+<li>Проверяем сценарии на месте: свет, климат, шторы, ворота, медиа</li>
+<li>Резиденция сдаётся с работающим дворецким</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px 40px">
+<div style="display:flex;gap:16px;align-items:baseline"><p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1;color:#7A5A1E">06</p><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Передача резиденту</h3></div>
+<p style="align-self:start;font-size:24px;font-weight:700;color:#7A5A1E;background:#EFE5D2;padding:4px 16px;border-radius:999px">с первого дня</p>
+<ul style="font-size:24px;line-height:1.55">
+<li>Резидент выбирает облик и голос Alex: мужской или женский</li>
+<li>Профили и права доступа: семья, персонал, гости</li>
+<li>Языки: каждый говорит с домом на своём</li>
+<li>PIN для ворот, сигнализации и настроек безопасности</li>
+<li>Обучение семьи и персонала</li>
+</ul>
+</div>
+</div>
+<div style="display:flex;gap:20px;align-items:center;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:24px 40px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+<p style="font-size:28px;line-height:1.35;color:#101820"><b>Итог:</b> резидент получает личного дворецкого с первого дня в новом доме</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">13</p>
+</section></div></div>
+<div class="frame" id="s-support"><div class="stage"><section id="support" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Этап 07</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">После сдачи поддержку ведёт команда Mg</h2>
+<p style="font-family:'EB Garamond', Georgia, serif;font-size:40px;line-height:1.25;color:#7A5A1E;width:1400px">Ваш отдел продаж закрыл сделку. Дальше резидентом занимается Mg.</p>
+</div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">ИИ включён</h3>
+<p style="font-size:24px;line-height:1.45">Голос и переписка без ограничений и без отдельных счетов за ИИ.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" /><circle cx="12" cy="12" r="3" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Обновления</h3>
+<p style="font-size:24px;line-height:1.45">Постоянные обновления ИИ-софта без участия застройщика.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Поддержка в мессенджере</h3>
+<p style="font-size:24px;line-height:1.45">Правки сценариев и памяти по запросу резидента.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:40px;height:40px"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></svg>
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Уровни поддержки</h3>
+<p style="font-size:24px;line-height:1.45">Забота, Премиум, Консьерж: вплоть до личного менеджера Mg и выезда на объект.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">14</p>
+</section></div></div>
+<div class="frame" id="s-privacy"><div class="stage"><section id="privacy" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Приватность</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Данные резидентов остаются приватными</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Инфраструктура в ЕС</h3></div>
+<p style="font-size:24px;line-height:1.45">Где применимо, данные обрабатываются и хранятся на серверах в ЕС.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Права доступа</h3></div>
+<p style="font-size:24px;line-height:1.45">Свои роли у семьи, персонала и гостей: у каждого свой доступ к дому и данным.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Журнал действий</h3></div>
+<p style="font-size:24px;line-height:1.45">Каждое действие дворецкого в доме фиксируется и доступно владельцу.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">PIN-подтверждение</h3></div>
+<p style="font-size:24px;line-height:1.45">Ворота, сигнализация и настройки безопасности - только после PIN.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Удаление памяти</h3></div>
+<p style="font-size:24px;line-height:1.45">Дворецкий забывает человека, разговор или весь дом по запросу.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:28px 32px">
+<div style="display:flex;gap:16px;align-items:center"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:#7A5A1E;width:36px;height:36px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg><h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#101820">Честно об ИИ</h3></div>
+<p style="font-size:24px;line-height:1.45">Гости и персонал знают, что с ними говорит ИИ, а не человек.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Архитектура с оглядкой на GDPR: изоляция данных каждого клиента, минимизация данных и право на удаление.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">15</p>
+</section></div></div>
+<div class="frame" id="s-pricing"><div class="stage"><section id="pricing" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Стоимость</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">Как складывается стоимость</h2>
+<p style="font-size:28px;line-height:1.45">Цену называем после обследования объекта и фиксируем до подписания.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Шоу-вилла</h3>
+<p style="font-size:24px;line-height:1.45">Фиксированная цена за одну шоу-виллу. Запуск около 3 недель после доступа к объекту.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Проект из нескольких резиденций</h3>
+<p style="font-size:24px;line-height:1.45">Цена за резиденцию зависит от количества единиц, состава интеграций и сроков сдачи.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Опция для покупателя</h3>
+<p style="font-size:24px;line-height:1.45">После сделки покупатель подключает пакет «Вилла» для своей семьи на специальных условиях.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#F4EFE6;border:1px solid #E2D9C8;border-radius:16px;padding:28px 36px">
+<h3 style="font-size:28px;font-weight:700;line-height:1.2;color:#7A5A1E">Поддержка</h3>
+<p style="font-size:24px;line-height:1.45">Поддержка шоу-виллы - ежемесячная подписка. Использование ИИ включено, голос без ограничений.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Оборудование и монтаж автоматизации остаются у застройщика и интегратора. Mg отвечает за ИИ-слой.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">16</p>
+</section></div></div>
+<div class="frame" id="s-vision"><div class="stage"><section id="vision" data-transition="fade" style="background:#F4EFE6;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<p style="align-self:start;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E;background:#EFE5D2;padding:6px 20px;border-radius:999px">Видение, не текущий продукт</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:64px;font-weight:500;line-height:1.1;color:#101820">От голоса к роботу: одна память, новые тела</h2>
+<p style="font-size:28px;line-height:1.45;width:1500px">Личность и память Alex живут отдельно от устройства. Сегодня это голос и экран, дальше та же память переходит в новые формы.</p>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#EFE3CB;border:1px solid #DCC8A0;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">Сейчас · 2026</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Голос и аватар</h3>
+<p style="font-size:24px;line-height:1.45;color:#4A4F57">На ТВ, телефонах и устройствах, которые уже есть в доме. Входит в пакеты.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">Видение · 2027</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Голограмма</h3>
+<p style="font-size:24px;line-height:1.45">Alex в объёме посреди гостиной, без экрана.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBF8F2;border:1px solid #E2D9C8;border-radius:16px;padding:32px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7A5A1E">Видение · 2028+</p>
+<h3 style="font-family:'EB Garamond', Georgia, serif;font-size:40px;font-weight:500;line-height:1.15;color:#101820">Робот-компаньон</h3>
+<p style="font-size:24px;line-height:1.45">Та же личность и память в теле робота: забота о пожилых родителях и о тех, кто живёт один.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.45;color:#101820;border-left:4px solid #C9A45C;padding:8px 0 8px 24px">Голограмма и робот-компаньон - направление развития, а не обещание сроков. В договор не входят.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1000px;font-size:24px;color:#62666D">Mg Intelligence Home · AiButler Alex</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#62666D;text-align:right">17</p>
+</section></div></div>
+<div class="frame" id="s-next"><div class="stage"><section id="next" data-transition="fade" style="background:#FBF9F5;color:#4A4F57;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1152px;top:220px;width:640px;height:640px;background:transparent;border:2px solid #C9A45C;opacity:0.5"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1272px;top:340px;width:400px;height:400px;background:transparent;border:2px solid #C9A45C;opacity:0.85"></div>
+<div class="xs xs-ellipse" aria-hidden="true" style="position:absolute;left:1440px;top:508px;width:64px;height:64px;background:#C9A45C"></div>
+<p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7A5A1E">Следующий шаг</p>
+<h2 style="font-family:'EB Garamond', Georgia, serif;font-size:112px;font-weight:500;line-height:1.05;color:#101820;width:1000px">Живое демо<br>20 минут</h2>
+<p style="font-size:28px;line-height:1.45;width:960px">Alex знакомится с вашей командой, запоминает собеседников и управляет домом на стенде. Затем обследуем объект и фиксируем цену до подписания.</p>
+<div style="display:grid;grid-template-columns:200px 600px;gap:12px 24px;width:824px">
+<p style="font-size:24px;color:#62666D">Telegram</p><p style="font-size:28px;font-weight:600;color:#101820">@stanistar888</p>
+<p style="font-size:24px;color:#62666D">Кипр</p><p style="font-size:28px;font-weight:600;color:#101820">+357 959 03 806</p>
+<p style="font-size:24px;color:#62666D">ОАЭ</p><p style="font-size:28px;font-weight:600;color:#101820">+971 50 693 0343</p>
+<p style="font-size:24px;color:#62666D">Сайт</p><p style="font-size:28px;font-weight:600;color:#101820">audit.maizongroup.com/AiButler</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1400px;font-size:24px;color:#62666D">Станислав Жуковец, основатель и CEO Mg · Maizon Group, Meydan Grandstand, Dubai</p>
+</section></div></div>
+</main>
+<footer class="foot">
+<span>Mg Intelligence Home · Maizon Group</span>
+<a href="/AiButler/developers/">Страница для застройщиков</a>
+<a href="https://t.me/stanistar888">Telegram</a>
+<a href="https://maizongroup.com">maizongroup.com</a>
+</footer>
+<div class="pctl" role="toolbar"><button type="button" data-a="prev" aria-label="Назад">‹</button><span class="cnt"></span><button type="button" data-a="next" aria-label="Дальше">›</button><button type="button" data-a="exit" aria-label="Выйти">✕</button></div>
+<script>(function(){
+  var frames=[].slice.call(document.querySelectorAll('.frame'));
+  var cur=0, body=document.body, cnt=document.querySelector('.pctl .cnt');
+  function fit(f){var w=f.clientWidth;if(w)f.style.setProperty('--k',w/1920);}
+  if('ResizeObserver' in window){var ro=new ResizeObserver(function(es){es.forEach(function(e){fit(e.target);});});frames.forEach(function(f){ro.observe(f);});}
+  else{var all=function(){frames.forEach(fit);};window.addEventListener('resize',all);all();}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!body.classList.contains('presenting'))cur=frames.indexOf(e.target);});},{threshold:0.55});frames.forEach(function(f){io.observe(f);});}
+  [].forEach.call(document.querySelectorAll('.langs a'),function(a){a.addEventListener('click',function(e){var f=frames[cur];if(f&&cur>0){e.preventDefault();location.href=a.getAttribute('href')+'#'+f.id;}});});
+  function show(i){cur=Math.max(0,Math.min(frames.length-1,i));frames.forEach(function(f,j){f.classList.toggle('cur',j===cur);});fit(frames[cur]);cnt.textContent=(cur+1)+' / '+frames.length;}
+  function enter(){body.classList.add('presenting');show(cur);var el=document.documentElement;if(el.requestFullscreen){el.requestFullscreen().catch(function(){});}}
+  function exit(){if(!body.classList.contains('presenting'))return;body.classList.remove('presenting');frames.forEach(function(f){f.classList.remove('cur');});if(document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(function(){});}frames[cur].scrollIntoView({block:'center',behavior:'auto'});}
+  document.querySelector('.present').addEventListener('click',enter);
+  document.querySelector('.pctl').addEventListener('click',function(e){var a=e.target.getAttribute('data-a');if(a==='prev')show(cur-1);else if(a==='next')show(cur+1);else if(a==='exit')exit();});
+  document.querySelector('.deck').addEventListener('click',function(e){if(!body.classList.contains('presenting'))return;show(e.clientX<window.innerWidth/3?cur-1:cur+1);});
+  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement)exit();});
+  document.addEventListener('keydown',function(e){if(!body.classList.contains('presenting'))return;var k=e.key;
+    if(k==='ArrowRight'||k==='ArrowDown'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();show(cur+1);}
+    else if(k==='ArrowLeft'||k==='ArrowUp'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(cur-1);}
+    else if(k==='Home'){show(0);}else if(k==='End'){show(frames.length-1);}else if(k==='Escape'){exit();}});
+})();</script>
+</body>
+</html>
