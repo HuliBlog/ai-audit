@@ -119,6 +119,14 @@
   .trap::before{content:"из нашего опыта";display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#9a7a26;margin-bottom:.2rem}
   .card .fix{display:block;margin-top:.5rem;color:var(--gold);font-size:clamp(.82rem,1.3vw,.95rem)}
   .card.compact{padding:clamp(.8rem,1.8vh,1.4rem) 1.4rem}
+  /* режим показа, как в деке AiButler: полный экран, управление притушено */
+  .navbtns button.present{width:auto;padding:0 1.1rem;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  .navbtns button.exitp{display:none}
+  body.presenting .navbtns button.present{display:none}
+  body.presenting .navbtns button.exitp{display:inline-block}
+  body.presenting .hud{opacity:.35;transition:opacity .2s}
+  body.presenting .hud:hover,body.presenting .hud:focus-within{opacity:1}
+  @media(max-width:520px){.hud .brand{display:none}}
 </style>
 
 <div class="progress" id="bar"></div>
@@ -357,7 +365,7 @@ hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
 <div class="hud">
   <div class="brand"><b>GROW</b> · воркшоп №6 · Гермес</div>
   <div class="counter" id="counter">1 / 20</div>
-  <div class="navbtns"><button id="prev" aria-label="назад">←</button><button id="next" aria-label="вперёд">→</button></div>
+  <div class="navbtns"><button id="present" class="present" type="button">Показ</button><button id="prev" aria-label="назад">←</button><button id="next" aria-label="вперёд">→</button><button id="exitp" class="exitp" type="button" aria-label="выйти из показа">✕</button></div>
 </div>
 
 <script>
@@ -411,6 +419,33 @@ hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
     b.addEventListener('click', copy);
     p.addEventListener('click', copy);
     p.parentNode.insertBefore(b, p.nextSibling);
+  });
+  var body = document.body;
+  function enterShow(){
+    body.classList.add('presenting');
+    var el = document.documentElement, rq = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (rq) { try { var p = rq.call(el); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+  }
+  function exitShow(){
+    body.classList.remove('presenting');
+    var fe = document.fullscreenElement || document.webkitFullscreenElement;
+    var ex = document.exitFullscreen || document.webkitExitFullscreen;
+    if (fe && ex) { try { var p = ex.call(document); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+  }
+  document.getElementById('present').addEventListener('click', enterShow);
+  document.getElementById('exitp').addEventListener('click', exitShow);
+  function onFs(){ if (!(document.fullscreenElement || document.webkitFullscreenElement)) body.classList.remove('presenting'); }
+  document.addEventListener('fullscreenchange', onFs);
+  document.addEventListener('webkitfullscreenchange', onFs);
+  document.addEventListener('keydown', function(e){
+    if (e.key==='f' || e.key==='F' || e.key==='а' || e.key==='А') { body.classList.contains('presenting') ? exitShow() : enterShow(); }
+    if (e.key==='Escape') exitShow();
+  });
+  // в показе клик по левой трети листает назад, по остальному экрану вперёд (промпты и кнопки не трогаем)
+  document.addEventListener('click', function(e){
+    if (!body.classList.contains('presenting')) return;
+    if (e.target.closest && e.target.closest('button,.prompt,a,code')) return;
+    if (e.clientX < window.innerWidth/3) prev(); else next();
   });
   var h = parseInt((location.hash||'').slice(1), 10);
   show(isNaN(h) ? 0 : h-1);
