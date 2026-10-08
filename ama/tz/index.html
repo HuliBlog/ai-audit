@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Техническое задание по сайту ama.org и список документов для получения Google Ad Grants.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://audit.maizongroup.com/ama/tz/">
+<meta property="og:title" content="Mg · Сайт и документы для Google Ad Grants · AMA">
+<meta property="og:description" content="Правки сайта ama.org, новые страницы и документы для заявки на Google Ad Grants.">
+<meta property="og:image" content="https://audit.maizongroup.com/ama/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://audit.maizongroup.com/ama/og.png">
+<title>Mg - Сайт и документы для Google Ad Grants · AMA</title>
+<style>
+  :root{
+    --ink:#10241E; --soft:#5C6B65; --mut:#8B9A94;
+    --paper:#FAF8F5; --card:#FFFFFF; --line:#E3DED5;
+    --accent:#9E2A2B; --accent-2:#7E2122; --accent-soft:#F6E7E4;
+    --on-dark:#E3B7A8; --ok:#2F6B52;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:0}
+  body{background:#CFCAC1;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:14.5px}
+
+  .page{position:relative;width:210mm;min-height:297mm;margin:0 auto 10px;
+    background:var(--paper);padding:19mm 18mm 22mm;overflow:hidden;
+    display:flex;flex-direction:column;break-after:page;page-break-after:always}
+  .page:last-child{break-after:auto;page-break-after:auto;margin-bottom:0}
+  .pfoot{position:absolute;left:18mm;right:18mm;bottom:11mm;
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-top:1px solid var(--line);padding-top:7px;
+    font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut)}
+  .pfoot b{color:var(--soft);font-weight:600;text-transform:none;letter-spacing:.04em;font-size:10.5px}
+
+  /* обложка */
+  .cover{background:var(--ink);color:#F2EFE9;justify-content:space-between;padding:26mm 20mm}
+  .cover .brand{font-size:27px;font-weight:600;letter-spacing:-.01em}
+  .cover .brand b{color:var(--on-dark);font-weight:600}
+  .cover .mid{margin-top:auto}
+  .cover .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark);font-weight:600}
+  .cover h1{font-size:46px;line-height:1.08;font-weight:600;letter-spacing:-.025em;margin:14px 0 20px;max-width:15ch}
+  .cover h1 span{color:var(--on-dark)}
+  .cover .sub{font-size:15.5px;color:#C3CCC7;max-width:56ch;line-height:1.62}
+  .cover .rule{height:3px;width:56px;background:var(--accent);margin:26px 0 0;border-radius:2px}
+  .cnums{display:flex;gap:0;margin-top:auto;padding-top:34px;border-top:1px solid rgba(227,183,168,.22)}
+  .cnums div{flex:1;padding-right:14px}
+  .cnums b{display:block;font-size:22px;font-weight:600;color:#fff;letter-spacing:-.01em}
+  .cnums span{font-size:11.5px;color:#93A29B;line-height:1.4;display:block;margin-top:3px}
+  .cmeta{margin-top:26px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8D9B94}
+
+  /* типографика полос */
+  .eyebrow{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+  h2{font-size:27px;font-weight:600;letter-spacing:-.018em;margin:8px 0 10px;line-height:1.18}
+  h3.sub{font-size:17.5px;font-weight:600;margin:22px 0 10px}
+  .lead{color:var(--soft);max-width:66ch;font-size:15.4px;line-height:1.55}
+  p.body{margin-top:14px;font-size:14.8px;color:#3A4642;max-width:70ch;line-height:1.65}
+  .sechead{margin-bottom:18px}
+
+  .verdict{background:var(--ink);color:#EDE8E0;border-radius:14px;padding:24px 30px;margin-top:4px}
+  .verdict h4{color:var(--on-dark);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;font-weight:700}
+  .verdict p{font-size:14.6px;line-height:1.56;color:#DCD6CD}
+  .verdict p + p{margin-top:11px}
+  .verdict b{color:#fff;font-weight:600}
+
+  .incl{display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;margin-top:20px}
+  .incl div{position:relative;padding-left:26px;font-size:14.6px;color:#33403B;line-height:1.5}
+  .incl div::before{content:"✓";position:absolute;left:0;top:-1px;color:var(--accent);font-weight:700}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 16px;display:flex;flex-direction:column}
+  .card.feat{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .badge{display:inline-block;align-self:flex-start;background:var(--accent-soft);color:var(--accent-2);
+    font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:20px;margin-bottom:12px}
+  .tier{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);font-weight:700}
+  .card h3{font-size:17.5px;font-weight:600;margin:3px 0 12px;letter-spacing:-.01em;line-height:1.2}
+  .price{font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
+  .price small{font-size:12px;color:var(--mut);font-weight:500}
+  .sale{display:inline-block;background:var(--accent);color:#fff;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:20px;margin:0 0 8px}
+  .old{display:block;font-size:12.5px;color:var(--mut);text-decoration:line-through;font-weight:500;margin-top:2px}
+  .flow .old{display:inline;margin:0 6px 0 0}
+  .price .from{display:block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;font-weight:700}
+  .card ul{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .card li{position:relative;padding-left:18px;font-size:13px;color:#41504A;line-height:1.45}
+  .card li::before{content:"";position:absolute;left:2px;top:7px;width:4.5px;height:4.5px;border-radius:50%;background:var(--accent)}
+
+  .note{margin-top:20px;font-size:13.4px;color:#5F534F;background:var(--accent-soft);border-radius:10px;padding:16px 20px;line-height:1.6}
+  .note b{color:var(--accent-2)}
+
+  .tbl{width:100%;border-collapse:collapse;margin-top:13px;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.6px}
+  .tbl th{background:#F1EDE6;text-align:left;padding:12px 16px;font-size:10.5px;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--soft);font-weight:700;border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 15px;border-bottom:1px solid var(--line);vertical-align:top;color:#3A4642;line-height:1.5}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td b{color:var(--ink);font-weight:600}
+  .tbl .num{white-space:nowrap;font-weight:700;color:var(--accent-2)}
+  .tbl.compact td{padding:9px 15px}
+  .tbl.compact .num{white-space:normal}
+  .page.tight .incl{gap:10px 30px;margin-top:16px}
+  .page.tight h3.sub{margin-top:16px}
+  .page.tight .steps{margin-top:14px}
+  .page.tight .note{margin-top:14px}
+  .page.tight .card ul{gap:6px;margin-top:11px;padding-top:11px}
+  .page.tight .cards{margin-top:14px}
+
+  .flow{margin-top:13px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);display:grid;grid-template-columns:1fr 1fr}
+  .flow .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:8px 15px;border-bottom:1px solid var(--line);font-size:12.7px}
+  .flow .row:nth-child(odd){border-right:1px solid var(--line)}
+  .flow .row:nth-last-child(-n+2){border-bottom:0}
+  .flow .n{color:#3A4642}
+  .flow .p{font-weight:700;white-space:nowrap;color:var(--accent-2)}
+  .flow .p small{color:var(--mut);font-weight:500;font-size:11.5px}
+
+  .risk{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;margin-top:22px}
+  .risk-item{padding-left:20px;position:relative}
+  .risk-item::before{content:"";position:absolute;left:0;top:5px;width:8px;height:8px;background:var(--accent);border-radius:2px;transform:rotate(45deg)}
+  .risk-item h4{font-size:15.5px;font-weight:600;margin-bottom:5px;line-height:1.3}
+  .risk-item p{font-size:13.4px;color:var(--soft);line-height:1.55}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+  .step .num{width:31px;height:31px;border-radius:50%;background:var(--ink);color:var(--on-dark);
+    display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;margin-bottom:11px}
+  .step h4{font-size:15.6px;font-weight:600;margin-bottom:5px}
+  .step p{font-size:13.4px;color:var(--soft);line-height:1.55}
+
+  /* календарь */
+  .tl{margin-top:18px;display:flex;flex-direction:column;gap:0;border-left:2px solid var(--line);padding-left:0}
+  .tl-item{position:relative;padding:0 0 18px 26px}
+  .tl-item::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+  .tl-item.done::before{background:var(--ok);border-color:var(--ok)}
+  .tl-item .when{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+  .tl-item h4{font-size:15.6px;font-weight:600;margin:3px 0 4px;line-height:1.3}
+  .tl-item p{font-size:13.4px;color:var(--soft);line-height:1.55;max-width:68ch}
+
+  .ask{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;counter-reset:q}
+  .ask div{font-size:13.6px;padding-left:25px;position:relative;color:#33403B;line-height:1.5}
+  .ask div::before{content:counter(q);counter-increment:q;position:absolute;left:0;top:1px;
+    font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);
+    width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+  .final{background:var(--ink);color:#EFEBE4;border-radius:12px;padding:24px 28px;margin-top:20px}
+  .final .eyebrow{color:var(--on-dark)}
+  .final h2{font-size:25px;font-weight:600;margin:9px 0 10px;color:#fff}
+  .final p{color:#C4CCC7;max-width:60ch;font-size:14.4px}
+  .contacts{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:20px}
+  .contact{display:flex;align-items:center;gap:8px;background:rgba(227,183,168,.12);
+    border:1px solid rgba(227,183,168,.28);border-radius:10px;padding:10px 14px;font-size:13.2px}
+  .contact span{color:#94A39C;font-size:11px}
+  .contact b{font-weight:600;color:#fff}
+  .legal{margin-top:12px;font-size:10px;line-height:1.55;color:var(--mut)}
+  .legal b{color:var(--soft);font-weight:600}
+
+  @media print{
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;width:auto;min-height:297mm}
+  }
+
+  /* веб-версия: центрирование, кнопка PDF */
+  :root{color-scheme:light only}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  #deck{width:210mm;margin:0 auto}
+  .dl{position:fixed;right:20px;bottom:20px;z-index:999;display:inline-flex;align-items:center;gap:9px;
+    background:var(--ink);color:#fff;text-decoration:none;padding:13px 22px;border-radius:999px;
+    font-size:15px;font-weight:600;letter-spacing:-.01em;box-shadow:0 4px 20px rgba(0,0,0,.25);
+    transition:transform .15s ease,background .15s ease}
+  .dl:hover,.dl:focus-visible{background:#000;transform:translateY(-2px)}
+  .dl svg{width:16px;height:16px;flex:none}
+  @media print{.dl{display:none !important}}
+</style>
+<style>
+/* телефон и планшет: вместо уменьшенного листа A4 - вёрстка в одну колонку.
+   Печать и PDF не затрагивает: только screen. */
+@media screen and (max-width:840px){
+  body{background:#E9E4DC;font-size:15px}
+  #deck{width:auto}
+  #deck .page{width:auto;min-height:0;margin:0 0 8px;padding:34px 18px 26px;overflow:visible}
+  #deck .page:last-child{margin-bottom:0;padding-bottom:96px}
+  #deck .pfoot{position:static;margin-top:26px;gap:12px;font-size:10px;letter-spacing:.06em}
+  #deck .pfoot b{font-size:11px}
+  #deck .pfoot span:last-child{white-space:nowrap}
+
+  #deck .cover{padding:36px 20px 30px}
+  #deck .cover .brand{font-size:24px}
+  #deck .cover .mid{margin-top:64px}
+  #deck .cover .eyebrow{font-size:11px;letter-spacing:.14em}
+  #deck .cover h1{font-size:34px;line-height:1.1;margin:12px 0 16px}
+  #deck .cover .sub{font-size:15.5px;line-height:1.6}
+  #deck .cnums{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:40px;padding-top:24px}
+  #deck .cnums div{padding:0}
+  #deck .cnums b{font-size:19px}
+  #deck .cnums span{font-size:12.5px;color:#A3B0AA}
+  #deck .cmeta{margin-top:24px;font-size:11px;line-height:1.55;letter-spacing:.08em}
+
+  #deck .eyebrow{font-size:11px}
+  #deck h2{font-size:24px;line-height:1.2}
+  #deck .lead{font-size:15.5px;line-height:1.55}
+  #deck .sechead{margin-bottom:18px}
+  #deck h3.sub{font-size:17px;margin:26px 0 10px}
+  #deck p.body{font-size:14.5px;line-height:1.6}
+  #deck .verdict{padding:20px 18px;border-radius:12px}
+  #deck .verdict p{font-size:15px;line-height:1.55}
+  #deck .verdict p + p{margin-top:12px}
+  #deck .note{font-size:14.5px;line-height:1.55;padding:15px 16px;margin-top:16px}
+
+  #deck .incl,#deck .risk,#deck .ask,#deck .steps,#deck .cards{grid-template-columns:1fr}
+  #deck .incl{gap:12px;margin-top:14px}
+  #deck .incl div{font-size:15px}
+  #deck .risk{gap:18px;margin-top:18px}
+  #deck .risk-item h4{font-size:16px}
+  #deck .risk-item p{font-size:14.5px}
+
+  #deck .flow{grid-template-columns:1fr}
+  #deck .flow .row{padding:11px 14px;font-size:14.5px;border-right:0;border-bottom:1px solid var(--line)}
+  #deck .flow .row:last-child{border-bottom:0}
+  #deck .flow .p{text-align:right}
+
+  /* таблицы: строка = карточка, подпись колонки над значением */
+  #deck .tbl,#deck .tbl tbody,#deck .tbl tr,#deck .tbl td{display:block;width:auto}
+  #deck .tbl th,#deck .tbl tr:first-child{display:none}
+  #deck .tbl tr{padding:13px 15px;border-bottom:1px solid var(--line)}
+  #deck .tbl tr:last-child{border-bottom:0}
+  #deck .tbl td{padding:0;border:0;font-size:14.5px;line-height:1.5}
+  #deck .tbl td:first-child{font-size:15px}
+  #deck .tbl td + td{margin-top:7px}
+  #deck .tbl td[data-label]::before{content:attr(data-label);display:block;margin-bottom:1px;
+    font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);font-weight:700}
+  #deck .tbl .num{white-space:normal}
+
+  #deck .tl-item h4{font-size:16px}
+  #deck .tl-item p{font-size:14.5px}
+
+  #deck .cards{gap:12px}
+  #deck .card{padding:18px}
+  #deck .card.feat{order:-1}
+  #deck .card li{font-size:14.5px}
+  #deck .price small{font-size:13px}
+
+  #deck .final{padding:22px 18px}
+  #deck .final h2{font-size:22px}
+  #deck .final p{font-size:15px}
+  #deck .contact{font-size:14px}
+  #deck .legal{font-size:11.5px;line-height:1.6}
+
+  .dl{right:12px;bottom:12px;padding:11px 18px;font-size:14px}
+}
+</style>
+<style>.card .price small{display:block;margin-top:4px;font-size:12.5px;white-space:nowrap}</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- ============ ОБЛОЖКА ============ -->
+<section class="page cover">
+  <div class="brand">M<b>g</b></div>
+  <div class="mid">
+    <div class="eyebrow">Техническое задание и список документов</div>
+    <h1>Сайт и документы для <span>Google Ad Grants</span></h1>
+    <div class="sub">Что изменить на ama.org, какие страницы добавить и какие документы собрать, чтобы Google одобрил American Marketing Association грант на бесплатную рекламу в поиске. Правки делает команда AMA, мы проверяем результат до подачи заявки.</div>
+    <div class="rule"></div>
+  </div>
+  <div class="cnums">
+    <div><b>3 правки</b><span>на текущем сайте</span></div>
+    <div><b>5 страниц</b><span>новых, под рекламу по гранту</span></div>
+    <div><b>6 действий</b><span>для отслеживания в GA4</span></div>
+    <div><b>10 пунктов</b><span>документов и доступов</span></div>
+  </div>
+  <div class="cmeta">Подготовлено для American Marketing Association · 8 октября 2026</div>
+</section>
+
+<!-- ============ 01 ПРАВКИ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 01</div>
+    <h2>Правки на текущем сайте</h2>
+    <p class="lead">Google одобряет грант только сайту, который рассказывает о миссии, а продажи и реклама на нём второстепенны. Эти правки нужны до подачи заявки.</p>
+  </div>
+
+  <table class="tbl compact">
+    <tr><th style="width:24%">Правка</th><th>Что сделать</th><th style="width:28%">Зачем это Google</th></tr>
+    <tr><td><b>1. Реклама и спонсорский контент</b></td><td data-label="Что сделать">Пометить все спонсорские материалы меткой «Sponsored»: Promoted Content, спонсорские вебинары и рассылки на сайте. Убрать Google AdSense и партнёрские (affiliate) ссылки, если они есть. Баннеры оставить только по теме маркетинга, без всплывающих окон и без перекрытия текста. На главной миссия и бесплатные ресурсы должны быть выше рекламы.</td><td data-label="Зачем это Google">Реклама на сайте разрешена, только если она связана с миссией и не мешает. AdSense и партнёрские ссылки запрещены.</td></tr>
+    <tr><td><b>2. Прозрачность</b></td><td data-label="Что сделать">В футер каждой страницы добавить ссылки: «Our Impact» (раздел 02), годовой отчёт, Form 990, политика конфиденциальности, контакты с адресом 130 E Randolph St, Chicago. В тексте «Our Impact» указать статус <span style="white-space:nowrap">501(c)(3)</span> и EIN 36-2130315.</td><td data-label="Зачем это Google">Если организация продаёт продукты, сайт должен показывать, как доходы идут на миссию.</td></tr>
+    <tr><td><b>3. Технические требования</b></td><td data-label="Что сделать">Весь сайт работает по HTTPS. Страницы, на которые ведёт реклама, лежат на ama.org и открываются без входа в аккаунт. Список поддоменов, которые пойдут в рекламу (resources., elearning., jobs.ama.org), согласуем отдельно. Страницы быстро грузятся и корректно выглядят на телефоне, битых ссылок нет.</td><td data-label="Зачем это Google">Реклама по гранту ведёт только на одобренный домен организации. Закрытые страницы снижают качество объявлений.</td></tr>
+  </table>
+
+  <div class="note"><b>Важно:</b> правки 1 и 2 проверяются при заявке. Если на сайте останутся AdSense, партнёрские ссылки или навязчивая реклама, Google может отказать или позже отключить грант.</div>
+
+  <div class="pfoot"><span><b>Mg</b> · ТЗ и документы для Google Ad Grants</span><span>Для AMA · 2</span></div>
+</section>
+
+<!-- ============ 02 НОВЫЕ СТРАНИЦЫ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 02</div>
+    <h2>Пять новых страниц</h2>
+    <p class="lead">На эти страницы ведёт реклама по гранту. Каждая отвечает на один тип поиска и ведёт к одному целевому действию.</p>
+  </div>
+
+  <table class="tbl compact">
+    <tr><th style="width:24%">Страница</th><th>Что на ней</th><th style="width:20%">Целевое действие</th></tr>
+    <tr><td><b>Our Impact</b><br>ama.org/impact</td><td data-label="Что на ней">Миссия AMA. Цифры: члены, около 70 профессиональных и 330+ студенческих отделений, 5 научных журналов, стипендии. Как взносы, сертификация, конференции и спонсорство финансируют эти программы, простой схемой. Статус <span style="white-space:nowrap">501(c)(3)</span>, EIN, ссылки на годовой отчёт и Form 990.</td><td data-label="Целевое действие">Страница доверия, без формы</td></tr>
+    <tr><td><b>Start Here: Learn Marketing</b><br>ama.org/learn</td><td data-label="Что на ней">Открытая страница без регистрации и без цен на первом экране. Блоки: определение маркетинга, 4P, карьера, отчёт о трендах 2026, бесплатный пробный экзамен, стипендии. Форма подписки на рассылку.</td><td data-label="Целевое действие">Подписка, скачивание отчёта</td></tr>
+    <tr><td><b>Marketing Careers Guide</b></td><td data-label="Что на ней">Как прийти в профессию, должности и обязанности, нужные навыки, влияние ИИ. Скачивание отчёта State of Marketing Careers 2026, ссылка на jobs.ama.org.</td><td data-label="Целевое действие">Скачивание отчёта о карьере</td></tr>
+    <tr><td><b>Marketing Scholarships for Students</b></td><td data-label="Что на ней">Пять стипендий AMA Foundation: для кого, условия, сроки подачи (апрель-декабрь), кнопка «Apply». Коротко о студенческих отделениях.</td><td data-label="Целевое действие">Клик «Apply»</td></tr>
+    <tr><td><b>What Is a Professional Certified Marketer</b></td><td data-label="Что на ней">Что такое PCM, кому нужен, как получить, как продлевать. Бесплатный пробный экзамен сверху, цены и покупка ниже, вторым шагом.</td><td data-label="Целевое действие">Старт пробного экзамена</td></tr>
+  </table>
+
+  <h3 class="sub">Требования к каждой странице</h3>
+  <div class="incl">
+    <div>Содержательный уникальный текст, не только список ссылок</div>
+    <div>Заголовок совпадает с темой поиска, например «Scholarships for Marketing Students»</div>
+    <div>Один главный призыв к действию, совпадает с целевым действием из таблицы</div>
+    <div>Открывается без входа в аккаунт, на ama.org, быстро и на телефоне</div>
+  </div>
+
+  <div class="pfoot"><span><b>Mg</b> · ТЗ и документы для Google Ad Grants</span><span>Для AMA · 3</span></div>
+</section>
+
+<!-- ============ 03 ЦЕЛЕВЫЕ ДЕЙСТВИЯ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 03</div>
+    <h2>Целевые действия в GA4</h2>
+    <p class="lead">Google требует минимум одно целевое действие в месяц, иначе грант отключают. Настраиваем шесть через Google Tag Manager и отмечаем их как ключевые события в GA4.</p>
+  </div>
+
+  <table class="tbl compact">
+    <tr><th style="width:30%">Событие</th><th>Когда срабатывает</th><th style="width:24%">Где</th></tr>
+    <tr><td><b>newsletter_signup</b></td><td data-label="Когда срабатывает">Успешная отправка формы подписки</td><td data-label="Где">Start Here, футер</td></tr>
+    <tr><td><b>report_download</b></td><td data-label="Когда срабатывает">Отправка формы скачивания отчёта</td><td data-label="Где">Start Here, Careers Guide</td></tr>
+    <tr><td><b>webinar_registration</b></td><td data-label="Когда срабатывает">Регистрация на бесплатный вебинар</td><td data-label="Где">Страницы вебинаров</td></tr>
+    <tr><td><b>practice_exam_start</b></td><td data-label="Когда срабатывает">Начало бесплатного пробного экзамена</td><td data-label="Где">Страница PCM</td></tr>
+    <tr><td><b>scholarship_apply_click</b></td><td data-label="Когда срабатывает">Клик по кнопке «Apply»</td><td data-label="Где">Страница стипендий</td></tr>
+    <tr><td><b>join_start</b></td><td data-label="Когда срабатывает">Начало оформления членства</td><td data-label="Где">Страница членства</td></tr>
+  </table>
+
+  <div class="note"><b>Не считаем целевыми действиями</b> просмотры страниц и время на сайте: Google разрешает такие события только как вспомогательные. Настройку тегов делаем мы при доступе к Google Tag Manager, или передаём инструкцию вашей команде.</div>
+
+  <div class="pfoot"><span><b>Mg</b> · ТЗ и документы для Google Ad Grants</span><span>Для AMA · 4</span></div>
+</section>
+
+<!-- ============ 04 ДОКУМЕНТЫ ============ -->
+<section class="page tight">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 04</div>
+    <h2>Документы и доступы для заявки</h2>
+    <p class="lead">Пункты 1-5 нужны в первую неделю: без них не начать регистрацию в Google for Nonprofits. Файлы для Goodstack: оригинальные PDF без правок; документы, которые AMA делает сама, датированы не позже чем за 30 дней до заявки.</p>
+  </div>
+
+  <table class="tbl compact">
+    <tr><th style="width:27%">Документ</th><th>Что это и где взять</th><th style="width:16%">Кто готовит</th></tr>
+    <tr><td><b>1. Письмо IRS о <span style="white-space:nowrap">501(c)(3)</span></b><br>Determination Letter</td><td data-label="Что это и где взять">Подтверждает статус. Есть в архиве AMA, копия в IRS по форме 4506-B.</td><td data-label="Кто готовит">Финансы AMA</td></tr>
+    <tr><td><b>2. Письмо IRS 147C</b><br>EIN Verification Letter</td><td data-label="Что это и где взять">Подтверждает EIN и название. Запрос по телефону IRS: 800-829-4933.</td><td data-label="Кто готовит">Финансы AMA</td></tr>
+    <tr><td><b>3. Реквизиты как в IRS</b></td><td data-label="Что это и где взять">Название, EIN 36-2130315, адрес буква в букву как в письмах IRS.</td><td data-label="Кто готовит">Финансы AMA</td></tr>
+    <tr><td><b>4. Ящик adgrants@ama.org</b></td><td data-label="Что это и где взять">Общий ящик и Google-аккаунт на него, с него регистрация в Google.</td><td data-label="Кто готовит">IT AMA</td></tr>
+    <tr><td><b>5. Контактное лицо</b></td><td data-label="Что это и где взять">Имя, должность, почта и телефон сотрудника для проверки Goodstack.</td><td data-label="Кто готовит">AMA</td></tr>
+    <tr><td><b>6. Миссия и программы</b></td><td data-label="Что это и где взять">1-2 абзаца о миссии и 3-5 программ с цифрами для анкеты.</td><td data-label="Кто готовит">AMA</td></tr>
+    <tr><td><b>7. Годовой отчёт, Form 990</b></td><td data-label="Что это и где взять">Последние версии, для страницы Our Impact.</td><td data-label="Кто готовит">Финансы AMA</td></tr>
+    <tr><td><b>8. Подписант для Google</b></td><td data-label="Что это и где взять">Принимает условия Google о недискриминации и пожертвованиях.</td><td data-label="Кто готовит">Руководство AMA</td></tr>
+    <tr><td><b>9. Доступы для Mg</b></td><td data-label="Что это и где взять">Права редактора в GA4, Tag Manager и Search Console.</td><td data-label="Кто готовит">IT AMA</td></tr>
+    <tr><td><b>10. Аккаунты Google</b></td><td data-label="Что это и где взять">Был ли Google for Nonprofits или Ad Grants, есть ли платный Google Ads, их ID.</td><td data-label="Кто готовит">Маркетинг AMA</td></tr>
+  </table>
+
+  <div class="pfoot"><span><b>Mg</b> · ТЗ и документы для Google Ad Grants</span><span>Для AMA · 5</span></div>
+</section>
+
+<!-- ============ 05 ПОРЯДОК ============ -->
+<section class="page">
+  <div class="sechead">
+    <div class="eyebrow">Раздел 05</div>
+    <h2>Кто что делает и когда</h2>
+    <p class="lead">Сайт и документы идут параллельно. Заявку подаём, когда готово и то, и другое.</p>
+  </div>
+
+  <div class="tl">
+    <div class="tl-item"><div class="when">Неделя 1 · AMA</div><h4>Ящик, документы, доступы</h4><p>Пункты 1-5 из раздела 04, затем 6-10.</p></div>
+    <div class="tl-item"><div class="when">Неделя 1 · Mg</div><h4>Правовая проверка и регистрация</h4><p>Проверяем документы и регистрируем AMA в Google for Nonprofits, проходим проверку Goodstack.</p></div>
+    <div class="tl-item"><div class="when">Недели 1-3 · AMA</div><h4>Правки и новые страницы</h4><p>Разделы 01 и 02 этого задания. Целевые действия из раздела 03 настраиваем мы или ваша команда по инструкции.</p></div>
+    <div class="tl-item"><div class="when">Недели 2-3 · Mg</div><h4>Проверка сайта</h4><p>Проходим по сайту ещё раз и даём финальные замечания до подачи.</p></div>
+    <div class="tl-item"><div class="when">Недели 3-4 · Mg</div><h4>Заявка на Ad Grants</h4><p>Подаём заявку. Google рассматривает её около 3 рабочих дней.</p></div>
+  </div>
+
+  <div class="final">
+    <div class="eyebrow">Вопросы</div>
+    <h2>Пишите в общий чат</h2>
+    <p>Если по какому-то пункту нужен пример или текст, подготовим. Документы удобнее присылать на почту.</p>
+    <div class="contacts">
+      <div class="contact"><span>Email</span><b>info@maizongroup.com</b></div>
+      <div class="contact"><span>Telegram</span><b>@stanistar888</b></div>
+      <div class="contact"><span>Сайт</span><b>maizongroup.com</b></div>
+    </div>
+  </div>
+
+  <div class="legal">
+    <b>Maizon Group LLC-FZ</b> · Лицензия 2423151.01<br>
+    Требования составлены по правилам Google for Nonprofits, Google Ad Grants и Goodstack на 8 октября 2026 года. Решение об одобрении гранта принимает Google.
+  </div>
+
+  <div class="pfoot"><span><b>Mg</b> · ТЗ и документы для Google Ad Grants</span><span>Для AMA · 6</span></div>
+</section>
+
+</div>
+
+<a class="dl" href="Mg-AMA-TZ-i-dokumenty.pdf" download>
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5v8.5M4.5 7L8 10.5 11.5 7M2 13.5h12"/></svg>
+  Скачать PDF
+</a>
+
+</body>
+</html>
