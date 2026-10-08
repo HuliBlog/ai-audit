@@ -247,7 +247,7 @@ hermes setup --portal</div>
   <div class="prompt cmd" data-label="команда · терминал" data-copy="">hermes config set stt.language ru
 hermes config set stt.local.model small
 hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
-  <p class="note">Третья строка даёт бесплатный русский голос. <b>Хотите живее, ElevenLabs:</b> <code>hermes config set tts.provider elevenlabs</code> и ключ наберите сами: <code>hermes config set ELEVENLABS_API_KEY ваш_ключ</code>, он ляжет в файл настроек, а не в чат. Перезапустите шлюз, как на шаге 02. В Telegram отправьте голосовое, затем <code>/voice</code>, чтобы Гермес отвечал голосом.</p>
+  <p class="note">Третья строка даёт бесплатный русский голос. <b>Хотите живее, ElevenLabs:</b> <code>hermes config set tts.provider elevenlabs</code> и ключ наберите сами: <code>hermes config set ELEVENLABS_API_KEY ваш_ключ</code>, он ляжет в файл настроек, а не в чат. Перезапустите шлюз, как на шаге 02. В Telegram отправьте голосовое, затем <code>/voice</code>, чтобы Гермес отвечал голосом. <b>Живой звонок вместо голосовых:</b> Ultravox (ultravox.ai), подключаем после воркшопа.</p>
   <p class="trap">По умолчанию Гермес ждёт английскую речь и берёт самую лёгкую модель распознавания. Без этих строк русские голосовые превращаются в кашу, у нас так и было.</p>
   <p class="done-check"><b>Готово, когда:</b> Гермес показал текст вашего голосового без ошибок и ответил голосом.</p>
 </section>
@@ -348,7 +348,7 @@ hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
   <h2>Дальше Гермес растёт с вами</h2>
   <div class="grid g2">
     <div class="card compact"><span class="n">01</span><h3>Читает ваши переписки</h3><p>Бот видит только чат с вами, обход Telegram и WhatsApp подключается отдельно. У нас так он собирает лиды из 52 чатов.</p></div>
-    <div class="card compact"><span class="n">02</span><h3>Звонок голосом</h3><p>Не голосовые по очереди, а живой разговор, как в демо.</p></div>
+    <div class="card compact"><span class="n">02</span><h3>Звонок голосом</h3><p>Не голосовые по очереди, а живой разговор, как в демо. Например, через Ultravox.</p></div>
     <div class="card compact"><span class="n">03</span><h3>Сам зовёт Claude Code</h3><p>Поручили из машины: Гермес запустил Claude Code на сервере и прислал файл.</p></div>
     <div class="card compact"><span class="n">04</span><h3>Приложение в боте</h3><p>Кнопка в Telegram открывает ваш экран: дела, деньги, люди.</p></div>
   </div>
