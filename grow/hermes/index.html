@@ -134,13 +134,13 @@
 <!-- 2 · план -->
 <section class="slide">
   <div class="kicker">план на сегодня</div>
-  <h2>Два часа, шесть шагов,<br>Гермес в телефоне в конце</h2>
+  <h2>Два часа, пять шагов,<br>Гермес в телефоне в конце</h2>
   <ul class="plain">
     <li><span class="t">17:30</span> Зачем Гермес, если уже есть Claude Code</li>
     <li><span class="t">17:45</span> Живое демо: разговариваем с Гермесом голосом</li>
     <li><span class="t">18:00</span> Практика: сервер, мозг, Telegram, голос</li>
-    <li><span class="t">18:35</span> Знакомство и ваша база из GitHub</li>
-    <li><span class="t">18:55</span> Первая рутина по расписанию</li>
+    <li><span class="t">18:35</span> Знакомство и первая рутина по расписанию</li>
+    <li><span class="t">19:00</span> Кто успеет: база из GitHub, почта и календарь</li>
     <li><span class="t">19:10</span> Разбор, наши грабли, безопасность, куда дальше</li>
   </ul>
   <p class="lead" style="margin-top:1.6rem">Правило зала: застрял на шаге, подними руку. Помогает сосед, потом мы. В Zoom: вопросы пишите в чат, отвечаем между шагами.</p>
@@ -170,7 +170,7 @@
     <div class="layer on"><div class="num">I</div><div><b>Сервер.</b> <span>Hostinger или свой: живёт круглосуточно.</span></div><div class="tag">дома</div></div>
     <div class="layer on"><div class="num">II</div><div><b>Мозг.</b> <span>Модель через Nous Portal или свой ключ.</span></div><div class="tag">дома</div></div>
     <div class="layer now"><div class="num">III</div><div><b>Канал.</b> <span>Свой бот в Telegram, текст и голос.</span></div><div class="tag">сегодня</div></div>
-    <div class="layer now"><div class="num">IV</div><div><b>Память.</b> <span>Профиль о вас и ваша база из GitHub.</span></div><div class="tag">сегодня</div></div>
+    <div class="layer now"><div class="num">IV</div><div><b>Память.</b> <span>Профиль о вас, база из GitHub по желанию.</span></div><div class="tag">сегодня</div></div>
     <div class="layer now"><div class="num">V</div><div><b>Ритм.</b> <span>Задачи по расписанию: приходит сам.</span></div><div class="tag">сегодня</div></div>
     <div class="layer"><div class="num">VI</div><div><b>Руки.</b> <span>Почта, календарь и другие сервисы.</span></div><div class="tag">кто успеет</div></div>
   </div>
@@ -191,12 +191,12 @@
   <div class="grid g3">
     <div class="card compact"><span class="n">01</span><h3>Сервер</h3><p>Hostinger с Гермесом или свой. Заходите в панель или по ssh.</p></div>
     <div class="card compact"><span class="n">02</span><h3>Модель</h3><p>Nous Portal Plus или ключ Anthropic / OpenRouter с балансом.</p></div>
-    <div class="card compact"><span class="n">03</span><h3>ElevenLabs</h3><p>API-ключ: через него Гермес говорит голосом.</p></div>
+    <div class="card compact"><span class="n">03</span><h3>ElevenLabs</h3><p>По желанию: живой голос. Без него Гермес говорит бесплатным.</p></div>
     <div class="card compact"><span class="n">04</span><h3>Бот и ваш ID</h3><p>Токен от @BotFather и число от @userinfobot.</p></div>
     <div class="card compact"><span class="n">05</span><h3>Текст о себе</h3><p>До 1 375 знаков плюс 3 задачи для Гермеса.</p></div>
-    <div class="card compact"><span class="n">06</span><h3>GitHub</h3><p>Приватный репозиторий с вашей рабочей папкой из Claude Code.</p></div>
+    <div class="card compact"><span class="n">06</span><h3>GitHub</h3><p>По желанию: приватный репозиторий с рабочей папкой из Claude Code.</p></div>
   </div>
-  <p class="note"><b>Нет сервера?</b> Сегодня ставим на ноутбук (шаг 01+), переезд на сервер дома. <b>Нет чего-то другого?</b> Поднимите руку сейчас, а не на третьем шаге.</p>
+  <p class="note"><b>Нет сервера?</b> Hostinger с готовым шаблоном Hermes Agent: поднимаем в начале занятия, поднимите руку. <b>Нет чего-то другого?</b> Поднимите руку сейчас, а не на третьем шаге.</p>
 </section>
 
 <!-- 7 · сессия 1 -->
@@ -204,86 +204,76 @@
   <div class="session-head"><span class="no">01</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · сервер и мозг</div></div><span class="timer">15 минут</span></div>
   <p class="task"><b>Задача:</b> подключить мозг Гермесу на своём сервере.</p>
   <p class="lead" style="margin-bottom:1.6rem;max-width:60rem">Hostinger: hPanel, ваш VPS, Docker Manager, терминал контейнера Hermes. Свой сервер: ssh. Ссылку входа в Portal откройте на ноутбуке.</p>
+  <p class="note" style="margin-top:0;margin-bottom:1.6rem"><b>Гермеса на сервере ещё нет?</b> Сначала <code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code>, затем <code>source ~/.bashrc</code>. В шаблоне Hostinger он уже стоит.</p>
   <div class="prompt cmd" data-label="команда · терминал сервера" data-copy="">hermes config set timezone Europe/Nicosia
 hermes setup --portal</div>
-  <p class="note"><b>Свой ключ:</b> <code>hermes setup</code>. <b>Гермеса на сервере ещё нет:</b> <code>curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code>, затем <code>source ~/.bashrc</code>. <b>Managed Hermes:</b> всё в мастере hPanel, сразу к шагу 03.</p>
+  <p class="note"><b>Свой ключ:</b> <code>hermes setup</code>. <b>Managed Hermes:</b> всё в мастере hPanel, сразу к шагу 03.</p>
   <p class="trap">Сервер живёт по UTC: без первой строки задача на 17:00 приходила у нас в 20:00.</p>
   <p class="done-check"><b>Готово, когда:</b> набираете <code>hermes</code>, пишете «привет» и он отвечает.</p>
 </section>
 
-<!-- 8 · сессия 1, запасной путь -->
-<section class="slide">
-  <div class="session-head"><span class="no">01+</span><div><div class="kicker" style="margin-bottom:.2rem">запасной путь · нет сервера или он не пускает</div></div><span class="timer">не тратьте больше 5 минут</span></div>
-  <p class="task"><b>Сегодня ставим на ноутбук,</b> переезд на сервер дома. Mac: откройте Терминал и вставляйте по одной строке.</p>
-  <div class="prompt cmd" data-label="команда · Mac" data-copy="">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-source ~/.zshrc
-hermes setup --portal</div>
-  <p class="note"><b>Windows:</b> PowerShell, команда <code>iex (irm https://hermes-agent.nousresearch.com/install.ps1)</code>, затем <code>hermes setup --portal</code>. <b>Помните:</b> закрыли крышку, Гермес уснул. Это временно, до переезда.</p>
-  <p class="done-check"><b>Готово, когда:</b> набираете <code>hermes</code>, пишете «привет» и он отвечает.</p>
-</section>
-
-<!-- 9 · если установка упала -->
+<!-- 8 · если установка упала -->
 <section class="slide">
   <div class="session-head"><span class="no">!</span><div><div class="kicker" style="margin-bottom:.2rem">если установка упала</div></div><span class="timer">не тратьте больше 5 минут</span></div>
   <p class="task"><b>Ошибка в терминале?</b> Не ищите её в интернете. Отдайте Claude Code, он у вас уже стоит.</p>
-  <div class="prompt" data-copy="">Установи мне Hermes Agent от Nous Research на этот компьютер по официальной инструкции hermes-agent.nousresearch.com/docs. Если упадёт ошибка, разберись в причине и почини сам, по шагам объясняя, что делаешь. Мои токены и ключи не печатай и не проси вставлять в чат: где нужен ключ, остановись и скажи, какую команду я запускаю сам. В конце проверь командой hermes doctor, что всё работает.</div>
-  <p class="note"><b>Упало на сервере?</b> Скопируйте текст ошибки без токенов и дайте Claude Code с вопросом «что это и какую команду мне запустить».</p>
+  <div class="prompt" data-copy="">Подключись к моему серверу по ssh [адрес сервера] и установи туда Hermes Agent от Nous Research по официальной инструкции hermes-agent.nousresearch.com/docs. Если ssh просит пароль, не проси его в чат: скажи, какой командой я сам настрою вход по ключу. Если упадёт ошибка, разберись в причине и почини сам, по шагам объясняя, что делаешь. Мои токены и ключи не печатай и не проси вставлять в чат: где нужен ключ, остановись и скажи, какую команду я запускаю сам. В конце проверь командой hermes doctor, что всё работает.</div>
+  <p class="note"><b>Hostinger без ssh?</b> Скопируйте текст ошибки из терминала контейнера без токенов и дайте Claude Code с вопросом «что это и какую команду мне запустить».</p>
   <p class="done-check"><b>Готово, когда:</b> <code>hermes doctor</code> не показывает красных пунктов.</p>
 </section>
 
-<!-- 10 · сессия 2 -->
+<!-- 9 · сессия 2 -->
 <section class="slide">
   <div class="session-head"><span class="no">02</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · Telegram</div></div><span class="timer">10 минут</span></div>
   <p class="task"><b>Задача:</b> поселить Гермеса в вашего бота.</p>
   <p class="lead" style="margin-bottom:1.8rem;max-width:60rem">Мастер спросит платформу (выбирайте Telegram), токен бота и ваш ID.</p>
   <div class="prompt cmd" data-label="команда" data-copy="">hermes gateway setup</div>
-  <p class="note"><b>Потом перезапустите шлюз,</b> иначе бот не увидит настройки. Hostinger: кнопка Restart у контейнера в Docker Manager. Свой сервер: <code>hermes gateway install</code> и <code>hermes gateway start</code>, тогда бот переживёт закрытие ssh. Ноутбук: <code>hermes gateway</code>.</p>
+  <p class="note"><b>Потом перезапустите шлюз,</b> иначе бот не увидит настройки. Hostinger: кнопка Restart у контейнера в Docker Manager. Свой сервер: <code>hermes gateway install</code> и <code>hermes gateway start</code>, тогда бот переживёт закрытие ssh.</p>
   <p class="note">Откройте бота в Telegram и отправьте <code>/sethome</code>: сюда будут приходить рутины. Затем: <b>«Привет! Кто ты и что умеешь?»</b></p>
   <p class="done-check"><b>Готово, когда:</b> бот ответил в Telegram.</p>
 </section>
 
-<!-- 11 · сессия 3 -->
+<!-- 10 · сессия 3 -->
 <section class="slide">
   <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · голос</div></div><span class="timer">10 минут</span></div>
   <p class="task"><b>Задача:</b> чтобы Гермес понимал вас по-русски и отвечал голосом.</p>
   <div class="prompt cmd" data-label="команда · терминал" data-copy="">hermes config set stt.language ru
 hermes config set stt.local.model small
-hermes config set tts.provider elevenlabs</div>
-  <p class="note"><b>Ключ ElevenLabs наберите сами:</b> <code>hermes config set ELEVENLABS_API_KEY ваш_ключ</code>. Он ляжет в файл настроек, а не в чат. Перезапустите шлюз, как на шаге 02. В Telegram отправьте голосовое, затем <code>/voice</code>, чтобы Гермес отвечал голосом.</p>
+hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
+  <p class="note">Третья строка даёт бесплатный русский голос. <b>Хотите живее, ElevenLabs:</b> <code>hermes config set tts.provider elevenlabs</code> и ключ наберите сами: <code>hermes config set ELEVENLABS_API_KEY ваш_ключ</code>, он ляжет в файл настроек, а не в чат. Перезапустите шлюз, как на шаге 02. В Telegram отправьте голосовое, затем <code>/voice</code>, чтобы Гермес отвечал голосом.</p>
   <p class="trap">По умолчанию Гермес ждёт английскую речь и берёт самую лёгкую модель распознавания. Без этих строк русские голосовые превращаются в кашу, у нас так и было.</p>
   <p class="done-check"><b>Готово, когда:</b> Гермес показал текст вашего голосового без ошибок и ответил голосом.</p>
 </section>
 
-<!-- 12 · сессия 4 -->
+<!-- 11 · сессия 4 -->
 <section class="slide">
   <div class="session-head"><span class="no">04</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · знакомство</div></div><span class="timer">10 минут</span></div>
   <p class="task"><b>Задача:</b> чтобы Гермес знал вас, а не мир вообще. Пишем ему в Telegram.</p>
   <div class="prompt" data-copy="">Ниже текст обо мне. Сохрани его в мой профиль пользователя в памяти, уложи в лимит профиля без потери смысла. Из части «как со мной говорить и что делать нельзя» предложи правила для своего характера в SOUL.md: сначала покажи, запиши только после моего «да». В конце перескажи в трёх строках, кто я и чем занимаюсь, чтобы я проверил.
 
 [вставьте свой текст о себе]</div>
-  <p class="note"><b>Профиль уходит в каждый запрос,</b> поэтому туда только выжимка, остальное живёт в базе (шаг 05). Не влезает: <code>hermes config set memory.user_char_limit 4000</code>.</p>
+  <p class="note"><b>Профиль уходит в каждый запрос,</b> поэтому туда только выжимка, остальное живёт в базе (шаг 06). Не влезает: <code>hermes config set memory.user_char_limit 4000</code>.</p>
   <p class="done-check"><b>Готово, когда:</b> пересказ точный. <b>Проверка:</b> отправьте <code>/new</code> и спросите «над чем я сейчас работаю?» Новый диалог, а он помнит.</p>
 </section>
 
-<!-- 13 · сессия 5 -->
+<!-- 12 · сессия 5 -->
 <section class="slide">
-  <div class="session-head"><span class="no">05</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · ваша база из GitHub</div></div><span class="timer">10 минут</span></div>
-  <p class="task"><b>Задача:</b> Гермес знает не только профиль, а всю вашу рабочую папку из Claude Code. Пишем ему в Telegram.</p>
-  <div class="prompt" data-copy="">Подключи мою рабочую папку из GitHub: [ссылка на приватный репозиторий]. Создай отдельный SSH-ключ только для чтения, покажи его публичную часть и скажи, куда в GitHub её вставить, жди моего «готово». Затем склонируй репозиторий в папку workspace в своём домашнем каталоге и сделай её своей рабочей папкой (terminal.cwd). Подтягивай обновления раз в час скриптом, без модели. В саму папку ничего не пиши, свои файлы клади рядом. Если там есть CLAUDE.md, а AGENTS.md нет, предложи сделать AGENTS.md из CLAUDE.md. В конце назови три моих текущих проекта и файлы, где они описаны.</div>
-  <p class="trap">Гермес читает <code>AGENTS.md</code>, а не <code>CLAUDE.md</code>, и без <code>terminal.cwd</code> не видит папку: у нас он называл старую цель. Перед заливкой проверьте папку на ключи: у нас нашлось 10 файлов с секретами.</p>
-  <p class="done-check"><b>Готово, когда:</b> Гермес назвал ваши проекты со ссылками на файлы. <b>Нет GitHub?</b> Это домашка.</p>
-</section>
-
-<!-- 14 · сессия 6 -->
-<section class="slide">
-  <div class="session-head"><span class="no">06</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · первая рутина</div></div><span class="timer">15 минут</span></div>
+  <div class="session-head"><span class="no">05</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · первая рутина</div></div><span class="timer">15 минут</span></div>
   <p class="task"><b>Задача:</b> отдать Гермесу первую повторяющуюся задачу из вашей тройки.</p>
   <div class="prompt" data-copy="">Хочу отдать тебе повторяющуюся задачу: [задача, например «план дня по моим проектам»]. Делай её [когда, например «каждый будний день в 8:00»] по кипрскому времени, результат присылай сюда, в этот чат. Формат: первая строка - вывод одной фразой, дальше не больше трёх действий «что - кому - до когда», всего до 800 знаков, без пересказов. Если сказать нечего, не присылай ничего. Сначала коротко покажи, как ты понял задачу и расписание. После моего «да» заведи задачу по расписанию и сразу сделай один пробный запуск, чтобы я увидел результат.</div>
   <p class="trap">Без лимита Гермес пишет простыни: у нас было 15 сообщений и 22 700 знаков в день. Теперь 3 коротких обзора.</p>
   <p class="done-check"><b>Готово, когда:</b> пришёл пробный результат, а <code>/cron list</code> показывает следующий запуск по кипрскому времени (+03:00), а не по UTC.</p>
 </section>
 
-<!-- 15 · сессия 7 -->
+<!-- 13 · сессия 6 -->
+<section class="slide">
+  <div class="session-head"><span class="no">06</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · ваша база из GitHub</div></div><span class="timer">кто успеет · остальные дома</span></div>
+  <p class="task"><b>Задача:</b> Гермес знает не только профиль, а всю вашу рабочую папку из Claude Code. Пишем ему в Telegram.</p>
+  <div class="prompt" data-copy="">Подключи мою рабочую папку из GitHub: [ссылка на приватный репозиторий]. Создай отдельный SSH-ключ только для чтения, покажи его публичную часть и скажи, куда в GitHub её вставить, жди моего «готово». Затем склонируй репозиторий в папку workspace в своём домашнем каталоге и сделай её своей рабочей папкой (terminal.cwd). Подтягивай обновления раз в час скриптом, без модели. В саму папку ничего не пиши, свои файлы клади рядом. Если там есть CLAUDE.md, а AGENTS.md нет, предложи сделать AGENTS.md из CLAUDE.md. В конце назови три моих текущих проекта и файлы, где они описаны.</div>
+  <p class="trap">Гермес читает <code>AGENTS.md</code>, а не <code>CLAUDE.md</code>, и без <code>terminal.cwd</code> не видит папку: у нас он называл старую цель. Перед заливкой проверьте папку на ключи: у нас нашлось 10 файлов с секретами.</p>
+  <p class="done-check"><b>Готово, когда:</b> Гермес назвал ваши проекты со ссылками на файлы. <b>Нет GitHub?</b> Это домашка.</p>
+</section>
+
+<!-- 14 · сессия 7 -->
 <section class="slide">
   <div class="session-head"><span class="no">07</span><div><div class="kicker" style="margin-bottom:.2rem">сессия · ключевые сервисы</div></div><span class="timer">кто успеет · остальные дома</span></div>
   <p class="task"><b>Задача:</b> дать Гермесу руки. Почта и календарь Google, Гермес ведёт сам.</p>
@@ -292,20 +282,20 @@ hermes config set tts.provider elevenlabs</div>
   <p class="note"><b>Не Google?</b> В терминале <code>hermes mcp</code>: каталог готовых подключений. <b>Готово, когда:</b> Гермес показал ваши реальные встречи и письма.</p>
 </section>
 
-<!-- 16 · разбор -->
+<!-- 15 · разбор -->
 <section class="slide dark">
   <div class="kicker">чекпойнт</div>
   <h2>У каждого Гермес отвечает в телефоне</h2>
   <ul class="plain">
     <li><span class="t">показ</span> 2-3 пробных запуска рутины на проектор: чья задача уже экономит время</li>
     <li><span class="t">бот молчит</span> Шлюз не перезапущен после мастера или не тот ID. Проверка: <code>hermes gateway status</code></li>
-    <li><span class="t">голос</span> Каша вместо текста: <code>stt.language ru</code>. Не говорит голосом: ключ ElevenLabs и <code>/voice</code></li>
+    <li><span class="t">голос</span> Каша вместо текста: <code>stt.language ru</code>. Не говорит голосом: <code>/voice</code>. Английский акцент: <code>tts.edge.voice</code></li>
     <li><span class="t">ssh</span> Закрыли ssh, бот умер: шлюз не служба. <code>hermes gateway install</code>, затем <code>start</code></li>
     <li><span class="t">время</span> Рутина пришла не тогда: <code>hermes config set timezone Europe/Nicosia</code>, задачу пересоздать</li>
   </ul>
 </section>
 
-<!-- 17 · наши грабли -->
+<!-- 16 · наши грабли -->
 <section class="slide dark">
   <div class="kicker">из нашего опыта · два Гермеса в работе с сентября</div>
   <h2>Грабли, на которые мы уже наступили</h2>
@@ -320,7 +310,7 @@ hermes config set tts.provider elevenlabs</div>
   <p class="note"><b>И ещё:</b> прочитав базу, Гермес сам завёл себе 4 задачи. Раз в неделю смотрите <code>/cron list</code>.</p>
 </section>
 
-<!-- 18 · безопасность -->
+<!-- 17 · безопасность -->
 <section class="slide dark">
   <div class="kicker">четыре правила безопасности</div>
   <h2>У Гермеса ключи от вашего сервера</h2>
@@ -332,19 +322,19 @@ hermes config set tts.provider elevenlabs</div>
   </div>
 </section>
 
-<!-- 19 · с чем уходите -->
+<!-- 18 · с чем уходите -->
 <section class="slide dark">
   <div class="kicker">с чем уходите</div>
   <h2>Не конспект, а сотрудник в кармане</h2>
   <div class="grid g3">
     <div class="card"><span class="n">01</span><h3>Гермес на сервере</h3><p>Круглосуточно в Telegram: текстом и голосом.</p></div>
-    <div class="card"><span class="n">02</span><h3>Знает вас</h3><p>Профиль, правила и ваша база из GitHub.</p></div>
+    <div class="card"><span class="n">02</span><h3>Знает вас</h3><p>Профиль и правила, а дома и вся база из GitHub.</p></div>
     <div class="card"><span class="n">03</span><h3>Первая рутина</h3><p>По расписанию, по кипрскому времени, коротко.</p></div>
   </div>
   <p class="takeaway" style="margin-top:2rem">«Не чат для вопросов, а <span class="accent">исполнитель для поручений</span>».</p>
 </section>
 
-<!-- 20 · что дальше -->
+<!-- 19 · что дальше -->
 <section class="slide">
   <div class="kicker">что дальше</div>
   <h2>Дальше Гермес растёт с вами</h2>
@@ -354,10 +344,10 @@ hermes config set tts.provider elevenlabs</div>
     <div class="card compact"><span class="n">03</span><h3>Сам зовёт Claude Code</h3><p>Поручили из машины: Гермес запустил Claude Code на сервере и прислал файл.</p></div>
     <div class="card compact"><span class="n">04</span><h3>Приложение в боте</h3><p>Кнопка в Telegram открывает ваш экран: дела, деньги, люди.</p></div>
   </div>
-  <p class="lead" style="margin-top:1.4rem"><b style="color:var(--ink)">Промпты остаются на этом сайте.</b> Домашка: Google и <code>hermes backup</code>. Гермес под ключ для команды: подойдите к нам после.</p>
+  <p class="lead" style="margin-top:1.4rem"><b style="color:var(--ink)">Промпты остаются на этом сайте.</b> Домашка: GitHub, Google и <code>hermes backup</code>. Гермес под ключ для команды: подойдите к нам после.</p>
 </section>
 
-<!-- 21 · финал -->
+<!-- 20 · финал -->
 <section class="slide blue hero">
   <h1 style="color:#fff">Спасибо</h1>
   <p class="sub" style="color:#dfe4ff">Станислав Жуковец × Михаил Зеленин · GROW Business Club</p>
@@ -366,7 +356,7 @@ hermes config set tts.provider elevenlabs</div>
 
 <div class="hud">
   <div class="brand"><b>GROW</b> · воркшоп №6 · Гермес</div>
-  <div class="counter" id="counter">1 / 21</div>
+  <div class="counter" id="counter">1 / 20</div>
   <div class="navbtns"><button id="prev" aria-label="назад">←</button><button id="next" aria-label="вперёд">→</button></div>
 </div>
 
