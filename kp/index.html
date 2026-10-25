@@ -205,6 +205,12 @@
 
   /* tariffs page density */
   .tariffs .price-card { padding-top: 5mm; padding-bottom: 5mm; }
+  .tariffs-dense .price-card { padding: 4mm 5mm; }
+  .tariffs-dense .price-card li { font-size: 9pt; line-height: 1.4; padding-top: 1.5px; padding-bottom: 1.5px; }
+  .tariffs-dense .price-label { margin-bottom: 6px; }
+  .tariffs-dense .price-big { margin-bottom: 4px; }
+  .tariffs-dense .price-sub { margin-bottom: 5px; }
+  .tariffs-dense h1 { font-size: 32pt; margin-bottom: 4mm; }
   .tariffs .intro-lead { margin-bottom: 6mm; }
 
 
@@ -1150,40 +1156,40 @@
       <tr>
         <th>Страна</th>
         <th>Регистрация</th>
-        <th>Бухгалтерия/мес</th>
+        <th>Бухгалтерия/мес*</th>
         <th>Корп. налог</th>
         <th>Срок</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="flagship"><td>ОАЭ · флагман</td><td>от $5 500</td><td>$650</td><td>0-9%</td><td>1-3 нед</td></tr>
-      <tr class="flagship"><td>Кипр · флагман</td><td>€2 900</td><td>€280-550</td><td>15% / 3% IP</td><td>2-3 нед</td></tr>
-      <tr><td class="country-name">Катар</td><td>от $4 120</td><td>от $410</td><td>10%</td><td>3-5 нед</td></tr>
-      <tr><td class="country-name">Турция</td><td>$2 800</td><td>$350</td><td>25%</td><td>2 нед</td></tr>
-      <tr><td class="country-name">Кыргызстан (ИП)</td><td>$1 100</td><td>$250</td><td>4-10%</td><td>1 нед</td></tr>
-      <tr><td class="country-name">Кыргызстан (ОсОО)</td><td>$1 950</td><td>$250</td><td>4-10%</td><td>1 нед</td></tr>
-      <tr><td class="country-name">Казахстан</td><td>$1 700</td><td>$290</td><td>20% (0% IT)</td><td>1-2 нед</td></tr>
+      <tr class="flagship"><td>ОАЭ · флагман</td><td>от $5 500</td><td>от $300</td><td>0-9%</td><td>1-3 нед</td></tr>
+      <tr class="flagship"><td>Кипр · флагман</td><td>€2 900</td><td>от €300</td><td>15% / 3% IP</td><td>2-3 нед</td></tr>
+      <tr><td class="country-name">Катар</td><td>от $4 120</td><td>от $300</td><td>10%</td><td>3-5 нед</td></tr>
+      <tr><td class="country-name">Турция</td><td>$2 800</td><td>от $300</td><td>25%</td><td>2 нед</td></tr>
+      <tr><td class="country-name">Кыргызстан (ИП)</td><td>$1 100</td><td>от $300</td><td>4-10%</td><td>1 нед</td></tr>
+      <tr><td class="country-name">Кыргызстан (ОсОО)</td><td>$1 950</td><td>от $300</td><td>4-10%</td><td>1 нед</td></tr>
+      <tr><td class="country-name">Казахстан</td><td>$1 700</td><td>от $300</td><td>20% (0% IT)</td><td>1-2 нед</td></tr>
       <tr><td class="country-name">Та самая страна</td><td>по запросу</td><td>по запросу</td><td>25% / УСН 6%</td><td>1-2 нед</td></tr>
-      <tr><td class="country-name">Китай</td><td>$4 500</td><td>$800</td><td>25%</td><td>2-4 мес</td></tr>
-      <tr><td class="country-name">Гонконг</td><td>$1 900</td><td>$400</td><td>8.25-16.5%</td><td>2 нед</td></tr>
-      <tr><td class="country-name">Сингапур</td><td>$3 990</td><td>$450</td><td>17%</td><td>1 нед</td></tr>
-      <tr><td class="country-name">Индонезия</td><td>$2 900</td><td>$1 200/год</td><td>22%</td><td>10 дней</td></tr>
+      <tr><td class="country-name">Китай</td><td>$4 500</td><td>от $300</td><td>25%</td><td>2-4 мес</td></tr>
+      <tr><td class="country-name">Гонконг</td><td>$1 900</td><td>от $300</td><td>8.25-16.5%</td><td>2 нед</td></tr>
+      <tr><td class="country-name">Сингапур</td><td>$3 990</td><td>от $300</td><td>17%</td><td>1 нед</td></tr>
+      <tr><td class="country-name">Индонезия</td><td>$2 900</td><td>от $300</td><td>22%</td><td>10 дней</td></tr>
       <tr><td class="country-name">Малайзия</td><td>€3 900</td><td>включено 1 год</td><td>24%</td><td>7 дней</td></tr>
-      <tr><td class="country-name">Таиланд</td><td>$4 500</td><td>$450</td><td>20%</td><td>2-3 нед</td></tr>
-      <tr><td class="country-name">Англия</td><td>$900</td><td>$120</td><td>19-25%</td><td>3 дня</td></tr>
-      <tr><td class="country-name">Германия</td><td>€2 600-5 100</td><td>€500</td><td>30-33%</td><td>4-8 нед</td></tr>
-      <tr><td class="country-name">Франция</td><td>€3 200</td><td>€390</td><td>25%</td><td>3-6 нед</td></tr>
-      <tr><td class="country-name">США</td><td>$1 100</td><td>$75-300</td><td>0-21%</td><td>1-2 нед</td></tr>
-      <tr><td class="country-name">Аргентина</td><td>$4 500</td><td>$500</td><td>25-35%</td><td>1-2 мес</td></tr>
+      <tr><td class="country-name">Таиланд</td><td>$4 500</td><td>от $300</td><td>20%</td><td>2-3 нед</td></tr>
+      <tr><td class="country-name">Англия</td><td>$900</td><td>от $300</td><td>19-25%</td><td>3 дня</td></tr>
+      <tr><td class="country-name">Германия</td><td>€2 600-5 100</td><td>от €300</td><td>30-33%</td><td>4-8 нед</td></tr>
+      <tr><td class="country-name">Франция</td><td>€3 200</td><td>от €300</td><td>25%</td><td>3-6 нед</td></tr>
+      <tr><td class="country-name">США</td><td>$1 100</td><td>от $300</td><td>0-21%</td><td>1-2 нед</td></tr>
+      <tr><td class="country-name">Аргентина</td><td>$4 500</td><td>от $300</td><td>25-35%</td><td>1-2 мес</td></tr>
       <tr><td class="country-name">Сейшелы</td><td>$1 150</td><td>$950/год</td><td>0%</td><td>3-5 дней</td></tr>
-      <tr><td class="country-name">Коста-Рика</td><td>$2 200</td><td>$350</td><td>30%</td><td>3-4 нед</td></tr>
-      <tr><td class="country-name">Канада</td><td>$2 800</td><td>$500</td><td>23-27%</td><td>1 нед</td></tr>
-      <tr><td class="country-name">Мексика</td><td>$4 500</td><td>$500</td><td>30%</td><td>4-6 нед</td></tr>
-      <tr><td class="country-name">Оман</td><td>$5 500-6 500</td><td>$700</td><td>3-15%</td><td>3-5 нед</td></tr>
+      <tr><td class="country-name">Коста-Рика</td><td>$2 200</td><td>от $300</td><td>30%</td><td>3-4 нед</td></tr>
+      <tr><td class="country-name">Канада</td><td>$2 800</td><td>от $300</td><td>23-27%</td><td>1 нед</td></tr>
+      <tr><td class="country-name">Мексика</td><td>$4 500</td><td>от $300</td><td>30%</td><td>4-6 нед</td></tr>
+      <tr><td class="country-name">Оман</td><td>$5 500-6 500</td><td>от $300</td><td>3-15%</td><td>3-5 нед</td></tr>
     </tbody>
   </table>
 
-  <div class="table-note">Стартовые ориентиры. Финальная цена в персональном КП после консультации зависит от вида бизнеса, числа учредителей и опций (nominee director, бухгалтерия+ и т.п.).</div>
+  <div class="table-note">* Бухгалтерия - единая сетка для всех стран по числу операций в месяц: 30 / 50 / 100 операций = $300 / $400 / $700, спящая компания $150/год; Кипр и Европа - в евро. Подробно на странице «Тарифы». Регистрация - стартовые ориентиры, финальная цена в персональном КП.</div>
 </section>
 
 <!-- ========== COUNTRY 19: UAE (FLAGSHIP) ========== -->
@@ -1226,13 +1232,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$650<span class="per">/мес</span></div>
-      <div class="price-sub">до 60 операций в месяц</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая $150/год</div>
       <ul>
         <li>Учёт по IFRS</li>
-        <li>VAT-декларации ежеквартально</li>
-        <li>Corporate Tax filing (с 2023)</li>
-        <li>ESR Report</li>
+        <li>Corporate Tax: регистрация и декларация</li>
+        <li>UBO, календарь дедлайнов, чат</li>
+        <li>VAT и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -1309,13 +1315,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">€280-550<span class="per">/мес</span></div>
-      <div class="price-sub">спящая €280 · активная €550 · + аудит от €1 100</div>
+      <div class="price-big">от €300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от €600/год</div>
       <ul>
         <li>Учёт по IFRS</li>
-        <li>VAT-декларации</li>
-        <li>Подготовка к аудиту или review engagement</li>
-        <li>Annual Return в Registrar</li>
+        <li>Предварительный налог, TD4, HE32, UBO</li>
+        <li>Подготовка к аудиту или review</li>
+        <li>VAT и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -1393,13 +1399,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">от $410<span class="per">/мес</span></div>
-      <div class="price-sub">до 60 операций · 1 500 QAR</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая $150/год</div>
       <ul>
         <li>Ведение учёта и обработка документов</li>
-        <li>Расчёт и подача Corporate Tax</li>
-        <li>Отчётность через портал Dhareeba</li>
+        <li>Расчёт и подача Corporate Tax через Dhareeba</li>
         <li>Подготовка документов к аудиту</li>
+        <li>Зарплата и WPS - отдельно</li>
       </ul>
     </div>
   </div>
@@ -1461,74 +1467,165 @@
   </div>
 </section>
 
-<section class="page intro tariffs">
+<section class="page intro tariffs tariffs-dense">
   <div class="page-strip">
     <div class="page-strip-left"><div class="brand-full" style="font-size: 12pt;">Maizon <em>group</em></div></div>
     <div class="page-strip-right" style="color: #888;">Тарифы · 2026</div>
   </div>
 
   <h1>Тарифы<br>бухгалтерии</h1>
-  <div class="intro-lead">Три уровня по объёму работы. Цена конкретной страны - на её странице: от $200/мес или от $700/год. Итог фиксируется в КП.</div>
+  <div class="intro-lead" style="font-size: 10.5pt; max-width: 172mm; margin-bottom: 4mm;">Одна сетка для всех 23 стран. Цена зависит от числа операций в месяц, а не от страны. Операция - строка банковской выписки или первичный документ. НДС, зарплата и аудит - отдельными строками: платишь только за то, что есть. Цены без НДС; Кипр и Европа - та же сетка в евро.</div>
 
-  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 8mm; margin-bottom: 8mm; position: relative; z-index: 5;">
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 3mm; position: relative; z-index: 5;">
     <div class="price-card" style="background: #fff;">
-      <div class="price-label">Start</div>
-      <div class="price-big" style="font-size: 25pt; white-space: nowrap;">от $75</div>
-      <div class="price-sub">в месяц · блогеры, фрилансеры</div>
+      <div class="price-label">Тариф 30</div>
+      <div class="price-big" style="font-size: 22pt; white-space: nowrap;">$300<span class="per">/мес</span></div>
+      <div class="price-sub">до 30 операций в месяц</div>
       <ul>
-        <li>Базовый учёт и отчётность</li>
-        <li>Консультации в Telegram</li>
-        <li>Подача налоговой декларации</li>
+        <li>Учёт по МСФО в облачной программе</li>
+        <li>Налоговая отчётность и годовая декларация</li>
+        <li>Календарь дедлайнов и напоминания</li>
+        <li>Чат с бухгалтером, 1 час консультаций</li>
       </ul>
     </div>
 
-    <div class="price-card beige" style="position: relative; transform: scale(1.04);">
-      <div style="display: inline-block; background: #141414; color: #fff; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.2px; padding: 3px 10px; border-radius: 2px; margin-bottom: 3mm;">САМЫЙ ПОПУЛЯРНЫЙ</div>
-      <div class="price-label">Business</div>
-      <div class="price-big" style="font-size: 25pt; white-space: nowrap;">от $300</div>
-      <div class="price-sub">в месяц · IT-команды и стартапы</div>
+    <div class="price-card beige" style="position: relative;">
+      <div style="display: inline-block; background: #141414; color: #fff; font-size: 7.5pt; font-weight: 700; letter-spacing: 1.2px; padding: 3px 10px; border-radius: 2px; margin-bottom: 3mm;">САМЫЙ ЧАСТЫЙ</div>
+      <div class="price-label">Тариф 50</div>
+      <div class="price-big" style="font-size: 22pt; white-space: nowrap;">$400<span class="per">/мес</span></div>
+      <div class="price-sub">до 50 операций в месяц</div>
       <ul>
-        <li>Полный бухгалтерский учёт</li>
-        <li>Налоговое планирование</li>
-        <li>Юридическое сопровождение</li>
-        <li>Ежемесячные отчёты</li>
+        <li>Всё из тарифа 30</li>
+        <li>Ежемесячный отчёт о деньгах и прибыли</li>
+        <li>Чат с бухгалтером, 1 час консультаций</li>
+        <li>Автопереход при росте объёма</li>
       </ul>
     </div>
 
     <div class="price-card dark">
-      <div class="price-label">Enterprise</div>
-      <div class="price-big" style="font-size: 25pt; white-space: nowrap;">от $600</div>
-      <div class="price-sub">в месяц · холдинги и сложные структуры</div>
+      <div class="price-label">Тариф 100</div>
+      <div class="price-big" style="font-size: 22pt; white-space: nowrap;">$700<span class="per">/мес</span></div>
+      <div class="price-sub">до 100 операций в месяц</div>
       <ul>
-        <li>Международное планирование</li>
-        <li>Выделенный эксперт</li>
-        <li>Стратегический консалтинг</li>
-        <li>Поддержка 24/7</li>
+        <li>Всё из тарифа 50</li>
+        <li>Выделенный бухгалтер</li>
+        <li>2 часа консультаций в месяц</li>
+        <li>Свыше 100: +$200 за каждые 25 операций</li>
       </ul>
     </div>
   </div>
 
-  <div style="background: #fff; border-radius: 4px; padding: 8mm; position: relative; z-index: 5;">
-    <div style="display: flex; align-items: center; gap: 6mm;">
-      <div>
-        <div style="font-size: 8.5pt; text-transform: uppercase; letter-spacing: 2px; color: rgba(20,20,20,0.55); font-weight: 700; margin-bottom: 4px;">Разово · One-time</div>
-        <div style="font-size: 16pt; font-weight: 800; color: #141414; letter-spacing: -0.02em;">Регистрация компании · $845 - $5 500</div>
-        <div style="font-size: 9.5pt; color: #555; margin-top: 4px;">От $845 (Кыргызстан, ИП) до $5 500 (ОАЭ, Free Zone). Точная цена по каждой стране - на её странице и в сводной таблице.</div>
-      </div>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-bottom: 3mm; position: relative; z-index: 5;">
+    <div class="price-card" style="background: #fff;">
+      <div class="price-label">Спящая</div>
+      <div class="price-big" style="font-size: 22pt; white-space: nowrap;">$150<span class="per">/год</span></div>
+      <div class="price-sub">без деятельности · предоплата за год</div>
+      <ul>
+        <li>Нулевая декларация, UBO, календарь</li>
+        <li>ОАЭ, Англия, Сейшелы, Казахстан, Катар, Оман</li>
+        <li>Остальные страны: Спящая+ от $600/год, там закон требует отчётность и при нуле</li>
+      </ul>
+    </div>
+
+    <div class="price-card" style="background: #fff;">
+      <div class="price-label">Мини</div>
+      <div class="price-big" style="font-size: 22pt; white-space: nowrap;">$150<span class="per">/мес</span></div>
+      <div class="price-sub">до 10 операций в месяц</div>
+      <ul>
+        <li>Холдинг, компания с 3-8 платежами</li>
+        <li>Учёт и годовая декларация</li>
+        <li>Чат с бухгалтером, 30 минут консультаций</li>
+      </ul>
+    </div>
+
+    <div class="price-card beige">
+      <div class="price-label">Структура</div>
+      <div class="price-big" style="font-size: 22pt; white-space: nowrap;">-15%</div>
+      <div class="price-sub">на вторую и каждую следующую компанию</div>
+      <ul>
+        <li>Спящие дочки $150/год при двух активных</li>
+        <li>Один менеджер и один чат на всю структуру</li>
+        <li>Квартальная сверка: продления, сроки, риски</li>
+      </ul>
     </div>
   </div>
 
-  <div style="background: #141414; color: #fff; border-radius: 4px; padding: 6mm 8mm; margin-top: 6mm; position: relative; z-index: 5;">
-    <div style="font-size: 8.5pt; text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 700; margin-bottom: 4mm;">AI-бухгалтер в Telegram · 24/7 · бесплатно</div>
-    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 8mm;">
-      <li style="font-size: 9.5pt; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; top: 7px; width: 8px; height: 3px; background: #fff;"></span>Всегда онлайн</li>
-      <li style="font-size: 9.5pt; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; top: 7px; width: 8px; height: 3px; background: #fff;"></span>Считает сколько и когда платить</li>
-      <li style="font-size: 9.5pt; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; top: 7px; width: 8px; height: 3px; background: #fff;"></span>Мгновенно отвечает на налоговые вопросы</li>
-      <li style="font-size: 9.5pt; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; top: 7px; width: 8px; height: 3px; background: #fff;"></span>Напоминает о важных дедлайнах</li>
-      <li style="font-size: 9.5pt; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; top: 7px; width: 8px; height: 3px; background: #fff;"></span>Обучен на кейсах ОАЭ и других юрисдикций</li>
-      <li style="font-size: 9.5pt; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; top: 7px; width: 8px; height: 3px; background: #fff;"></span>Подключает живых экспертов при необходимости</li>
-    </ul>
-    <div style="margin-top: 4mm; padding-top: 4mm; border-top: 1px solid #333; font-size: 10.5pt; font-weight: 700;"><a href="https://t.me/AI_Mg_Global_bot" style="color: #fff; text-decoration: none;">Спросить прямо сейчас → t.me/AI_Mg_Global_bot</a></div>
+  <div style="background: #141414; color: #fff; border-radius: 4px; padding: 5mm 7mm; position: relative; z-index: 5;">
+    <div style="font-size: 8.5pt; text-transform: uppercase; letter-spacing: 2px; color: #888; font-weight: 700; margin-bottom: 2.5mm;">Гарантия · на всех тарифах</div>
+    <div style="font-size: 13pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 3mm;">Штраф налоговой за пропуск срока по нашей вине платим мы.</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 8mm; font-size: 8.5pt; line-height: 1.4; color: rgba(255,255,255,0.88);">
+      <div><strong style="color: #fff;">1.</strong> Компания передана нам без просроченных подач и открытых штрафов.</div>
+      <div><strong style="color: #fff;">2.</strong> Документы и выписки - до 10 числа, ответ на наш запрос - за 3 рабочих дня.</div>
+      <div><strong style="color: #fff;">3.</strong> Появились операции у спящей компании - с этого месяца активный тариф.</div>
+      <div><strong style="color: #fff;">4.</strong> Покрываем штраф налоговой за пропущенный нами срок. Продление лицензии и решения вопреки нашему совету - нет.</div>
+    </div>
+  </div>
+</section>
+
+<section class="page intro tariffs tariffs-dense">
+  <div class="page-strip">
+    <div class="page-strip-left"><div class="brand-full" style="font-size: 12pt;">Maizon <em>group</em></div></div>
+    <div class="page-strip-right" style="color: #888;">Тарифы · условия</div>
+  </div>
+
+  <h1>Что входит<br>и что отдельно</h1>
+  <div class="intro-lead" style="font-size: 11.5pt; max-width: 172mm; margin-bottom: 5mm;">Чтобы цена в КП совпадала со счётом через год: состав тарифа, отдельные строки и правила одним листом.</div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 4mm; position: relative; z-index: 5;">
+    <div class="price-card" style="background: #fff;">
+      <div class="price-label">Входит в Мини, 30, 50, 100</div>
+      <ul>
+        <li>Учёт по МСФО (IFRS, IFRS for SMEs) в облачной программе</li>
+        <li>Первичка: сбор, проверка, запрос недостающего</li>
+        <li>Основной налог страны. ОАЭ: регистрация и декларация по корпоративному налогу, UBO. Кипр: предварительный налог, TD4, HE32, UBO, отчётность для аудитора</li>
+        <li>Календарь дедлайнов компании и напоминания</li>
+        <li>Чат с бухгалтером и часы консультаций по тарифу</li>
+        <li>С тарифа 50: отчёт о деньгах и прибыли раз в месяц</li>
+      </ul>
+    </div>
+
+    <div class="price-card" style="background: #fff;">
+      <div class="price-label">Отдельными строками</div>
+      <ul>
+        <li>НДС: регистрация и декларации за квартал</li>
+        <li>Зарплата и кадры: за сотрудника в месяц</li>
+        <li>Аудит: ОАЭ от 4 000 AED, Кипр аудит или review от €1 100</li>
+        <li>Восстановление прошлых периодов: цена тарифа x1,5 за месяц</li>
+        <li>Онбординг: план счетов, программа, входящие остатки</li>
+        <li>Превышение лимита: $10 за операцию или переход на тариф выше</li>
+        <li>Корпоративные изменения, сертификат резидентства, TP-раскрытие, e-invoicing с 2027 - по прайсу</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 4mm; position: relative; z-index: 5;">
+    <div class="price-card beige">
+      <div class="price-label">Что считается операцией</div>
+      <ul>
+        <li>Строка банковской выписки или первичный документ, что больше</li>
+        <li>Считаются конвертации, комиссии, личная карта директора, наличные, займы учредителя</li>
+        <li>PayPal, Stripe, маркетплейсы, крипто: одна выплата на счёт = одна операция при отчёте платформы</li>
+        <li>Больше двух счетов или платёжных систем: +$50/мес за каждый</li>
+        <li>Сложность: товар и склад +25%, три валюты или крипто +25%, QFZP или связанные стороны +25%</li>
+      </ul>
+    </div>
+
+    <div class="price-card dark">
+      <div class="price-label">Оплата и правила</div>
+      <ul>
+        <li>Оплата вперёд за месяц. Год вперёд = 10 месяцев вместо 12</li>
+        <li>Спящая: только предоплата за год</li>
+        <li>Лимит превышен два месяца подряд - переход на тариф выше со следующего месяца</li>
+        <li>Просрочка оплаты 30 дней - работа и гарантия приостанавливаются</li>
+        <li>Цены фиксируются на год, пересмотр с 1 января с уведомлением за 60 дней</li>
+        <li>Цены без НДС: 5% в ОАЭ, 19% при счёте от кипрского лица</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background: #fff; border-radius: 4px; padding: 5mm 8mm; position: relative; z-index: 5; font-size: 9.5pt; line-height: 1.5; color: #333;">
+    <div style="font-size: 8.5pt; text-transform: uppercase; letter-spacing: 2px; color: rgba(20,20,20,0.55); font-weight: 700; margin-bottom: 2mm;">Спящая компания по странам</div>
+    <strong>$150/год:</strong> ОАЭ, Англия, Сейшелы, Казахстан, Катар, Оман - при нуле нужна только нулевая декларация. <strong>Спящая+ от $600/год:</strong> Кипр, Сингапур, Гонконг, США, Германия, Франция и остальные страны - закон требует отчётность, аудит или ежемесячные подачи даже без деятельности; аудит или review сверху по цене партнёра.
   </div>
 </section>
 
@@ -1574,13 +1671,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$350<span class="per">/мес</span></div>
-      <div class="price-sub">ежемесячное сопровождение</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт первичных документов</li>
-        <li>НДС-декларации (KDV)</li>
-        <li>Зарплата и социалка до 3 сотрудников</li>
-        <li>Годовой отчёт</li>
+        <li>Годовой отчёт и декларации</li>
+        <li>Ежемесячные подачи даже при нуле</li>
+        <li>НДС (KDV) и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -1661,7 +1758,7 @@
         <li>Юр.адрес на 1 год</li>
         <li>Печать, карточка для банка, ЭЦП</li>
       </ul>
-      <div class="extra-note"><strong>Бухгалтерия:</strong> от $200/мес (ИП и ОсОО)</div>
+      <div class="extra-note"><strong>Бухгалтерия:</strong> от $300/мес по единой сетке · спящая $150/год</div>
     </div>
   </div>
 
@@ -1730,11 +1827,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$290<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая $150/год</div>
       <ul>
-        <li>Учёт первички, НДС, КПН</li>
-        <li>Зарплата и социалка</li>
-        <li>Годовая декларация</li>
+        <li>Учёт первички, КПН</li>
+        <li>Годовая декларация и формы</li>
+        <li>Календарь дедлайнов, чат с бухгалтером</li>
+        <li>НДС и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -1881,12 +1980,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$800<span class="per">/мес</span></div>
-      <div class="price-sub">+ годовой аудит обязателен</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт по китайским стандартам CAS</li>
-        <li>НДС ежемесячно, налог ежеквартально</li>
-        <li>Годовой аудит: $1 500-3 000</li>
+        <li>Налог ежеквартально, годовая декларация</li>
+        <li>Годовой аудит обязателен (отдельно)</li>
+        <li>НДС ежемесячно и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -1958,13 +2058,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$400<span class="per">/мес</span></div>
-      <div class="price-sub">+ годовой аудит от $900</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт на английском</li>
-        <li>Подготовка к аудиту</li>
-        <li>Profits Tax Return</li>
-        <li>Employer's Return</li>
+        <li>Profits Tax Return, Employer's Return</li>
+        <li>Подготовка к аудиту (аудит от $900 отдельно)</li>
+        <li>Зарплата и MPF - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2032,12 +2132,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$450<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт по SFRS</li>
-        <li>GST-декларации</li>
-        <li>ECI, Form C-S подача</li>
-        <li>Подготовка к аудиту (от S$10 млн)</li>
+        <li>ECI, Form C-S, annual return</li>
+        <li>Подготовка к аудиту (от S$10 млн выручки)</li>
+        <li>GST и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2109,14 +2210,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$1 200<span class="per">/год</span></div>
-      <div class="price-sub">базовый пакет · от $100/мес</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
-        <li>Все налоговые отчёты</li>
+        <li>Все налоговые отчёты, годовой SPT</li>
         <li>Инвестиционная отчётность</li>
-        <li>Годовой бухучёт компании и директора</li>
-        <li>Регистрация сотрудников + взносы</li>
-        <li>Выделенный консультант</li>
+        <li>Ежемесячные подачи даже при нуле</li>
+        <li>Зарплата и взносы - отдельно</li>
       </ul>
       <div class="extra-note"><strong>Минимум для дормант-компании:</strong> $850/год</div>
     </div>
@@ -2270,12 +2370,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$450<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт по TFRS</li>
-        <li>НДС (VAT) и НДФЛ</li>
-        <li>Социальные взносы</li>
-        <li>Годовой аудит обязателен</li>
+        <li>Годовая декларация и отчётность</li>
+        <li>Годовой аудит обязателен (отдельно)</li>
+        <li>VAT, НДФЛ и соцвзносы - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2344,13 +2445,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$120<span class="per">/мес</span></div>
-      <div class="price-sub">микро-бизнес до £100K</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая $150/год</div>
       <ul>
         <li>Учёт по UK GAAP / FRS 105</li>
-        <li>VAT-декларации</li>
-        <li>Annual Accounts, Confirmation Statement</li>
-        <li>Payroll до 3 сотрудников</li>
+        <li>Annual Accounts, CT600, Confirmation Statement</li>
+        <li>Календарь дедлайнов, чат с бухгалтером</li>
+        <li>VAT и payroll - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2421,12 +2522,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">€500<span class="per">/мес</span></div>
+      <div class="price-big">от €300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от €600/год</div>
       <ul>
         <li>Учёт по HGB</li>
-        <li>VAT декларации</li>
-        <li>Годовая отчётность Bilanz + GuV</li>
-        <li>Зарплата с социалкой</li>
+        <li>Годовая отчётность Bilanz + GuV, e-Bilanz</li>
+        <li>Налоговые декларации</li>
+        <li>USt и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2497,12 +2599,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">€390<span class="per">/мес</span></div>
+      <div class="price-big">от €300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от €600/год</div>
       <ul>
         <li>Учёт по French GAAP (PCG)</li>
-        <li>TVA-декларации</li>
         <li>Liasse fiscale годовая</li>
-        <li>DSN (зарплата и социалка)</li>
+        <li>Календарь дедлайнов, чат с бухгалтером</li>
+        <li>TVA и DSN (зарплата) - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2572,13 +2675,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$75-300<span class="per">/мес</span></div>
-      <div class="price-sub">спящая LLC $75 · активная от $300</div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год (форма 5472)</div>
       <ul>
         <li>Учёт в QuickBooks / Xero</li>
         <li>Form 1120 / 1065 / 5472</li>
-        <li>Sales tax nexus и штатная отчётность</li>
-        <li>Sales tax (если есть US customers)</li>
+        <li>Штатная отчётность</li>
+        <li>Sales tax и payroll - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2648,12 +2751,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$500<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт по FACPCE</li>
-        <li>IVA-декларации ежемесячно</li>
-        <li>Ingresos Brutos</li>
-        <li>Зарплата + социалка (47% сверху)</li>
+        <li>Ingresos Brutos и годовая декларация</li>
+        <li>Ежемесячные подачи даже при нуле</li>
+        <li>IVA и зарплата - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2797,12 +2901,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$350<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт по NIIF</li>
-        <li>IVA-декларации ежемесячно</li>
         <li>Renta годовая</li>
-        <li>Зарплата + Caja (социалка)</li>
+        <li>Ежемесячные подачи даже при нуле</li>
+        <li>IVA и зарплата (Caja) - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2872,12 +2977,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$500<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
         <li>Учёт по ASPE или IFRS</li>
-        <li>GST/HST подача</li>
         <li>T2 corporate return</li>
-        <li>T4/T4A зарплата</li>
+        <li>Календарь дедлайнов, чат с бухгалтером</li>
+        <li>GST/HST и T4 payroll - отдельно</li>
       </ul>
     </div>
   </div>
@@ -2947,13 +3053,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$500<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая+ от $600/год</div>
       <ul>
-        <li>Учёт по NIF</li>
-        <li>IVA-декларации ежемесячно</li>
+        <li>Учёт по NIF, CFDI обязательны</li>
         <li>ISR годовая + предоплаты</li>
-        <li>Nómina (зарплата) и IMSS</li>
-        <li>CFDI обязательны</li>
+        <li>Ежемесячные подачи даже при нуле</li>
+        <li>IVA и nómina (IMSS) - отдельно</li>
       </ul>
     </div>
   </div>
@@ -3024,12 +3130,13 @@
     </div>
     <div class="price-card dark">
       <div class="price-label">Бухгалтерия</div>
-      <div class="price-big">$700<span class="per">/мес</span></div>
+      <div class="price-big">от $300<span class="per">/мес</span></div>
+      <div class="price-sub">сетка 30 / 50 / 100 операций · спящая $150/год</div>
       <ul>
         <li>Учёт по IFRS</li>
-        <li>VAT-декларации ежеквартально</li>
         <li>Corporate Tax годовая</li>
-        <li>Зарплата + WPS</li>
+        <li>Календарь дедлайнов, чат с бухгалтером</li>
+        <li>VAT и зарплата + WPS - отдельно</li>
       </ul>
     </div>
   </div>
