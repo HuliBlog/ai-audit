@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Пульт ресторанной группы · для инвесторов</title>
+<meta name="description" content="Софт управления ресторанной группой: каждая точка отчитывается перед собственником сама, каждую смену. Документы, касса, склад, выплаты людям. Предложение инвесторам первого круга.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Пульт ресторанной группы · для инвесторов">
+<meta property="og:description" content="Каждая точка отчитывается сама, каждую смену. Документы, касса, склад, люди. Собственник видит точку в день смены, а не в конце месяца.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF; --blue-soft:#e8ebff; --blue-tint:#dbe0ff; --blue-line:#c2c9ff;
+    --gold:#ddb85b; --gold-deep:#b9903a; --gold-tint:#f2e7c8;
+    --red:#c0392b; --red-tint:#fbe9e7;
+    --black:#121212; --ink:#1c1c1c; --grey:#717171; --silver:#d9d9d9; --hair:#ececec; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:'Baskervville',serif}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 16px}}
+  .kicker{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1,h2,h3{font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  h1{font-size:clamp(2rem,5.4vw,3.9rem);text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.55rem,3.4vw,2.5rem);margin-bottom:1.3rem;max-width:52rem}
+  h3{font-size:1.08rem;letter-spacing:.03em;text-transform:uppercase}
+  p{font-size:clamp(1rem,1.5vw,1.12rem);color:var(--ink)}
+  p.lead{font-size:clamp(1.02rem,1.6vw,1.24rem);color:var(--grey);max-width:46rem;font-weight:400;margin-top:.5rem}
+  p.body{color:var(--grey);max-width:46rem;margin-top:1rem}
+  b{font-weight:600;color:var(--ink)}
+  .dark{background:var(--black);color:var(--white);border-bottom:none}
+  .dark h2,.dark h3{color:var(--white)} .dark p.lead,.dark p.body{color:#b5b5b5}
+  .dark b{color:#fff}
+  .quote{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.3rem,2.7vw,2rem);line-height:1.4;max-width:46rem;margin-top:1.8rem}
+  .quote .accent{color:var(--gold-deep);font-style:normal}
+  .dark .quote{color:#fff} .dark .quote .accent{color:var(--gold)}
+  .note{font-size:.85rem;color:var(--grey);margin-top:1.4rem;max-width:46rem;font-style:italic;font-family:'Baskervville',serif}
+  .dark .note{color:#9a9a9a}
+
+  /* hero */
+  .hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;text-align:left;align-items:flex-start}
+  .hero .club{font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:2.4rem}
+  .hero .club b{color:var(--blue)}
+  .brand{text-transform:none !important;letter-spacing:.06em}
+  .hero h1{max-width:14ch}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.8rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.42rem);color:var(--grey);max-width:40rem}
+  .hero .meta{margin-top:2.6rem;display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:flex-start;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  /* продукт */
+  .parts{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .part{border:1px solid var(--silver);padding:1.6rem 1.5rem}
+  .part .h{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:.5rem}
+  .part .nm{font-size:1.1rem;font-weight:600;line-height:1.25;margin-bottom:.6rem}
+  .part p{font-size:.93rem;color:var(--grey);margin:0;line-height:1.5}
+  .part ul{list-style:none;margin-top:.6rem}
+  .part li{font-size:.9rem;color:var(--ink);padding:.3rem 0;border-top:1px solid var(--hair);line-height:1.45}
+  @media(max-width:860px){.parts{grid-template-columns:1fr}}
+  .day{margin-top:2.4rem;max-width:56rem;border-left:2px solid var(--blue-line);padding-left:1.6rem}
+  .day .ev{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.8rem 0;border-top:1px solid var(--hair)}
+  .day .ev:first-child{border-top:none}
+  .day .tm{font-weight:600;color:var(--blue);font-size:.95rem;letter-spacing:.04em}
+  .day .ev p{font-size:.95rem;color:var(--ink);margin:0;line-height:1.5}
+  .day .ev p span{color:var(--grey)}
+  @media(max-width:560px){.day .ev{grid-template-columns:1fr;gap:.2rem}}
+  .stack{margin-top:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;max-width:56rem}
+  .stack .box{border:1px solid var(--silver);padding:1.4rem 1.5rem}
+  .stack .box.done{background:var(--blue-soft);border-color:var(--blue-line)}
+  .stack .h{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:.6rem}
+  .stack .box.done .h{color:var(--blue)} .stack .box.todo .h{color:var(--gold-deep)}
+  .stack ul{list-style:none}
+  .stack li{font-size:.92rem;color:var(--ink);padding:.3rem 0;border-top:1px solid rgba(0,0,0,.08);line-height:1.45}
+  .stack li:first-child{border-top:none}
+  @media(max-width:700px){.stack{grid-template-columns:1fr}}
+
+  /* числа боли */
+  .pains{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .pain{border-top:2px solid var(--red);padding-top:1.1rem}
+  .pain .num{font-family:'Baskervville',serif;font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--red);line-height:1.05}
+  .pain .t{font-size:.95rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;margin:.6rem 0 .45rem}
+  .pain p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.5}
+  @media(max-width:900px){.pains{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.pains{grid-template-columns:1fr}}
+  .terms{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .term{border-top:2px solid var(--blue);padding-top:1.1rem}
+  .term .num{font-family:'Baskervville',serif;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--blue);line-height:1.05}
+  .term .t{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin:.5rem 0 .4rem}
+  .term p{font-size:.92rem;color:var(--grey);line-height:1.5}
+  @media(max-width:900px){.terms{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.terms{grid-template-columns:1fr}}
+
+  /* две колонки да/нет */
+  .yesno{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .col{border:1px solid var(--silver);padding:1.7rem 1.6rem}
+  .col.yes{border-color:var(--blue-line);background:var(--blue-soft)}
+  .col .h{font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;margin-bottom:1rem}
+  .col.yes .h{color:var(--blue)} .col.no .h{color:var(--grey)}
+  .col ul{list-style:none}
+  .col li{font-size:.96rem;color:var(--ink);padding:.45rem 0;border-top:1px solid rgba(0,0,0,.08);line-height:1.5}
+  .col li:first-child{border-top:none}
+  .col.no li{color:var(--grey)}
+  @media(max-width:760px){.yesno{grid-template-columns:1fr}}
+
+  /* роли */
+  .roles{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+  .role{background:var(--white);border:1px solid var(--silver);padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.8rem;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .role:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .role .who{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--gold-deep)}
+  .role .nm{font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:var(--ink);line-height:1.2}
+  .role ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+  .role li{font-size:.9rem;color:var(--grey);line-height:1.45;padding-left:1rem;position:relative}
+  .role li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;background:var(--blue);border-radius:50%}
+  .role .src{margin-top:auto;padding-top:.8rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--grey);font-style:italic;font-family:'Baskervville',serif}
+  @media(max-width:1000px){.roles{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.roles{grid-template-columns:1fr}}
+  .engine{margin-top:1.6rem;border:1px solid var(--blue-line);background:var(--blue-soft);padding:1.3rem 1.5rem;display:flex;gap:1.2rem;align-items:flex-start;flex-wrap:wrap}
+  .engine .lbl{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--blue);white-space:nowrap;padding-top:.25rem}
+  .engine p{font-size:.95rem;color:var(--ink);margin:0;flex:1;min-width:16rem}
+
+  /* шаги */
+  .steps{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .step{border-top:2px solid var(--gold);padding-top:1.1rem}
+  .step .no{font-family:'Baskervville',serif;font-size:2rem;color:var(--gold);line-height:1}
+  .step .t{font-size:1rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin:.5rem 0 .5rem;color:#fff}
+  .step p{font-size:.94rem;color:#b5b5b5;margin:0;line-height:1.5}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .sources{margin-top:2.4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#333;border:1px solid #333}
+  .src-cell{background:var(--black);padding:1.3rem 1.2rem}
+  .src-cell .h{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.4rem}
+  .src-cell p{font-size:.92rem;color:#cfcfcf;margin:0;line-height:1.5}
+  @media(max-width:640px){.sources{grid-template-columns:1fr}}
+
+  /* ценность в евро */
+  .value{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .v{border:1px solid var(--silver);padding:1.5rem 1.4rem}
+  .v .h{font-size:.95rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;margin-bottom:.5rem}
+  .v p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.5}
+  .v .was{display:block;margin-top:.7rem;font-size:.82rem;color:var(--red)}
+  @media(max-width:900px){.value{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.value{grid-template-columns:1fr}}
+  .price-line{margin-top:2.2rem;padding:1.6rem 1.8rem;background:var(--gold-tint);border-left:3px solid var(--gold-deep);max-width:52rem}
+  .price-line p{margin:0;font-size:1.02rem}
+
+  /* почему мы */
+  .why{margin-top:2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem}
+  .w{border-top:2px solid var(--blue);padding-top:1rem}
+  .w .no{font-size:.72rem;letter-spacing:.2em;color:var(--blue);font-weight:600}
+  .w .t{font-size:.98rem;letter-spacing:.02em;text-transform:uppercase;font-weight:600;margin:.4rem 0 .4rem;line-height:1.25}
+  .w p{font-size:.9rem;color:var(--grey);margin:0;line-height:1.5}
+  @media(max-width:1000px){.why{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.why{grid-template-columns:1fr}}
+
+  /* модель */
+  .plans{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.4rem}
+  .plan{border:1px solid var(--silver);padding:1.7rem 1.5rem;display:flex;flex-direction:column;gap:.7rem}
+  .plan.main{border-color:var(--blue);box-shadow:0 24px 50px -38px rgba(0,26,255,.5)}
+  .plan .h{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .plan .nm{font-size:1.15rem;font-weight:600;line-height:1.2}
+  .plan p{font-size:.92rem;color:var(--grey);margin:0;line-height:1.5}
+  .plan .px{margin-top:auto;padding-top:.8rem;border-top:1px solid var(--hair);font-family:'Baskervville',serif;font-style:italic;color:var(--ink);font-size:.98rem}
+  @media(max-width:860px){.plans{grid-template-columns:1fr}}
+
+  /* ворота */
+  .gates{margin-top:2.2rem;display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;position:relative}
+  .gate{border-top:2px solid var(--silver);padding-top:1rem;position:relative}
+  .gate.now{border-top-color:var(--gold-deep)}
+  .gate .no{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--grey)}
+  .gate.now .no{color:var(--gold-deep)}
+  .gate .t{font-size:.95rem;font-weight:600;margin:.4rem 0 .35rem;line-height:1.25}
+  .gate p{font-size:.86rem;color:var(--grey);margin:0;line-height:1.45}
+  .gate .crit{display:block;margin-top:.5rem;font-size:.8rem;color:var(--blue);font-weight:500}
+  @media(max-width:1000px){.gates{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:600px){.gates{grid-template-columns:1fr}}
+
+  /* решить до инвесторов */
+  .todo{margin-top:2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+  .td{border:1px solid #333;padding:1.5rem 1.4rem;background:#171717}
+  .td .h{font-size:.95rem;letter-spacing:.03em;text-transform:uppercase;font-weight:600;color:#fff;margin-bottom:.5rem}
+  .td p{font-size:.92rem;color:#b5b5b5;margin:0;line-height:1.5}
+  @media(max-width:700px){.todo{grid-template-columns:1fr}}
+  .ab{margin-top:2.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  .ab .opt{border:1px solid #333;padding:1.6rem 1.5rem}
+  .ab .opt.rec{border-color:var(--gold)}
+  .ab .h{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:.5rem}
+  .ab .nm{font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:.6rem}
+  .ab p{font-size:.92rem;color:#b5b5b5;margin:0;line-height:1.5}
+  @media(max-width:700px){.ab{grid-template-columns:1fr}}
+
+  /* риски */
+  .risks{margin-top:2rem;max-width:56rem}
+  .risk{display:grid;grid-template-columns:1fr 1.4fr;gap:1.6rem;padding:1.1rem 0;border-top:1px solid var(--silver)}
+  .risk:last-child{border-bottom:1px solid var(--silver)}
+  .risk .q{font-weight:600;font-size:.98rem;line-height:1.4}
+  .risk .a{font-size:.95rem;color:var(--grey);line-height:1.5}
+  .risk .a b{color:var(--ink)}
+  @media(max-width:640px){.risk{grid-template-columns:1fr;gap:.4rem}}
+
+  /* компаратив */
+  .diff{margin-top:2rem;max-width:56rem;border:1px solid var(--silver)}
+  .diff .row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--silver)}
+  .diff .row:first-child{border-top:none;background:var(--light)}
+  .diff .row>div{padding:.9rem 1.2rem;font-size:.95rem;line-height:1.45}
+  .diff .row>div:first-child{border-right:1px solid var(--silver);color:var(--grey)}
+  .diff .row:first-child>div{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .diff .row:first-child>div:last-child{color:var(--blue)}
+  @media(max-width:560px){.diff .row{grid-template-columns:1fr}.diff .row>div:first-child{border-right:none;border-bottom:1px dashed var(--silver)}}
+
+  footer{padding:5vh 8vw;text-align:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  footer b{color:var(--ink)}
+  @media(max-width:680px){footer{padding:5vh 16px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="club"><b class="brand">Mg</b> Digital · Для инвесторов первого круга · Октябрь 2026</div>
+  <h1>Пульт<br>ресторанной <span>группы</span></h1>
+  <p class="sub">Каждая ваша точка отчитывается перед вами сама, каждую смену. Документы, касса, склад, выплаты людям. Вы видите точку на следующее утро, а не в конце месяца. Ваш бухгалтер проверяет, а не переписывает. Продукт для ресторанных групп от Mg Digital. Уже работает, достраивается на деньги первого круга инвесторов.</p>
+  <div class="meta">
+    <span><b>В работе</b> с августа 2026</span>
+    <span><b>Кипр</b>, группы с несколькими юрлицами</span>
+    <span><b>Mg</b> Accounting внутри</span>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Продукт</div>
+  <h2>Что это такое</h2>
+  <p class="lead"><b>Пульт</b> это программа для собственника группы ресторанов, в которой каждая точка закрывает смену: документы, касса, склад, выплаты людям. Три части: бот в WhatsApp для тех, кто у вас на точке, веб-кабинет для вашего бухгалтера и экран собственника у вас в телефоне. Подключается к тому, что у вашей группы уже есть: QuickBooks, Syrve, эквайринг, WhatsApp-чаты точек. Не заменяет QuickBooks и Syrve: сверяет их между собой и с фактом на точке, форму смены и сканы ведёт сам.</p>
+  <div class="parts">
+    <div class="part"><div class="h">Часть 1</div><div class="nm">Бот в WhatsApp: ваш менеджер и шеф</div><p>Тот же чат точки, что и сейчас: напоминания, форма смены, форма пересчёта, один вопрос в день. Документы снимаются своим сканом внутри приложения, не фото в чат.</p>
+      <ul><li>Свой скан накладной, чека, Z-отчёта: камера в приложении, обрезка и выравнивание, полное разрешение. Сжатое фото из WhatsApp читается плохо, поэтому документ идёт через свой экран</li><li>Ответ в момент: «получено», «копия», «какая точка»</li><li>Закрытие смены: продажи по каналам, оплачено из кассы, сдано в банк, остаток</li><li>Списание и пересчёт склада с телефона</li><li>«Мои документы»: получен, проведён, оплачен, отклонён</li><li>Запрос «оплатить вне очереди»</li></ul></div>
+    <div class="part"><div class="h">Часть 2</div><div class="nm">Веб-кабинет: ваш бухгалтер</div><p>Уже работает. Очередь документов с готовой проводкой, одно нажатие в QuickBooks, исключения отдельно.</p>
+      <ul><li>Документ распознан, статья, юрлицо, НДС и срок оплаты подставлены по истории</li><li>Дубли и мусор отсечены до очереди</li><li>Экран «День»: все точки, остатки касс, расхождения, просьбы об оплате</li><li>Выплаты людям: авансы, начисления, баланс сотрудника</li><li>Журнал проводок и правок с автором</li></ul></div>
+    <div class="part"><div class="h">Часть 3</div><div class="nm">Экран собственника: ваш телефон</div><p>Только чтение. Открыли утром, увидели вчерашний день по каждой точке.</p>
+      <ul><li>Выручка, касса, расхождение по точке за смену</li><li>Склад: минус последнего пересчёта в евро, по точкам</li><li>Документы: сколько пришло, сколько не хватает, дубли</li><li>Дисциплина: кто закрыл смену, кто сдал документы</li><li>Неделя по группе и по юрлицам</li></ul></div>
+  </div>
+
+  <h3 style="margin-top:3rem">День вашей точки в Пульте</h3>
+  <div class="day">
+    <div class="ev"><div class="tm">09:00</div><p>Шефу и управляющему дайджест в чат: что пришло вчера, дубли, списания без причины, позиции ниже минимума. <span>Бот</span></p></div>
+    <div class="ev"><div class="tm">Смена</div><p>Менеджер снимает накладные и чеки сканом в приложении по мере прихода. Система подтверждает каждую. Шеф списывает продукт с телефона в момент списания. <span>Бот</span></p></div>
+    <div class="ev"><div class="tm">Закрытие</div><p>Менеджер заполняет форму смены в боте вместо бумажки. Бот сверяет с Z-отчётом и батчем эквайринга: если наличка не сходится, менеджер видит это до отправки и правит, пока помнит чек. <span>Бот</span></p></div>
+    <div class="ev"><div class="tm">Ночь</div><p>Система читает документы, подставляет статьи и юрлица, отсекает дубли, собирает проводки. <span>Двигатель</span></p></div>
+    <div class="ev"><div class="tm">Утро</div><p>Ваш бухгалтер открывает кабинет: уверенные документы одним нажатием, сомнительные с одним вопросом. Выплаты людям проводит из того же экрана. <span>Кабинет</span></p></div>
+    <div class="ev"><div class="tm">Утро</div><p>Вы открываете телефон: вчерашний день по всем точкам, расхождения красным, кто не закрыл смену. <span>Экран собственника</span></p></div>
+    <div class="ev"><div class="tm">Раз в 2-3 недели</div><p>Шеф делает пересчёт в боте. Система показывает плюс и минус по позициям, сумму минуса в евро, динамику к прошлому разу. <span>Бот</span></p></div>
+  </div>
+
+  <div class="stack">
+    <div class="box done"><div class="h">Уже построено и работает</div>
+      <ul><li>Приём документов из WhatsApp, распознавание, дедупликация</li><li>Статья, юрлицо, НДС, срок оплаты по истории бухгалтера</li><li>Разбор Z-отчётов 011 и 041 и батчей эквайринга, сверка</li><li>Рабочее место бухгалтера, проводка в QuickBooks одним нажатием</li><li>Несколько книг QuickBooks на группу, права по книге, журнал аудита</li><li>Доступ к Syrve, продажи по точкам и каналам</li></ul></div>
+    <div class="box todo"><div class="h">Достраиваем на деньги первого круга</div>
+      <ul><li>Свой скан документов внутри приложения: камера, обрезка, выравнивание</li><li>Ответы бота менеджеру в момент и «мои документы» (спецификация готова)</li><li>Форма смены с проверкой до отправки (спецификация готова)</li><li>Экран «День» и выплаты людям в кабинете бухгалтера</li><li>Списания, пересчёт и дайджест шефа</li><li>Экран собственника в телефоне</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Проблема</div>
+  <h2>Деньги уходят между сменой и отчётом</h2>
+  <p class="lead">Так выглядит группа из нескольких точек до Пульта. Это не оценка рынка по отчётам, это то, что мы видели в живой группе. Если у вас несколько точек, вы узнаете каждую из этих четырёх.</p>
+  <div class="pains">
+    <div class="pain"><div class="num">Через день-два</div><div class="t">Касса</div><p>Расхождение между Z-отчётом, батчем эквайринга и наличкой бухгалтер находит не в смену, а потом. Менеджер уже не помнит, какой чек закрыл не так.</p></div>
+    <div class="pain"><div class="num">Раз в месяц</div><div class="t">Склад</div><p>Минус инвентаризации виден только после пересчёта, по позициям его никто не разбирает. У шефа нет доступа к остаткам в Syrve, он считает руками.</p></div>
+    <div class="pain"><div class="num">Дубли</div><div class="t">Документы</div><p>Заметная часть документов на входе это копии и мусор, бухгалтер отсеивает их руками. «Забытые» накладные всплывают в стейтменте поставщика через месяц.</p></div>
+    <div class="pain"><div class="num">Со слов</div><div class="t">Люди</div><p>Аванс выдаётся до начисления, баланс сотрудника никто не видит. Выдачи из кассы без расписки, отчёт смены на бумаге.</p></div>
+  </div>
+  <p class="body">Бухгалтер группы при этом тратит часы в неделю на переписывание чужих цифр из бумажек и чатов в таблицу и учётную систему. Это четвёртая боль, а не первая: собственнику она понятна меньше всего.</p>
+</section>
+
+<section>
+  <div class="kicker">Для кого</div>
+  <h2>Группа точек с несколькими юрлицами. Не «рестораны»</h2>
+  <p class="lead">У одиночного ресторана нет проблемы сводки по точкам, у сети с ERP она уже решена. Сегмент узкий, и это хорошо: его можно перечислить по именам и обойти лично.</p>
+  <div class="yesno">
+    <div class="col yes">
+      <div class="h">Наш клиент</div>
+      <ul>
+        <li>Собственник группы на 3-20 точек, несколько юрлиц и книг учёта</li>
+        <li>Касса плюс карта плюс агрегаторы: Wolt, Bolt, Foody</li>
+        <li>Свой или внешний бухгалтер, который сейчас переписывает цифры руками</li>
+        <li>Менеджеры точек пишут отчёт смены на бумаге или в Excel</li>
+        <li>Склад в Syrve или iiko, шеф без доступа к остаткам</li>
+        <li>Кипр, ОАЭ, русскоязычные операторы в ЕС</li>
+      </ul>
+    </div>
+    <div class="col no">
+      <div class="h">Кого не берём</div>
+      <ul>
+        <li>Одиночный ресторан: нет группы, нет проблемы сводки по точкам</li>
+        <li>Сеть с внедрённым ERP и собственным ИТ-отделом</li>
+        <li>Фастфуд с одной кассой и без накладных</li>
+        <li>Тот, кто хочет документы задним числом: фиксируем присланное, не генерируем</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Продукт</div>
+  <h2>Один кабинет, четыре роли</h2>
+  <p class="lead">Каждый модуль пришёл из интервью с живыми людьми в ресторанной группе: бухгалтером, управляющими, шефом и собственником. Менеджер и бухгалтер расписаны до полей и API, шеф и собственник в концепции.</p>
+  <div class="roles">
+    <div class="role">
+      <div class="who">Роль 1</div>
+      <div class="nm">Ваш менеджер точки</div>
+      <ul>
+        <li>Снимает документы сканом в приложении. Система отвечает в момент: «получено», «это копия», «какая точка»</li>
+        <li>«Мои документы» со стадиями: получен, проведён, оплачен, отклонён</li>
+        <li>«Чего не хватает за день»: одно напоминание, не поток</li>
+        <li>Форма смены вместо бумажки: продажи по каналам, оплачено из кассы, остаток. Сверка с Z и батчем до отправки</li>
+        <li>Запрос на оплату поставщику вне очереди</li>
+      </ul>
+      
+    </div>
+    <div class="role">
+      <div class="who">Роль 2</div>
+      <div class="nm">Ваш шеф</div>
+      <ul>
+        <li>Дорогие позиции: теория по Syrve против факта пересчёта, красным где разошлось</li>
+        <li>Расход за 7 и 14 дней и заказ поставщику с запасом</li>
+        <li>Дубли прихода по номеру и дате до проводки. «Накладная есть, продукта нет» одной кнопкой</li>
+        <li>Списания с телефона в момент списания</li>
+        <li>Инвентаризация: плюс и минус по позициям и в евро, динамика к прошлому пересчёту</li>
+        <li>Фудкост по точке, подозрения на ошибку техкарты</li>
+      </ul>
+      
+    </div>
+    <div class="role">
+      <div class="who">Роль 3</div>
+      <div class="nm">Ваш бухгалтер</div>
+      <ul>
+        <li>Исключения вместо потока: проводит одним нажатием то, в чём система не уверена</li>
+        <li>Экран «День» по всем точкам: остатки касс, просьбы об оплате, что не прошло</li>
+        <li>«Проводить всё равно» для документов, которые система отклонила</li>
+        <li>Выплаты людям: аванс до начисления оформляется как счёт и оплата в кредит, баланс сотрудника всегда актуален</li>
+        <li>Сводка для ежедневного отчёта собственнику</li>
+      </ul>
+      
+    </div>
+    <div class="role">
+      <div class="who">Роль 4</div>
+      <div class="nm">Вы, собственник</div>
+      <ul>
+        <li>Точка за день: выручка, касса, расхождения, документы</li>
+        <li>Дисциплина по точкам: смены с отчётом, дни с полным набором документов, дубли</li>
+        <li>Неделя по группе и по юрлицам</li>
+        <li>Выдачи из кассы и выплаты людям против документов</li>
+        <li>Только чтение, с телефона. История правок с автором и временем</li>
+      </ul>
+      
+    </div>
+  </div>
+  <div class="engine">
+    <div class="lbl">ИИ под капотом</div>
+    <p>Распознавание документов, дедупликация, статья и юрлицо по истории бухгалтера, разбор Z-отчётов 011 и 041 и батчей эквайринга, обучение на каждой правке. Всё это уже работает. Двигатель, а не продукт: вам как собственнику мы его не продаём, вы его не видите.</p>
+  </div>
+  <p class="note">Чего продукт не делает: не ведёт склад вместо Syrve, не правит техкарты за шефа, не генерирует документов задним числом. Фиксирует присланное и сверяет.</p>
+</section>
+
+<section class="dark">
+  <div class="kicker gold">Как работает</div>
+  <h2>Три источника вместо одного</h2>
+  <p class="lead">Программы ИИ-учёта читают документы. Мы сверяем документы с тем, что показала касса, и с тем, что лежит на складе. Расхождение между тремя источниками и есть ваши деньги.</p>
+  <div class="steps">
+    <div class="step"><div class="no">1</div><div class="t">Вход</div><p>Менеджер снимает документ сканом в приложении, формы и напоминания приходят в тот же WhatsApp, что и сейчас. Z-отчёты и батчи туда же.</p></div>
+    <div class="step"><div class="no">2</div><div class="t">Чтение</div><p>Модель читает документ, вторая перепроверяет. Поставщик, строки, НДС по ставкам, юрлицо, статья, срок оплаты по истории.</p></div>
+    <div class="step"><div class="no">3</div><div class="t">Сверка</div><p>Документы против Z и батча, касса по форме смены против расчёта, остаток по Syrve против пересчёта шефа. Расхождение видно до того, как смена закрылась.</p></div>
+    <div class="step"><div class="no">4</div><div class="t">Людям только исключения</div><p>Уверенное проводится одним нажатием. Сомнительное приходит одним вопросом тому, кто знает ответ: менеджеру, шефу или бухгалтеру.</p></div>
+  </div>
+  <div class="sources">
+    <div class="src-cell"><div class="h">Документы</div><p>Накладные, чеки, инвойсы: скан, почта, PDF. Приём и распознавание уже работают.</p></div>
+    <div class="src-cell"><div class="h">Касса и POS</div><p>Z-отчёты, батчи эквайринга, агрегаторы, форма смены менеджера. Разбор Z и батча уже работает, форма смены в спецификации.</p></div>
+    <div class="src-cell"><div class="h">Факт</div><p>Пересчёт шефа, списания, выдачи из кассы, расписки. Вводится с телефона в момент события. Этот слой у программ учёта отсутствует.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Ценность в евро</div>
+  <h2>Что это стоит вам и почему</h2>
+  <p class="lead">Целевая цена 450 евро за точку в месяц это меньше одного процента оборота обычной точки и меньше одного месячного минуса по складу. Эту цену защищает собственник, потому что платит за свои деньги между сменой и отчётом, а не за часы бухгалтера.</p>
+  <div class="value">
+    <div class="v"><div class="h">Касса</div><p>Расхождение видно при закрытии смены, с именем менеджера и номером чека.</p><span class="was">Сейчас: через день-два, по памяти.</span></div>
+    <div class="v"><div class="h">Склад</div><p>Минус инвентаризации по позициям и в евро в день пересчёта. Дубли прихода и непроведённые списания ловятся сами.</p><span class="was">Сейчас: раз в месяц, руками шефа.</span></div>
+    <div class="v"><div class="h">Документы</div><p>Документ не теряется, «забытые» видны утром следующего дня, дубли не доходят до книги.</p><span class="was">Сейчас: дубли и забытые накладные.</span></div>
+    <div class="v"><div class="h">Люди</div><p>Аванс, выдача из кассы, отчёт смены: всё с автором и временем, баланс сотрудника актуален.</p><span class="was">Сейчас: со слов и по бумажке.</span></div>
+    <div class="v"><div class="h">Бухгалтер</div><p>Часы переписывания в неделю уходят. Проверяет исключения, а не вводит каждый документ.</p><span class="was">Сейчас: каждый документ руками.</span></div>
+    <div class="v"><div class="h">Вы</div><p>Отчёт по точкам из программы, а не со слов управляющих. Группу видно одним экраном.</p><span class="was">Сейчас: P&amp;L через недели, когда маржа уже ушла.</span></div>
+  </div>
+  <div class="price-line"><p><b>Цену фиксируем после приёмки у первой группы.</b> Ориентиры: $199 за точку со своим бухгалтером и $499 с нашим у американского аналога. 450 за точку как цель для роли собственника.</p></div>
+</section>
+
+<section>
+  <div class="kicker">Почему мы</div>
+  <h2>Что есть у нас и чего нет у тех, кто «делает ИИ-учёт»</h2>
+  <div class="why">
+    <div class="w"><div class="no">01</div><div class="t">Три источника</div><p>Документы, касса и факт. Расхождение между ними и есть продукт. Программы учёта читают один.</p></div>
+    <div class="w"><div class="no">02</div><div class="t">Бухгалтерия внутри</div><p>Mg Accounting: Кипр, ОАЭ и ещё девять юрисдикций. Бухгалтер в комплекте, методология учёта общепита уже в системе.</p></div>
+    <div class="w"><div class="no">03</div><div class="t">Без внедрения</div><p>Менеджеры ничего не ставят и не учат: формы и напоминания в их WhatsApp, скан в одно касание. Проверено в живой группе.</p></div>
+    <div class="w"><div class="no">04</div><div class="t">Группы и юрлица</div><p>Несколько книг, перевыставления между юрлицами, одна очередь проверки по всей группе.</p></div>
+    <div class="w"><div class="no">05</div><div class="t">Учится на правках</div><p>Каждая правка бухгалтера делает следующий документ дешевле. Доля документов «без правок» растёт с каждой неделей работы.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Модель</div>
+  <h2>Подписка за точку. Вторая линия: учёт группы на Mg</h2>
+  <p class="lead">Софт это вход. Настоящие деньги группы на нескольких юрлицах это её бухгалтерия, и она у нас есть как действующая компания с лицензиями, а не как партнёр на слайде.</p>
+  <div class="plans">
+    <div class="plan"><div class="h">Тариф 1</div><div class="nm">Пульт со своим бухгалтером</div><p>Группа оставляет своего бухгалтера. Он проверяет исключения в кабинете, менеджеры и шеф работают в своих ролях, собственник смотрит точку за день.</p><div class="px">За точку в месяц, цена после приёмки</div></div>
+    <div class="plan main"><div class="h">Тариф 2</div><div class="nm">Пульт с бухгалтером Mg</div><p>То же самое плюс бухгалтер Mg на исключениях и закрытии месяца. Группа покупает закрытые книги, а не софт. Юрлица в нескольких странах закрываются одной командой.</p><div class="px">За точку в месяц плюс учёт по юрлицам</div></div>
+    <div class="plan"><div class="h">Сверху</div><div class="nm">Онбординг и ИИ-расход</div><p>Разовая настройка группы: книги, чаты, точки, правила. Расход на модели клиенту отдельной строкой по правилу: лимит в месяц, сверх по согласованию заранее.</p><div class="px">Разово и по факту</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Дорожная карта</div>
+  <h2>Ворота, а не даты</h2>
+  <p class="lead">Каждый следующий шаг открывается замером на живой группе, а не календарём. Деньги первого круга идут на ворота 1-3, и инвестор видит, какие ворота пройдены, по замерам, а не по отчёту.</p>
+  <div class="gates">
+    <div class="gate now"><div class="no">Ворота 0 · ноябрь</div><div class="t">Приёмка у первой группы</div><p>Роль бухгалтера принята по замерам, группа переходит на подписку.</p><span class="crit">Две недели без сбоев, документы идут через систему, без задвоений</span></div>
+    <div class="gate"><div class="no">Ворота 1</div><div class="t">Кабинет менеджера и скан</div><p>Две точки, два управляющих. Две недели живого режима: форма смены вместо бумажки, скан вместо фото в чат.</p><span class="crit">Менеджер закрывает смену в кабинете, дубли на входе заметно меньше</span></div>
+    <div class="gate"><div class="no">Ворота 2</div><div class="t">Шеф и склад</div><p>Одна точка, два пересчёта с интервалом 2-3 недели. Права шефу в Syrve даём первыми, без доплаты.</p><span class="crit">Минус по позициям сошёлся с ручным подсчётом шефа</span></div>
+    <div class="gate"><div class="no">Ворота 3</div><div class="t">Экран собственника и вторая группа</div><p>Собственник первой группы смотрит точки с телефона. Вторая группа на Кипре: онбординг без разработки, только настройка книг, чатов и правил.</p><span class="crit">Подписка второй группы оплачена, 30 дней без ручного ввода</span></div>
+    <div class="gate"><div class="no">Ворота 4</div><div class="t">Пакет с бухгалтером Mg</div><p>Группа покупает закрытые книги. Первый клиент на тарифе 2, ОАЭ как второй рынок.</p><span class="crit">Месяц закрыт командой Mg без участия бухгалтера клиента</span></div>
+    <div class="gate"><div class="no">Ворота 5</div><div class="t">Автопилот</div><p>Уверенные документы проводятся сами, людям только исключения. Строки накладных уходят в склад и фудкост.</p><span class="crit">Большинство документов без правок, около минуты бухгалтера на документ</span></div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="kicker gold">Предложение</div>
+  <h2>Первый круг: рестораторы и инвесторы, которые видели систему в работе</h2>
+  <p class="lead">Мы не идём к фондам с презентацией о рынке на миллиарды. Первый круг собираем из тех, кто знает боль изнутри: собственников ресторанных групп и инвесторов, которые видели систему в работе. Вы входите до того, как продукт покажут остальным.</p>
+  <div class="todo">
+    <div class="td"><div class="h">Куда идут деньги</div><p>Второй инженер на шесть месяцев, чтобы производство не держалось на одном человеке. Ворота 1-3: кабинет менеджера со сканом, модуль шефа, экран собственника, онбординг второй группы. Бухгалтер-проверяющий на полставки, модели и инфраструктура.</p></div>
+    <div class="td"><div class="h">Что получаете как инвестор</div><p>Долю в продукте по оценке первого круга, вдвое-втрое ниже той, с которой пойдём к фондам после второй группы. Отчёт по воротам раз в две недели: цифры, а не слайды. Право первого слова на следующем круге.</p></div>
+    <div class="td"><div class="h">Если вы входите как группа-партнёр</div><p>Роли менеджера, шефа и собственника строятся на вашей группе первыми, под ваши точки и ваших людей. Подписка на условиях первого круга. Ваши книги, данные и чаты остаются у вас.</p></div>
+    <div class="td"><div class="h">Чего не обещаем</div><p>Даты вместо ворот, США и миллиардный рынок, автопилот до того, как он замерен. Следующие ворота открываются замерами на живой группе, и инвестор видит их первым.</p></div>
+  </div>
+  <p class="note">Деньги первого круга заходят после ворот 0: сначала приёмка у первой группы по замерам, потом инвестиция. Так вы вкладываете в принятый продукт, а не в обещание.</p>
+</section>
+
+<section>
+  <div class="kicker">Условия первого круга</div>
+  <h2>80 тысяч евро на шесть месяцев до ворот 3</h2>
+  <p class="lead">Сумма посчитана снизу, от статей расходов, а не от оценки «сколько принято просить». Это деньги на второго инженера и три ворот, после которых продукт продаётся второй группе без разработки. Следующий круг поднимаем с двумя-тремя платящими группами, и тогда это деньги на рост.</p>
+  <div class="terms">
+    <div class="term"><div class="num">80 000 €</div><div class="t">Сумма круга</div><p>Три-четыре участника, чек от 20 000 €.</p></div>
+    <div class="term"><div class="num">1,0 млн €</div><div class="t">Инструмент</div><p>Конвертируемый заём с оценкой-потолком 1,0 млн € и скидкой 20% к следующему раунду. По потолку 80 000 € это 8% продукта.</p></div>
+    <div class="term"><div class="num">60 / 40</div><div class="t">Транши по воротам</div><p>60% после ворот 0 (приёмка у первой группы), 40% после ворот 2 (шеф и склад сошлись с ручным подсчётом).</p></div>
+    <div class="term"><div class="num">-50%</div><div class="t">Группе-партнёру</div><p>Подписка на тарифе 1 за полцены на 12 месяцев со дня ворот 0, роли шефа и собственника строятся на её точках первыми.</p></div>
+  </div>
+  <div class="diff">
+    <div class="row"><div>Статья, шесть месяцев</div><div>Сумма</div></div>
+    <div class="row"><div>Второй инженер, полная ставка</div><div>33 000 €</div></div>
+    <div class="row"><div>Ведущий инженер, часть времени на ворота 1-3</div><div>18 000 €</div></div>
+    <div class="row"><div>Бухгалтер-проверяющий, полставки</div><div>8 000 €</div></div>
+    <div class="row"><div>Модели, серверы, бренд и домен продукта</div><div>6 000 €</div></div>
+    <div class="row"><div>Онбординг второй группы и продажи</div><div>5 000 €</div></div>
+    <div class="row"><div>Резерв</div><div>10 000 €</div></div>
+    <div class="row"><div><b>Итого</b></div><div><b>80 000 €</b></div></div>
+  </div>
+  <p class="note">Что это даёт через шесть месяцев: продукт на четыре роли, принятый двумя группами, производство на двух инженерах, цена за точку подтверждена оплатой. Основатели зарплату из круга не берут: Mg Digital живёт на подписке и на бухгалтерском сопровождении.</p>
+</section>
+
+<section>
+  <div class="kicker">Вопросы, которые вы зададите</div>
+  <h2>Ответы до встречи</h2>
+  <div class="risks">
+    <div class="risk"><div class="q">Где это уже работает?</div><div class="a">В одной ресторанной группе на Кипре с августа 2026: роль бухгалтера в работе, приёмка по замерам в ноябре. Вторую группу берём после этого, не раньше: онбординг без разработки это и есть проверка, что продукт продаётся.</div></div>
+    <div class="risk"><div class="q">ИИ-учёт делают все.</div><div class="a"><b>Мы не продаём ИИ-учёт.</b> Мы продаём контроль точки собственнику. Учёт внутри как двигатель.</div></div>
+    <div class="risk"><div class="q">Почему не Syrve или iiko сами?</div><div class="a">Касса и склад считают свой контур. Сверку кассы с документами и фактом, несколько юрлиц и бухгалтера внутри они не делают, и для них это не бизнес.</div></div>
+    <div class="risk"><div class="q">Половину боли шефа закрывают права в Syrve.</div><div class="a"><b>Да,</b> и мы даём их первыми, без доплаты. Наша ценность в сверке трёх источников и в нескольких точках одним экраном, а не в доступе к остаткам.</div></div>
+    <div class="risk"><div class="q">Кто разрабатывает?</div><div class="a">Команда Mg Digital. Второй инженер это первое, на что идут деньги первого круга: производство не должно держаться на одном человеке.</div></div>
+    <div class="risk"><div class="q">Какой рынок?</div><div class="a">Снизу вверх: группы на 3+ точек на Кипре, в ОАЭ и у русскоязычных операторов ЕС. <b>Считаем по именам</b>, не ставим миллиарды из отчёта.</div></div>
+    <div class="risk"><div class="q">Что если группа уходит?</div><div class="a">Книги в QuickBooks, данные и чаты принадлежат группе и остаются у неё. Мы зарабатываем на том, что система нужна каждую смену, а не на замке.</div></div>
+  </div>
+</section>
+
+<footer>
+  <b class="brand">Mg</b> Digital · Станислав Жуковец · Михаил Зеленин · Лимасол, октябрь 2026
+</footer>
+
+</body>
+</html>
