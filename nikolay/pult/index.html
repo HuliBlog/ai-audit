@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Пульт · экран собственника и кабинет менеджера · для Николая</title>
+<meta name="description" content="Следующий шаг Пульта для ресторанной группы Николая Рыжкова: экран собственника с остатками по дням и календарём платежей, кабинет менеджера с закрытием смены и проверкой.">
+<meta property="og:title" content="Пульт · экран собственника и кабинет менеджера">
+<meta property="og:description" content="Деньги группы на одном экране каждое утро. Кабинет менеджера, который делает этот экран правдивым.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF; --blue-soft:#e8ebff; --blue-tint:#dbe0ff; --blue-line:#c2c9ff;
+    --gold:#ddb85b; --gold-deep:#b9903a; --gold-tint:#f2e7c8;
+    --red:#c0392b; --red-tint:#fbe9e7; --green:#1f8a4c; --green-tint:#e3f3e9; --amber:#c98a00; --amber-tint:#fff3d6;
+    --black:#121212; --ink:#1c1c1c; --grey:#717171; --silver:#d9d9d9; --hair:#ececec; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  section{padding:8vh 8vw;border-bottom:1px solid var(--silver)}
+  @media(max-width:680px){section{padding:6vh 16px}}
+  .kicker{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.3rem}
+  .kicker.gold{color:var(--gold-deep)}
+  h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.01em;font-weight:600;text-transform:uppercase;max-width:16ch}
+  h1 span{color:var(--blue)}
+  h2{font-family:'Baskervville',serif;font-weight:400;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.18;max-width:24ch;margin-bottom:1.2rem}
+  h3{font-size:1.05rem;font-weight:600;letter-spacing:.02em}
+  .lead{font-family:'Baskervville',serif;font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;max-width:44rem;color:#333}
+  .body{max-width:44rem;margin-top:1rem;color:#333}
+  .note{font-size:.85rem;color:var(--grey);margin-top:1.4rem;max-width:46rem;font-style:italic;font-family:'Baskervville',serif}
+  .dark{background:var(--black);color:#e6e6e6;border-bottom:none}
+  .dark h2{color:#fff}.dark .lead{color:#cfcfcf}.dark .note{color:#9a9a9a}
+  .brand{text-transform:none !important;letter-spacing:.06em}
+
+  .hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left}
+  .hero .club{font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:2rem}
+  .hero .sub{font-family:'Baskervville',serif;font-size:clamp(1.1rem,1.7vw,1.35rem);line-height:1.55;max-width:40rem;margin-top:1.6rem;color:#333}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:1rem 2.2rem;margin-top:2.4rem;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink);font-weight:600}
+
+  .grid3{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .grid4{margin-top:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .grid2{margin-top:2.2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+  @media(max-width:980px){.grid4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:860px){.grid3{grid-template-columns:1fr}}
+  @media(max-width:600px){.grid4,.grid2{grid-template-columns:1fr}}
+
+  .card{border:1px solid var(--silver);padding:1.5rem 1.4rem;background:var(--white)}
+  .card .h{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:.7rem}
+  .card .h.ok{color:var(--green)}.card .h.wait{color:var(--amber)}.card .h.no{color:var(--red)}
+  .card ul{list-style:none}.card li{padding:.38rem 0;border-top:1px solid var(--hair);font-size:.95rem;line-height:1.45}
+  .card li:first-child{border-top:none}
+  .card.soft{background:var(--light);border-color:var(--light)}
+  .card .who{font-family:'Baskervville',serif;font-size:1.25rem;margin-bottom:.3rem}
+  .card .role{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-bottom:.8rem}
+  .card q{font-family:'Baskervville',serif;font-style:italic;color:#333;display:block;margin-bottom:.8rem;quotes:"«" "»"}
+  .card p{font-size:.95rem;color:#333}
+
+  /* split layout: text + mockup */
+  .split{display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem;align-items:start;margin-top:2rem}
+  @media(max-width:980px){.split{grid-template-columns:1fr;gap:2.2rem}}
+  .pts{list-style:none;margin-top:1.4rem}
+  .pts li{padding:.8rem 0;border-top:1px solid var(--hair);display:grid;grid-template-columns:2rem 1fr;gap:.6rem;font-size:.98rem;line-height:1.5}
+  .pts li b{font-family:'Baskervville',serif;color:var(--blue);font-size:1.1rem}
+  .dark .pts li{border-top-color:#2a2a2a;color:#d6d6d6}.dark .pts li b{color:var(--gold)}
+
+  /* phone */
+  .phone{width:min(340px,100%);margin:0 auto;border:10px solid #1b1b1b;border-radius:40px;background:#0f0f0f;padding:10px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+  .screen{background:#f4f4f6;border-radius:28px;overflow:hidden;font-size:.78rem;color:#1c1c1c}
+  .sbar{display:flex;justify-content:space-between;padding:.55rem 1rem .2rem;font-size:.68rem;color:#555}
+  .shead{padding:.4rem 1rem .8rem}
+  .shead .d{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#777}
+  .shead .t{font-family:'Baskervville',serif;font-size:1.25rem;line-height:1.1;margin-top:.15rem}
+  .blk{background:#fff;margin:0 .7rem .7rem;border-radius:14px;padding:.75rem .85rem}
+  .blk .bh{display:flex;justify-content:space-between;align-items:baseline;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#777;margin-bottom:.45rem}
+  .blk .bh span{color:var(--blue);letter-spacing:0;text-transform:none;font-size:.7rem}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-top:1px solid #eee;gap:.5rem}
+  .row:first-of-type{border-top:none}
+  .row .n{color:#333}.row .v{font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+  .row .s{font-size:.62rem;color:#888;display:block}
+  .dot{display:inline-block;width:.55rem;height:.55rem;border-radius:50%;margin-right:.4rem;vertical-align:middle}
+  .dot.r{background:var(--red)}.dot.y{background:var(--amber)}.dot.g{background:var(--green)}
+  .tag{font-size:.62rem;padding:.1rem .45rem;border-radius:999px;background:var(--green-tint);color:var(--green);font-weight:600;white-space:nowrap}
+  .tag.bad{background:var(--red-tint);color:var(--red)}.tag.wait{background:var(--amber-tint);color:var(--amber)}.tag.blue{background:var(--blue-soft);color:var(--blue)}
+  .big{font-family:'Baskervville',serif;font-size:1.5rem;line-height:1;margin:.1rem 0 .2rem}
+  .hist{display:flex;gap:.4rem;overflow:hidden;margin-top:.4rem}
+  .hist div{flex:0 0 auto;border:1px solid #e6e6e6;border-radius:10px;padding:.35rem .5rem;font-size:.64rem;color:#555;line-height:1.3}
+  .hist div.on{border-color:var(--blue);background:var(--blue-soft);color:var(--blue)}
+  .mock-cap{font-size:.78rem;color:var(--grey);text-align:center;margin-top:1rem;font-style:italic;font-family:'Baskervville',serif}
+
+  /* tablet / cabinet */
+  .tab{width:100%;border:1px solid #d0d0d0;border-radius:18px;background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.14);overflow:hidden;font-size:.82rem}
+  .tab .top{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.1rem;border-bottom:1px solid #eee;background:#fafafa}
+  .tab .top .t{font-weight:600}.tab .top .t small{display:block;font-weight:400;color:#777;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+  .tab .top .u{font-size:.72rem;color:#777}
+  .tab .in{display:grid;grid-template-columns:1.1fr .9fr;gap:0}
+  @media(max-width:600px){.tab .in{grid-template-columns:1fr}}
+  .tab .col{padding:1rem 1.1rem}
+  .tab .col+.col{border-left:1px solid #eee}
+  @media(max-width:600px){.tab .col+.col{border-left:none;border-top:1px solid #eee}}
+  .tab .ch{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#777;margin-bottom:.6rem}
+  .f{display:flex;justify-content:space-between;align-items:center;padding:.42rem 0;border-top:1px solid #f0f0f0}
+  .f:first-of-type{border-top:none}
+  .f .l{color:#333}.f .i{min-width:6.2rem;text-align:right;font-variant-numeric:tabular-nums;border:1px solid #ddd;border-radius:6px;padding:.15rem .5rem;background:#fff}
+  .f .i.calc{border-style:dashed;background:#f7f7f7;color:#333}
+  .chk{margin-top:.8rem;border-radius:10px;padding:.6rem .8rem;font-size:.78rem;line-height:1.4}
+  .chk.ok{background:var(--green-tint);color:#17603a}.chk.bad{background:var(--red-tint);color:#8a2a1f}.chk.ask{background:var(--amber-tint);color:#7a5200}
+  .doc{display:flex;justify-content:space-between;align-items:center;padding:.42rem 0;border-top:1px solid #f0f0f0;gap:.5rem}
+  .doc:first-of-type{border-top:none}
+  .doc .dn{color:#333}.doc .dn small{display:block;color:#888;font-size:.66rem}
+  .btn{display:inline-block;margin-top:.8rem;padding:.45rem .8rem;border-radius:8px;background:var(--blue);color:#fff;font-size:.74rem;font-weight:600;letter-spacing:.06em}
+  .btn.ghost{background:#fff;color:var(--blue);border:1px solid var(--blue-line)}
+
+  /* statuses flow */
+  .flow{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  @media(max-width:800px){.flow{grid-template-columns:1fr}}
+  .st{border:1px solid #333;background:#171717;padding:1.4rem 1.3rem}
+  .st .h{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:.6rem;color:var(--gold)}
+  .st p{color:#cfcfcf;font-size:.95rem}
+  .case{margin-top:2.2rem;border-left:2px solid var(--gold);padding-left:1.4rem;max-width:46rem}
+  .case .l{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:.5rem}
+  .case p{color:#d6d6d6}
+
+  /* before / after */
+  .ba{margin-top:2rem;max-width:60rem;border:1px solid var(--silver)}
+  .ba .r{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--silver)}
+  .ba .r:first-child{border-top:none;background:var(--light)}
+  .ba .r>div{padding:.9rem 1.2rem;font-size:.95rem;line-height:1.45}
+  .ba .r>div:first-child{border-right:1px solid var(--silver);color:var(--grey)}
+  .ba .r:first-child>div{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .ba .r:first-child>div:last-child{color:var(--blue)}
+  @media(max-width:560px){.ba .r{grid-template-columns:1fr}.ba .r>div:first-child{border-right:none;border-bottom:1px dashed var(--silver)}}
+
+  /* gates */
+  .gates{margin-top:2.2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+  @media(max-width:1100px){.gates{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:700px){.gates{grid-template-columns:1fr}}
+  .gate{border-top:2px solid var(--silver);padding-top:1rem}
+  .gate.now{border-top-color:var(--blue)}
+  .gate .no{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);font-weight:600}
+  .gate.now .no{color:var(--blue)}
+  .gate .t{font-family:'Baskervville',serif;font-size:1.2rem;margin:.4rem 0 .5rem;line-height:1.2}
+  .gate p{font-size:.92rem;color:#333}
+  .gate .crit{display:block;margin-top:.7rem;font-size:.8rem;color:var(--blue);border-left:2px solid var(--blue-line);padding-left:.6rem;line-height:1.4}
+
+  .money{margin-top:2.2rem;display:grid;grid-template-columns:1.1fr 1fr;gap:1.4rem}
+  @media(max-width:860px){.money{grid-template-columns:1fr}}
+  .money .box{border:1px solid var(--silver);padding:1.6rem 1.5rem}
+  .money .box.main{border-color:var(--blue);background:var(--blue-soft)}
+  .money .px{font-family:'Baskervville',serif;font-size:2.1rem;line-height:1;margin:.4rem 0 .6rem}
+  .money .box .h{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  .money ul{list-style:none;margin-top:.6rem}.money li{padding:.35rem 0;border-top:1px solid var(--blue-line);font-size:.95rem}
+  .money .box:not(.main) li{border-top-color:var(--hair)}
+  .money li:first-child{border-top:none}
+
+  footer{padding:5vh 8vw;text-align:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+  footer b{color:var(--ink)}
+  footer a{color:var(--blue);text-decoration:none}
+  @media(max-width:680px){footer{padding:5vh 16px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="club"><b class="brand">Mg</b> Digital · Пульт · для Николая Рыжкова · Октябрь 2026</div>
+  <h1>Деньги группы <span>на одном экране</span>, каждое утро</h1>
+  <p class="sub">Николай, это следующий шаг Пульта. Экран собственника: остатки по счетам по дням и по точкам, календарь платежей, касса за вчера, кто не сдал документы. И кабинет менеджера, который делает этот экран правдивым: смена закрывается в программе, цифры проверяются в момент ввода, квитанция прикладывается сразу.</p>
+  <div class="meta">
+    <span><b>12 точек</b> · 7 компаний</span>
+    <span><b>QuickBooks</b> + Syrve + WhatsApp</span>
+    <span><b>Лимасол</b></span>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Где мы</div>
+  <h2>Что построено, что на приёмке, что не сделано</h2>
+  <p class="lead">Говорим как есть. Финансовый блок из августовского предложения построен и работает у вашей бухгалтерии, но принимать его будем по цифрам, а не по ощущениям.</p>
+  <div class="grid3">
+    <div class="card">
+      <div class="h ok">Построено и работает</div>
+      <ul>
+        <li>Инвойсы, чеки и накладные из WhatsApp-групп семи компаний попадают в очередь, распознаются, не теряются</li>
+        <li>Статья, компания, НДС 5, 9 и 19 процентов и срок оплаты подставляются по истории поставщика</li>
+        <li>Дубли и мусор отсекаются до очереди</li>
+        <li>Z-отчёты, батчи эквайринга, чаевые и наличная касса разбираются по точкам</li>
+        <li>Кабинет бухгалтера: проводка в QuickBooks одним нажатием, журнал правок, права по компаниям</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="h wait">На приёмке в ноябре</div>
+      <ul>
+        <li>Статусы проводки: «проведено» должно означать, что документ в QuickBooks, без перепроверки руками</li>
+        <li>Доля документов без ручной правки, по замеру, а не по словам</li>
+        <li>Две недели без сбоев и без задвоений</li>
+        <li>Закрытое тестирование с Галиной, потом показ команде</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="h no">Не сделано</div>
+      <ul>
+        <li>Накладные в Syrve по номенклатуре. Входит в августовское предложение, делаем после приёмки финансового блока, не параллельно</li>
+        <li>Ямми не трогаем до результата на остальных точках. Сравните потом сами</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Что мы услышали</div>
+  <h2>Мы поговорили с вашей командой. По одной боли на человека</h2>
+  <p class="lead">Перед тем как предлагать, мы прошли по людям: бухгалтерия, финансы, управляющий, шеф. Кабинет менеджера и экран собственника собраны из их слов, а не из нашего представления о ресторанах.</p>
+  <div class="grid4">
+    <div class="card soft">
+      <div class="who">Галина</div><div class="role">Финансы группы</div>
+      <q>Поставщик приезжает и спрашивает, почему не платите. А у нас этого инвойса нет: потерялся, порвался, исчез. Вся информация только в WhatsApp.</q>
+      <p>Хочет: квитанцию в момент ввода расхода, календарь платежей с приоритетами, защиту от двойной оплаты, остатки по дням, которые вы видите сами.</p>
+    </div>
+    <div class="card soft">
+      <div class="who">Юля</div><div class="role">Бухгалтер</div>
+      <q>Менеджер должен видеть свои документы и их статус. Тогда он не спрашивает «а вы оплатили?», он открывает и видит.</q>
+      <p>Хочет: кабинет менеджера с формой смены вместо бумажки, «мои документы» со стадиями, авансы, привязанные к начислениям.</p>
+    </div>
+    <div class="card soft">
+      <div class="who">Егор</div><div class="role">Управляющий</div>
+      <q>Каждую бумажку поднять, переписать, на калькуляторе посчитать. Если будет короче, я за.</q>
+      <p>Хочет: меньше бумажной работы в конце смены. Готов работать в программе, если она считает за него и не требует лишнего.</p>
+    </div>
+    <div class="card soft">
+      <div class="who">Шеф</div><div class="role">Кухня</div>
+      <q>Мне нужно видеть дорогие позиции: что по Syrve должно быть и что есть по факту. И списывать с телефона в момент списания.</q>
+      <p>Хочет: доступ к остаткам, пересчёт с плюсом и минусом по позициям и в евро, дубли прихода до проводки.</p>
+    </div>
+  </div>
+  <p class="note">Цитаты пересказаны близко к тексту разговоров 14, 16 и 28 октября.</p>
+</section>
+
+<section>
+  <div class="kicker">Экран собственника</div>
+  <h2>Не выручка. Деньги</h2>
+  <div class="split">
+    <div>
+      <p class="lead">Выручку и средний чек вы видите в Syrve и в Ники. Этот экран показывает то, чего в Syrve нет и не будет: сколько денег на счетах каждой компании сегодня, что стоит в оплате, что уже ушло, сошлась ли касса за вчера, кто не сдал документы. Только чтение, с телефона, каждое утро.</p>
+      <ul class="pts">
+        <li><b>1</b><span><b>Остатки по счетам</b> по каждой компании на сегодня и «в плане на сегодня». Не в чате утром, а на экране в любой момент.</span></li>
+        <li><b>2</b><span><b>История по дате.</b> Выбираете 21 октября и видите: какой был остаток, какие платежи уже стояли в плане. Вопрос «почему не оплатили 21-го» закрывается без переписки.</span></li>
+        <li><b>3</b><span><b>Календарь платежей</b> с тремя уровнями: красный платим сегодня, иначе теряем поставщика; жёлтый на неделе; зелёный по сроку. Кто и почему поменял приоритет, видно.</span></li>
+        <li><b>4</b><span><b>Касса за вчера</b> по точкам: сошлось с Z-отчётом и батчем или нет, и на сколько.</span></li>
+        <li><b>5</b><span><b>Дисциплина:</b> кто закрыл смену в программе, у кого не хватает квитанций, где задвоился документ.</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="phone"><div class="screen">
+        <div class="sbar"><span>09:12</span><span>Пульт</span></div>
+        <div class="shead"><div class="d">Четверг, 29 октября</div><div class="t">Группа за сегодня</div></div>
+        <div class="blk">
+          <div class="bh">Остатки по счетам <span>в плане сегодня</span></div>
+          <div class="row"><span class="n">Gulya</span><span class="v">5 120 € <span class="s">в плане 4 800 €</span></span></div>
+          <div class="row"><span class="n">Eurostatus</span><span class="v">12 340 € <span class="s">в плане 2 150 €</span></span></div>
+          <div class="row"><span class="n">Barbacoa</span><span class="v">1 980 € <span class="s">в плане 2 400 €</span></span></div>
+          <div class="row"><span class="n">Polidefkis</span><span class="v">3 410 € <span class="s">в плане 900 €</span></span></div>
+          <div class="hist"><div>21 окт<br>5 000 / 4 800</div><div>22 окт<br>4 350 / 1 200</div><div class="on">сегодня<br>22 850 / 10 250</div></div>
+        </div>
+        <div class="blk">
+          <div class="bh">Календарь платежей <span>3 на сегодня</span></div>
+          <div class="row"><span class="n"><i class="dot r"></i>Рыба, поставщик А <span class="s">срок сегодня, Gulya</span></span><span class="v">1 860 €</span></div>
+          <div class="row"><span class="n"><i class="dot y"></i>Аренда, Barbacoa <span class="s">до 31 окт</span></span><span class="v">2 400 €</span></div>
+          <div class="row"><span class="n"><i class="dot g"></i>Напитки, поставщик Б <span class="s">по сроку, 4 ноя</span></span><span class="v">640 €</span></div>
+          <div class="row"><span class="n">Оплачено картой на точке <span class="s">Дима, инвойс 4471, в пути</span></span><span class="tag wait">в пути</span></div>
+        </div>
+        <div class="blk">
+          <div class="bh">Касса за вчера <span>12 точек</span></div>
+          <div class="row"><span class="n">Сошлось с Z и батчем</span><span class="tag">10 точек</span></div>
+          <div class="row"><span class="n">Shakespeare <span class="s">наличные против Z</span></span><span class="tag bad">-9,40 €</span></div>
+          <div class="row"><span class="n">Смена не закрыта</span><span class="tag bad">1 точка</span></div>
+        </div>
+        <div class="blk">
+          <div class="bh">Документы <span>вчера</span></div>
+          <div class="row"><span class="n">Пришло и проведено</span><span class="v">46</span></div>
+          <div class="row"><span class="n">Не хватает квитанций <span class="s">Barbacoa, расход 180 €</span></span><span class="tag wait">2</span></div>
+          <div class="row"><span class="n">Дубли отсечены</span><span class="tag blue">3</span></div>
+        </div>
+      </div></div>
+      <p class="mock-cap">Макет. Названия компаний ваши, цифры условные.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="kicker gold">Календарь платежей</div>
+  <h2>Один инвойс, один статус, одна оплата</h2>
+  <p class="lead">Сегодня инвойс живёт в WhatsApp, в QuickBooks и в памяти людей одновременно. Менеджер платит картой в день получения, бухгалтер платит через банк, банк показывает через два дня, и поставщик получает деньги дважды. В Пульте у инвойса один статус, и он виден всем, кто его касается.</p>
+  <div class="flow">
+    <div class="st"><div class="h">К оплате</div><p>Инвойс распознан, срок оплаты подставлен по истории поставщика. Менеджер может предложить приоритет: «поставщик не отгружает, пока не оплатим». Подтверждает бухгалтер.</p></div>
+    <div class="st"><div class="h">В пути</div><p>Любая инициация оплаты блокирует инвойс: бухгалтер отправила через банк, или менеджер провёл картой на точке. Пока банк не подтвердил, статус «в пути», повторная оплата невозможна.</p></div>
+    <div class="st"><div class="h">Оплачено</div><p>Выписка банка сматчила платёж с инвойсом. Менеджер видит «оплачено» в своём кабинете и не спрашивает бухгалтера. Поставщик видит деньги один раз.</p></div>
+  </div>
+  <div class="case">
+    <div class="l">Случай из вашей группы</div>
+    <p>Менеджер получает инвойс и в тот же день платит корпоративной картой. Через день бухгалтер видит тот же инвойс в очереди и платит через банк. Банк показывает первый платёж только через два дня. В Пульте карта менеджера привязана к инвойсу: оплата картой переводит его «в пути», и бухгалтер видит это до того, как нажмёт «оплатить».</p>
+  </div>
+  <p class="note">Платёж всегда подтверждает человек. Автоматических исходящих платежей мы не строим, это защита группы, как и было записано в августовском предложении.</p>
+</section>
+
+<section>
+  <div class="kicker">Кабинет менеджера</div>
+  <h2>Восемь цифр вместо бумажки. Остальное считает программа</h2>
+  <div class="split">
+    <div>
+      <div class="tab">
+        <div class="top"><div class="t">Закрытие смены <small>Barbacoa · 28 октября · Егор</small></div><div class="u">Z-отчёт и батч загружены</div></div>
+        <div class="in">
+          <div class="col">
+            <div class="ch">Вводит менеджер</div>
+            <div class="f"><span class="l">Наличные</span><span class="i">541,30</span></div>
+            <div class="f"><span class="l">Карты, терминал</span><span class="i">2 277,92</span></div>
+            <div class="f"><span class="l">Чаевые</span><span class="i">138,53</span></div>
+            <div class="f"><span class="l">Доставка, агрегаторы</span><span class="i">34,30</span></div>
+            <div class="f"><span class="l">Выплачено из кассы</span><span class="i">180,00</span></div>
+            <div class="ch" style="margin-top:.9rem">Считает программа</div>
+            <div class="f"><span class="l">Итог дня</span><span class="i calc">2 992,05</span></div>
+            <div class="f"><span class="l">Остаток кассы</span><span class="i calc">1 181,14</span></div>
+            <div class="chk ok">Батч терминала 2 416,45 минус чаевые 138,53 равно картам 2 277,92. Сходится с Z-отчётом.</div>
+            <div class="chk ask">Выплачено из кассы 180,00: приложите квитанцию, иначе смена не закроется.</div>
+            <span class="btn">Приложить скан</span> <span class="btn ghost">Закрыть смену</span>
+          </div>
+          <div class="col">
+            <div class="ch">Мои документы, сегодня</div>
+            <div class="doc"><span class="dn">Поставщик А, накладная 4471 <small>скан 14:02</small></span><span class="tag">проведён</span></div>
+            <div class="doc"><span class="dn">Поставщик Б, инвойс 1183 <small>скан 15:40</small></span><span class="tag wait">в пути</span></div>
+            <div class="doc"><span class="dn">Чек, хозтовары 42,10 <small>скан 17:15</small></span><span class="tag blue">получен</span></div>
+            <div class="doc"><span class="dn">Накладная 4471, повтор <small>скан 17:20</small></span><span class="tag bad">копия</span></div>
+            <div class="ch" style="margin-top:1rem">Запрос бухгалтеру</div>
+            <div class="doc"><span class="dn">Оплатить вне очереди: поставщик А <small>не отгружает до оплаты</small></span><span class="tag wait">ждёт</span></div>
+            <div class="ch" style="margin-top:1rem">Напоминание</div>
+            <div class="doc"><span class="dn">За вчера не хватает одной квитанции <small>расход 95,00</small></span><span class="tag bad">1</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="mock-cap">Макет по форме смены вашей бухгалтерии. Цифры условные.</p>
+    </div>
+    <div>
+      <p class="lead">Та же форма, что менеджер сейчас пишет на бумаге, но считает её программа, и ошибка видна до отправки, а не через месяц. Документы снимаются сканом в приложении, не фото в чат: сжатые фото читаются плохо, а квитанция нужна в момент, когда менеджер вносит расход.</p>
+      <ul class="pts">
+        <li><b>1</b><span><b>Закрытие смены.</b> Менеджер вносит восемь чисел. Итог дня и остаток кассы считает программа и сверяет с Z-отчётом и батчем. Перепутал карты и чаевые местами, сразу видно.</span></li>
+        <li><b>2</b><span><b>Квитанция сразу.</b> Внёс расход из кассы, программа просит скан. Без квитанции смена не закрывается. Не бухгалтер через месяц, а программа в тот же вечер.</span></li>
+        <li><b>3</b><span><b>Мои документы.</b> Получен, проведён, в пути, оплачен, копия. Менеджер видит сам и не спрашивает «а вы оплатили?».</span></li>
+        <li><b>4</b><span><b>Скан в приложении.</b> Камера, обрезка, выравнивание, полное разрешение. Инвойс не теряется, не рвётся и не исчезает: он в системе с момента скана.</span></li>
+        <li><b>5</b><span><b>Приоритет оплаты.</b> Менеджер знает, какой поставщик не отгрузит без денег. Он предлагает, бухгалтер подтверждает, вы видите в календаре.</span></li>
+        <li><b>6</b><span><b>Отчёт собирается сам.</b> Ежедневный отчёт, который сегодня переписывается в Excel, формируется из смены и документов. Руками его больше никто не ведёт.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Что меняется</div>
+  <h2>Пять споров, которые перестают быть спорами</h2>
+  <div class="ba">
+    <div class="r"><div>Сейчас</div><div>В Пульте</div></div>
+    <div class="r"><div>Квитанции выпрашиваются неделями: «какие квитанции, о чём вы»</div><div>Расход без квитанции не даёт закрыть смену. Квитанция прикладывается в момент ввода</div></div>
+    <div class="r"><div>«А вы оплатили?» в чате, бухгалтер ищет инвойс в QuickBooks</div><div>Менеджер видит статус в своём кабинете: к оплате, в пути, оплачено</div></div>
+    <div class="r"><div>Менеджер платит картой, бухгалтер платит через банк, поставщик получает дважды</div><div>Любая оплата переводит инвойс «в пути», повторная невозможна</div></div>
+    <div class="r"><div>Отчёт смены на бумаге, пересчёт на калькуляторе, перенос в Excel</div><div>Восемь цифр в программе, итог и остаток считаются сами, отчёт собирается сам</div></div>
+    <div class="r"><div>Остатки по счетам в чат по утрам, к вечеру они другие</div><div>Остатки и план платежей на вашем экране в любой момент, с историей по дням</div></div>
+    <div class="r"><div>Поставщик напоминает о долге, бухгалтерия не знает об инвойсе</div><div>Инвойс в системе с момента скана на точке, срок оплаты стоит в календаре</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Ворота, а не даты</div>
+  <h2>Каждый шаг открывается результатом предыдущего</h2>
+  <p class="lead">Мы не повторяем сентябрь: ничего не включаем на живой группе, пока это не проверено закрыто с Галиной. Менеджеры и вы видите готовое.</p>
+  <div class="gates">
+    <div class="gate now"><div class="no">Ворота 0 · ноябрь</div><div class="t">Приёмка финансового блока</div><p>Закрытое тестирование с Галиной. Статусы проводки честные, без перепроверки руками.</p><span class="crit">Две недели без сбоев, без задвоений, доля без правок по замеру</span></div>
+    <div class="gate"><div class="no">Ворота 1</div><div class="t">Кабинет менеджера</div><p>Сначала закрыто с Галиной. Потом две точки, где управляющие готовы: форма смены, скан, квитанции, «мои документы».</p><span class="crit">Две недели: смены закрыты в программе, квитанции в день ввода</span></div>
+    <div class="gate"><div class="no">Ворота 2</div><div class="t">Календарь платежей и ваш экран</div><p>Статусы инвойсов, приоритеты, остатки по дням и компаниям, касса и документы по точкам. Выписки банка подключаем по мере открытия кипрских счетов.</p><span class="crit">Месяц без двойных оплат, остатки по дате сходятся с банком</span></div>
+    <div class="gate"><div class="no">Ворота 3</div><div class="t">Зарплата</div><p>Часы из системы по отпечаткам, расчёт по ставкам, пейслип, проводка, матчинг выплаты с банком. Авансы привязаны к начислениям.</p><span class="crit">Месяц закрыт без ручного переноса</span></div>
+    <div class="gate"><div class="no">Ворота 4</div><div class="t">Склад и шеф</div><p>Техкарты, продажи из Syrve, списания с телефона, пересчёт с плюсом и минусом по позициям и в евро. Права шефу в Syrve даём первыми.</p><span class="crit">Минус по позициям сошёлся с ручным пересчётом шефа</span></div>
+  </div>
+  <p class="note">Чего не делаем: не заменяем QuickBooks и Syrve, не платим поставщикам автоматически, не создаём документов задним числом. Фиксируем присланное и сверяем.</p>
+</section>
+
+<section>
+  <div class="kicker">Деньги</div>
+  <h2>Отдельной сметы на кабинет и экран нет</h2>
+  <p class="lead">Кабинет менеджера и экран собственника это наш продукт для ресторанных групп. Ваша группа первая, на ней он строится. Поэтому разработку мы не выставляем отдельной строкой: вы платите сопровождение по августовскому предложению, мы получаем группу, на которой продукт проверяется в жизни.</p>
+  <div class="money">
+    <div class="box main">
+      <div class="h">Что платите вы</div>
+      <div class="px">490 € в месяц</div>
+      <ul>
+        <li>Сопровождение по предложению от 3 августа: исправления, выкладки по расписанию, отчёт раз в неделю</li>
+        <li>Расход на ИИ-модели отдельно, напрямую поставщику, порядка 100 € в месяц, как записано в предложении</li>
+        <li>Кабинет менеджера, календарь платежей и экран собственника входят, без отдельной сметы</li>
+        <li>Система остаётся у вас при любой отмене подписки</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="h">Что просим взамен</div>
+      <ul>
+        <li>Галина: закрытое тестирование каждого шага до показа команде, два часа в неделю</li>
+        <li>Две точки для пилота кабинета менеджера, где управляющие готовы</li>
+        <li>Выписки банка для календаря платежей по мере открытия кипрских счетов</li>
+        <li>Ваш отзыв после ворот 2 и один звонок следующему собственнику группы</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="kicker gold">Решение</div>
+  <h2>Одно «да» на встрече</h2>
+  <p class="lead">Пилот кабинета менеджера на двух точках после приёмки финансового блока. Всё остальное открывается воротами, и каждые ворота вы видите по цифрам, а не по рассказу.</p>
+  <ul class="pts">
+    <li><b>1</b><span>Какие две точки: назовите управляющих, которые готовы первыми.</span></li>
+    <li><b>2</b><span>Галина как приёмщик каждого шага: её «да» открывает показ команде.</span></li>
+    <li><b>3</b><span>Что вы хотите видеть на своём экране первым: остатки по дням, календарь платежей или кассу по точкам. С этого и начнём.</span></li>
+  </ul>
+</section>
+
+<footer>
+  <b class="brand">Mg</b> Digital · Станислав Жуковец · Михаил Зеленин · Лимасол, октябрь 2026 · <a href="https://audit.maizongroup.com/nikolay/">предложение от 3 августа</a>
+</footer>
+
+</body>
+</html>
