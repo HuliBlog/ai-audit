@@ -118,6 +118,41 @@
   .btn{display:inline-block;margin-top:.8rem;padding:.45rem .8rem;border-radius:8px;background:var(--blue);color:#fff;font-size:.74rem;font-weight:600;letter-spacing:.06em}
   .btn.ghost{background:#fff;color:var(--blue);border:1px solid var(--blue-line)}
 
+  /* manager app mockups */
+  .appnav{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.4rem}
+  .appnav span{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:.45rem .9rem;border:1px solid var(--silver);border-radius:999px;color:var(--grey)}
+  .appnav span.on{background:var(--blue);border-color:var(--blue);color:#fff}
+  .appnav span.soon{border-style:dashed}
+  .apps{margin-top:1.6rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+  @media(max-width:900px){.apps{grid-template-columns:1fr}}
+  .app{border:1px solid #d0d0d0;border-radius:18px;background:#fff;box-shadow:0 24px 50px rgba(0,0,0,.12);overflow:hidden;font-size:.82rem}
+  .abar{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.1rem;border-bottom:1px solid #eee;background:#fafafa;gap:.6rem}
+  .abar .at{font-weight:600}.abar .at small{display:block;font-weight:400;color:#777;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+  .abar .au{font-size:.7rem;color:#777;text-align:right}
+  .ain{padding:1rem 1.1rem}
+  .ach{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#777;margin-bottom:.5rem}
+  .task{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.42rem 0;border-top:1px solid #f0f0f0;color:#333}
+  .task:first-of-type{border-top:none}
+  .task>span:first-of-type{flex:1}
+  .task .v{font-variant-numeric:tabular-nums;font-weight:500}
+  .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.6rem}
+  .chips span{font-size:.66rem;padding:.15rem .55rem;border-radius:999px;border:1px solid #ddd;color:#666}
+  .chips span.on{background:var(--blue-soft);border-color:var(--blue-line);color:var(--blue)}
+  .btn.sm{margin-top:0;padding:.3rem .6rem;font-size:.66rem}
+  .scanbox{position:relative;background:#1b1b1b;border-radius:12px;padding:1.2rem;margin-bottom:.9rem;min-height:9.5rem;display:flex;align-items:center;justify-content:center}
+  .paper{background:#fff;transform:rotate(-2deg);padding:.8rem 1rem;width:70%;box-shadow:0 10px 30px rgba(0,0,0,.4);font-size:.66rem;color:#333;display:grid;gap:.2rem}
+  .paper span:first-child{font-weight:700;letter-spacing:.08em}
+  .corner{position:absolute;width:1.1rem;height:1.1rem;border:2px solid var(--gold)}
+  .corner.tl{top:.6rem;left:.6rem;border-right:none;border-bottom:none}
+  .corner.tr{top:.6rem;right:.6rem;border-left:none;border-bottom:none}
+  .corner.bl{bottom:.6rem;left:.6rem;border-right:none;border-top:none}
+  .corner.br{bottom:.6rem;right:.6rem;border-left:none;border-top:none}
+  .week{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem}
+  .dcol{border:1px solid #eee;border-radius:8px;padding:.4rem .35rem;min-height:5.2rem}
+  .dcol.on{border-color:var(--blue-line);background:var(--blue-soft)}
+  .dh{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#777;margin-bottom:.3rem}
+  .pay{font-size:.62rem;line-height:1.25;padding:.2rem .3rem;border-radius:5px;margin-bottom:.25rem;color:#fff}
+  .pay.r{background:var(--red)}.pay.y{background:var(--amber)}.pay.g{background:var(--green)}
   /* statuses flow */
   .flow{margin-top:2.2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
   @media(max-width:800px){.flow{grid-template-columns:1fr}}
@@ -178,7 +213,7 @@
 <section class="hero">
   <div class="club"><b class="brand">Mg</b> Digital · Пульт · для Николая Рыжкова · Октябрь 2026</div>
   <h1>Деньги группы <span>на одном экране</span>, каждое утро</h1>
-  <p class="sub">Николай, это следующий шаг Пульта. Экран собственника: остатки по счетам по дням и по точкам, календарь платежей, касса за вчера, кто не сдал документы. И кабинет менеджера, который делает этот экран правдивым: смена закрывается в программе, цифры проверяются в момент ввода, квитанция прикладывается сразу. Мы предлагаем вам войти в этот продукт первым инвестором: он строится на вашей группе и под ваши задачи.</p>
+  <p class="sub">Николай, это следующий шаг Пульта. Экран собственника: остатки по счетам по дням и по точкам, календарь платежей, касса за вчера, кто не сдал документы. И кабинет менеджера, который делает этот экран правдивым: смена закрывается в программе, цифры проверяются в момент ввода, квитанция прикладывается сразу. Кабинет менеджера это рабочее место на каждый день: документы, платежи, сотрудники, касса. Мы предлагаем вам войти в этот продукт первым инвестором: он строится на вашей группе и под ваши задачи.</p>
   <div class="meta">
     <span><b>12 точек</b> · 7 компаний</span>
     <span><b>QuickBooks</b> + Syrve + WhatsApp</span>
@@ -318,53 +353,129 @@
 
 <section>
   <div class="kicker">Кабинет менеджера</div>
-  <h2>Восемь цифр вместо бумажки. Остальное считает программа</h2>
-  <div class="split">
-    <div>
-      <div class="tab">
-        <div class="top"><div class="t">Закрытие смены <small>Barbacoa · 28 октября · Егор</small></div><div class="u">Z-отчёт и батч загружены</div></div>
-        <div class="in">
-          <div class="col">
-            <div class="ch">Вводит менеджер</div>
-            <div class="f"><span class="l">Наличные</span><span class="i">541,30</span></div>
-            <div class="f"><span class="l">Карты, терминал</span><span class="i">2 277,92</span></div>
-            <div class="f"><span class="l">Чаевые</span><span class="i">138,53</span></div>
-            <div class="f"><span class="l">Доставка, агрегаторы</span><span class="i">34,30</span></div>
-            <div class="f"><span class="l">Выплачено из кассы</span><span class="i">180,00</span></div>
-            <div class="ch" style="margin-top:.9rem">Считает программа</div>
-            <div class="f"><span class="l">Итог дня</span><span class="i calc">2 992,05</span></div>
-            <div class="f"><span class="l">Остаток кассы</span><span class="i calc">1 181,14</span></div>
-            <div class="chk ok">Батч терминала 2 416,45 минус чаевые 138,53 равно картам 2 277,92. Сходится с Z-отчётом.</div>
-            <div class="chk ask">Выплачено из кассы 180,00: приложите квитанцию, иначе смена не закроется.</div>
-            <span class="btn">Приложить скан</span> <span class="btn ghost">Закрыть смену</span>
-          </div>
-          <div class="col">
-            <div class="ch">Мои документы, сегодня</div>
-            <div class="doc"><span class="dn">Поставщик А, накладная 4471 <small>скан 14:02</small></span><span class="tag">проведён</span></div>
-            <div class="doc"><span class="dn">Поставщик Б, инвойс 1183 <small>скан 15:40</small></span><span class="tag wait">в пути</span></div>
-            <div class="doc"><span class="dn">Чек, хозтовары 42,10 <small>скан 17:15</small></span><span class="tag blue">получен</span></div>
-            <div class="doc"><span class="dn">Накладная 4471, повтор <small>скан 17:20</small></span><span class="tag bad">копия</span></div>
-            <div class="ch" style="margin-top:1rem">Запрос бухгалтеру</div>
-            <div class="doc"><span class="dn">Оплатить вне очереди: поставщик А <small>не отгружает до оплаты</small></span><span class="tag wait">ждёт</span></div>
-            <div class="ch" style="margin-top:1rem">Напоминание</div>
-            <div class="doc"><span class="dn">За вчера не хватает одной квитанции <small>расход 95,00</small></span><span class="tag bad">1</span></div>
-          </div>
-        </div>
-      </div>
-      <p class="mock-cap">Макет по форме смены вашей бухгалтерии. Цифры условные.</p>
-    </div>
-    <div>
-      <p class="lead">Та же форма, что менеджер сейчас пишет на бумаге, но считает её программа, и ошибка видна до отправки, а не через месяц. Документы снимаются сканом в приложении, не фото в чат: сжатые фото читаются плохо, а квитанция нужна в момент, когда менеджер вносит расход.</p>
-      <ul class="pts">
-        <li><b>1</b><span><b>Закрытие смены.</b> Менеджер вносит восемь чисел. Итог дня и остаток кассы считает программа и сверяет с Z-отчётом и батчем. Перепутал карты и чаевые местами, сразу видно.</span></li>
-        <li><b>2</b><span><b>Квитанция сразу.</b> Внёс расход из кассы, программа просит скан. Без квитанции смена не закрывается. Не бухгалтер через месяц, а программа в тот же вечер.</span></li>
-        <li><b>3</b><span><b>Мои документы.</b> Получен, проведён, в пути, оплачен, копия. Менеджер видит сам и не спрашивает «а вы оплатили?».</span></li>
-        <li><b>4</b><span><b>Скан в приложении.</b> Камера, обрезка, выравнивание, полное разрешение. Инвойс не теряется, не рвётся и не исчезает: он в системе с момента скана.</span></li>
-        <li><b>5</b><span><b>Приоритет оплаты.</b> Менеджер знает, какой поставщик не отгрузит без денег. Он предлагает, бухгалтер подтверждает, вы видите в календаре.</span></li>
-        <li><b>6</b><span><b>Отчёт собирается сам.</b> Ежедневный отчёт, который сегодня переписывается в Excel, формируется из смены и документов. Руками его больше никто не ведёт.</span></li>
-      </ul>
-    </div>
+  <h2>Рабочее место на каждый день, а не форма в конце смены</h2>
+  <p class="lead">Менеджер открывает кабинет утром и закрывает вечером. Здесь он сканирует документы, видит, что оплачено, ставит платежи в график, отмечает людей на смене, выдаёт аванс и закрывает кассу. Всё, что сегодня живёт в WhatsApp, на бумаге и в памяти, живёт в одном экране, и бухгалтер видит то же самое со своей стороны.</p>
+  <div class="appnav">
+    <span class="on">Сегодня</span><span>Документы</span><span>Скан</span><span>Платежи</span><span>Сотрудники</span><span>Смена</span><span class="soon">Склад · позже</span>
   </div>
+
+  <div class="apps">
+
+    <div class="app">
+      <div class="abar"><div class="at">Сегодня <small>Barbacoa · 28 октября · Егор</small></div><div class="au">09:40</div></div>
+      <div class="ain">
+        <div class="ach">Что сделать до закрытия</div>
+        <div class="task"><i class="dot r"></i><span>Закрыть смену: Z-отчёт и батч уже загружены</span><span class="tag bad">вечером</span></div>
+        <div class="task"><i class="dot y"></i><span>За вчера не хватает квитанции: расход из кассы 95,00</span><span class="tag wait">1</span></div>
+        <div class="task"><i class="dot r"></i><span>Поставщик А, накладная 4471: срок оплаты сегодня</span><span class="tag bad">в график</span></div>
+        <div class="task"><i class="dot g"></i><span>Пришло 6 документов, 1 копия отсечена</span><span class="tag">ок</span></div>
+        <div class="ach" style="margin-top:.9rem">Люди на смене</div>
+        <div class="task"><span>Вышло 7 из 8 по отпечатку</span><span class="tag">07:52 первый</span></div>
+        <div class="task"><span>Мария, бар: опоздание 40 минут</span><span class="tag wait">отметить</span></div>
+        <div class="ach" style="margin-top:.9rem">Касса сейчас</div>
+        <div class="task"><span>Остаток на начало дня</span><span class="v">1 181,14</span></div>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="abar"><div class="at">Документы <small>все точки, где я менеджер</small></div><div class="au"><span class="btn sm">Сканировать</span></div></div>
+      <div class="ain">
+        <div class="chips"><span class="on">Все</span><span>Получен</span><span>Проведён</span><span>К оплате</span><span>В пути</span><span>Оплачен</span><span>Копия</span></div>
+        <div class="doc"><span class="dn">Поставщик А, накладная 4471 · 1 860,00 <small>28 окт · Gulya · продукты</small></span><span class="tag wait">к оплате</span></div>
+        <div class="doc"><span class="dn">Поставщик Б, инвойс 1183 · 640,00 <small>27 окт · Barbacoa · напитки · карта Димы</small></span><span class="tag wait">в пути</span></div>
+        <div class="doc"><span class="dn">Аренда, октябрь · 2 400,00 <small>25 окт · Barbacoa · из QuickBooks: оплачено 27 окт</small></span><span class="tag">оплачен</span></div>
+        <div class="doc"><span class="dn">Чек, хозтовары · 42,10 <small>28 окт · скан 17:15 · ждёт проводки</small></span><span class="tag blue">получен</span></div>
+        <div class="doc"><span class="dn">Чек, еда персонала · 18,50 <small>28 окт · не для QuickBooks · списание</small></span><span class="tag blue">списание</span></div>
+        <div class="doc"><span class="dn">Накладная 4471, повтор <small>28 окт · скан 17:20</small></span><span class="tag bad">копия</span></div>
+        <div class="ach" style="margin-top:.9rem">Чего не хватает</div>
+        <div class="task"><span>Квитанция к расходу из кассы 95,00 за 27 окт</span><span class="tag bad">приложить</span></div>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="abar"><div class="at">Скан <small>камера в приложении</small></div><div class="au">обрезка · выравнивание</div></div>
+      <div class="ain">
+        <div class="scanbox"><div class="paper"><span>НАКЛАДНАЯ № 4472</span><span>Поставщик А</span><span>28.10.2026</span><span>Итого 1 240,00</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div></div>
+        <div class="ach">Программа прочитала</div>
+        <div class="f"><span class="l">Поставщик</span><span class="i calc">Поставщик А</span></div>
+        <div class="f"><span class="l">Номер и дата</span><span class="i calc">4472 · 28 окт</span></div>
+        <div class="f"><span class="l">Сумма, НДС</span><span class="i calc">1 240,00 · 5%</span></div>
+        <div class="f"><span class="l">Компания, статья</span><span class="i calc">Gulya · продукты</span></div>
+        <div class="f"><span class="l">Срок оплаты</span><span class="i calc">по истории: 7 дней</span></div>
+        <div class="chk ok">Это новая накладная, не копия 4471. Можно отправлять.</div>
+        <span class="btn">Подтвердить</span> <span class="btn ghost">Переснять</span>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="abar"><div class="at">Платежи <small>график на неделю · Gulya и Barbacoa</small></div><div class="au">бухгалтер подтверждает</div></div>
+      <div class="ain">
+        <div class="week">
+          <div class="dcol"><div class="dh">Пн 27</div><div class="pay g">Напитки 320</div></div>
+          <div class="dcol on"><div class="dh">Вт 28</div><div class="pay r">Поставщик А 1 860</div><div class="pay y">Аренда 2 400</div></div>
+          <div class="dcol"><div class="dh">Ср 29</div><div class="pay y">Мясо 980</div></div>
+          <div class="dcol"><div class="dh">Чт 30</div></div>
+          <div class="dcol"><div class="dh">Пт 31</div><div class="pay g">Поставщик Б 640</div><div class="pay g">Газ 210</div></div>
+        </div>
+        <div class="ach" style="margin-top:.9rem">Поставить в график</div>
+        <div class="f"><span class="l">Накладная 4472, Поставщик А</span><span class="i">1 240,00</span></div>
+        <div class="f"><span class="l">Предлагаю дату</span><span class="i">4 ноя</span></div>
+        <div class="f"><span class="l">Приоритет</span><span class="i"><i class="dot y"></i>на неделе</span></div>
+        <div class="chk ask">Поставщик А не отгружает до оплаты 4471. Отправить бухгалтеру как «вне очереди»?</div>
+        <div class="ach" style="margin-top:.9rem">Остаток и план, Gulya</div>
+        <div class="task"><span>На счёте сегодня</span><span class="v">5 120,00</span></div>
+        <div class="task"><span>Уже в графике до пятницы</span><span class="v">4 800,00</span></div>
+        <div class="task"><span>Оплачено картой на точке, в пути</span><span class="tag wait">640,00</span></div>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="abar"><div class="at">Сотрудники <small>Barbacoa · смена 28 октября</small></div><div class="au">отпечатки подключены</div></div>
+      <div class="ain">
+        <div class="doc"><span class="dn">Андреас, кухня <small>07:52 - 16:10 · 8 ч 18 мин</small></span><span class="tag">на смене</span></div>
+        <div class="doc"><span class="dn">Мария, бар <small>10:40 вместо 10:00 · опоздание 40 мин</small></span><span class="tag wait">отметить</span></div>
+        <div class="doc"><span class="dn">Никос, зал <small>не отметился</small></span><span class="tag bad">выяснить</span></div>
+        <div class="doc"><span class="dn">Елена, зал <small>09:58 - · 4 ч 12 мин</small></span><span class="tag">на смене</span></div>
+        <div class="ach" style="margin-top:.9rem">Аванс</div>
+        <div class="f"><span class="l">Андреас просит аванс</span><span class="i">100,00</span></div>
+        <div class="chk ask">Начисления за октябрь ещё нет. Аванс уйдёт как кредит и зачтётся при расчёте. Баланс после выдачи: минус 100,00. Выдать из кассы с распиской?</div>
+        <span class="btn">Выдать и подписать</span> <span class="btn ghost">Отказать</span>
+        <div class="ach" style="margin-top:.9rem">Октябрь, к расчёту</div>
+        <div class="task"><span>Часы по точке из отпечатков</span><span class="v">1 212 ч</span></div>
+        <div class="task"><span>Уходят бухгалтеру в расчёт и пейслипы</span><span class="tag blue">1 ноя</span></div>
+      </div>
+    </div>
+
+    <div class="app">
+      <div class="abar"><div class="at">Закрытие смены <small>Barbacoa · 28 октября · Егор</small></div><div class="au">Z-отчёт и батч загружены</div></div>
+      <div class="ain">
+        <div class="ach">Вводит менеджер</div>
+        <div class="f"><span class="l">Наличные</span><span class="i">541,30</span></div>
+        <div class="f"><span class="l">Карты, терминал</span><span class="i">2 277,92</span></div>
+        <div class="f"><span class="l">Чаевые</span><span class="i">138,53</span></div>
+        <div class="f"><span class="l">Доставка, агрегаторы</span><span class="i">34,30</span></div>
+        <div class="f"><span class="l">Выплачено из кассы</span><span class="i">180,00</span></div>
+        <div class="ach" style="margin-top:.9rem">Считает программа</div>
+        <div class="f"><span class="l">Итог дня</span><span class="i calc">2 992,05</span></div>
+        <div class="f"><span class="l">Остаток кассы</span><span class="i calc">1 181,14</span></div>
+        <div class="chk ok">Батч терминала 2 416,45 минус чаевые 138,53 равно картам 2 277,92. Сходится с Z-отчётом.</div>
+        <div class="chk ask">Выплачено из кассы 180,00: приложите квитанцию, иначе смена не закроется.</div>
+        <span class="btn">Приложить скан</span> <span class="btn ghost">Закрыть смену</span>
+      </div>
+    </div>
+
+  </div>
+  <p class="mock-cap">Макеты по форме смены и Excel вашей бухгалтерии. Имена и цифры условные, названия компаний ваши.</p>
+
+  <ul class="pts" style="max-width:60rem">
+    <li><b>1</b><span><b>Сегодня.</b> Один экран на утро: что закрыть, чего не хватает, какие платежи стоят на сегодня, кто вышел на смену. Не бухгалтер напоминает, а программа.</span></li>
+    <li><b>2</b><span><b>Документы.</b> Все документы точки со статусами: получен, проведён, к оплате, в пути, оплачен, копия. Статус «оплачен» приходит из QuickBooks и банка, менеджер видит сам и не спрашивает. Чеки на еду персонала и комплименты отмечаются как списание, а не как расход в QuickBooks.</span></li>
+    <li><b>3</b><span><b>Скан.</b> Камера в приложении: обрезка, выравнивание, полное разрешение. Программа читает поставщика, сумму, НДС, компанию и статью, подставляет срок оплаты по истории и проверяет, не копия ли это. Инвойс в системе с момента скана, его нельзя потерять.</span></li>
+    <li><b>4</b><span><b>Платежи.</b> Менеджер видит график на неделю и остаток компании, ставит новый инвойс в график с датой и приоритетом, отправляет «вне очереди», если поставщик не отгружает. Подтверждает бухгалтер, вы видите в календаре. Оплата картой на точке сразу переводит инвойс «в пути».</span></li>
+    <li><b>5</b><span><b>Сотрудники.</b> Кто вышел и во сколько по отпечатку, опоздания, часы за месяц. Аванс выдаётся из кабинета с распиской и сразу зачитывается как кредит к будущему начислению: баланс сотрудника всегда виден. Часы за месяц уходят бухгалтеру в расчёт и пейслипы без Excel.</span></li>
+    <li><b>6</b><span><b>Закрытие смены.</b> Восемь цифр, итог и остаток кассы считает программа, сверяет с Z-отчётом и батчем, перепутанные карты и чаевые видны сразу. Расход без квитанции не даёт закрыть смену. Отчёт собирается сам.</span></li>
+  </ul>
+  <p class="note">Склад идёт следующим на том же кабинете: списания с телефона, пересчёт, техкарты. Шеф получает свой вход в тот же кабинет.</p>
 </section>
 
 <section>
@@ -378,6 +489,7 @@
     <div class="r"><div>Отчёт смены на бумаге, пересчёт на калькуляторе, перенос в Excel</div><div>Восемь цифр в программе, итог и остаток считаются сами, отчёт собирается сам</div></div>
     <div class="r"><div>Остатки по счетам в чат по утрам, к вечеру они другие</div><div>Остатки и план платежей на вашем экране в любой момент, с историей по дням</div></div>
     <div class="r"><div>Поставщик напоминает о долге, бухгалтерия не знает об инвойсе</div><div>Инвойс в системе с момента скана на точке, срок оплаты стоит в календаре</div></div>
+    <div class="r"><div>Часы в чат, расчёт в Excel, аванс без расписки и без баланса</div><div>Часы из отпечатков в кабинете, аванс с распиской и зачётом, расчёт и пейслипы без ручного переноса</div></div>
   </div>
 </section>
 
