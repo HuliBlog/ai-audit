@@ -137,6 +137,7 @@
   .trap::before{content:"из опыта"}
   .note a{color:var(--blue)}
   .prompt.long{white-space:pre-wrap;max-height:36vh;overflow-y:auto}
+  .prompt.fit{max-height:25vh;overflow-y:auto}
   .linkbtn{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--white);background:var(--blue);padding:.6rem 1.3rem;text-decoration:none}
 </style>
 
@@ -210,11 +211,9 @@
 <section class="slide">
   <div class="session-head"><span class="no">А1</span><div><div class="kicker" style="margin-bottom:.2rem">стол «основа» · установка и онбординг</div></div><span class="timer">40 минут</span></div>
   <p class="task"><b>Задача:</b> Claude Code установлен, открыт в папке workspace и знает, кто вы.</p>
-  <p class="note" style="margin-top:0;margin-bottom:1.6rem"><b>Нужно:</b> подписка Claude Pro или Max, приложение Claude Code (<a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">code.claude.com/docs/en/desktop</a>), папка <code>workspace</code> на рабочем столе. Откройте Claude Code в этой папке и вставьте по очереди:</p>
-  <div class="prompt cmd" data-label="в чат Claude Code · первая строка" data-copy="">install skill from https://github.com/BayramAnnakov/ai-personal-os-onboarding</div>
-  <div class="prompt cmd" data-label="в чат Claude Code · вторая строка" data-copy="" style="margin-top:2rem">/ai-personal-os-onboarding</div>
-  <p class="note">Он проведёт интервью на 10-15 минут. Отвечайте честно: это станет его памятью о вас.</p>
-  <p class="done-check"><b>Готово, когда:</b> в папке появились <code>CLAUDE.md</code>, <code>user-profile.md</code> и <code>SOUL.md</code>, а на вопрос «кто я?» он отвечает про вас.</p>
+  <p class="note" style="margin-top:0;margin-bottom:1.6rem"><b>Нужно:</b> подписка Claude Pro или Max, приложение Claude Code (<a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">code.claude.com/docs/en/desktop</a>), папка <code>workspace</code> на рабочем столе. Откройте Claude Code в этой папке и вставьте промпт. Отвечать можно голосом.</p>
+  <div class="prompt fit" data-label="промпт · в Claude Code" data-copy="">Проведи со мной онбординг: ты становишься моим личным ИИ-ассистентом и должен узнать меня. Задавай вопросы по одному и жди ответа: как меня зовут и как ко мне обращаться; чем я занимаюсь и на чём зарабатываю; мои 1-3 главных проекта; цель на ближайший год в цифрах; что сейчас мешает больше всего; ключевые люди вокруг меня; как со мной говорить; что делать, когда я не прав; что тебе запрещено делать без моего «да»; какие три повторяющиеся задачи я хочу тебе отдать. После интервью создай в этой папке три файла: CLAUDE.md (главная инструкция для тебя: кто я, правила, запреты, что читать в начале каждой сессии), user-profile.md (подробно обо мне, проектах, целях и людях), SOUL.md (твой характер и тон со мной). Покажи содержание перед записью. В конце перескажи в пяти строках, кто я, и предложи первую задачу на сегодня.</div>
+  <p class="done-check"><b>Готово, когда:</b> в папке появились <code>CLAUDE.md</code>, <code>user-profile.md</code> и <code>SOUL.md</code>, а в новом диалоге на вопрос «кто я?» он отвечает про вас.</p>
 </section>
 
 <!-- 8 · А2 -->
@@ -228,12 +227,10 @@
 
 <!-- 9 · А3 -->
 <section class="slide">
-  <div class="session-head"><span class="no">А3</span><div><div class="kicker" style="margin-bottom:.2rem">стол «основа» · Telegram</div></div><span class="timer">30 минут</span></div>
-  <p class="task" style="margin-bottom:1rem"><b>Задача:</b> Claude Code читает ваш Telegram и готовит черновики ответов.</p>
-  <p class="note" style="margin-top:0;margin-bottom:1.5rem"><b>Сначала ключи:</b> my.telegram.org, вход по номеру, API Development Tools, создать приложение. API ID и API Hash вводите только сами, в чат не пересылать.</p>
-  <div class="prompt cmd" data-label="в чат Claude Code · первая строка" data-copy="">install skill from https://github.com/BayramAnnakov/telegram-mcp-setup</div>
-  <div class="prompt cmd" data-label="в чат Claude Code · вторая строка" data-copy="" style="margin-top:2rem">/telegram-mcp-setup</div>
-  <p class="note">Проверка после перезапуска Claude Code: <b>«Прочитай мои последние 3 сообщения в Telegram»</b>. Первое задание: <b>«Найди неотвеченный вопрос в моих последних сообщениях и подготовь черновик ответа»</b>.</p>
+  <div class="session-head"><span class="no">А3</span><div><div class="kicker" style="margin-bottom:.2rem">стол «основа» · Telegram</div></div><span class="timer">30 минут · кто успеет</span></div>
+  <p class="task"><b>Задача:</b> Claude Code читает ваш Telegram и готовит черновики ответов.</p>
+  <div class="prompt fit" data-label="промпт · в Claude Code" data-copy="">Подключи мой Telegram к себе, чтобы ты мог читать мои чаты и готовить черновики ответов. Используй открытый MCP-сервер telegram-mcp (github.com/chigwell/telegram-mcp). Веди меня по шагам, по одному за раз, и жди моего «готово». 1) Проверь, что у меня установлено (Python, uv или Docker), выбери самый простой путь и объясни его одной фразой. 2) Помоги получить API ID и API Hash на my.telegram.org: скажи, куда нажимать. Сами значения, номер телефона и код из Telegram я ввожу только сам в терминале, в чат их не проси и не печатай. 3) Ключи и сессию сохрани в защищённом хранилище системы (на Mac это Связка ключей), не в файлах этой папки. 4) Зарегистрируй сервер у себя и скажи, когда перезапустить Claude Code. 5) Проверка: прочитай мои последние три сообщения. Правило навсегда: отправлять сообщения от моего имени можно только после моего явного «да». Запиши его в CLAUDE.md.</div>
+  <p class="note"><b>Сессия Telegram чувствительнее пароля:</b> никому не пересылать, в общий чат не вставлять. Первое задание после подключения: <b>«Найди неотвеченный вопрос в моих последних сообщениях и подготовь черновик ответа»</b>.</p>
   <p class="done-check"><b>Готово, когда:</b> он показал черновик. Отправляете вы сами: он готовит, человек решает.</p>
 </section>
 
