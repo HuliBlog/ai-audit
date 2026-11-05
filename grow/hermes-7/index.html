@@ -138,6 +138,12 @@
   .note a{color:var(--blue)}
   .prompt.long{white-space:pre-wrap;max-height:36vh;overflow-y:auto}
   .prompt.fit{max-height:25vh;overflow-y:auto}
+  .grid.pick{margin-top:.2rem}
+  .grid.pick .card{padding:.7rem 1.2rem}
+  .grid.pick .card .n{display:inline;margin-right:.6rem;font-size:1.3rem}
+  .grid.pick .card h3{display:inline;font-size:.95rem}
+  .grid.pick .card p{margin-top:.3rem;font-size:.92rem;line-height:1.4}
+  .grid.pick ~ .prompt.long{max-height:17vh}
   .linkbtn{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--white);background:var(--blue);padding:.6rem 1.3rem;text-decoration:none}
 </style>
 
@@ -254,9 +260,13 @@
 
 <!-- 12 · 03 нет Гермеса -->
 <section class="slide">
-  <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · Гермеса ещё нет</div></div><span class="timer">30 минут</span></div>
-  <p class="task"><b>Задача:</b> Claude Code сам ставит Гермеса на ваш сервер и подключает к нему папку из GitHub. Гермес уже есть: следующий слайд.</p>
-  <p class="note" style="margin-top:0;margin-bottom:1.6rem"><b>Нужно:</b> сервер (IP и пароль из панели хостинга), бот от @BotFather, ваш Telegram ID от @userinfobot, модель. Промпт длинный: нажмите на него или на кнопку, скопируется целиком.</p>
+  <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · Гермеса ещё нет</div></div><span class="timer">30 минут · Гермес есть: слайд 13</span></div>
+  <p class="task" style="margin-bottom:.6rem"><b>Задача:</b> Claude Code сам ставит Гермеса на сервер и подключает папку из GitHub. Сначала выберите модель под свою цель.</p>
+  <div class="grid g2 pick">
+    <div class="card compact"><span class="n">А</span><h3>Цель: Гермес в Telegram</h3><p>Модель: подписка Nous Portal. Этот путь разработчики Гермеса советуют первым. Запасной вариант: ключ OpenRouter с лимитом расходов.</p></div>
+    <div class="card compact"><span class="n">Б</span><h3>Цель: потом голос, как в демо</h3><p>Модель: подписка ChatGPT, одна на Гермеса и на голос. До запуска включите в ChatGPT вход по коду устройства: Settings, Security. Свой плагин для голоса требует тарифа с приложениями: по справке OpenAI это Business и Enterprise.</p></div>
+  </div>
+  <p class="note" style="margin-bottom:1.5rem"><b>Ещё нужно:</b> сервер (IP и пароль из панели хостинга), бот от @BotFather, ваш Telegram ID от @userinfobot. Claude Code спросит, какую модель вы выбрали. Промпт длинный: нажмите на него, скопируется целиком.</p>
   <div class="prompt long" data-label="промпт · в Claude Code" data-copy="">Ты мой инженер по развёртыванию. Задача: поставить Hermes Agent (Nous Research) на мой VPS в Hostinger, подключить его к моему Telegram-боту и к моей папке на GitHub. Работай с моего ноутбука по SSH, шаг за шагом, после каждого шага проверяй результат командой и коротко пиши мне, что сделано. Всё общение на русском.
 
 Исходные данные (спроси у меня то, чего нет):
@@ -264,7 +274,7 @@
 - ссылка на мой репозиторий GitHub с базой знаний: &lt;ссылка&gt;
 - токен Telegram-бота: я создам его сам у @BotFather и вставлю в файл, не в чат
 - мой Telegram user id: подскажи, как узнать (бот @userinfobot)
-- провайдер модели: OpenRouter (ключ), OpenAI (ключ) или вход через подписку ChatGPT; спроси, что у меня есть
+- провайдер модели: Nous Portal (подписка), вход через подписку ChatGPT, OpenRouter (ключ) или OpenAI (ключ); спроси, что у меня есть
 
 Правила безопасности (обязательны):
 - Ключи и токены никогда не печатай в чат и в вывод команд. Файл .env с пустыми полями создаёшь ты, значения вписываю я сам через nano по SSH. Проверку делай так: grep -c '^TELEGRAM_BOT_TOKEN=.\+' .env, без вывода значения.
@@ -304,7 +314,7 @@
 6. Перезапусти шлюз. Я напишу боту «над чем я сейчас работаю?», а ты посмотри в логах, что он ответил по моей папке.
 
 Правила: ключи и токены не печатай и не проси в чат. Ничего не удаляй и не переустанавливай без моего «да». В клон на сервере ничего не пиши.</div>
-  <p class="trap">Без <code>terminal.cwd</code> Гермес не видит папку, а без <code>AGENTS.md</code> не читает ваши правила. У меня было и то, и другое.</p>
+  <p class="trap">Без <code>terminal.cwd</code> Гермес не видит папку, а без <code>AGENTS.md</code> не читает ваши правила. У меня было и то, и другое. Сменить модель под цель со слайда 12: <code>hermes model</code> в терминале сервера.</p>
   <p class="done-check"><b>Готово, когда:</b> бот в Telegram назвал ваши проекты так же, как Claude Code.</p>
 </section>
 
@@ -386,7 +396,7 @@
   <div class="grid g2">
     <div class="card compact"><span class="n">01</span><h3>Завтра в 8:00</h3><p>Стол «Гермес»: придёт первый план дня. Стол «Основа»: откройте Claude Code и дайте ему одну настоящую задачу.</p></div>
     <div class="card compact"><span class="n">02</span><h3>Через неделю</h3><p>Одной строкой в чат GROW: что отдали и сколько времени это вернуло.</p></div>
-    <div class="card compact"><span class="n">03</span><h3>Голос, как в демо</h3><p>Живой разговор с той же памятью: следующая ступень. Кому нужно раньше, подойдите ко мне.</p></div>
+    <div class="card compact"><span class="n">03</span><h3>Голос, как в демо</h3><p>Следующая ступень. Нужен тариф ChatGPT, где разрешены свои приложения. Нужно раньше: подойдите ко мне.</p></div>
     <div class="card compact"><span class="n">04</span><h3>После января</h3><p>GROW в нынешнем формате работает до 31 января. Проголосуйте в чате, нужны ли воркшопы по ИИ дальше.</p></div>
   </div>
   <p class="lead" style="margin-top:1rem"><b style="color:var(--ink)">Промпты остаются на этом сайте.</b> Такую связку для команды под ключ: подойдите ко мне после или напишите в личку.</p>
