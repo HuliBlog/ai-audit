@@ -263,10 +263,10 @@
   <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · Гермеса ещё нет</div></div><span class="timer">30 минут · Гермес есть: слайд 13</span></div>
   <p class="task" style="margin-bottom:.6rem"><b>Задача:</b> Claude Code сам ставит Гермеса на сервер и подключает папку из GitHub. Сначала выберите модель под свою цель.</p>
   <div class="grid g2 pick">
-    <div class="card compact"><span class="n">А</span><h3>Цель: Гермес в Telegram</h3><p>Модель: подписка Nous Portal. Этот путь разработчики Гермеса советуют первым. Запасной вариант: ключ OpenRouter с лимитом расходов.</p></div>
-    <div class="card compact"><span class="n">Б</span><h3>Цель: потом голос, как в демо</h3><p>Модель: подписка ChatGPT, одна на Гермеса и на голос. До запуска включите в ChatGPT вход по коду устройства: Settings, Security. Свой плагин для голоса требует тарифа с приложениями: по справке OpenAI это Business и Enterprise.</p></div>
+    <div class="card compact"><span class="n">А</span><h3>Цель: Гермес в Telegram</h3><p>Модель: подписка ChatGPT, обычной Plus хватает. Гермес входит через Codex и тратит лимит подписки, не деньги. Для рутин берите модель полегче: лимит расходуется медленнее.</p></div>
+    <div class="card compact"><span class="n">Б</span><h3>Цель: потом голос, как в демо</h3><p>Та же подписка ChatGPT, но тарифом выше. Свой плагин на Plus не создать: по справке OpenAI он доступен на Business и Enterprise, у меня работает на Pro. Заранее не покупайте, начните с варианта А.</p></div>
   </div>
-  <p class="note" style="margin-bottom:1.5rem"><b>Ещё нужно:</b> сервер (IP и пароль из панели хостинга), бот от @BotFather, ваш Telegram ID от @userinfobot. Claude Code спросит, какую модель вы выбрали. Промпт длинный: нажмите на него, скопируется целиком.</p>
+  <p class="note" style="margin-bottom:1.5rem"><b>До запуска</b> включите в ChatGPT вход по коду устройства: Settings, Security. <b>Ещё нужно:</b> сервер (IP и пароль из панели хостинга), бот от @BotFather, ваш Telegram ID от @userinfobot. Ставили в октябре на Nous Portal: оставайтесь на нём. Промпт длинный: нажмите на него, скопируется целиком.</p>
   <div class="prompt long" data-label="промпт · в Claude Code" data-copy="">Ты мой инженер по развёртыванию. Задача: поставить Hermes Agent (Nous Research) на мой VPS в Hostinger, подключить его к моему Telegram-боту и к моей папке на GitHub. Работай с моего ноутбука по SSH, шаг за шагом, после каждого шага проверяй результат командой и коротко пиши мне, что сделано. Всё общение на русском.
 
 Исходные данные (спроси у меня то, чего нет):
@@ -274,7 +274,7 @@
 - ссылка на мой репозиторий GitHub с базой знаний: &lt;ссылка&gt;
 - токен Telegram-бота: я создам его сам у @BotFather и вставлю в файл, не в чат
 - мой Telegram user id: подскажи, как узнать (бот @userinfobot)
-- провайдер модели: Nous Portal (подписка), вход через подписку ChatGPT, OpenRouter (ключ) или OpenAI (ключ); спроси, что у меня есть
+- провайдер модели: вход через подписку ChatGPT, Nous Portal (подписка), OpenRouter (ключ) или OpenAI (ключ); спроси, что у меня есть
 
 Правила безопасности (обязательны):
 - Ключи и токены никогда не печатай в чат и в вывод команд. Файл .env с пустыми полями создаёшь ты, значения вписываю я сам через nano по SSH. Проверку делай так: grep -c '^TELEGRAM_BOT_TOKEN=.\+' .env, без вывода значения.
