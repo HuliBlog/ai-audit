@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>GROW · Воркшоп №7 · Гермес</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&amp;family=Jost:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF; --gold:#ddb85b; --black:#121212; --ink:#1c1c1c;
+    --grey:#717171; --silver:#d9d9d9; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--black);overflow:hidden;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Baskervville',serif}
+
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:7vh 7vw 12vh;background:var(--white)}
+  .slide.active{display:flex}
+  .slide.dark{background:var(--black);color:var(--white)}
+  .slide.blue{background:var(--blue);color:var(--white)}
+
+  .kicker{font-size:clamp(.7rem,1.2vw,.9rem);letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.6rem}
+  .dark .kicker{color:var(--gold)}
+  .blue .kicker{color:var(--white);opacity:.75}
+  h1{font-size:clamp(2.4rem,6.5vw,5rem);font-weight:600;line-height:1.08;text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.9rem,4.4vw,3.4rem);font-weight:600;line-height:1.12;margin-bottom:2rem}
+  p.lead{font-size:clamp(1.1rem,2vw,1.55rem);color:var(--grey);max-width:52rem;line-height:1.5}
+  .dark p.lead,.blue p.lead{color:#cfcfcf}
+  .blue p.lead{color:#dfe4ff}
+
+  .grid{display:grid;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1.6rem}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:var(--white);padding:clamp(1rem,2.2vh,1.8rem) 1.6rem}
+  .dark .grid{background:#2c2c2c;border-color:#2c2c2c}
+  .dark .card{background:var(--black)}
+  .card h3{font-size:clamp(.95rem,1.6vw,1.2rem);font-weight:600;margin-bottom:.4rem;letter-spacing:.04em;text-transform:uppercase}
+  .dark .card h3{color:var(--white)}
+  .card p{font-size:clamp(.9rem,1.4vw,1.05rem);color:var(--grey)}
+  .card .n{font-family:'Baskervville',serif;font-size:clamp(1.4rem,2.4vw,2rem);color:var(--blue);display:block;margin-bottom:.5rem;line-height:1}
+  .dark .card .n{color:var(--gold)}
+
+  .layers{display:flex;flex-direction:column;margin-top:1rem;max-width:54rem;border-top:1px solid #2c2c2c}
+  .layer{display:flex;align-items:center;gap:1.4rem;padding:clamp(.7rem,1.8vh,1.3rem) .4rem;border-bottom:1px solid #2c2c2c}
+  .layer .num{font-family:'Baskervville',serif;font-size:clamp(1.3rem,2.4vw,1.9rem);color:#b5b5b5;min-width:2.6rem;text-align:center}
+  .layer.on .num{color:var(--gold)}
+  .layer b{color:var(--white);font-weight:600;letter-spacing:.03em;text-transform:uppercase;font-size:clamp(.95rem,1.7vw,1.25rem)}
+  .layer span{color:#b5b5b5;font-size:clamp(.9rem,1.5vw,1.1rem)}
+  .layer .tag{margin-left:auto;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .8rem;white-space:nowrap;color:#7a7a7a;border:1px solid #3a3a3a}
+  .layer.on .tag{color:#cfcfcf;border-color:#5a5a5a}
+  .layer.now .tag{color:var(--black);background:var(--gold);border-color:var(--gold)}
+
+  .session-head{display:flex;align-items:baseline;gap:1.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+  .session-head .no{font-family:'Baskervville',serif;font-size:clamp(2.6rem,6vw,4.6rem);color:var(--blue);line-height:1}
+  .timer{font-size:clamp(.8rem,1.4vw,1rem);letter-spacing:.2em;text-transform:uppercase;color:var(--white);background:var(--blue);padding:.45rem 1.1rem;font-weight:600}
+  .task{font-size:clamp(1.15rem,2.2vw,1.7rem);max-width:50rem;line-height:1.4;margin-bottom:1.4rem}
+  .task b{color:var(--blue)}
+  .prompt{font-family:'JetBrains Mono',monospace;font-size:clamp(.82rem,1.45vw,1.05rem);background:var(--black);color:#e8eef4;padding:clamp(1rem,2.4vh,1.7rem) 1.6rem;line-height:1.6;max-width:60rem;position:relative;cursor:pointer;border-left:4px solid var(--gold)}
+  .prompt::before{content:"промпт";position:absolute;top:-1.5rem;left:0;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+  .prompt.copied::after{content:"скопировано ✓";position:absolute;right:1rem;top:.8rem;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .copybtn{margin-top:1rem;align-self:flex-start;display:inline-flex;align-items:center;gap:.5rem;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--blue);background:var(--white);border:1px solid var(--blue);padding:.6rem 1.3rem;cursor:pointer;transition:background .15s,color .15s}
+  .copybtn:hover{background:var(--blue);color:var(--white)}
+  .copybtn.ok{background:#0a8f3c;border-color:#0a8f3c;color:var(--white)}
+  .done-check{margin-top:1.3rem;font-size:clamp(.95rem,1.7vw,1.2rem);color:var(--grey)}
+  .done-check b{color:var(--ink)}
+
+  .takeaway{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.6rem,3.4vw,2.7rem);max-width:50rem;line-height:1.35}
+  .takeaway .accent{color:var(--gold);font-style:normal}
+
+  ul.plain{list-style:none;margin-top:1rem}
+  ul.plain li{padding:.55rem 0;border-bottom:1px solid var(--silver);font-size:clamp(1rem,1.9vw,1.35rem);display:flex;gap:1.2rem;align-items:baseline}
+  .dark ul.plain li{border-color:#2c2c2c}
+  ul.plain .t{font-family:'Baskervville',serif;color:var(--blue);min-width:5.5rem;font-size:.9em}
+  .dark ul.plain .t{color:var(--gold)}
+
+  .hero{text-align:center;align-items:center}
+  .hero .club{font-size:clamp(.8rem,1.4vw,1rem);letter-spacing:.34em;text-transform:uppercase;font-weight:600;margin-bottom:3rem}
+  .hero .club b{color:var(--blue)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:2rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.15rem,2.2vw,1.7rem);color:var(--grey);max-width:46rem}
+  .hero .meta{margin-top:3rem;font-size:clamp(.8rem,1.4vw,1rem);letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+  .hero .meta b{color:var(--ink)}
+
+  .hud{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 7vw;z-index:10;pointer-events:none}
+  .hud .counter{font-size:.78rem;letter-spacing:.22em;color:var(--grey);font-weight:500}
+  .hud .brand{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);font-weight:600}
+  .hud .brand b{color:var(--blue)}
+  .navbtns{display:flex;gap:.6rem;pointer-events:auto}
+  .navbtns button{width:2.7rem;height:2.7rem;border:1px solid var(--silver);background:rgba(255,255,255,.7);backdrop-filter:blur(4px);color:var(--ink);font-size:1.1rem;cursor:pointer}
+  .navbtns button:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--blue);z-index:11;transition:width .25s ease}
+  @media(max-width:680px){.slide{padding:6vh 6vw 14vh}}
+  code{font-family:"JetBrains Mono",monospace;font-size:.88em;background:var(--light);padding:.05em .35em}
+  .dark code{background:#2c2c2c;color:#e8eef4}
+</style>
+<noscript><style>html,body{height:auto!important;overflow:auto!important}.slide{display:flex!important;position:relative!important;inset:auto!important;min-height:100vh;border-bottom:1px solid #2c2c2c}.hud,.progress{display:none!important}</style></noscript>
+</head>
+<body>
+
+<style>
+  .prompt[data-label]::before{content:attr(data-label)}
+  .prompt.cmd{white-space:pre-wrap}
+  .prompt + .copybtn + .prompt{margin-top:2.4rem}
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.4rem;max-width:64rem;margin-top:.6rem}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1.4rem;max-width:62rem}
+  .vs div{background:var(--white);padding:clamp(.55rem,1.4vh,.9rem) 1.3rem;font-size:clamp(.9rem,1.5vw,1.1rem);color:var(--grey)}
+  .vs .h{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .vs .h.b{color:var(--blue)}
+  .vs .r{color:var(--ink)}
+  .note{margin-top:1.1rem;font-size:clamp(.85rem,1.4vw,1rem);color:var(--grey);max-width:60rem}
+  .note b{color:var(--ink)}
+  .dark .note{color:#b5b5b5}
+  .dark .note b{color:var(--white)}
+  /* «из нашего опыта»: реальные грабли с двух Гермесов в работе */
+  .trap{margin-top:1.1rem;max-width:60rem;border-left:4px solid var(--gold);background:#fbf6e8;padding:.7rem 1.2rem;font-size:clamp(.85rem,1.4vw,1rem);color:var(--ink);line-height:1.45}
+  .trap::before{content:"из нашего опыта";display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#9a7a26;margin-bottom:.2rem}
+  .card .fix{display:block;margin-top:.5rem;color:var(--gold);font-size:clamp(.82rem,1.3vw,.95rem)}
+  .card.compact{padding:clamp(.8rem,1.8vh,1.4rem) 1.4rem}
+  /* режим показа, как в деке AiButler: полный экран, управление притушено */
+  .navbtns button.present{width:auto;padding:0 1.1rem;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  .navbtns button.exitp{display:none}
+  body.presenting .navbtns button.present{display:none}
+  body.presenting .navbtns button.exitp{display:inline-block}
+  body.presenting .hud{opacity:.35;transition:opacity .2s}
+  body.presenting .hud:hover,body.presenting .hud:focus-within{opacity:1}
+  @media(max-width:520px){.hud .brand{display:none}}
+  /* №7: длинные промпты не обрезаются, слайд прокручивается */
+  .slide{overflow-y:auto;justify-content:safe center;padding-top:5vh}
+  h2{margin-bottom:1.4rem}
+  .session-head{margin-bottom:.8rem}
+  .done-check{margin-top:.9rem}
+  .note,.trap{margin-top:.9rem}
+  .copybtn{margin-top:.7rem}
+  .trap::before{content:"из опыта"}
+  .note a{color:var(--blue)}
+  .linkbtn{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--white);background:var(--blue);padding:.6rem 1.3rem;text-decoration:none}
+</style>
+
+<div class="progress" id="bar"></div>
+
+<!-- 1 · обложка -->
+<section class="slide hero active">
+  <div class="club"><b>GROW</b> Business Club · воркшоп №7 курса по ИИ</div>
+  <h1>Гермес<br><span>выходит на работу</span></h1>
+  <p class="sub">Личный бизнес-ассистент: роль, память, голос и первый настоящий процесс из вашего бизнеса.</p>
+  <div class="meta"><b>Станислав Жуковец</b> · 5 ноября · Crowne Plaza Limassol</div>
+</section>
+
+<!-- 2 · план -->
+<section class="slide">
+  <div class="kicker">план на сегодня</div>
+  <h2>Два часа, пять блоков,<br>один процесс отдан Гермесу</h2>
+  <ul class="plain">
+    <li><span class="t">17:30</span> Что я понял за месяц с Гермесом. Рассадка по двум столам</li>
+    <li><span class="t">17:40</span> Живое демо: голосом по своим делам</li>
+    <li><span class="t">17:55</span> Роль и память. База знаний</li>
+    <li><span class="t">18:30</span> Голос. Утро, вечер и неделя по расписанию</li>
+    <li><span class="t">19:00</span> Один реальный процесс из вашего бизнеса</li>
+    <li><span class="t">19:15</span> Показ результатов, грабли месяца, что дальше</li>
+  </ul>
+  <p class="lead" style="margin-top:1rem">Правило зала: застрял на шаге, подними руку. Сначала помогает сосед, потом я.</p>
+</section>
+
+<!-- 3 · два стола -->
+<section class="slide">
+  <div class="kicker">один вопрос для рассадки</div>
+  <h2>Гермес отвечает вам в Telegram<br>прямо сейчас?</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">Нет</span><h3>Стол «Ставим»</h3><p>Гермеса ещё нет или он сломался. Идёте по шагам 01-05 прошлого воркшопа, рядом помощник. К 19:15 бот отвечает, знает вас и завтра утром придёт сам.</p><p style="margin-top:.8rem"><a class="linkbtn" href="https://audit.maizongroup.com/grow/hermes/#6" target="_blank" rel="noopener">Открыть шаги установки</a></p></div>
+    <div class="card"><span class="n">Да</span><h3>Стол «Прокачиваем»</h3><p>Гермес живой. Идёте по этой странице, блоки 01-05: роль, база, голос, ритм, процесс. К 19:15 у него первая настоящая работа.</p></div>
+  </div>
+  <p class="note"><b>Первый раз на воркшопе?</b> Claude Code сегодня не нужен. Нужны ноутбук, телефон с Telegram и сервер, его поднимем вместе.</p>
+</section>
+
+<!-- 4 · месяц с Гермесом -->
+<section class="slide dark">
+  <div class="kicker">месяц после воркшопа №6</div>
+  <h2>Я завёл Гермесу 25 задач.<br>Сегодня работают две</h2>
+  <p class="lead">Задачи копятся быстрее, чем польза: сообщения, которые перестаёшь читать, и расход на модель, который растёт сам. 27 октября я поставил на паузу всё.</p>
+  <p class="takeaway" style="margin-top:2rem">Сегодня делаем наоборот: <span class="accent">одна роль, одна память, один процесс</span>, которому вы реально отвечаете.</p>
+</section>
+
+<!-- 5 · демо -->
+<section class="slide blue">
+  <div class="kicker">живое демо</div>
+  <h2>Говорю с Гермесом голосом,<br>он отвечает по моим делам</h2>
+  <p class="lead">Что увидите: голосовое в Telegram, ответ из моей базы с названием файла. Потом «задача: ...» голосом, и строка появляется в списке задач.</p>
+  <p class="lead" style="margin-top:1.2rem;opacity:.8">Держите вопрос: «какой один процесс я отдам ему сегодня?»</p>
+</section>
+
+<!-- 6 · пять блоков -->
+<section class="slide dark">
+  <div class="kicker">что делаем за столом «Прокачиваем»</div>
+  <h2>Пять блоков. Всё пишем боту в Telegram</h2>
+  <div class="layers">
+    <div class="layer now"><div class="num">I</div><div><b>Роль и память.</b> <span>Кто вы, за что он отвечает, что ему нельзя.</span></div><div class="tag">15 минут</div></div>
+    <div class="layer now"><div class="num">II</div><div><b>База знаний.</b> <span>Папка, куда он складывает и где ищет.</span></div><div class="tag">15 минут</div></div>
+    <div class="layer now"><div class="num">III</div><div><b>Голос.</b> <span>Понимает русские голосовые и отвечает голосом.</span></div><div class="tag">10 минут</div></div>
+    <div class="layer now"><div class="num">IV</div><div><b>Ритм.</b> <span>План утром, контроль вечером, итог в пятницу.</span></div><div class="tag">15 минут</div></div>
+    <div class="layer now"><div class="num">V</div><div><b>Процесс.</b> <span>Один реальный процесс из вашего бизнеса.</span></div><div class="tag">15 минут</div></div>
+  </div>
+</section>
+
+<!-- 7 · блок 1 -->
+<section class="slide">
+  <div class="session-head"><span class="no">01</span><div><div class="kicker" style="margin-bottom:.2rem">блок · роль и память</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> Гермес знает, кто вы, за что он отвечает и что ему запрещено. Отвечать можно голосовыми.</p>
+  <div class="prompt" data-copy="">Давай настроим тебя как моего бизнес-ассистента. Задавай мне вопросы по одному и жди ответа: 1) кто я и на чём зарабатываю; 2) мои 1-3 главных проекта; 3) цель на год в цифрах; 4) ключевые люди: кто есть кто; 5) как со мной говорить; 6) что тебе запрещено делать без моего «да»; 7) за что ты у меня отвечаешь, твоя роль одной фразой. После ответов: выжимку обо мне сохрани в профиль пользователя, людей и правила - в свою память, роль и запреты предложи для SOUL.md, покажи текст и запиши только после моего «да». В конце перескажи в пяти строках, чтобы я проверил.</div>
+  <p class="note"><b>Профиль уходит в каждый запрос,</b> поэтому туда только выжимка. Не влезает: в терминале сервера <code>hermes config set memory.user_char_limit 4000</code>.</p>
+  <p class="done-check"><b>Готово, когда:</b> отправили <code>/new</code>, спросили «кто я, какая у тебя роль и что тебе нельзя без моего да?», и он ответил точно.</p>
+</section>
+
+<!-- 8 · блок 2 -->
+<section class="slide">
+  <div class="session-head"><span class="no">02</span><div><div class="kicker" style="margin-bottom:.2rem">блок · база знаний</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> у Гермеса есть папка, куда он складывает ваши материалы и где ищет ответы.</p>
+  <div class="prompt" data-copy="">Заведи папку baza в своём постоянном хранилище, рядом с файлами памяти, чтобы она пережила перезапуск и обновление. В ней подпапки lyudi, proekty, pravila, vstrechi. Правило 1: когда я присылаю текст, файл или голосовое со словом «в базу», сохрани это отдельным файлом с датой и понятным названием в подходящую подпапку и ответь одной строкой, куда положил. Правило 2: когда я спрашиваю о своих делах, клиентах, ценах и договорённостях, сначала ищи в этой папке и в конце ответа называй файл, откуда взял. Если в базе ответа нет, так и скажи, не выдумывай. Оформи эти два правила как свой навык, чтобы помнить их в новых диалогах.</div>
+  <p class="note"><b>Сразу положите две вещи</b> со словом «в базу»: прайс или условия работы и описание главного проекта. Можно голосом. <b>Есть рабочая папка в GitHub?</b> Подключите и её: <a href="https://audit.maizongroup.com/grow/hermes/#13" target="_blank" rel="noopener">шаг 06 прошлого воркшопа</a>.</p>
+  <p class="done-check"><b>Готово, когда:</b> после <code>/new</code> он ответил на вопрос, ответ на который есть только в файле, и назвал файл.</p>
+</section>
+
+<!-- 9 · блок 3 -->
+<section class="slide">
+  <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">блок · голос</div></div><span class="timer">10 минут</span></div>
+  <p class="task"><b>Задача:</b> Гермес понимает русские голосовые и отвечает голосом. Кто сделал это в прошлый раз, проверьте и идите дальше.</p>
+  <div class="prompt cmd" data-label="команда · терминал сервера" data-copy="">hermes config set stt.language ru
+hermes config set stt.local.model small
+hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
+  <p class="note">Третья строка даёт бесплатный русский голос. <b>Перезапустите шлюз</b> (Hostinger: кнопка Restart у контейнера). В Telegram отправьте голосовое, затем <code>/voice</code>, чтобы Гермес отвечал голосом.</p>
+  <p class="trap">По умолчанию Гермес ждёт английскую речь. Без этих строк русские голосовые превращаются в кашу.</p>
+  <p class="done-check"><b>Готово, когда:</b> Гермес показал текст вашего голосового без ошибок и ответил голосом.</p>
+</section>
+
+<!-- 10 · блок 3+ свой голос -->
+<section class="slide">
+  <div class="session-head"><span class="no">03+</span><div><div class="kicker" style="margin-bottom:.2rem">блок · свой голос через ElevenLabs</div></div><span class="timer">по желанию · можно дома</span></div>
+  <p class="task"><b>Задача:</b> выбрать Гермесу голос, который приятно слушать каждый день.</p>
+  <div class="prompt cmd" data-label="команда · терминал сервера" data-copy="">hermes config set tts.provider elevenlabs</div>
+  <p class="note"><b>Ключ наберите сами,</b> не в чат: <code>hermes config set ELEVENLABS_API_KEY ваш_ключ</code>. Перезапустите шлюз. Голос выберите в библиотеке на elevenlabs.io и скопируйте его ID.</p>
+  <div class="prompt" data-copy="" style="margin-top:1.9rem">Я подключил ElevenLabs. Найди в своих настройках, где задаётся голос озвучки, и поставь голос с ID [ID голоса из ElevenLabs]. Перед изменением покажи, какую настройку меняешь. После этого ответь мне голосом одной фразой.</div>
+  <p class="done-check"><b>Готово, когда:</b> Гермес ответил выбранным голосом.</p>
+</section>
+
+<!-- 11 · блок 4a -->
+<section class="slide">
+  <div class="session-head"><span class="no">04</span><div><div class="kicker" style="margin-bottom:.2rem">блок · список задач</div></div><span class="timer">5 минут</span></div>
+  <p class="task"><b>Задача:</b> одно место, где живут ваши задачи и обещания. Из него Гермес будет собирать утро и вечер.</p>
+  <div class="prompt" data-copy="">Заведи файл zadachi.md в папке baza в своём постоянном хранилище (нет папки - создай). В нём мои задачи и обещания строками «что - кому - до когда - статус». Когда я пишу или наговариваю «задача: ...» либо пересылаю тебе сообщение со словом «обещал», добавляй строку и отвечай одной строкой, что записал. По слову «задачи» показывай открытые, сначала просроченные.</div>
+  <p class="note"><b>Сразу надиктуйте пять реальных задач</b> на эту неделю: «задача: ...». Без них утренний план будет пустым.</p>
+  <p class="done-check"><b>Готово, когда:</b> на слово «задачи» он показал ваши пять строк.</p>
+</section>
+
+<!-- 12 · блок 4b -->
+<section class="slide">
+  <div class="session-head"><span class="no">04</span><div><div class="kicker" style="margin-bottom:.2rem">блок · утро, вечер, неделя</div></div><span class="timer">10 минут</span></div>
+  <p class="task"><b>Задача:</b> Гермес сам приходит утром с планом, вечером с контролем и в пятницу с итогом.</p>
+  <div class="prompt" data-copy="">Заведи три рутины по кипрскому времени, результат присылай в этот чат. 1) Будни 8:00, план дня: одно главное дело, до трёх задач на сегодня из zadachi.md, отдельной строкой просроченное. 2) Будни 19:00, контроль: спроси, что из утреннего сделано; по моему ответу текстом или голосом обнови статусы, несделанное перенеси с новой датой. 3) Пятница 17:00, итог недели: что закрыто, что переносится третий раз, один вопрос мне. Формат каждого сообщения: первая строка - вывод одной фразой, всего до 600 знаков, без пересказов. Сначала покажи, как понял задачи и расписание. После моего «да» заведи все три и сделай пробный запуск утренней.</div>
+  <p class="done-check"><b>Готово, когда:</b> пришёл пробный план, а <code>/cron list</code> показывает запуск по кипрскому времени (+02:00, зимнее), а не по UTC. Пришло на час не туда: <code>hermes config set timezone Europe/Nicosia</code> и пересоздать задачу.</p>
+</section>
+
+<!-- 13 · блок 5 -->
+<section class="slide">
+  <div class="session-head"><span class="no">05</span><div><div class="kicker" style="margin-bottom:.2rem">блок · один реальный процесс</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> передать Гермесу один процесс, который вы делаете руками каждую неделю. Идеи на следующем слайде.</p>
+  <div class="prompt" data-copy="">Хочу передать тебе один рабочий процесс. Задавай вопросы по одному: что его запускает (время, моё сообщение, пересланное письмо или сообщение); что на входе; какие шаги; что на выходе и в каком виде; куда положить результат; что ты делаешь сам, а что только после моего «да». Потом опиши процесс в семи строках, сохрани как свой навык и сделай пробный прогон на реальном примере, который я сейчас пришлю.</div>
+  <p class="note"><b>Берите маленький процесс.</b> Тот, где вход можно переслать или наговорить боту, а результат вы проверяете за минуту.</p>
+  <p class="done-check"><b>Готово, когда:</b> пробный прогон на вашем реальном примере дал результат, который не стыдно использовать.</p>
+</section>
+
+<!-- 14 · меню процессов -->
+<section class="slide">
+  <div class="kicker">что можно отдать уже сегодня</div>
+  <h2>Пять процессов для одного бота</h2>
+  <div class="grid g3">
+    <div class="card compact"><span class="n">01</span><h3>Черновик ответа клиенту</h3><p>Переслали сообщение клиента, получили черновик в своём тоне по прайсу и условиям из базы.</p></div>
+    <div class="card compact"><span class="n">02</span><h3>Протокол встречи</h3><p>Голосовое сразу после встречи: решения, задачи, кому что написать. Задачи сразу в список.</p></div>
+    <div class="card compact"><span class="n">03</span><h3>Список «жду»</h3><p>Пересылаете всё, где ждёте ответа или оплаты. В понедельник и четверг: кого дожать, с черновиком.</p></div>
+    <div class="card compact"><span class="n">04</span><h3>Утренний мониторинг</h3><p>Три новости или объявления по вашей теме из интернета, каждое в одну строку со ссылкой.</p></div>
+    <div class="card compact"><span class="n">05</span><h3>Голос в пост</h3><p>Наговорили мысль, получили черновик поста в своём стиле. Примеры постов положите в базу.</p></div>
+    <div class="card compact"><span class="n">!</span><h3>Одно правило на все</h3><p>Бот людям сам не пишет. Он готовит, вы отправляете.</p></div>
+  </div>
+</section>
+
+<!-- 15 · чекпойнт -->
+<section class="slide dark">
+  <div class="kicker">чекпойнт</div>
+  <h2>У каждого Гермес получил первую работу</h2>
+  <ul class="plain">
+    <li><span class="t">показ</span> 2-3 человека на проектор: какой процесс отдали и что пришло в пробном прогоне</li>
+    <li><span class="t">бот молчит</span> Шлюз не перезапущен или не тот ID. Проверка: <code>hermes gateway status</code></li>
+    <li><span class="t">не помнит</span> После <code>/new</code> забыл правило: попросите оформить его как навык и повторите проверку</li>
+    <li><span class="t">голос</span> Каша вместо текста: <code>stt.language ru</code>. Не говорит голосом: <code>/voice</code></li>
+    <li><span class="t">время</span> Рутина пришла не тогда: <code>hermes config set timezone Europe/Nicosia</code>, задачу пересоздать</li>
+  </ul>
+</section>
+
+<!-- 16 · грабли месяца -->
+<section class="slide dark">
+  <div class="kicker">из опыта · два месяца с Гермесом в работе</div>
+  <h2>Грабли месяца</h2>
+  <div class="grid g3">
+    <div class="card compact"><span class="n">01</span><h3>Разогнался</h3><p>25 задач, читать перестал, поставил на паузу всё.<span class="fix">одна задача, неделя с ней, потом вторая</span></p></div>
+    <div class="card compact"><span class="n">02</span><h3>Деньги</h3><p>Почти весь расход это вход: каждый запуск заново тащит весь контекст.<span class="fix">запускать реже, отвечать короче</span></p></div>
+    <div class="card compact"><span class="n">03</span><h3>Старая модель</h3><p>Сменил модель, а задачи по расписанию остались на прежней.<span class="fix">после смены пройти /cron list</span></p></div>
+    <div class="card compact"><span class="n">04</span><h3>Тишина</h3><p>Вход по подписке протух, Гермес молча перестал отвечать.<span class="fix">запасная модель и раз в неделю «ты жив?»</span></p></div>
+    <div class="card compact"><span class="n">05</span><h3>Почта</h3><p>Google дважды отозвал доступ к почте и календарю.<span class="fix">сегодня почту не подключаем</span></p></div>
+    <div class="card compact"><span class="n">06</span><h3>Время</h3><p>Зимой Кипр живёт по +02:00, сервер по UTC.<span class="fix">timezone в настройках, сверить /cron list</span></p></div>
+  </div>
+</section>
+
+<!-- 17 · безопасность -->
+<section class="slide dark">
+  <div class="kicker">четыре правила безопасности</div>
+  <h2>У Гермеса ключи от вашего сервера</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">01</span><h3>Токены не пересылать</h3><p>Ни в общий чат, ни мне. Утёк токен бота: сразу <b style="color:#fff">/revoke</b> в @BotFather.</p></div>
+    <div class="card"><span class="n">02</span><h3>Только вы</h3><p>Бот слушает только ваш Telegram ID. Не расширяйте список без нужды.</p></div>
+    <div class="card"><span class="n">03</span><h3>Наружу только после «да»</h3><p>Письма, сообщения людям, платежи: сначала показать, потом сделать. Это уже в его правилах после блока 01.</p></div>
+    <div class="card"><span class="n">04</span><h3>Бот = пульт от сервера</h3><p>Через Telegram Гермес выполняет команды на сервере. Не выключайте подтверждения опасных команд (/yolo).</p></div>
+  </div>
+</section>
+
+<!-- 18 · с чем уходите -->
+<section class="slide dark">
+  <div class="kicker">с чем уходите</div>
+  <h2>Не бот для тестов, а ассистент с работой</h2>
+  <div class="grid g3">
+    <div class="card"><span class="n">01</span><h3>Роль и память</h3><p>Знает вас, своих людей, свои запреты.</p></div>
+    <div class="card"><span class="n">02</span><h3>База и ритм</h3><p>Складывает и ищет. Утром план, вечером контроль.</p></div>
+    <div class="card"><span class="n">03</span><h3>Первый процесс</h3><p>Один, настоящий, с пробным прогоном.</p></div>
+  </div>
+  <p class="takeaway" style="margin-top:2rem">«Одна роль, одна память, <span class="accent">один процесс</span>».</p>
+</section>
+
+<!-- 19 · что дальше -->
+<section class="slide">
+  <div class="kicker">что дальше</div>
+  <h2>Неделя с одним процессом</h2>
+  <div class="grid g2">
+    <div class="card compact"><span class="n">01</span><h3>Завтра в 8:00</h3><p>Придёт первый план дня. Вечером ответьте на контроль голосом.</p></div>
+    <div class="card compact"><span class="n">02</span><h3>Через неделю</h3><p>Одной строкой в чат GROW: какой процесс отдали и сколько времени он вернул.</p></div>
+    <div class="card compact"><span class="n">03</span><h3>Воркшопы после января</h3><p>GROW в нынешнем формате работает до 31 января. Проголосуйте в чате, нужны ли воркшопы по ИИ дальше.</p></div>
+    <div class="card compact"><span class="n">04</span><h3>Гермес для команды</h3><p>Нужен такой ассистент сотрудникам под ключ: напишите мне в личку.</p></div>
+  </div>
+  <p class="lead" style="margin-top:1.4rem"><b style="color:var(--ink)">Промпты остаются на этом сайте.</b> Вторую задачу Гермесу заводите не раньше, чем неделю проживёте с первой.</p>
+</section>
+
+<!-- 20 · финал -->
+<section class="slide blue hero">
+  <h1 style="color:#fff">Спасибо</h1>
+  <p class="sub" style="color:#dfe4ff">Станислав Жуковец · GROW Business Club</p>
+  <p class="lead" style="margin-top:2rem;text-align:center">Завтра в 8:00 Гермес придёт сам. Ответьте ему голосом.</p>
+</section>
+
+<div class="hud">
+  <div class="brand"><b>GROW</b> · воркшоп №7 · Гермес</div>
+  <div class="counter" id="counter">1 / 20</div>
+  <div class="navbtns"><button id="present" class="present" type="button">Показ</button><button id="prev" aria-label="назад">←</button><button id="next" aria-label="вперёд">→</button><button id="exitp" class="exitp" type="button" aria-label="выйти из показа">✕</button></div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, n = slides.length;
+  var counter = document.getElementById('counter');
+  var bar = document.getElementById('bar');
+  function show(k){
+    i = Math.max(0, Math.min(n-1, k));
+    slides.forEach(function(s,j){ s.classList.toggle('active', j===i); });
+    counter.textContent = (i+1) + ' / ' + n;
+    bar.style.width = ((i+1)/n*100) + '%';
+    if (history.replaceState) history.replaceState(null,'','#'+(i+1));
+  }
+  function next(){ show(i+1); } function prev(){ show(i-1); }
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.addEventListener('keydown', function(e){
+    if (e.key==='ArrowRight'||e.key===' '||e.key==='PageDown') { e.preventDefault(); next(); }
+    if (e.key==='ArrowLeft'||e.key==='PageUp') { e.preventDefault(); prev(); }
+    if (e.key==='Home') show(0);
+    if (e.key==='End') show(n-1);
+  });
+  var touchX = null;
+  document.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e){
+    if (touchX===null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (dx < -50) next(); if (dx > 50) prev();
+    touchX = null;
+  });
+  document.querySelectorAll('.prompt').forEach(function(p){
+    var text = p.textContent.trim();
+    var b = document.createElement('button');
+    b.className = 'copybtn'; b.type = 'button'; var lbl = p.classList.contains('cmd') ? 'Копировать команду' : 'Копировать промпт'; b.textContent = lbl;
+    function done(){
+      p.classList.add('copied'); b.textContent = 'Скопировано ✓'; b.classList.add('ok');
+      setTimeout(function(){ p.classList.remove('copied'); var lbl = p.classList.contains('cmd') ? 'Копировать команду' : 'Копировать промпт'; b.textContent = lbl; b.classList.remove('ok'); }, 1600);
+    }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(p);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      b.textContent = 'Выделено · ⌘/Ctrl+C';
+    }
+    function copy(){
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      } else { try { document.execCommand('copy'); done(); } catch(e){ fallback(); } }
+    }
+    b.addEventListener('click', copy);
+    p.addEventListener('click', copy);
+    p.parentNode.insertBefore(b, p.nextSibling);
+  });
+  var body = document.body;
+  function enterShow(){
+    body.classList.add('presenting');
+    var el = document.documentElement, rq = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (rq) { try { var p = rq.call(el); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+  }
+  function exitShow(){
+    body.classList.remove('presenting');
+    var fe = document.fullscreenElement || document.webkitFullscreenElement;
+    var ex = document.exitFullscreen || document.webkitExitFullscreen;
+    if (fe && ex) { try { var p = ex.call(document); if (p && p.catch) p.catch(function(){}); } catch(e){} }
+  }
+  document.getElementById('present').addEventListener('click', enterShow);
+  document.getElementById('exitp').addEventListener('click', exitShow);
+  function onFs(){ if (!(document.fullscreenElement || document.webkitFullscreenElement)) body.classList.remove('presenting'); }
+  document.addEventListener('fullscreenchange', onFs);
+  document.addEventListener('webkitfullscreenchange', onFs);
+  document.addEventListener('keydown', function(e){
+    if (e.key==='f' || e.key==='F' || e.key==='а' || e.key==='А') { body.classList.contains('presenting') ? exitShow() : enterShow(); }
+    if (e.key==='Escape') exitShow();
+  });
+  // в показе клик по левой трети листает назад, по остальному экрану вперёд (промпты и кнопки не трогаем)
+  document.addEventListener('click', function(e){
+    if (!body.classList.contains('presenting')) return;
+    if (e.target.closest && e.target.closest('button,.prompt,a,code')) return;
+    if (e.clientX < window.innerWidth/3) prev(); else next();
+  });
+  var h = parseInt((location.hash||'').slice(1), 10);
+  show(isNaN(h) ? 0 : h-1);
+})();
+</script>
+
+</body></html>
