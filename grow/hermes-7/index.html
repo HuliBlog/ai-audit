@@ -136,6 +136,7 @@
   .copybtn{margin-top:.7rem}
   .trap::before{content:"из опыта"}
   .note a{color:var(--blue)}
+  .prompt.long{white-space:pre-wrap;max-height:36vh;overflow-y:auto}
   .linkbtn{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--white);background:var(--blue);padding:.6rem 1.3rem;text-decoration:none}
 </style>
 
@@ -144,133 +145,191 @@
 <!-- 1 · обложка -->
 <section class="slide hero active">
   <div class="club"><b>GROW</b> Business Club · воркшоп №7 курса по ИИ</div>
-  <h1>Гермес<br><span>выходит на работу</span></h1>
-  <p class="sub">Личный бизнес-ассистент: роль, память, голос и первый настоящий процесс из вашего бизнеса.</p>
+  <h1>Гермес<br><span>на базе Claude Code</span></h1>
+  <p class="sub">Память у вас уже есть: это рабочая папка Claude Code. Сегодня Гермес получает её и начинает работать, когда ноутбук закрыт.</p>
   <div class="meta"><b>Станислав Жуковец × Михаил Зеленин</b> · 5 ноября · Crowne Plaza Limassol</div>
 </section>
 
 <!-- 2 · план -->
 <section class="slide">
   <div class="kicker">план на сегодня</div>
-  <h2>Два часа, пять блоков,<br>один процесс отдан Гермесу</h2>
+  <h2>Одна память, Гермес поверх неё</h2>
   <ul class="plain">
-    <li><span class="t">17:30</span> Что я понял за месяц с Гермесом. Рассадка по двум столам</li>
+    <li><span class="t">17:30</span> Одна память, три входа. Что я понял за месяц с Гермесом</li>
     <li><span class="t">17:40</span> Живое демо: голосом по своим делам</li>
-    <li><span class="t">17:55</span> Роль и память. База знаний</li>
-    <li><span class="t">18:30</span> Голос. Утро, вечер и неделя по расписанию</li>
-    <li><span class="t">19:00</span> Один реальный процесс из вашего бизнеса</li>
+    <li><span class="t">17:50</span> Рассадка. Стол «Основа»: Claude Code с нуля</li>
+    <li><span class="t">17:55</span> Стол «Гермес»: ревизия памяти, рабочая папка в GitHub</li>
+    <li><span class="t">18:25</span> Claude Code ставит Гермеса и отдаёт ему память</li>
+    <li><span class="t">18:55</span> Утро и вечер по расписанию. Один реальный процесс</li>
     <li><span class="t">19:15</span> Показ результатов, грабли месяца, что дальше</li>
   </ul>
   <p class="lead" style="margin-top:1rem">Правило зала: застрял на шаге, подними руку. Сначала помогает сосед, потом я.</p>
 </section>
 
-<!-- 3 · два стола -->
-<section class="slide">
-  <div class="kicker">один вопрос для рассадки</div>
-  <h2>Гермес отвечает вам в Telegram<br>прямо сейчас?</h2>
-  <div class="grid g2">
-    <div class="card"><span class="n">Нет</span><h3>Стол «Ставим»</h3><p>Гермеса ещё нет или он сломался. Идёте по шагам 01-05 прошлого воркшопа, рядом помощник. К 19:15 бот отвечает, знает вас и завтра утром придёт сам.</p><p style="margin-top:.8rem"><a class="linkbtn" href="https://audit.maizongroup.com/grow/hermes/#6" target="_blank" rel="noopener">Открыть шаги установки</a></p></div>
-    <div class="card"><span class="n">Да</span><h3>Стол «Прокачиваем»</h3><p>Гермес живой. Идёте по этой странице, блоки 01-05: роль, база, голос, ритм, процесс. К 19:15 у него первая настоящая работа.</p></div>
+<!-- 3 · архитектура -->
+<section class="slide dark">
+  <div class="kicker">опорная модель</div>
+  <h2>Одна память, три входа</h2>
+  <div class="layers">
+    <div class="layer on"><div class="num">I</div><div><b>Claude Code.</b> <span>Ваша рабочая папка на ноутбуке: кто вы, проекты, документы. Это и есть память.</span></div><div class="tag">есть у большинства</div></div>
+    <div class="layer now"><div class="num">II</div><div><b>GitHub.</b> <span>Закрытая копия папки, до которой можно дотянуться с сервера.</span></div><div class="tag">сегодня</div></div>
+    <div class="layer now"><div class="num">III</div><div><b>Гермес.</b> <span>Сотрудник на сервере: Telegram, расписание, 24/7. Читает ту же папку.</span></div><div class="tag">сегодня</div></div>
+    <div class="layer"><div class="num">IV</div><div><b>Голос.</b> <span>Живой разговор через ChatGPT с плагином к той же памяти.</span></div><div class="tag">демо</div></div>
   </div>
-  <p class="note"><b>Первый раз на воркшопе?</b> Claude Code сегодня не нужен. Нужны ноутбук, телефон с Telegram и сервер, его поднимем вместе.</p>
+  <p class="note">За столом строите в Claude Code. В дороге поручаете Гермесу. Память у них общая, второй раз о себе не рассказываете.</p>
 </section>
 
 <!-- 4 · месяц с Гермесом -->
 <section class="slide dark">
   <div class="kicker">месяц после воркшопа №6</div>
-  <h2>Я завёл Гермесу 25 задач.<br>Сегодня работают две</h2>
-  <p class="lead">Задачи копятся быстрее, чем польза: сообщения, которые перестаёшь читать, и расход на модель, который растёт сам. 27 октября я поставил на паузу всё.</p>
-  <p class="takeaway" style="margin-top:2rem">Сегодня делаем наоборот: <span class="accent">одна роль, одна память, один процесс</span>, которому вы реально отвечаете.</p>
+  <h2>Я завёл Гермесу больше двадцати задач.<br>27 октября остановил все</h2>
+  <p class="lead">В начале октября он писал мне 15 сообщений в день. Больше половины расхода съедала задача, которая никому ничего не отправляла. А в файле для Гермеса осталась старая цель, и он уверенно называл её.</p>
+  <p class="takeaway" style="margin-top:1.6rem">Память должна быть <span class="accent">одна</span>. Задач должно быть мало.</p>
 </section>
 
 <!-- 5 · демо -->
 <section class="slide blue">
   <div class="kicker">живое демо</div>
-  <h2>Говорю с Гермесом голосом,<br>он отвечает по моим делам</h2>
-  <p class="lead">Что увидите: голосовое в Telegram, ответ из моей базы с названием файла. Потом «задача: ...» голосом, и строка появляется в списке задач.</p>
-  <p class="lead" style="margin-top:1.2rem;opacity:.8">Держите вопрос: «какой один процесс я отдам ему сегодня?»</p>
+  <h2>Разговариваю голосом,<br>а отвечает моя рабочая папка</h2>
+  <p class="lead">Что увидите: живой голос в ChatGPT, мой плагин на сервере, та же память, что у Claude Code, и Гермес, который делает долгие задачи. Спрашиваю про свои дела, прошу прочитать переписку, диктую сообщение.</p>
+  <p class="lead" style="margin-top:1.2rem;opacity:.8">Держите вопрос: «какой один процесс я отдам Гермесу сегодня?»</p>
 </section>
 
-<!-- 6 · пять блоков -->
-<section class="slide dark">
-  <div class="kicker">что делаем за столом «Прокачиваем»</div>
-  <h2>Пять блоков. Всё пишем боту в Telegram</h2>
-  <div class="layers">
-    <div class="layer now"><div class="num">I</div><div><b>Роль и память.</b> <span>Кто вы, за что он отвечает, что ему нельзя.</span></div><div class="tag">15 минут</div></div>
-    <div class="layer now"><div class="num">II</div><div><b>База знаний.</b> <span>Папка, куда он складывает и где ищет.</span></div><div class="tag">15 минут</div></div>
-    <div class="layer now"><div class="num">III</div><div><b>Голос.</b> <span>Понимает русские голосовые и отвечает голосом.</span></div><div class="tag">10 минут</div></div>
-    <div class="layer now"><div class="num">IV</div><div><b>Ритм.</b> <span>План утром, контроль вечером, итог в пятницу.</span></div><div class="tag">15 минут</div></div>
-    <div class="layer now"><div class="num">V</div><div><b>Процесс.</b> <span>Один реальный процесс из вашего бизнеса.</span></div><div class="tag">15 минут</div></div>
+<!-- 6 · рассадка -->
+<section class="slide">
+  <div class="kicker">один вопрос для рассадки</div>
+  <h2>Claude Code открыт в вашей рабочей<br>папке и знает, кто вы?</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">Нет</span><h3>Стол «Основа»</h3><p>Первый раз или Claude Code давно не открывали. Ставим его, проходим онбординг, учим работать с документами и подключаем Telegram. Шаги А1-А3, слайды 7-9.</p></div>
+    <div class="card"><span class="n">Да</span><h3>Стол «Гермес»</h3><p>Claude Code живой. Обновляем память, кладём папку в GitHub, Claude Code сам ставит Гермеса и отдаёт ему память. Шаги 01-05, слайды 10-15.</p></div>
   </div>
+  <p class="note"><b>Стол «Основа»:</b> Гермес для вас будет следующим шагом. Без памяти в Claude Code ему нечего читать.</p>
 </section>
 
-<!-- 7 · блок 1 -->
+<!-- 7 · А1 -->
 <section class="slide">
-  <div class="session-head"><span class="no">01</span><div><div class="kicker" style="margin-bottom:.2rem">блок · роль и память</div></div><span class="timer">15 минут</span></div>
-  <p class="task"><b>Задача:</b> Гермес знает, кто вы, за что он отвечает и что ему запрещено. Отвечать можно голосовыми.</p>
-  <div class="prompt" data-copy="">Давай настроим тебя как моего бизнес-ассистента. Задавай мне вопросы по одному и жди ответа: 1) кто я и на чём зарабатываю; 2) мои 1-3 главных проекта; 3) цель на год в цифрах; 4) ключевые люди: кто есть кто; 5) как со мной говорить; 6) что тебе запрещено делать без моего «да»; 7) за что ты у меня отвечаешь, твоя роль одной фразой. После ответов: выжимку обо мне сохрани в профиль пользователя, людей и правила - в свою память, роль и запреты предложи для SOUL.md, покажи текст и запиши только после моего «да». В конце перескажи в пяти строках, чтобы я проверил.</div>
-  <p class="note"><b>Профиль уходит в каждый запрос,</b> поэтому туда только выжимка. Не влезает: в терминале сервера <code>hermes config set memory.user_char_limit 4000</code>.</p>
-  <p class="done-check"><b>Готово, когда:</b> отправили <code>/new</code>, спросили «кто я, какая у тебя роль и что тебе нельзя без моего да?», и он ответил точно.</p>
+  <div class="session-head"><span class="no">А1</span><div><div class="kicker" style="margin-bottom:.2rem">стол «основа» · установка и онбординг</div></div><span class="timer">40 минут</span></div>
+  <p class="task"><b>Задача:</b> Claude Code установлен, открыт в папке workspace и знает, кто вы.</p>
+  <p class="note" style="margin-top:0;margin-bottom:1.6rem"><b>Нужно:</b> подписка Claude Pro или Max, приложение Claude Code (<a href="https://code.claude.com/docs/en/desktop" target="_blank" rel="noopener">code.claude.com/docs/en/desktop</a>), папка <code>workspace</code> на рабочем столе. Откройте Claude Code в этой папке и вставьте по очереди:</p>
+  <div class="prompt cmd" data-label="в чат Claude Code · первая строка" data-copy="">install skill from https://github.com/BayramAnnakov/ai-personal-os-onboarding</div>
+  <div class="prompt cmd" data-label="в чат Claude Code · вторая строка" data-copy="" style="margin-top:2rem">/ai-personal-os-onboarding</div>
+  <p class="note">Он проведёт интервью на 10-15 минут. Отвечайте честно: это станет его памятью о вас.</p>
+  <p class="done-check"><b>Готово, когда:</b> в папке появились <code>CLAUDE.md</code>, <code>user-profile.md</code> и <code>SOUL.md</code>, а на вопрос «кто я?» он отвечает про вас.</p>
 </section>
 
-<!-- 8 · блок 2 -->
+<!-- 8 · А2 -->
 <section class="slide">
-  <div class="session-head"><span class="no">02</span><div><div class="kicker" style="margin-bottom:.2rem">блок · база знаний</div></div><span class="timer">15 минут</span></div>
-  <p class="task"><b>Задача:</b> у Гермеса есть папка, куда он складывает ваши материалы и где ищет ответы.</p>
-  <div class="prompt" data-copy="">Заведи папку baza в своём постоянном хранилище, рядом с файлами памяти, чтобы она пережила перезапуск и обновление. В ней подпапки lyudi, proekty, pravila, vstrechi. Правило 1: когда я присылаю текст, файл или голосовое со словом «в базу», сохрани это отдельным файлом с датой и понятным названием в подходящую подпапку и ответь одной строкой, куда положил. Правило 2: когда я спрашиваю о своих делах, клиентах, ценах и договорённостях, сначала ищи в этой папке и в конце ответа называй файл, откуда взял. Если в базе ответа нет, так и скажи, не выдумывай. Оформи эти два правила как свой навык, чтобы помнить их в новых диалогах.</div>
-  <p class="note"><b>Сразу положите две вещи</b> со словом «в базу»: прайс или условия работы и описание главного проекта. Можно голосом. <b>Есть рабочая папка в GitHub?</b> Подключите и её: <a href="https://audit.maizongroup.com/grow/hermes/#13" target="_blank" rel="noopener">шаг 06 прошлого воркшопа</a>.</p>
-  <p class="done-check"><b>Готово, когда:</b> после <code>/new</code> он ответил на вопрос, ответ на который есть только в файле, и назвал файл.</p>
+  <div class="session-head"><span class="no">А2</span><div><div class="kicker" style="margin-bottom:.2rem">стол «основа» · документы</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> Claude Code читает ваши рабочие документы и отвечает по ним.</p>
+  <div class="prompt" data-copy="">Создай в этой папке подпапку docs. Я положу туда три рабочих документа: [например договор, прайс, презентация]. Прочитай их и скажи по каждому в трёх строках, что это и что в нём важно. Потом добавь в CLAUDE.md строку о том, где лежат мои документы и для чего каждый. С этого момента на вопросы о моих условиях и ценах отвечай по этим файлам и называй файл.</div>
+  <p class="note"><b>Берите настоящие документы,</b> не тестовые. На них он и будет работать дальше.</p>
+  <p class="done-check"><b>Готово, когда:</b> в новом диалоге он ответил на вопрос по документу и назвал файл.</p>
 </section>
 
-<!-- 9 · блок 3 -->
+<!-- 9 · А3 -->
 <section class="slide">
-  <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">блок · голос</div></div><span class="timer">10 минут</span></div>
-  <p class="task"><b>Задача:</b> Гермес понимает русские голосовые и отвечает голосом. Кто сделал это в прошлый раз, проверьте и идите дальше.</p>
-  <div class="prompt cmd" data-label="команда · терминал сервера" data-copy="">hermes config set stt.language ru
-hermes config set stt.local.model small
-hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
-  <p class="note">Третья строка даёт бесплатный русский голос. <b>Перезапустите шлюз</b> (Hostinger: кнопка Restart у контейнера). В Telegram отправьте голосовое, затем <code>/voice</code>, чтобы Гермес отвечал голосом.</p>
-  <p class="trap">По умолчанию Гермес ждёт английскую речь. Без этих строк русские голосовые превращаются в кашу.</p>
-  <p class="done-check"><b>Готово, когда:</b> Гермес показал текст вашего голосового без ошибок и ответил голосом.</p>
+  <div class="session-head"><span class="no">А3</span><div><div class="kicker" style="margin-bottom:.2rem">стол «основа» · Telegram</div></div><span class="timer">30 минут</span></div>
+  <p class="task" style="margin-bottom:1rem"><b>Задача:</b> Claude Code читает ваш Telegram и готовит черновики ответов.</p>
+  <p class="note" style="margin-top:0;margin-bottom:1.5rem"><b>Сначала ключи:</b> my.telegram.org, вход по номеру, API Development Tools, создать приложение. API ID и API Hash вводите только сами, в чат не пересылать.</p>
+  <div class="prompt cmd" data-label="в чат Claude Code · первая строка" data-copy="">install skill from https://github.com/BayramAnnakov/telegram-mcp-setup</div>
+  <div class="prompt cmd" data-label="в чат Claude Code · вторая строка" data-copy="" style="margin-top:2rem">/telegram-mcp-setup</div>
+  <p class="note">Проверка после перезапуска Claude Code: <b>«Прочитай мои последние 3 сообщения в Telegram»</b>. Первое задание: <b>«Найди неотвеченный вопрос в моих последних сообщениях и подготовь черновик ответа»</b>.</p>
+  <p class="done-check"><b>Готово, когда:</b> он показал черновик. Отправляете вы сами: он готовит, человек решает.</p>
 </section>
 
-<!-- 10 · блок 3+ свой голос -->
+<!-- 10 · 01 -->
 <section class="slide">
-  <div class="session-head"><span class="no">03+</span><div><div class="kicker" style="margin-bottom:.2rem">блок · свой голос через ElevenLabs</div></div><span class="timer">по желанию · можно дома</span></div>
-  <p class="task"><b>Задача:</b> выбрать Гермесу голос, который приятно слушать каждый день.</p>
-  <div class="prompt cmd" data-label="команда · терминал сервера" data-copy="">hermes config set tts.provider elevenlabs</div>
-  <p class="note"><b>Ключ наберите сами,</b> не в чат: <code>hermes config set ELEVENLABS_API_KEY ваш_ключ</code>. Перезапустите шлюз. Голос выберите в библиотеке на elevenlabs.io и скопируйте его ID.</p>
-  <div class="prompt" data-copy="" style="margin-top:1.9rem">Я подключил ElevenLabs. Найди в своих настройках, где задаётся голос озвучки, и поставь голос с ID [ID голоса из ElevenLabs]. Перед изменением покажи, какую настройку меняешь. После этого ответь мне голосом одной фразой.</div>
-  <p class="done-check"><b>Готово, когда:</b> Гермес ответил выбранным голосом.</p>
+  <div class="session-head"><span class="no">01</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · ревизия памяти</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> память в Claude Code соответствует сегодняшнему дню. Гермес получит именно её.</p>
+  <div class="prompt" data-label="промпт · в Claude Code" data-copy="">Проведи ревизию моей памяти. Прочитай CLAUDE.md, user-profile.md и остальные файлы обо мне в этой папке. Покажи в десяти строках, что ты обо мне знаешь: кто я, проекты, цели, правила. Потом задавай вопросы по одному: что из этого устарело, какие проекты добавились, какая цель на ближайший год, что тебе нельзя делать без моего «да». После ответов обнови файлы и покажи, что изменил.</div>
+  <p class="trap">Гермес читает то, что написано в папке. У меня там осталась старая цель, и он уверенно называл её.</p>
+  <p class="done-check"><b>Готово, когда:</b> в новом диалоге на «кто я и над чем работаю?» Claude Code отвечает по сегодняшнему дню.</p>
 </section>
 
-<!-- 11 · блок 4a -->
+<!-- 11 · 02 -->
 <section class="slide">
-  <div class="session-head"><span class="no">04</span><div><div class="kicker" style="margin-bottom:.2rem">блок · список задач</div></div><span class="timer">5 минут</span></div>
-  <p class="task"><b>Задача:</b> одно место, где живут ваши задачи и обещания. Из него Гермес будет собирать утро и вечер.</p>
-  <div class="prompt" data-copy="">Заведи файл zadachi.md в папке baza в своём постоянном хранилище (нет папки - создай). В нём мои задачи и обещания строками «что - кому - до когда - статус». Когда я пишу или наговариваю «задача: ...» либо пересылаю тебе сообщение со словом «обещал», добавляй строку и отвечай одной строкой, что записал. По слову «задачи» показывай открытые, сначала просроченные.</div>
+  <div class="session-head"><span class="no">02</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · папка в GitHub</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> рабочая папка лежит в закрытом репозитории. Уже сделали в октябре: проверьте, что версия свежая.</p>
+  <div class="prompt" data-label="промпт · в Claude Code" data-copy="">Подготовь мою рабочую папку к загрузке в приватный репозиторий GitHub. 1) Проверь всю папку на секреты: токены ботов, API-ключи, пароли, файлы .env, приватные ключи, сессии. Покажи список файлов, значения не печатай. 2) Сделай .gitignore, который закрывает всё найденное, плюс большие и служебные файлы. 3) Если git или GitHub CLI не установлены, скажи, какую команду мне запустить, и жди. Вход в GitHub я делаю сам в браузере. 4) Создай ПРИВАТНЫЙ репозиторий workspace. Перед отправкой покажи, сколько файлов уходит и что закрыто, жди моего «да». 5) В конце дай ссылку на репозиторий.</div>
+  <p class="trap">Перед первой загрузкой у меня в папке нашлось 10 файлов с ключами и токенами. Закрытый репозиторий это не защита, секреты туда не кладём.</p>
+  <p class="done-check"><b>Готово, когда:</b> репозиторий открывается в браузере, рядом с названием стоит Private.</p>
+</section>
+
+<!-- 12 · 03 нет Гермеса -->
+<section class="slide">
+  <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · Гермеса ещё нет</div></div><span class="timer">30 минут</span></div>
+  <p class="task"><b>Задача:</b> Claude Code сам ставит Гермеса на ваш сервер и подключает к нему папку из GitHub. Гермес уже есть: следующий слайд.</p>
+  <p class="note" style="margin-top:0;margin-bottom:1.6rem"><b>Нужно:</b> сервер (IP и пароль из панели хостинга), бот от @BotFather, ваш Telegram ID от @userinfobot, модель. Промпт длинный: нажмите на него или на кнопку, скопируется целиком.</p>
+  <div class="prompt long" data-label="промпт · в Claude Code" data-copy="">Ты мой инженер по развёртыванию. Задача: поставить Hermes Agent (Nous Research) на мой VPS в Hostinger, подключить его к моему Telegram-боту и к моей папке на GitHub. Работай с моего ноутбука по SSH, шаг за шагом, после каждого шага проверяй результат командой и коротко пиши мне, что сделано. Всё общение на русском.
+
+Исходные данные (спроси у меня то, чего нет):
+- IP сервера Hostinger и пароль root (из hPanel → VPS → SSH-доступ)
+- ссылка на мой репозиторий GitHub с базой знаний: &lt;ссылка&gt;
+- токен Telegram-бота: я создам его сам у @BotFather и вставлю в файл, не в чат
+- мой Telegram user id: подскажи, как узнать (бот @userinfobot)
+- провайдер модели: OpenRouter (ключ), OpenAI (ключ) или вход через подписку ChatGPT; спроси, что у меня есть
+
+Правила безопасности (обязательны):
+- Ключи и токены никогда не печатай в чат и в вывод команд. Файл .env с пустыми полями создаёшь ты, значения вписываю я сам через nano по SSH. Проверку делай так: grep -c '^TELEGRAM_BOT_TOKEN=.\+' .env, без вывода значения.
+- Наружу не открывай ни одного порта, кроме SSH: бот Telegram работает через опрос (polling), входящие порты ему не нужны.
+- Ничего не удаляй и не переустанавливай на сервере без моего «да».
+
+Шаги:
+1. SSH. Создай у меня на ноутбуке ключ (если его нет) и положи его на сервер, дальше заходи по ключу. Проверь: ssh root@&lt;IP&gt; 'uname -a; cat /etc/os-release | head -2'.
+2. Подготовка сервера (Ubuntu): обновления, пользователь hermes с sudo, вход по паролю для SSH отключи только после того, как вход по ключу проверен. ufw: разрешён только 22/tcp. Проверь ufw status.
+3. Docker: поставь официальным способом с docs.docker.com (репозиторий Docker для Ubuntu), не snap. Проверь: docker run --rm hello-world.
+4. Hermes: прежде чем писать команды, прочитай официальный README и раздел про Docker в github.com/NousResearch/hermes-agent и сверь с ним всё ниже. Рабочая схема, проверенная в бою:
+   - образ nousresearch/hermes-agent:latest
+   - все данные агента в папке на сервере /srv/hermes/data, смонтированной в контейнер как /opt/data
+   - запуск командой контейнера: gateway run
+   - политика перезапуска unless-stopped
+   - переменные в /srv/hermes/data/.env: TELEGRAM_BOT_TOKEN, TELEGRAM_ALLOWED_USERS (мой user id, только он может писать боту), ключ провайдера модели (например OPENROUTER_API_KEY)
+   Оформи это как docker-compose.yml в /srv/hermes. Начальную настройку модели и провайдера сделай мастером Hermes (hermes setup / hermes model) внутри контейнера; если вход через подписку ChatGPT, мастер покажет ссылку и код, их открываю я.
+5. Моя папка GitHub: склонируй репозиторий в /srv/hermes/knowledge по deploy key (ключ только для чтения: создай его на сервере, публичную часть дай мне добавить в GitHub → Settings → Deploy keys). Смонтируй папку в контейнер как /opt/knowledge (только чтение). Поставь таймер systemd, который раз в 15 минут делает git pull. В SOUL.md агента (лежит в /opt/data) допиши: моя база знаний в /opt/knowledge, отвечая про мои проекты, сначала ищи там.
+6. Запуск и проверка: docker compose up -d, затем логи (docker compose logs --tail 50). Я пишу боту «привет» и «что лежит в моей базе знаний?», ты смотришь в логах, что сообщение дошло и ответ ушёл. Проверь, что после docker compose restart бот снова отвечает.
+7. Итог: короткая памятка мне в файл HERMES.md у меня на ноутбуке: как зайти на сервер, где лежат данные и .env, как смотреть логи, как перезапустить, как обновить образ (docker compose pull &amp;&amp; docker compose up -d), как сделать резервную копию /srv/hermes/data.
+
+Если шаг не проходит, не обходи его молча: покажи мне ошибку, причину и предлагаемое исправление.</div>
+  <p class="done-check"><b>Готово, когда:</b> бот ответил на «привет» и на «что лежит в моей базе знаний?».</p>
+</section>
+
+<!-- 13 · 03 Гермес есть -->
+<section class="slide">
+  <div class="session-head"><span class="no">03</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · Гермес уже есть</div></div><span class="timer">30 минут</span></div>
+  <p class="task"><b>Задача:</b> Гермес живёт на той же памяти, что и Claude Code. Настраивает это сам Claude Code.</p>
+  <div class="prompt long" data-label="промпт · в Claude Code" data-copy="">Ты мой инженер. У меня на сервере уже работает Hermes Agent, а моя рабочая папка лежит в приватном репозитории GitHub: [ссылка]. Задача: чтобы Гермес жил на той же памяти, что и ты. Работай с моего ноутбука по SSH [адрес сервера], после каждого шага проверяй результат командой и коротко пиши, что сделано.
+
+1. Выясни, как стоит Гермес: в Docker (шаблон Hostinger) или напрямую. Запусти hermes doctor и покажи красные пункты.
+2. Подключи репозиторий как базу только для чтения: отдельный deploy key (публичную часть дай мне, я сам добавлю её в GitHub: Settings, Deploy keys), клон в папку workspace рядом с данными Гермеса, обновление раз в час скриптом, без модели. Сделай эту папку рабочей папкой Гермеса (terminal.cwd).
+3. Гермес читает AGENTS.md, а не CLAUDE.md. Если в моей папке нет AGENTS.md, создай его у меня на ноутбуке из CLAUDE.md, покажи мне и отправь в репозиторий после моего «да».
+4. Из моих user-profile.md и CLAUDE.md сделай выжимку в память Гермеса: кто я, проекты, цель, как со мной говорить, что нельзя без моего «да». Уложись в лимит профиля, покажи текст до записи.
+5. Проверь часовой пояс Europe/Nicosia и русский язык распознавания голоса (stt.language ru).
+6. Перезапусти шлюз. Я напишу боту «над чем я сейчас работаю?», а ты посмотри в логах, что он ответил по моей папке.
+
+Правила: ключи и токены не печатай и не проси в чат. Ничего не удаляй и не переустанавливай без моего «да». В клон на сервере ничего не пиши.</div>
+  <p class="trap">Без <code>terminal.cwd</code> Гермес не видит папку, а без <code>AGENTS.md</code> не читает ваши правила. У меня было и то, и другое.</p>
+  <p class="done-check"><b>Готово, когда:</b> бот в Telegram назвал ваши проекты так же, как Claude Code.</p>
+</section>
+
+<!-- 14 · 04 -->
+<section class="slide">
+  <div class="session-head"><span class="no">04</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · утро и вечер</div></div><span class="timer">15 минут</span></div>
+  <p class="task"><b>Задача:</b> Гермес сам приходит утром с планом и вечером с контролем. Этот промпт пишем уже боту в Telegram.</p>
+  <div class="prompt" data-label="промпт · боту в Telegram" data-copy="">Заведи файл zadachi.md в своём постоянном хранилище, не в папке workspace (она только для чтения). В нём мои задачи строками «что - кому - до когда - статус». Пишу или наговариваю «задача: ...» - добавляй строку. Дальше две рутины по кипрскому времени, результат в этот чат. Будни 8:00, план дня: одно главное дело, до трёх задач из файла, главное по моим проектам из базы, отдельной строкой просроченное. Будни 19:00, контроль: спроси, что сделано, и по моему ответу обнови статусы. Формат: первая строка - вывод одной фразой, всего до 600 знаков. Сначала покажи, как понял. После моего «да» заведи обе и сделай пробный запуск утренней.</div>
   <p class="note"><b>Сразу надиктуйте пять реальных задач</b> на эту неделю: «задача: ...». Без них утренний план будет пустым.</p>
-  <p class="done-check"><b>Готово, когда:</b> на слово «задачи» он показал ваши пять строк.</p>
+  <p class="done-check"><b>Готово, когда:</b> пришёл пробный план, а <code>/cron list</code> показывает кипрское время (+02:00, зимнее), а не UTC.</p>
 </section>
 
-<!-- 12 · блок 4b -->
+<!-- 15 · 05 -->
 <section class="slide">
-  <div class="session-head"><span class="no">04</span><div><div class="kicker" style="margin-bottom:.2rem">блок · утро, вечер, неделя</div></div><span class="timer">10 минут</span></div>
-  <p class="task"><b>Задача:</b> Гермес сам приходит утром с планом, вечером с контролем и в пятницу с итогом.</p>
-  <div class="prompt" data-copy="">Заведи три рутины по кипрскому времени, результат присылай в этот чат. 1) Будни 8:00, план дня: одно главное дело, до трёх задач на сегодня из zadachi.md, отдельной строкой просроченное. 2) Будни 19:00, контроль: спроси, что из утреннего сделано; по моему ответу текстом или голосом обнови статусы, несделанное перенеси с новой датой. 3) Пятница 17:00, итог недели: что закрыто, что переносится третий раз, один вопрос мне. Формат каждого сообщения: первая строка - вывод одной фразой, всего до 600 знаков, без пересказов. Сначала покажи, как понял задачи и расписание. После моего «да» заведи все три и сделай пробный запуск утренней.</div>
-  <p class="done-check"><b>Готово, когда:</b> пришёл пробный план, а <code>/cron list</code> показывает запуск по кипрскому времени (+02:00, зимнее), а не по UTC. Пришло на час не туда: <code>hermes config set timezone Europe/Nicosia</code> и пересоздать задачу.</p>
-</section>
-
-<!-- 13 · блок 5 -->
-<section class="slide">
-  <div class="session-head"><span class="no">05</span><div><div class="kicker" style="margin-bottom:.2rem">блок · один реальный процесс</div></div><span class="timer">15 минут</span></div>
+  <div class="session-head"><span class="no">05</span><div><div class="kicker" style="margin-bottom:.2rem">стол «гермес» · один реальный процесс</div></div><span class="timer">15 минут</span></div>
   <p class="task"><b>Задача:</b> передать Гермесу один процесс, который вы делаете руками каждую неделю. Идеи на следующем слайде.</p>
-  <div class="prompt" data-copy="">Хочу передать тебе один рабочий процесс. Задавай вопросы по одному: что его запускает (время, моё сообщение, пересланное письмо или сообщение); что на входе; какие шаги; что на выходе и в каком виде; куда положить результат; что ты делаешь сам, а что только после моего «да». Потом опиши процесс в семи строках, сохрани как свой навык и сделай пробный прогон на реальном примере, который я сейчас пришлю.</div>
+  <div class="prompt" data-label="промпт · боту в Telegram" data-copy="">Хочу передать тебе один рабочий процесс. Задавай вопросы по одному: что его запускает (время, моё сообщение, пересланное письмо или сообщение); что на входе; какие шаги; что на выходе и в каком виде; куда положить результат; что ты делаешь сам, а что только после моего «да». Потом опиши процесс в семи строках, сохрани как свой навык и сделай пробный прогон на реальном примере, который я сейчас пришлю.</div>
   <p class="note"><b>Берите маленький процесс.</b> Тот, где вход можно переслать или наговорить боту, а результат вы проверяете за минуту.</p>
   <p class="done-check"><b>Готово, когда:</b> пробный прогон на вашем реальном примере дал результат, который не стыдно использовать.</p>
 </section>
 
-<!-- 14 · меню процессов -->
+<!-- 16 · меню процессов -->
 <section class="slide">
   <div class="kicker">что можно отдать уже сегодня</div>
   <h2>Пять процессов для одного бота</h2>
@@ -279,80 +338,68 @@ hermes config set tts.edge.voice ru-RU-SvetlanaNeural</div>
     <div class="card compact"><span class="n">02</span><h3>Протокол встречи</h3><p>Голосовое сразу после встречи: решения, задачи, кому что написать. Задачи сразу в список.</p></div>
     <div class="card compact"><span class="n">03</span><h3>Список «жду»</h3><p>Пересылаете всё, где ждёте ответа или оплаты. В понедельник и четверг: кого дожать, с черновиком.</p></div>
     <div class="card compact"><span class="n">04</span><h3>Утренний мониторинг</h3><p>Три новости или объявления по вашей теме из интернета, каждое в одну строку со ссылкой.</p></div>
-    <div class="card compact"><span class="n">05</span><h3>Голос в пост</h3><p>Наговорили мысль, получили черновик поста в своём стиле. Примеры постов положите в базу.</p></div>
+    <div class="card compact"><span class="n">05</span><h3>Голос в пост</h3><p>Наговорили мысль, получили черновик поста в своём стиле. Примеры постов уже лежат в базе.</p></div>
     <div class="card compact"><span class="n">!</span><h3>Одно правило на все</h3><p>Бот людям сам не пишет. Он готовит, вы отправляете.</p></div>
   </div>
 </section>
 
-<!-- 15 · чекпойнт -->
+<!-- 17 · чекпойнт -->
 <section class="slide dark">
   <div class="kicker">чекпойнт</div>
-  <h2>У каждого Гермес получил первую работу</h2>
+  <h2>У каждого своя ступень закрыта</h2>
   <ul class="plain">
-    <li><span class="t">показ</span> 2-3 человека на проектор: какой процесс отдали и что пришло в пробном прогоне</li>
-    <li><span class="t">бот молчит</span> Шлюз не перезапущен или не тот ID. Проверка: <code>hermes gateway status</code></li>
-    <li><span class="t">не помнит</span> После <code>/new</code> забыл правило: попросите оформить его как навык и повторите проверку</li>
-    <li><span class="t">голос</span> Каша вместо текста: <code>stt.language ru</code>. Не говорит голосом: <code>/voice</code></li>
+    <li><span class="t">показ</span> Один от стола «Основа»: спросите Claude Code «кто я?». Двое от стола «Гермес»: какой процесс отдали</li>
+    <li><span class="t">бот молчит</span> Шлюз не перезапущен или не тот ID. Попросите Claude Code: «посмотри логи шлюза Гермеса»</li>
+    <li><span class="t">не та память</span> Называет старое: нет <code>AGENTS.md</code> или не задан <code>terminal.cwd</code></li>
     <li><span class="t">время</span> Рутина пришла не тогда: <code>hermes config set timezone Europe/Nicosia</code>, задачу пересоздать</li>
+    <li><span class="t">ошибка</span> Любую ошибку не ищем в интернете, а отдаём Claude Code. Без токенов</li>
   </ul>
 </section>
 
-<!-- 16 · грабли месяца -->
+<!-- 18 · грабли месяца -->
 <section class="slide dark">
   <div class="kicker">из опыта · два месяца с Гермесом в работе</div>
   <h2>Грабли месяца</h2>
   <div class="grid g3">
-    <div class="card compact"><span class="n">01</span><h3>Разогнался</h3><p>25 задач, читать перестал, поставил на паузу всё.<span class="fix">одна задача, неделя с ней, потом вторая</span></p></div>
-    <div class="card compact"><span class="n">02</span><h3>Деньги</h3><p>Почти весь расход это вход: каждый запуск заново тащит весь контекст.<span class="fix">запускать реже, отвечать короче</span></p></div>
-    <div class="card compact"><span class="n">03</span><h3>Старая модель</h3><p>Сменил модель, а задачи по расписанию остались на прежней.<span class="fix">после смены пройти /cron list</span></p></div>
+    <div class="card compact"><span class="n">01</span><h3>Две памяти</h3><p>Правила для Claude Code обновил, для Гермеса забыл. Он называл старую цель.<span class="fix">одна папка, AGENTS.md рядом с CLAUDE.md</span></p></div>
+    <div class="card compact"><span class="n">02</span><h3>Разогнался</h3><p>Больше двадцати задач, 15 сообщений в день. Остановил все.<span class="fix">одна задача, неделя с ней, потом вторая</span></p></div>
+    <div class="card compact"><span class="n">03</span><h3>Расход</h3><p>Почти весь расход это вход: каждый запуск заново читает всю память.<span class="fix">запускать реже, память держать короткой</span></p></div>
     <div class="card compact"><span class="n">04</span><h3>Тишина</h3><p>Вход по подписке протух, Гермес молча перестал отвечать.<span class="fix">запасная модель и раз в неделю «ты жив?»</span></p></div>
-    <div class="card compact"><span class="n">05</span><h3>Почта</h3><p>Google дважды отозвал доступ к почте и календарю.<span class="fix">сегодня почту не подключаем</span></p></div>
+    <div class="card compact"><span class="n">05</span><h3>Секреты</h3><p>В рабочей папке нашлось 10 файлов с ключами.<span class="fix">проверка перед загрузкой в GitHub</span></p></div>
     <div class="card compact"><span class="n">06</span><h3>Время</h3><p>Зимой Кипр живёт по +02:00, сервер по UTC.<span class="fix">timezone в настройках, сверить /cron list</span></p></div>
   </div>
 </section>
 
-<!-- 17 · безопасность -->
+<!-- 19 · безопасность -->
 <section class="slide dark">
   <div class="kicker">четыре правила безопасности</div>
   <h2>У Гермеса ключи от вашего сервера</h2>
   <div class="grid g2">
-    <div class="card"><span class="n">01</span><h3>Токены не пересылать</h3><p>Ни в общий чат, ни мне. Утёк токен бота: сразу <b style="color:#fff">/revoke</b> в @BotFather.</p></div>
+    <div class="card"><span class="n">01</span><h3>Токены не пересылать</h3><p>Ни в общий чат, ни мне, ни в чат с Claude Code. Утёк токен бота: сразу <b style="color:#fff">/revoke</b> в @BotFather.</p></div>
     <div class="card"><span class="n">02</span><h3>Только вы</h3><p>Бот слушает только ваш Telegram ID. Не расширяйте список без нужды.</p></div>
-    <div class="card"><span class="n">03</span><h3>Наружу только после «да»</h3><p>Письма, сообщения людям, платежи: сначала показать, потом сделать. Это уже в его правилах после блока 01.</p></div>
-    <div class="card"><span class="n">04</span><h3>Бот = пульт от сервера</h3><p>Через Telegram Гермес выполняет команды на сервере. Не выключайте подтверждения опасных команд (/yolo).</p></div>
+    <div class="card"><span class="n">03</span><h3>Наружу только после «да»</h3><p>Письма, сообщения людям, платежи: сначала показать, потом сделать. Запишите это в CLAUDE.md, и правило получат оба.</p></div>
+    <div class="card"><span class="n">04</span><h3>Папка на сервере только для чтения</h3><p>Гермес читает вашу память, но не переписывает её. Меняете вы, в Claude Code.</p></div>
   </div>
 </section>
 
-<!-- 18 · с чем уходите -->
-<section class="slide dark">
-  <div class="kicker">с чем уходите</div>
-  <h2>Не бот для тестов, а ассистент с работой</h2>
-  <div class="grid g3">
-    <div class="card"><span class="n">01</span><h3>Роль и память</h3><p>Знает вас, своих людей, свои запреты.</p></div>
-    <div class="card"><span class="n">02</span><h3>База и ритм</h3><p>Складывает и ищет. Утром план, вечером контроль.</p></div>
-    <div class="card"><span class="n">03</span><h3>Первый процесс</h3><p>Один, настоящий, с пробным прогоном.</p></div>
-  </div>
-  <p class="takeaway" style="margin-top:2rem">«Одна роль, одна память, <span class="accent">один процесс</span>».</p>
-</section>
-
-<!-- 19 · что дальше -->
+<!-- 20 · что дальше -->
 <section class="slide">
   <div class="kicker">что дальше</div>
   <h2>Неделя с одним процессом</h2>
   <div class="grid g2">
-    <div class="card compact"><span class="n">01</span><h3>Завтра в 8:00</h3><p>Придёт первый план дня. Вечером ответьте на контроль голосом.</p></div>
-    <div class="card compact"><span class="n">02</span><h3>Через неделю</h3><p>Одной строкой в чат GROW: какой процесс отдали и сколько времени он вернул.</p></div>
-    <div class="card compact"><span class="n">03</span><h3>Воркшопы после января</h3><p>GROW в нынешнем формате работает до 31 января. Проголосуйте в чате, нужны ли воркшопы по ИИ дальше.</p></div>
-    <div class="card compact"><span class="n">04</span><h3>Гермес для команды</h3><p>Нужен такой ассистент сотрудникам под ключ: подойдите ко мне после или напишите в личку.</p></div>
+    <div class="card compact"><span class="n">01</span><h3>Завтра в 8:00</h3><p>Стол «Гермес»: придёт первый план дня. Стол «Основа»: откройте Claude Code и дайте ему одну настоящую задачу.</p></div>
+    <div class="card compact"><span class="n">02</span><h3>Через неделю</h3><p>Одной строкой в чат GROW: что отдали и сколько времени это вернуло.</p></div>
+    <div class="card compact"><span class="n">03</span><h3>Голос, как в демо</h3><p>Живой разговор с той же памятью: следующая ступень. Кому нужно раньше, подойдите ко мне.</p></div>
+    <div class="card compact"><span class="n">04</span><h3>После января</h3><p>GROW в нынешнем формате работает до 31 января. Проголосуйте в чате, нужны ли воркшопы по ИИ дальше.</p></div>
   </div>
-  <p class="lead" style="margin-top:1.4rem"><b style="color:var(--ink)">Промпты остаются на этом сайте.</b> Вторую задачу Гермесу заводите не раньше, чем неделю проживёте с первой.</p>
+  <p class="lead" style="margin-top:1rem"><b style="color:var(--ink)">Промпты остаются на этом сайте.</b> Такую связку для команды под ключ: подойдите ко мне после или напишите в личку.</p>
 </section>
 
-<!-- 20 · финал -->
+<!-- 21 · финал -->
 <section class="slide blue hero">
   <h1 style="color:#fff">Спасибо</h1>
   <p class="sub" style="color:#dfe4ff">Станислав Жуковец × Михаил Зеленин · GROW Business Club</p>
-  <p class="lead" style="margin-top:2rem;text-align:center">Завтра в 8:00 Гермес придёт сам. Ответьте ему голосом.</p>
+  <p class="lead" style="margin-top:2rem;text-align:center">Память одна. Задач мало. Первый процесс уже отдан.</p>
 </section>
 
 <div class="hud">
