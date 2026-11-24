@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Hermes for your team · Mg Digital">
+<meta property="og:description" content="An AI employee in your team messenger that knows your price lists, templates and CRM. Set up and supported for you.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex,nofollow">
+<title>Hermes for Your Team · Mg Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&amp;family=Jost:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light;
+    --blue:#001AFF; --blue-soft:#8c97ff; --black:#121212; --ink:#1c1c1c;
+    --grey:#717171; --silver:#d9d9d9; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--black);overflow:hidden;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Baskervville',Georgia,serif}
+
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:7vh 7vw 12vh;background:var(--white);overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .slide.active{display:flex}
+  .slide.dark{background:var(--black);color:var(--white)}
+  .slide.blue{background:var(--blue);color:var(--white)}
+  .slide > *{max-width:100%}
+
+  .kicker{font-size:clamp(.7rem,1.2vw,.9rem);letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.4rem}
+  .dark .kicker{color:var(--blue-soft)}
+  .blue .kicker{color:var(--white);opacity:.75}
+  h1{font-size:clamp(2.1rem,6.2vw,4.8rem);font-weight:600;line-height:1.08;text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.6rem,4vw,3.1rem);font-weight:600;line-height:1.12;margin-bottom:1.4rem;max-width:30ch}
+  h2 em{font-style:normal;color:var(--blue)}
+  .dark h2 em{color:var(--blue-soft)}
+  p.lead{font-size:clamp(1.02rem,1.9vw,1.45rem);color:var(--grey);max-width:52rem;line-height:1.5}
+  .dark p.lead{color:#cfcfcf}
+  .blue p.lead{color:#dfe4ff}
+
+  .grid{display:grid;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1.4rem;max-width:72rem}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(max-width:680px){.g2{grid-template-columns:1fr}}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+  .card{background:var(--white);padding:clamp(.9rem,2vh,1.6rem) 1.4rem}
+  .dark .grid{background:#2c2c2c;border-color:#2c2c2c}
+  .dark .card{background:var(--black)}
+  .card h3{font-size:clamp(.92rem,1.5vw,1.12rem);font-weight:600;margin-bottom:.35rem;letter-spacing:.04em;text-transform:uppercase}
+  .dark .card h3{color:var(--white)}
+  .card p{font-size:clamp(.9rem,1.35vw,1.03rem);color:var(--grey);line-height:1.45}
+  .dark .card p{color:#b5b5b5}
+  .card .n{font-family:'Baskervville',Georgia,serif;font-size:clamp(1.3rem,2.3vw,1.9rem);color:var(--blue);display:block;margin-bottom:.45rem;line-height:1}
+  .dark .card .n{color:var(--blue-soft)}
+  .card .price{font-family:'Baskervville',Georgia,serif;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--blue);line-height:1;display:block;margin:.3rem 0 .6rem}
+  .card ul{list-style:none;margin-top:.4rem}
+  .card li{font-size:clamp(.88rem,1.3vw,1rem);color:var(--grey);padding:.22rem 0 .22rem 1rem;position:relative;line-height:1.4}
+  .card li::before{content:"";position:absolute;left:0;top:.72em;width:.4rem;height:1px;background:var(--blue)}
+  .dark .card li{color:#b5b5b5}
+  .dark .card li::before{background:var(--blue-soft)}
+  .card.hl{background:var(--blue);color:var(--white)}
+  .card.hl h3,.card.hl .price{color:var(--white)}
+  .card.hl p,.card.hl li{color:#dfe4ff}
+  .card.hl li::before{background:var(--white)}
+
+  .tag{display:inline-block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:.25rem .65rem;margin-bottom:.6rem;border:1px solid currentColor}
+  .tag.live{color:#0a8f3c}
+  .tag.roll{color:var(--blue)}
+  .dark .tag.roll{color:var(--blue-soft)}
+  .tag.next{color:var(--grey)}
+
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1.2rem;max-width:62rem}
+  .vs div{background:var(--white);padding:clamp(.5rem,1.3vh,.85rem) 1.2rem;font-size:clamp(.86rem,1.45vw,1.06rem);color:var(--grey);line-height:1.4}
+  .vs .h{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .vs .h.b{color:var(--blue)}
+  .vs .r{color:var(--ink)}
+
+  .note{margin-top:1rem;font-size:clamp(.84rem,1.35vw,.98rem);color:var(--grey);max-width:62rem;line-height:1.5}
+  .note b{color:var(--ink)}
+  .dark .note{color:#b5b5b5}
+  .dark .note b{color:var(--white)}
+  .blue .note{color:#dfe4ff}
+  .blue .note b{color:var(--white)}
+
+  .takeaway{font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.35rem,3vw,2.4rem);max-width:50rem;line-height:1.35}
+
+  ul.plain{list-style:none;margin-top:.8rem;max-width:62rem}
+  ul.plain li{padding:.6rem 0;border-bottom:1px solid var(--silver);font-size:clamp(.95rem,1.7vw,1.22rem);display:flex;gap:1.1rem;align-items:baseline;line-height:1.4}
+  .dark ul.plain li{border-color:#2c2c2c}
+  .blue ul.plain li{border-color:rgba(255,255,255,.25)}
+  ul.plain .t{font-family:'Baskervville',Georgia,serif;color:var(--blue);min-width:2.2rem;font-size:1.05em;flex-shrink:0}
+  .dark ul.plain .t{color:var(--blue-soft)}
+  .blue ul.plain .t{color:var(--white);opacity:.8}
+  ul.plain small{display:block;color:var(--grey);font-size:.82em;margin-top:.15rem}
+  .dark ul.plain small{color:#9a9a9a}
+  .blue ul.plain small{color:#cdd3ff}
+
+  .hero{text-align:center;align-items:center}
+  .hero .club{font-size:clamp(.76rem,1.3vw,.95rem);letter-spacing:.32em;text-transform:uppercase;font-weight:600;margin-bottom:2.6rem}
+  .hero .club b{color:var(--blue)}
+  .hero .club span{color:var(--grey)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin:1.8rem auto 0;font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.1rem,2.1vw,1.6rem);color:var(--grey);max-width:44rem;line-height:1.4}
+  .hero .meta{margin-top:2.6rem;font-size:clamp(.74rem,1.3vw,.92rem);letter-spacing:.18em;text-transform:uppercase;color:var(--grey);line-height:1.7}
+  .hero .meta b{color:var(--ink)}
+
+  .src{list-style:none;max-width:66rem;margin-top:.6rem}
+  .src li{font-size:clamp(.82rem,1.25vw,.96rem);color:var(--grey);padding:.45rem 0;border-bottom:1px solid var(--silver);line-height:1.45}
+  .src li b{color:var(--ink);font-weight:600}
+
+  .hud{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 7vw;z-index:10;pointer-events:none;background:linear-gradient(to top,rgba(255,255,255,.92),rgba(255,255,255,0))}
+  .hud.on-dark{background:linear-gradient(to top,rgba(18,18,18,.92),rgba(18,18,18,0))}
+  .hud.on-blue{background:linear-gradient(to top,rgba(0,26,255,.92),rgba(0,26,255,0))}
+  .hud .brand{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);font-weight:600;line-height:1.5}
+  .hud .brand b{color:var(--blue)}
+  .hud.on-dark .brand b{color:var(--blue-soft)}
+  .hud.on-blue .brand,.hud.on-blue .brand b,.hud.on-blue .counter{color:#dfe4ff}
+  .hud .counter{font-size:.76rem;letter-spacing:.2em;color:var(--grey);font-weight:500;white-space:nowrap}
+  .navbtns{display:flex;gap:.5rem;pointer-events:auto}
+  .navbtns button{width:2.6rem;height:2.6rem;border:1px solid var(--silver);background:rgba(255,255,255,.8);color:var(--ink);font-size:1.05rem;cursor:pointer;font-family:inherit}
+  .navbtns button:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--blue);z-index:11;transition:width .25s ease}
+
+  @media(max-width:680px){
+    .slide{justify-content:flex-start;padding:7vh 16px 6.5rem}
+    .hero{justify-content:center}
+    .hud{padding:.7rem 16px}
+    .hud .brand .long{display:none}
+    .vs{grid-template-columns:1fr 1fr}
+    .vs div{padding:.5rem .7rem}
+    ul.plain li{gap:.8rem}
+    .card{padding:.9rem 1rem}
+  }
+</style>
+<noscript><style>html,body{height:auto!important;overflow:auto!important}.slide{display:flex!important;position:relative!important;inset:auto!important;min-height:100vh;border-bottom:1px solid #2c2c2c}.hud,.progress{display:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="progress" id="bar"></div>
+
+<!-- 1 · cover -->
+<section class="slide hero active">
+  <div class="club"><b>Mg Digital</b></div>
+  <h1>Hermes<br><span>for your team</span></h1>
+  <p class="sub">An AI employee in Telegram or WhatsApp that knows your company: your price lists, templates and CRM. It drafts quotes, answers questions and reports to the owner. Nothing goes out to a client without a person's "yes".</p>
+  <div class="meta"><b>Team AI agents, set up and supported for you</b><br>Data as of 19 Nov 2026</div>
+</section>
+
+<!-- 2 · problem -->
+<section class="slide">
+  <div class="kicker">The problem</div>
+  <h2>Company knowledge lives in <em>people and chats</em>, not in a system</h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">01</span><h3>One person does the key work</h3><p>In a furniture showroom we work with, the owner prepared every quote for property developers himself. Two more employees needed to do it just as well.</p></div>
+    <div class="card"><span class="n">02</span><h3>Knowledge sits on personal accounts</h3><p>Prices, catalogues, templates and sales terms were in the owner's own AI assistant. It could not be shared with the team.</p></div>
+    <div class="card"><span class="n">03</span><h3>Clients wait for a human</h3><p>In an accounting practice, every client question in a chat waits until a person is free to answer it.</p></div>
+    <div class="card"><span class="n">04</span><h3>The pipeline is not watched</h3><p>Deals without tasks and overdue tasks pile up in the CRM, and nobody pulls a summary from it.</p></div>
+  </div>
+  <p class="note">Both examples are real projects from November 2026: a client project and our own accounting group. Details on the case slides.</p>
+</section>
+
+<!-- 3 · what a team agent is -->
+<section class="slide">
+  <div class="kicker">What it is</div>
+  <h2>Not a chat for questions. <em>An employee for tasks.</em></h2>
+  <div class="vs">
+    <div class="h">A regular AI chat</div><div class="h b">Hermes team agent</div>
+    <div>Lives on one person's laptop or account</div><div class="r">Lives on your server 24/7, works with you in Telegram</div>
+    <div>Waits until you ask</div><div class="r">Comes on its own, on schedule: morning report, reminders</div>
+    <div>Explain everything again each time</div><div class="r">Learns: after a hard task it writes itself a reusable skill</div>
+    <div>Voice only through third-party apps</div><div class="r">Understands voice messages and can answer by voice</div>
+    <div>One person, one memory</div><div class="r">Own assistant per employee, one shared company knowledge base</div>
+    <div>Locked to one AI vendor</div><div class="r">Any AI model, switched with one command</div>
+  </div>
+  <p class="note">Built on <b>Hermes Agent</b> by Nous Research: an open-source engine (MIT license). Mg Digital configures it for your business and supports it.</p>
+</section>
+
+<!-- 4 · what it does -->
+<section class="slide">
+  <div class="kicker">What it does</div>
+  <h2>Skills your team <em>hands over</em></h2>
+  <div class="grid g3">
+    <div class="card"><h3>Quotes and proposals</h3><p>By your template and price list, with recalculation. Edit in one phrase: "same as this one, but swap the sofa and add two beds". In three languages in the furniture case.</p></div>
+    <div class="card"><h3>Answers on prices and terms</h3><p>From the company price list turned into a knowledge base. In the accounting group the agent answers price questions from it.</p></div>
+    <div class="card"><h3>Client replies and status updates</h3><p>Drafts replies and short status notes. They go out only after the responsible person approves.</p></div>
+    <div class="card"><h3>Morning report</h3><p>Deals, deals without a task, overdue tasks, by manager. Every morning in Telegram.</p></div>
+    <div class="card"><h3>Summary for the owner</h3><p>Tasks, promises the team made, what is on fire.</p></div>
+    <div class="card"><h3>Personal assistant layer</h3><p>Morning plan, evening check of what is done and what hangs, meeting notes, search across your files.</p></div>
+  </div>
+</section>
+
+<!-- 5 · how it connects -->
+<section class="slide">
+  <div class="kicker">How it connects</div>
+  <h2>Works where your team <em>already works</em></h2>
+  <div class="grid g2">
+    <div class="card"><h3>Channels</h3><ul><li>Telegram bot: text and voice, own profile per employee</li><li>WhatsApp via the official Business API (Meta verification and conversation fees paid by the client)</li><li>The engine also supports Slack, Discord, Signal and iMessage</li></ul></div>
+    <div class="card"><h3>CRM</h3><ul><li>Bitrix24: live connection in our own accounting group, read-only at the start</li><li>KeyCRM connector quoted for the furniture case: clients, deals, saving quotes to the client card</li><li>Other systems through a connector or MCP</li></ul></div>
+    <div class="card"><h3>Documents and knowledge</h3><ul><li>Price lists, catalogues, templates, sample quotes in one shared base</li><li>Update the price list once, it updates for everyone</li><li>Google mail and calendar through a ready skill</li></ul></div>
+    <div class="card"><h3>Access rights</h3><ul><li>The bot listens only to approved Telegram IDs</li><li>Each employee gets a separate profile; one role and one base for the team</li><li>Writing to the CRM is switched on only after the pilot, through human approval</li></ul></div>
+  </div>
+</section>
+
+<!-- 6 · security -->
+<section class="slide dark">
+  <div class="kicker">Security and data ownership</div>
+  <h2>Your data stays <em>in your company</em></h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">01</span><h3>The company owns the base</h3><p>Knowledge and skills belong to the company, not to a personal account. An employee leaves, the assistant stays.</p></div>
+    <div class="card"><span class="n">02</span><h3>Your server, your AI subscription</h3><p>The agent runs on a server and an AI model subscription that the client pays for directly. You can change the model provider.</p></div>
+    <div class="card"><span class="n">03</span><h3>Out only after "yes"</h3><p>Messages to clients, quotes and statuses are shown first and sent only after a person approves. A person in the chat can always take over.</p></div>
+    <div class="card"><span class="n">04</span><h3>Narrow by default</h3><p>For client-facing agents we switch off terminal and file access. The engine keeps an action allow-list with approval history and has an emergency pause.</p></div>
+  </div>
+  <p class="note">The Mg Digital agent platform is designed with a separate container per client. In our accounting group design, sensitive topics such as tax advice are routed to a human by rule.</p>
+</section>
+
+<!-- 7 · lessons from production -->
+<section class="slide">
+  <div class="kicker">From our own operation</div>
+  <h2>We run Hermes ourselves, <em>since September 2026</em></h2>
+  <p class="lead">Two of our own Hermes agents have been in daily work since September. One of them collects leads from 52 chats. These are the problems we already solved, so your team does not hit them.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Time zone</h3><p>The server runs on UTC: a 17:00 task arrived at 20:00. Fixed in settings.</p></div>
+    <div class="card"><h3>Too many messages</h3><p>15 messages and 22,700 characters a day. Fixed with a length limit and a "nothing to say, stay silent" rule.</p></div>
+    <div class="card"><h3>API costs</h3><p>$50 of API spend in 4 days. Fixed with a subscription or a spend limit, watched with usage reports.</p></div>
+    <div class="card"><h3>Lost mail access</h3><p>Google revoked access after 7 days in test mode. Fixed by publishing the app in Google Cloud.</p></div>
+    <div class="card"><h3>Silent failure</h3><p>The model went down and the agent went quiet. Fixed with a fallback model.</p></div>
+    <div class="card"><h3>Voice</h3><p>Voice messages came out garbled with the wrong language setting. Fixed with the speech language setting.</p></div>
+  </div>
+</section>
+
+<!-- 8 · case 1 -->
+<section class="slide">
+  <div class="kicker">Case 1 · in rollout</div>
+  <h2>A furniture showroom: <em>quotes by the whole team</em></h2>
+  <div class="grid g2">
+    <div class="card"><h3>Situation</h3><p>The showroom prepares quotes for property developers. The owner did them himself, with his own AI assistant loaded with prices, the furniture list, sales terms and templates. Goal: the team prepares quotes as well as he does.</p></div>
+    <div class="card"><h3>What we do</h3><ul><li>Move his assistant into Hermes, not rebuild it: instructions, files, best dialogues</li><li>Own assistant for each of up to 5 employees, one shared base</li><li>Quote check before sending, approval by the responsible person, summary for the owner</li></ul></div>
+    <div class="card"><h3>How it is accepted</h3><ul><li>Parity test: the same 5 requests give quotes no worse than his assistant, the owner compares himself</li><li>Acceptance call: each employee builds one quote on a live request</li></ul></div>
+    <div class="card"><h3>Scope</h3><ul><li>Team package plus three modules: CRM connector, pricing rules table, WhatsApp Business API</li><li>Optional support after the included month</li><li>Prices for the package and each module are on the packages slide</li></ul></div>
+  </div>
+  <p class="note"><span class="tag roll">in rollout</span> Package agreed in November 2026; migration of the existing assistant in progress as of 14 Nov 2026. Floor-plan layout and CRM go as the next stage.</p>
+</section>
+
+<!-- 9 · case 2 -->
+<section class="slide">
+  <div class="kicker">Case 2 · our own company · live and in rollout</div>
+  <h2>Our own accounting group: <em>an agent next to the CRM</em></h2>
+  <p class="lead">Our group runs an international accounting practice that works in Bitrix24. We built the agent and the reports around our own real pipeline first.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag live">live</span><h3>Morning report</h3><p>Pipeline summary in Telegram every morning; an overdue threshold of 5 tasks added on 10 Nov 2026.</p></div>
+    <div class="card"><span class="tag live">live</span><h3>Price answers</h3><p>The price list was turned into the knowledge base and an agent skill. The agent answers price questions (since 13 Nov 2026).</p></div>
+    <div class="card"><span class="tag roll">in rollout</span><h3>Agent in client chats</h3><p>A shared agent on a separate work account: promises and status updates to clients go only after human approval.</p></div>
+  </div>
+  <p class="note"><span class="tag next">next</span> Quotes in one company style generated by the agent on a manager's request; deal margin alerts.</p>
+</section>
+
+<!-- 10 · rollout -->
+<section class="slide">
+  <div class="kicker">Rollout</div>
+  <h2>A working team agent <em>7-10 days</em> after we get your materials</h2>
+  <ul class="plain">
+    <li><span class="t">01</span><div>Diagnostic call<small>Which process goes first, who uses the agent, who says "yes" before anything goes to a client.</small></div></li>
+    <li><span class="t">02</span><div>Materials from you<small>Your existing assistant (instructions, files, 2-3 good dialogues), price lists and catalogue, 3-5 sample quotes, CRM API access, team list with Telegram accounts.</small></div></li>
+    <li><span class="t">03</span><div>Setup<small>Profiles for each employee, one role and one shared knowledge base, controls and the owner summary.</small></div></li>
+    <li><span class="t">04</span><div>Acceptance<small>Parity test against your current way of working, then each employee completes one task on a live request.</small></div></li>
+    <li><span class="t">05</span><div>Support<small>One month of support included in the team package. Extra modules (CRM, WhatsApp, pricing rules) go as the next stage.</small></div></li>
+  </ul>
+  <p class="note">Launch time counts from receiving the materials: 7-10 days for the team package, 3-5 days for the personal one.</p>
+</section>
+
+<!-- 11 · pricing -->
+<section class="slide">
+  <div class="kicker">Packages</div>
+  <h2>Clear prices, <em>in euros</em></h2>
+  <div class="grid g3">
+    <div class="card"><h3>Personal</h3><span class="price">490 €</span><ul><li>One assistant on its own server, 24/7, in Telegram, understands voice</li><li>Remembers you, your projects and agreements</li><li>One real business process set up for you</li><li>Launch in 3-5 days, 2 weeks of support</li></ul></div>
+    <div class="card hl"><h3>For your team</h3><span class="price">990 €</span><ul><li>Everything in Personal, plus an assistant for each of up to 5 employees</li><li>Shared company knowledge base</li><li>Owner summary; client-facing output only after "yes"</li><li>One team process turnkey, for example quotes by your price list</li><li>Launch in 7-10 days, 1 month of support</li><li>Each employee over five: +150 €</li></ul></div>
+    <div class="card"><h3>Add-on modules</h3><p>As quoted in the furniture case:</p><ul><li>CRM connector: 400 €</li><li>Pricing rules table the admin edits without code: 300 €</li><li>WhatsApp official Business API: 300 €</li><li>Optional support after the included period: 150 € / month</li></ul></div>
+  </div>
+  <p class="note"><b>Paid by the client directly:</b> AI model subscription at the provider's rate (from about 20 € per person per month) and a server (from 10 € per month). Prices as of 12 Nov 2026.</p>
+</section>
+
+<!-- 13 · next step -->
+<section class="slide dark">
+  <div class="kicker">Next step</div>
+  <h2>A diagnostic call: <em>one process, one agent</em></h2>
+  <p class="lead">We pick the one process that eats the most of the owner's or team's time and check if an agent can take it.</p>
+  <ul class="plain">
+    <li><span class="t">01</span><div>Who will use the agent and who approves before anything goes to a client?</div></li>
+    <li><span class="t">02</span><div>Is there already an AI assistant in use, and where is it built?</div></li>
+    <li><span class="t">03</span><div>Where do price lists, templates and past quotes live today?</div></li>
+    <li><span class="t">04</span><div>Which CRM and which messengers does the team use?</div></li>
+    <li><span class="t">05</span><div>How many quotes or client requests per month, and how long does one take?</div></li>
+  </ul>
+  <p class="note">Book the call: <a href="https://t.me/Mg_Digitai_bot" style="color:inherit"><b>t.me/Mg_Digitai_bot</b></a> · <a href="https://digitai.maizongroup.com/" style="color:inherit">digitai.maizongroup.com</a></p>
+</section>
+
+<!-- 14 · sources -->
+<section class="slide">
+  <div class="kicker">Sources</div>
+  <h2>Where every number comes from</h2>
+  <ul class="src">
+    <li><b>Packages and prices</b> (490 €, 990 €, +150 €, launch times, running costs): Mg Digital package description, prices as of 12 Nov 2026.</li>
+    <li><b>Case 1, furniture showroom</b>: project card, client spec and offer of 9 Nov 2026 (modules 400 / 300 / 300 €, support 150 € / month), rollout map of 14 Nov 2026.</li>
+    <li><b>Case 2, our own accounting group</b>: project card, automation roadmap updated 14 Nov 2026, client-chat agent architecture (draft).</li>
+    <li><b>Hermes Agent capabilities</b> (channels, skills, memory, security controls): Mg Digital knowledge page on Hermes Agent v0.21, checked live on 7 Nov 2026.</li>
+    <li><b>Engine and license</b>: Mg Digital comparison of OpenClaw and Hermes, primary sources checked 5 Sep 2026.</li>
+    <li><b>Our own operation</b> (two agents since September, 52 chats, lessons): Mg Digital Hermes workshop, 8 Oct 2026.</li>
+    <li><b>Agent platform</b> (container per client, role presets): Mg Digital agent platform project card, November 2026.</li>
+  </ul>
+  <p class="note">Data as of 19 Nov 2026. Client names are withheld. "In rollout" means work is underway and results are not yet final. Prices are in EUR; this is not a public offer.</p>
+</section>
+
+<div class="hud" id="hud">
+  <div class="brand"><b>Mg Digital</b><span class="long"> · data as of 19 Nov 2026</span></div>
+  <div class="counter" id="counter">1 / 13</div>
+  <div class="navbtns"><button id="prev" aria-label="previous">←</button><button id="next" aria-label="next">→</button></div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, n = slides.length;
+  var counter = document.getElementById('counter');
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  function show(k){
+    i = Math.max(0, Math.min(n-1, k));
+    slides.forEach(function(s,j){ s.classList.toggle('active', j===i); });
+    slides[i].scrollTop = 0;
+    counter.textContent = (i+1) + ' / ' + n;
+    bar.style.width = ((i+1)/n*100) + '%';
+    hud.classList.toggle('on-dark', slides[i].classList.contains('dark'));
+    hud.classList.toggle('on-blue', slides[i].classList.contains('blue'));
+    if (history.replaceState) history.replaceState(null,'','#'+(i+1));
+  }
+  function next(){ show(i+1); } function prev(){ show(i-1); }
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.addEventListener('keydown', function(e){
+    if (e.key==='ArrowRight'||e.key===' '||e.key==='PageDown') { e.preventDefault(); next(); }
+    if (e.key==='ArrowLeft'||e.key==='PageUp') { e.preventDefault(); prev(); }
+    if (e.key==='Home') show(0);
+    if (e.key==='End') show(n-1);
+  });
+  var touchX = null, touchY = null;
+  document.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (touchX===null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    var dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { if (dx < 0) next(); else prev(); }
+    touchX = null; touchY = null;
+  }, {passive:true});
+  function fromHash(){ var h = parseInt((location.hash||'').slice(1), 10); show(isNaN(h) ? 0 : h-1); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+
+</body></html>

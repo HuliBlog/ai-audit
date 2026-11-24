@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI back office for restaurants · Mg Digital">
+<meta property="og:description" content="Documents and bookkeeping in QuickBooks, live in a multi-location restaurant group. Paid pilot on your real documents.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex,nofollow">
+<title>Mg Digital · AI back office for restaurants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&amp;family=Jost:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#001AFF; --black:#121212; --ink:#1c1c1c;
+    --grey:#6b6b6b; --silver:#d9d9d9; --light:#f6f5f5; --white:#ffffff; --pale:#dfe4ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--black);overflow:hidden;-webkit-font-smoothing:antialiased}
+
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:7vh 7vw 13vh;background:var(--white);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+  .slide.active{display:flex}
+  .slide.dark{background:var(--black);color:var(--white)}
+  .slide.blue{background:var(--blue);color:var(--white)}
+
+  .kicker{font-size:clamp(.68rem,1.1vw,.86rem);letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.2rem;display:flex;gap:1rem;align-items:baseline}
+  .kicker .no{font-family:'Baskervville',serif;letter-spacing:0;font-size:1.3em;color:var(--grey);font-weight:400}
+  .dark .kicker{color:#8fa0ff}
+  .blue .kicker{color:var(--white);opacity:.8}
+  h1{font-size:clamp(2rem,5.6vw,4.4rem);font-weight:600;line-height:1.08;letter-spacing:.01em}
+  h2{font-size:clamp(1.5rem,3.6vw,2.9rem);font-weight:600;line-height:1.14;margin-bottom:1.4rem;max-width:62rem}
+  h2 .sub{display:block;font-family:'Baskervville',serif;font-style:italic;font-weight:400;font-size:.62em;color:var(--grey);margin-top:.6rem}
+  .dark h2 .sub{color:#b5b5b5}
+  p.lead{font-size:clamp(1rem,1.8vw,1.4rem);color:var(--grey);max-width:54rem;line-height:1.5}
+  .dark p.lead{color:#cfcfcf}
+  .blue p.lead{color:var(--pale)}
+
+  .grid{display:grid;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1rem}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+  .card{background:var(--white);padding:clamp(.8rem,2vh,1.5rem) 1.3rem}
+  .dark .grid{background:#2c2c2c;border-color:#2c2c2c}
+  .dark .card{background:var(--black)}
+  .card h3{font-size:clamp(.85rem,1.4vw,1.05rem);font-weight:600;margin-bottom:.45rem;letter-spacing:.06em;text-transform:uppercase}
+  .card h3.b{color:var(--blue)}
+  .dark .card h3{color:var(--white)}
+  .card p,.card li{font-size:clamp(.88rem,1.3vw,1rem);color:var(--grey);line-height:1.45}
+  .dark .card p,.dark .card li{color:#b5b5b5}
+  .card ul{list-style:none}
+  .card li{padding:.12rem 0}
+  .card li::before{content:"· ";color:var(--blue);font-weight:700}
+  .card .n{font-family:'Baskervville',serif;font-size:clamp(1.9rem,3.6vw,3rem);color:var(--blue);display:block;margin-bottom:.35rem;line-height:1}
+  .dark .card .n{color:#8fa0ff}
+  .card .step{font-family:'Baskervville',serif;font-size:clamp(1.3rem,2.2vw,1.8rem);color:var(--blue);display:block;line-height:1;margin-bottom:.4rem}
+
+  .flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1rem 0 1.4rem}
+  .flow span{border:1px solid var(--blue);color:var(--blue);padding:.45rem .8rem;font-size:clamp(.82rem,1.3vw,1rem);font-weight:500}
+  .flow i{font-style:normal;color:var(--grey)}
+
+  .note{margin-top:1rem;font-size:clamp(.8rem,1.25vw,.95rem);color:var(--grey);max-width:62rem;line-height:1.45}
+  .note b{color:var(--ink)}
+  .dark .note{color:#a5a5a5}
+  .dark .note b{color:var(--white)}
+  .quote{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1rem,1.6vw,1.25rem);color:var(--ink);line-height:1.4;margin-bottom:.4rem}
+  .dark .quote{color:var(--white)}
+  .takeaway{font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.2rem,2.6vw,2rem);max-width:52rem;line-height:1.35;margin-top:1.4rem}
+  .takeaway b{color:var(--blue);font-style:normal;font-family:'Jost',sans-serif;font-weight:600}
+  .blue .takeaway b{color:var(--white)}
+
+  .price{display:flex;flex-wrap:wrap;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1rem}
+  .price > div{flex:1 1 220px;background:var(--white);padding:1rem 1.3rem}
+  .price .big{font-family:'Baskervville',serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--blue);line-height:1}
+  .price .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:.4rem}
+  .price p{font-size:clamp(.86rem,1.3vw,1rem);color:var(--grey);margin-top:.4rem}
+
+  ol.src{list-style:none;counter-reset:s;margin-top:.6rem;max-width:64rem}
+  ol.src li{counter-increment:s;padding:.42rem 0;border-bottom:1px solid var(--silver);font-size:clamp(.8rem,1.2vw,.95rem);color:var(--grey);display:flex;gap:.9rem;line-height:1.4}
+  ol.src li::before{content:counter(s);font-family:'Baskervville',serif;color:var(--blue);min-width:1.2rem}
+  ol.src b{color:var(--ink);font-weight:600}
+
+  .hero{justify-content:center}
+  .hero .club{font-size:clamp(.72rem,1.2vw,.9rem);letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:2.4rem}
+  .hero .club b{color:var(--blue)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin-top:1.6rem;font-family:'Baskervville',serif;font-style:italic;font-size:clamp(1.05rem,2vw,1.55rem);color:var(--grey);max-width:48rem;line-height:1.45}
+  .hero .grid{max-width:62rem;margin-top:2.4rem}
+  .blue.hero h1{color:var(--white)}
+
+  .hud{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.9rem 7vw;z-index:10;pointer-events:none;background:linear-gradient(to top,rgba(255,255,255,.92),rgba(255,255,255,0))}
+  .hud .brand{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);font-weight:600;line-height:1.5}
+  .hud .brand b{color:var(--blue)}
+  .hud .right{display:flex;align-items:center;gap:.9rem;pointer-events:auto}
+  .hud .counter{font-size:.76rem;letter-spacing:.2em;color:var(--grey);font-weight:500;white-space:nowrap}
+  .navbtns{display:flex;gap:.5rem}
+  .navbtns button{width:2.6rem;height:2.6rem;border:1px solid var(--silver);background:rgba(255,255,255,.8);color:var(--ink);font-size:1.05rem;cursor:pointer;font-family:inherit}
+  .navbtns button:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--blue);z-index:11;transition:width .25s ease}
+
+  @media(max-width:680px){
+    .slide{padding:5vh 16px 96px;justify-content:flex-start}
+    .hero{justify-content:flex-start}
+    .hud{padding:.6rem 16px}
+    .hud .brand{font-size:.58rem;letter-spacing:.1em}
+    .hud .brand .tail{display:block}
+    .navbtns button{width:2.3rem;height:2.3rem}
+    .kicker{margin-bottom:.8rem}
+  }
+</style>
+<noscript><style>html,body{height:auto!important;overflow:auto!important}.slide{display:flex!important;position:relative!important;inset:auto!important;min-height:100vh;border-bottom:1px solid #2c2c2c}.hud,.progress{display:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="progress" id="bar"></div>
+
+<!-- 1 cover -->
+<section class="slide hero active">
+  <div class="club"><b>Mg Digital</b> · AI back office for restaurants</div>
+  <h1>One app to control<br><span>every process in your restaurants</span></h1>
+  <p class="sub">The first working module automates documents and bookkeeping in QuickBooks. Next, the same platform brings finance, purchasing, shifts, staff and multi-location control together.</p>
+  <div class="grid g3">
+    <div class="card"><h3 class="b">Already live</h3><p>The bookkeeping module runs in a multi-location restaurant group in the EU, with several legal entities, since August 2026.</p></div>
+    <div class="card"><h3 class="b">The platform</h3><p>One place to see processes, data and exceptions across all your locations.</p></div>
+    <div class="card"><h3 class="b">The next step</h3><p>A paid pilot on your real documents, then expansion module by module, by measured results.</p></div>
+  </div>
+</section>
+
+<!-- 2 problem -->
+<section class="slide">
+  <div class="kicker"><span class="no">02</span> The problem</div>
+  <h2>Restaurants create documents faster than bookkeeping can process them</h2>
+  <div class="grid g3">
+    <div class="card"><h3 class="b">The flow</h3><ul><li>Photos of receipts</li><li>PDF supplier invoices</li><li>Daily Z reports from the POS</li><li>Delivery platform statements</li><li>Card terminal batches</li><li>Handwritten cash expenses</li></ul></div>
+    <div class="card"><h3 class="b">The manual work</h3><ul><li>Identify the location</li><li>Find the supplier</li><li>Pick the account and category</li><li>Split the sales tax / VAT</li><li>Fill in the memo</li><li>Check the totals</li><li>Re-type it into QuickBooks</li></ul></div>
+    <div class="card"><h3 class="b">The owner's risk</h3><ul><li>A document gets lost</li><li>An expense never reaches the P&amp;L</li><li>A duplicate entry is created</li><li>Errors are found too late</li><li>No clear view by location</li><li>The process does not scale</li></ul></div>
+  </div>
+</section>
+
+<!-- 3 module -->
+<section class="slide">
+  <div class="kicker"><span class="no">03</span> The first working module</div>
+  <h2>Documents and bookkeeping for restaurants<span class="sub">Six steps, from a photo in a chat to a checked entry in QuickBooks</span></h2>
+  <div class="grid g3">
+    <div class="card"><span class="step">1</span><h3>Collects</h3><p>Documents from messengers, email and your systems.</p></div>
+    <div class="card"><span class="step">2</span><h3>Reads</h3><p>Document type, supplier, amount, tax, location.</p></div>
+    <div class="card"><span class="step">3</span><h3>Suggests</h3><p>Account, category, location and memo.</p></div>
+    <div class="card"><span class="step">4</span><h3>Checks</h3><p>The math, duplicates and required fields.</p></div>
+    <div class="card"><span class="step">5</span><h3>Posts</h3><p>To QuickBooks, after confirmation or inside approved rules.</p></div>
+    <div class="card"><span class="step">6</span><h3>Tracks</h3><p>Status, the original document and a full log.</p></div>
+  </div>
+</section>
+
+<!-- 4 path -->
+<section class="slide">
+  <div class="kicker"><span class="no">04</span> The path of one document</div>
+  <h2>A person stays in control</h2>
+  <div class="flow"><span>Any source</span><i>›</i><span>Process card</span><i>›</i><span>AI + your rules</span><i>›</i><span>Human check</span><i>›</i><span>QuickBooks</span><i>›</i><span>Log and status</span></div>
+  <div class="grid g3">
+    <div class="card"><h3 class="b">It does not guess</h3><p>When data is missing, the app asks for a choice or blocks the posting.</p></div>
+    <div class="card"><h3 class="b">Automatic only in a guarded lane</h3><p>Since November 2026 the app posts on its own only inside agreed limits: a known document class, a confirmed supplier, amount caps. Everything else waits for the accountant.</p></div>
+    <div class="card"><h3 class="b">Manual fallback</h3><p>If something fails, the accountant keeps working the usual way. Your books never stop.</p></div>
+  </div>
+  <p class="note">Outgoing payments always stay approved by a person.</p>
+</section>
+
+<!-- 5 scenarios -->
+<section class="slide">
+  <div class="kicker"><span class="no">05</span> Restaurant scenarios</div>
+  <h2>What is already supported</h2>
+  <div class="grid g4">
+    <div class="card"><h3 class="b">Sales and shifts</h3><ul><li>Z reports</li><li>Local daily sales forms</li><li>Day parts and night shifts</li><li>Cash, card, tips</li></ul></div>
+    <div class="card"><h3 class="b">Suppliers</h3><ul><li>Invoices</li><li>Supplier credits</li><li>Several tax rates on one invoice</li><li>Rules per supplier</li></ul></div>
+    <div class="card"><h3 class="b">Channels</h3><ul><li>Delivery platforms (Wolt, Bolt)</li><li>Card terminal batches</li><li>Aloha POS, NINA, SimplyBook</li><li>Locations and periods</li></ul></div>
+    <div class="card"><h3 class="b">Control</h3><ul><li>Duplicates</li><li>Line totals</li><li>Tax</li><li>Original attached in QuickBooks</li></ul></div>
+  </div>
+  <p class="note">Built on the systems of our first client group in the EU. Connecting your POS, delivery apps and US sales tax setup is part of the pilot diagnostic.</p>
+</section>
+
+<!-- 6 control -->
+<section class="slide dark">
+  <div class="kicker"><span class="no">06</span> Control</div>
+  <h2>Errors are caught before they reach the books</h2>
+  <div class="grid g4">
+    <div class="card"><span class="n">7</span><p>tax errors found before posting</p></div>
+    <div class="card"><span class="n">8</span><p>wrong entries found in QuickBooks</p></div>
+    <div class="card"><span class="n">14 of 17</span><p>stuck documents turned out to be duplicates</p></div>
+    <div class="card"><span class="n">51</span><p>documents returned to the work queue</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:1rem">
+    <div class="card"><p>Matches line totals with the document total, checks tax, looks for similar entries.</p></div>
+    <div class="card"><p>Protects against a double tap and verifies the entry in QuickBooks.</p></div>
+    <div class="card"><p>Keeps the original document and a full log of every action.</p></div>
+  </div>
+  <p class="note">Counts from the live client, as of 22 Oct 2026. <b>The value: a managed, verifiable flow of documents.</b></p>
+</section>
+
+<!-- 7 real volume -->
+<section class="slide">
+  <div class="kicker"><span class="no">07</span> Real volume</div>
+  <h2>Tested on a real restaurant group, every week</h2>
+  <div class="grid g3">
+    <div class="card"><span class="n">332 of 354</span><p>bookkeeping entries in one week (20-26 Oct 2026) were created by the app, not typed by hand (94%)</p></div>
+    <div class="card"><span class="n">173 of 333</span><p>were posted with a single tap, without touching one field (52%)</p></div>
+    <div class="card"><span class="n">222 of 333</span><p>were posted without the accountant's own edits (about two thirds)</p></div>
+    <div class="card"><span class="n">35 s</span><p>from opening a document card to the tap; the write to QuickBooks takes about 2 seconds</p></div>
+    <div class="card"><span class="n">79 of 135</span><p>entries posted automatically, 4-6 Nov 2026: the starting point of the new main metric, after automatic posting was switched on</p></div>
+    <div class="card"><span class="n">10+</span><p>locations and several legal entities in one group, live since August 2026</p></div>
+  </div>
+  <p class="note">One client so far; we have no comparison with others. We do not claim accuracy percentages, time savings or headcount cuts. <b>A pilot on your documents measures those.</b></p>
+</section>
+
+<!-- 8 honest picture -->
+<section class="slide">
+  <div class="kicker"><span class="no">08</span> The honest picture</div>
+  <h2>What is ready, what is being improved, what we do not promise</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Ready</h3><p>The main flow, QuickBooks, checks, the log, a range of restaurant scenarios, automatic posting in a guarded lane.</p></div>
+    <div class="card"><h3>Being improved</h3><p>Reading totals from poor scans, location data, thermal receipts, complex tax. In shadow mode next to the accountant: handwritten cash receipts, payroll, credit notes.</p></div>
+    <div class="card"><h3>Not promised</h3><p>Full autonomy, 100% of documents, launch without setup.</p></div>
+  </div>
+  <p class="note">One live client so far. That is why the first step is a paid pilot with stop conditions, not a rollout.</p>
+</section>
+
+<!-- 9 platform -->
+<section class="slide dark">
+  <div class="kicker"><span class="no">09</span> The platform</div>
+  <h2>Bookkeeping is the first module, not the edge of the product</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Finance</h3><p>P&amp;L by location · payments and cash flow · errors, duplicates, anomalies</p></div>
+    <div class="card"><h3>Purchasing and stock</h3><p>Supplier prices · stock and write-offs · food cost and margin</p></div>
+    <div class="card"><h3>Operations</h3><p>Shifts and checklists · incidents and tasks · follow-through</p></div>
+    <div class="card"><h3>Staff</h3><p>Schedules and payroll · training and standards · deviations by location</p></div>
+    <div class="card"><h3>Guests and sales</h3><p>Reviews and requests · reservations and delivery apps · repeat visits</p></div>
+    <div class="card"><h3>Owner's console</h3><p>One view of the whole business · alerts and decisions · control without micromanagement</p></div>
+  </div>
+  <p class="note">Direction of the platform. Live today: the bookkeeping module.</p>
+</section>
+
+<!-- 10 pilot -->
+<section class="slide">
+  <div class="kicker"><span class="no">10</span> The paid pilot</div>
+  <h2>A pilot without risk to your books<span class="sub">4 weeks, one restaurant, one process</span></h2>
+  <div class="grid g4">
+    <div class="card"><span class="step">0</span><h3>Setup</h3><p><b>3-5 days.</b> 50-100 documents, tax settings and reference lists.</p></div>
+    <div class="card"><span class="step">1</span><h3>Shadow mode</h3><p><b>5-7 days.</b> Prepares entries, writes nothing.</p></div>
+    <div class="card"><span class="step">2</span><h3>Write with confirmation</h3><p><b>1-2 weeks.</b> The accountant confirms each entry.</p></div>
+    <div class="card"><span class="step">3</span><h3>Decision</h3><p><b>By the numbers.</b> Only stable scenarios are expanded.</p></div>
+  </div>
+  <div class="price">
+    <div><div class="lbl">Paid pilot</div><div class="big">€1,500</div><p>4 weeks, one restaurant, one process: documents into accounting, or shift close and cash reconciliation. Credited towards onboarding.</p></div>
+    <div><div class="lbl">Group onboarding</div><div class="big">from €4,500</div><p>Rollout across your restaurants after the pilot.</p></div>
+  </div>
+  <p class="note"><b>Stop conditions:</b> a lost document, a duplicate in QuickBooks, the accountant unable to work by hand, or an error nobody can explain.</p>
+</section>
+
+<!-- 11 acceptance -->
+<section class="slide">
+  <div class="kicker"><span class="no">11</span> Acceptance</div>
+  <h2>How the pilot is accepted</h2>
+  <div class="grid g2">
+    <div class="card"><h3 class="b">Throughput</h3><ul><li>Documents received</li><li>Documents lost: target 0</li><li>Classified correctly</li><li>Posted on the first try</li><li>Share posted automatically</li><li>Active accountant time</li></ul></div>
+    <div class="card"><h3 class="b">Quality and safety</h3><ul><li>Errors found before QuickBooks</li><li>Duplicates prevented</li><li>Sent back to the manual process</li><li>Availability during working hours</li><li>Clear statuses and reasons</li></ul></div>
+  </div>
+  <p class="takeaway">We agree the metrics <b>before</b> the start, and decide on scale by them.</p>
+</section>
+
+<!-- 12 next step -->
+<section class="slide blue">
+  <div class="kicker"><span class="no">12</span> The next step</div>
+  <h2>A diagnostic on your real documents</h2>
+  <div class="grid g3" style="background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.3)">
+    <div class="card" style="background:var(--blue)"><span class="step" style="color:#fff">1</span><p style="color:var(--pale)">You send 50-100 anonymized historical documents.</p></div>
+    <div class="card" style="background:var(--blue)"><span class="step" style="color:#fff">2</span><p style="color:var(--pale)">We run the diagnostic and agree the pilot metrics with you.</p></div>
+    <div class="card" style="background:var(--blue)"><span class="step" style="color:#fff">3</span><p style="color:var(--pale)">You get an offer with acceptance gates and clear product limits.</p></div>
+  </div>
+  <p class="takeaway">A safe test on real documents first. <b>Scale by the numbers.</b></p>
+  <p class="takeaway" style="margin-top:.6rem">Contact: <a href="https://t.me/Mg_Digitai_bot" style="color:#fff">t.me/Mg_Digitai_bot</a> · <a href="https://digitai.maizongroup.com/" style="color:#fff">digitai.maizongroup.com</a></p>
+</section>
+
+<!-- 13 sources -->
+<section class="slide">
+  <div class="kicker"><span class="no">13</span> Sources</div>
+  <h2>Sources and caveats</h2>
+  <ol class="src">
+    <li><span><b>Live client:</b> a multi-location restaurant group in the EU, project card of Mg Digital. Weekly figures 20-26 Oct 2026, from the handover audit of 27 Oct 2026, with definitions.</span></li>
+    <li><span><b>Automatic posting:</b> 79 of 135 entries, window 4-6 Nov 2026, baseline recorded 7 Nov 2026, when it became the main metric.</span></li>
+    <li><span><b>Control counts and supported scenarios:</b> Mg Digital working deck, 22 Oct 2026.</span></li>
+    <li><span><b>Pilot terms and prices:</b> Mg Digital paid pilot page, 10 Nov 2026. Prices in EUR. US subscription pricing is not published yet.</span></li>
+  </ol>
+  <p class="note">One client, no comparison with others yet. The client is not named. Prepared with the help of AI; the final check and responsibility lie with Mg Digital. <b>Data as of 7 Nov 2026.</b></p>
+</section>
+
+<div class="hud">
+  <div class="brand"><b>Mg Digital</b> <span class="tail">· data as of 7 Nov 2026</span></div>
+  <div class="right">
+    <div class="counter" id="counter">1 / 13</div>
+    <div class="navbtns"><button id="prev" aria-label="previous slide">←</button><button id="next" aria-label="next slide">→</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, n = slides.length;
+  var counter = document.getElementById('counter');
+  var bar = document.getElementById('bar');
+  function show(k){
+    i = Math.max(0, Math.min(n-1, k));
+    slides.forEach(function(s,j){ s.classList.toggle('active', j===i); if (j===i) s.scrollTop = 0; });
+    counter.textContent = (i+1) + ' / ' + n;
+    bar.style.width = ((i+1)/n*100) + '%';
+    if (history.replaceState) history.replaceState(null,'','#'+(i+1));
+  }
+  function next(){ show(i+1); } function prev(){ show(i-1); }
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.addEventListener('keydown', function(e){
+    if (e.key==='ArrowRight'||e.key===' '||e.key==='PageDown') { e.preventDefault(); next(); }
+    if (e.key==='ArrowLeft'||e.key==='PageUp') { e.preventDefault(); prev(); }
+    if (e.key==='Home') show(0);
+    if (e.key==='End') show(n-1);
+  });
+  var tx = null, ty = null;
+  document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (tx===null) return;
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { if (dx < 0) next(); else prev(); }
+    tx = null; ty = null;
+  });
+  function fromHash(){ var h = parseInt((location.hash||'').slice(1), 10); if (!isNaN(h) && h-1 !== i) show(h-1); }
+  window.addEventListener('hashchange', fromHash);
+  var h0 = parseInt((location.hash||'').slice(1), 10);
+  show(isNaN(h0) ? 0 : h0-1);
+})();
+</script>
+</body>
+</html>
