@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="One picture for a multi-country group · Mg">
+<meta property="og:description" content="AI consolidation of bookkeeping and management accounts for a group with companies in several countries.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex,nofollow">
+<title>One picture for a multi-country group · Mg Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&amp;family=Jost:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light;
+    --blue:#001AFF; --blue-soft:#8c97ff; --black:#121212; --ink:#1c1c1c;
+    --grey:#717171; --silver:#d9d9d9; --light:#f6f5f5; --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Jost',Arial,sans-serif;color:var(--ink);background:var(--black);overflow:hidden;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Baskervville',Georgia,serif}
+
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:7vh 7vw 12vh;background:var(--white);overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .slide.active{display:flex}
+  .slide.dark{background:var(--black);color:var(--white)}
+  .slide.blue{background:var(--blue);color:var(--white)}
+  .slide > *{max-width:100%}
+
+  .kicker{font-size:clamp(.7rem,1.2vw,.9rem);letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:1.4rem}
+  .dark .kicker{color:var(--blue-soft)}
+  .blue .kicker{color:var(--white);opacity:.75}
+  h1{font-size:clamp(2.1rem,6.2vw,4.8rem);font-weight:600;line-height:1.08;text-transform:uppercase;letter-spacing:.02em}
+  h2{font-size:clamp(1.6rem,4vw,3.1rem);font-weight:600;line-height:1.12;margin-bottom:1.4rem;max-width:30ch}
+  h2 em{font-style:normal;color:var(--blue)}
+  .dark h2 em{color:var(--blue-soft)}
+  p.lead{font-size:clamp(1.02rem,1.9vw,1.45rem);color:var(--grey);max-width:52rem;line-height:1.5}
+  .dark p.lead{color:#cfcfcf}
+  .blue p.lead{color:#dfe4ff}
+
+  .grid{display:grid;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1.4rem;max-width:72rem}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(max-width:680px){.g2{grid-template-columns:1fr}}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+  .card{background:var(--white);padding:clamp(.9rem,2vh,1.6rem) 1.4rem}
+  .dark .grid{background:#2c2c2c;border-color:#2c2c2c}
+  .dark .card{background:var(--black)}
+  .card h3{font-size:clamp(.92rem,1.5vw,1.12rem);font-weight:600;margin-bottom:.35rem;letter-spacing:.04em;text-transform:uppercase}
+  .dark .card h3{color:var(--white)}
+  .card p{font-size:clamp(.9rem,1.35vw,1.03rem);color:var(--grey);line-height:1.45}
+  .dark .card p{color:#b5b5b5}
+  .card .n{font-family:'Baskervville',Georgia,serif;font-size:clamp(1.3rem,2.3vw,1.9rem);color:var(--blue);display:block;margin-bottom:.45rem;line-height:1}
+  .dark .card .n{color:var(--blue-soft)}
+  .card .price{font-family:'Baskervville',Georgia,serif;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--blue);line-height:1;display:block;margin:.3rem 0 .6rem}
+  .card ul{list-style:none;margin-top:.4rem}
+  .card li{font-size:clamp(.88rem,1.3vw,1rem);color:var(--grey);padding:.22rem 0 .22rem 1rem;position:relative;line-height:1.4}
+  .card li::before{content:"";position:absolute;left:0;top:.72em;width:.4rem;height:1px;background:var(--blue)}
+  .dark .card li{color:#b5b5b5}
+  .dark .card li::before{background:var(--blue-soft)}
+  .card.hl{background:var(--blue);color:var(--white)}
+  .card.hl h3,.card.hl .price{color:var(--white)}
+  .card.hl p,.card.hl li{color:#dfe4ff}
+  .card.hl li::before{background:var(--white)}
+
+  .tag{display:inline-block;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:.25rem .65rem;margin-bottom:.6rem;border:1px solid currentColor}
+  .tag.live{color:#0a8f3c}
+  .tag.roll{color:var(--blue)}
+  .dark .tag.roll{color:var(--blue-soft)}
+  .tag.next{color:var(--grey)}
+
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--silver);border:1px solid var(--silver);margin-top:1.2rem;max-width:62rem}
+  .vs div{background:var(--white);padding:clamp(.5rem,1.3vh,.85rem) 1.2rem;font-size:clamp(.86rem,1.45vw,1.06rem);color:var(--grey);line-height:1.4}
+  .vs .h{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .vs .h.b{color:var(--blue)}
+  .vs .r{color:var(--ink)}
+
+  .note{margin-top:1rem;font-size:clamp(.84rem,1.35vw,.98rem);color:var(--grey);max-width:62rem;line-height:1.5}
+  .note b{color:var(--ink)}
+  .dark .note{color:#b5b5b5}
+  .dark .note b{color:var(--white)}
+  .blue .note{color:#dfe4ff}
+  .blue .note b{color:var(--white)}
+
+  .takeaway{font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.35rem,3vw,2.4rem);max-width:50rem;line-height:1.35}
+
+  ul.plain{list-style:none;margin-top:.8rem;max-width:62rem}
+  ul.plain li{padding:.6rem 0;border-bottom:1px solid var(--silver);font-size:clamp(.95rem,1.7vw,1.22rem);display:flex;gap:1.1rem;align-items:baseline;line-height:1.4}
+  .dark ul.plain li{border-color:#2c2c2c}
+  .blue ul.plain li{border-color:rgba(255,255,255,.25)}
+  ul.plain .t{font-family:'Baskervville',Georgia,serif;color:var(--blue);min-width:2.2rem;font-size:1.05em;flex-shrink:0}
+  .dark ul.plain .t{color:var(--blue-soft)}
+  .blue ul.plain .t{color:var(--white);opacity:.8}
+  ul.plain small{display:block;color:var(--grey);font-size:.82em;margin-top:.15rem}
+  .dark ul.plain small{color:#9a9a9a}
+  .blue ul.plain small{color:#cdd3ff}
+
+  .hero{text-align:center;align-items:center}
+  .hero .club{font-size:clamp(.76rem,1.3vw,.95rem);letter-spacing:.32em;text-transform:uppercase;font-weight:600;margin-bottom:2.6rem}
+  .hero .club b{color:var(--blue)}
+  .hero .club span{color:var(--grey)}
+  .hero h1 span{color:var(--blue)}
+  .hero .sub{margin:1.8rem auto 0;font-family:'Baskervville',Georgia,serif;font-style:italic;font-size:clamp(1.1rem,2.1vw,1.6rem);color:var(--grey);max-width:44rem;line-height:1.4}
+  .hero .meta{margin-top:2.6rem;font-size:clamp(.74rem,1.3vw,.92rem);letter-spacing:.18em;text-transform:uppercase;color:var(--grey);line-height:1.7}
+  .hero .meta b{color:var(--ink)}
+
+  .src{list-style:none;max-width:66rem;margin-top:.6rem}
+  .src li{font-size:clamp(.82rem,1.25vw,.96rem);color:var(--grey);padding:.45rem 0;border-bottom:1px solid var(--silver);line-height:1.45}
+  .src li b{color:var(--ink);font-weight:600}
+
+  .hud{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 7vw;z-index:10;pointer-events:none;background:linear-gradient(to top,rgba(255,255,255,.92),rgba(255,255,255,0))}
+  .hud.on-dark{background:linear-gradient(to top,rgba(18,18,18,.92),rgba(18,18,18,0))}
+  .hud.on-blue{background:linear-gradient(to top,rgba(0,26,255,.92),rgba(0,26,255,0))}
+  .hud .brand{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);font-weight:600;line-height:1.5}
+  .hud .brand b{color:var(--blue)}
+  .hud.on-dark .brand b{color:var(--blue-soft)}
+  .hud.on-blue .brand,.hud.on-blue .brand b,.hud.on-blue .counter{color:#dfe4ff}
+  .hud .counter{font-size:.76rem;letter-spacing:.2em;color:var(--grey);font-weight:500;white-space:nowrap}
+  .navbtns{display:flex;gap:.5rem;pointer-events:auto}
+  .navbtns button{width:2.6rem;height:2.6rem;border:1px solid var(--silver);background:rgba(255,255,255,.8);color:var(--ink);font-size:1.05rem;cursor:pointer;font-family:inherit}
+  .navbtns button:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--blue);z-index:11;transition:width .25s ease}
+
+  @media(max-width:680px){
+    .slide{justify-content:flex-start;padding:7vh 16px 6.5rem}
+    .hero{justify-content:center}
+    .hud{padding:.7rem 16px}
+    .hud .brand .long{display:none}
+    .vs{grid-template-columns:1fr 1fr}
+    .vs div{padding:.5rem .7rem}
+    ul.plain li{gap:.8rem}
+    .card{padding:.9rem 1rem}
+  }
+span.mg{text-transform:none!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important}span.mg{text-transform:none!important;color:inherit!important;font:inherit!important;letter-spacing:inherit!important}</style>
+<noscript><style>html,body{height:auto!important;overflow:auto!important}.slide{display:flex!important;position:relative!important;inset:auto!important;min-height:100vh;border-bottom:1px solid #2c2c2c}.hud,.progress{display:none!important}</style></noscript>
+</head>
+<body>
+
+<div class="progress" id="bar"></div>
+
+<!-- 1 · cover -->
+<section class="slide hero active">
+  <div class="club"><b><span class="mg">Mg</span></b></div>
+  <h1>One picture<br><span>for a multi-country group</span></h1>
+  <p class="sub">How AI consolidates the bookkeeping and management accounts of a group with companies in several countries, so the owner sees the whole group and not three separate sets of books.</p>
+  <div class="meta"><b>Our talk at TAXERA GLOBAL FORUM</b><br>Dubai Knowledge Park · 10 Dec 2026</div>
+</section>
+
+<!-- 2 · problem -->
+<section class="slide">
+  <div class="kicker">The problem</div>
+  <h2>Three countries, three sets of books, <em>no whole picture</em></h2>
+  <p class="lead">A company in the UAE, a holding in Cyprus, one more in Hong Kong or Kazakhstan. Each country has its own accounting, its own format, its own currency and its own accountant.</p>
+  <div class="grid g3">
+    <div class="card"><span class="n">01</span><h3>How much did the group earn?</h3><p>Each company reports on its own. Nobody adds them up in one standard.</p></div>
+    <div class="card"><span class="n">02</span><h3>Where is the money?</h3><p>Balances and flows sit in different systems, formats and currencies.</p></div>
+    <div class="card"><span class="n">03</span><h3>Where is the risk?</h3><p>Transactions between the group's own companies are booked differently on each side, and nobody compares them.</p></div>
+  </div>
+</section>
+
+<!-- 3 · how -->
+<section class="slide">
+  <div class="kicker">How it works</div>
+  <h2>Four steps from separate books to <em>one report for the owner</em></h2>
+  <div class="grid g2">
+    <div class="card"><span class="n">01</span><h3>Collect</h3><p>Financial data from several jurisdictions comes into one place.</p></div>
+    <div class="card"><span class="n">02</span><h3>Standardize</h3><p>Different accounting formats are brought to a single standard.</p></div>
+    <div class="card"><span class="n">03</span><h3>Find mismatches</h3><p>AI compares the companies of the group with each other and flags what does not agree.</p></div>
+    <div class="card"><span class="n">04</span><h3>Report</h3><p>The result is consolidated management reporting for the owner.</p></div>
+  </div>
+</section>
+
+<!-- 4 · example -->
+<section class="slide dark">
+  <div class="kicker">One example</div>
+  <h2>The same payment, <em>two different stories</em></h2>
+  <p class="lead">A payment inside the group is booked as a loan in one country and as revenue in the other. Each set of books looks fine on its own. Only a side by side comparison shows the mismatch.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Without consolidation</h3><p>The mismatch surfaces late: at an audit, at a bank review or at a tax filing.</p></div>
+    <div class="card"><h3>With AI consolidation</h3><p>The mismatch is flagged when the data is compared, and an accountant decides how to correct it.</p></div>
+  </div>
+  <p class="note">AI finds and shows. The accounting decision stays with a person.</p>
+</section>
+
+<!-- 5 · who -->
+<section class="slide">
+  <div class="kicker">Who does it</div>
+  <h2>Accountants and engineers <em>in one team</em></h2>
+  <div class="grid g2">
+    <div class="card"><h3><span class="mg">Mg</span> Accounting</h3><p>Company setup and accounting for international groups. The practice the task and the solution scheme come from.</p></div>
+    <div class="card"><h3><span class="mg">Mg</span> Digital</h3><p>The technology side: architecture of the solution and the AI layer.</p></div>
+  </div>
+  <ul class="plain">
+    <li><span class="t">·</span><div>Stanislav Zhukovets, founder of Mg</div></li>
+    <li><span class="t">·</span><div>Galina Dubova, operations director of Mg</div></li>
+    <li><span class="t">·</span><div>Mikhail Zelenin, technology partner, responsible for the architecture of the solution</div></li>
+  </ul>
+  <p class="note">The talk is given in Russian on 10 Dec 2026 at TAXERA GLOBAL FORUM, Dubai Knowledge Park. No theory: the task and the solution scheme from our practice with international groups.</p>
+</section>
+
+<!-- 6 · next step -->
+<section class="slide dark">
+  <div class="kicker">Next step</div>
+  <h2>A call about <em>your structure</em></h2>
+  <p class="lead">We look at how your group is built and where a single picture is missing today.</p>
+  <ul class="plain">
+    <li><span class="t">01</span><div>Which countries are your companies in, and who keeps the books in each?</div></li>
+    <li><span class="t">02</span><div>Which accounting systems and formats are used?</div></li>
+    <li><span class="t">03</span><div>What flows between the companies of the group: loans, services, dividends?</div></li>
+    <li><span class="t">04</span><div>Which report does the owner need, and how often?</div></li>
+  </ul>
+  <p class="note">Book the call: <a href="https://t.me/Mg_Digitai_bot" style="color:inherit"><b>t.me/Mg_Digitai_bot</b></a> · <a href="https://digitai.maizongroup.com/" style="color:inherit">digitai.maizongroup.com</a></p>
+</section>
+
+<div class="hud" id="hud">
+  <div class="brand"><b><span class="mg">Mg</span> Digital</b><span class="long"> · TAXERA GLOBAL FORUM · 10 Dec 2026</span></div>
+  <div class="counter" id="counter">1 / 6</div>
+  <div class="navbtns"><button id="prev" aria-label="previous">←</button><button id="next" aria-label="next">→</button></div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var i = 0, n = slides.length;
+  var counter = document.getElementById('counter');
+  var bar = document.getElementById('bar');
+  var hud = document.getElementById('hud');
+  function show(k){
+    i = Math.max(0, Math.min(n-1, k));
+    slides.forEach(function(s,j){ s.classList.toggle('active', j===i); });
+    slides[i].scrollTop = 0;
+    counter.textContent = (i+1) + ' / ' + n;
+    bar.style.width = ((i+1)/n*100) + '%';
+    hud.classList.toggle('on-dark', slides[i].classList.contains('dark'));
+    hud.classList.toggle('on-blue', slides[i].classList.contains('blue'));
+    if (history.replaceState) history.replaceState(null,'','#'+(i+1));
+  }
+  function next(){ show(i+1); } function prev(){ show(i-1); }
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.addEventListener('keydown', function(e){
+    if (e.key==='ArrowRight'||e.key===' '||e.key==='PageDown') { e.preventDefault(); next(); }
+    if (e.key==='ArrowLeft'||e.key==='PageUp') { e.preventDefault(); prev(); }
+    if (e.key==='Home') show(0);
+    if (e.key==='End') show(n-1);
+  });
+  var touchX = null, touchY = null;
+  document.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (touchX===null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    var dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { if (dx < 0) next(); else prev(); }
+    touchX = null; touchY = null;
+  }, {passive:true});
+  function fromHash(){ var h = parseInt((location.hash||'').slice(1), 10); show(isNaN(h) ? 0 : h-1); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+
+</body></html>
