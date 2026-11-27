@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>ХулИИБот: проект и математика</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ХулИИБот: проект и математика">
+<meta property="og:description" content="ИИ-наставник в Telegram: что построено, цифры с сервера, экономика одного входа и расчёт контент-завода.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light;
+    --bg:#f7f7f5; --panel:#ffffff; --ink:#161c20; --muted:#58665f; --line:#d9dcd3;
+    --graphite:#1b2226; --graphite-2:#243037; --on-dark:#e7ece8; --on-dark-muted:#a9b6b0;
+    --accent:#8fd14f; --olive:#526454;
+    --sans:'Manrope',Arial,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding-inline:max(16px,5vw)}
+  header{padding-block:40px 28px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);display:flex;gap:10px;align-items:center}
+  .kicker::before{content:"";width:8px;height:8px;background:var(--ink)}
+  h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.035em;font-weight:600;margin-top:18px;text-wrap:balance}
+  h1 span{color:#7c878c}
+  .lede{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--muted);max-width:62ch;margin-top:16px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:500}
+  section{padding-block:44px;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.025em;font-weight:600;line-height:1.15;margin-bottom:14px;text-wrap:balance}
+  h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+  p{max-width:68ch}
+  p + p{margin-top:10px}
+  .muted{color:var(--muted)}
+  .num{font-family:var(--mono);font-size:12px;color:var(--olive);letter-spacing:.1em;margin-bottom:10px}
+  .grid{display:grid;gap:14px;margin-top:22px}
+  .g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);padding:18px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .stat .v{font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+  .stat .l{color:var(--muted);font-size:.9rem;margin-top:6px}
+  .principle{background:var(--graphite);color:var(--on-dark);padding:26px;margin-top:22px}
+  .principle p{color:var(--on-dark-muted)}
+  .principle b{color:#fff}
+  .principle .q{font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:600;color:#fff;letter-spacing:-.02em;margin-bottom:10px}
+  .principle .q span{color:var(--accent)}
+
+  table{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--panel)}
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:22px;border:1px solid var(--line)}
+  .tw table{min-width:620px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;background:#fbfbfa}
+  tr:last-child td{border-bottom:0}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.sum td{font-weight:600;background:#fbfbfa}
+  td.base,th.base{background:#f4f9ee}
+  tr.sum td.base{background:#eaf4df}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 8px;border:1px solid var(--line);white-space:nowrap}
+  .pill.r{border-color:#b9d9a0;background:#f1f8ea;color:#355a1d}
+  .pill.w{border-color:#e3d3a8;background:#fbf6e8;color:#6d5412}
+  .pill.c{border-color:#e4b9b0;background:#fbefec;color:#7a2d1f}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:.9rem;color:var(--muted)}
+  .legend span{display:flex;gap:8px;align-items:center}
+
+  ol.flow{list-style:none;counter-reset:f;display:grid;gap:0;margin-top:22px;border-top:1px solid var(--line)}
+  ol.flow li{counter-increment:f;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  ol.flow li::before{content:counter(f);font-family:var(--mono);font-size:13px;width:28px;height:28px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center}
+  ol.flow p{color:var(--muted);font-size:.95rem}
+
+  ul.plain{list-style:none;display:grid;gap:8px;margin-top:14px}
+  ul.plain li{padding-left:18px;position:relative;color:var(--muted);max-width:72ch}
+  ul.plain li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1px;background:var(--ink)}
+  ul.plain b{color:var(--ink);font-weight:600}
+
+  /* chain: videos -> money */
+  .chain{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:22px;border:1px solid var(--line);background:var(--panel)}
+  .chain > div{padding:16px 14px;border-right:1px solid var(--line);position:relative}
+  .chain > div:last-child{border-right:0;background:var(--graphite);color:#fff}
+  .chain .v{font-size:1.5rem;font-weight:600;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .chain .l{font-size:.85rem;color:var(--muted);margin-top:6px}
+  .chain > div:last-child .l{color:var(--on-dark-muted)}
+  .chain .k{font-family:var(--mono);font-size:11px;color:var(--olive);margin-top:8px}
+  .chain > div:last-child .k{color:var(--accent)}
+  @media(max-width:760px){.chain{grid-template-columns:1fr}.chain > div{border-right:0;border-bottom:1px solid var(--line)}.chain > div:last-child{border-bottom:0}}
+
+  /* monthly bars */
+  .bars{margin-top:22px;border:1px solid var(--line);background:var(--panel);padding:18px}
+  .bars .row{display:grid;grid-template-columns:76px 1fr 48px;gap:12px;align-items:center;padding:5px 0;font-size:.92rem}
+  .bars .m{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .bars .t{height:14px;background:#eef0ec}
+  .bars .f{height:14px;background:var(--graphite)}
+  .bars .x{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  .bars h3{margin-bottom:10px}
+  .bars .cap{font-size:.85rem;color:var(--muted);margin-top:10px}
+
+  .links{display:grid;gap:10px;margin-top:18px}
+  .links a{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:14px 16px;color:var(--ink);text-decoration:none;font-weight:600}
+  .links a:hover,.links a:focus-visible{border-color:var(--ink)}
+  .links a span{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400;overflow-wrap:anywhere;text-align:right}
+  .src{margin-top:14px;font-size:.88rem;color:var(--muted);display:grid;gap:6px}
+  .src a{color:var(--ink);overflow-wrap:anywhere}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  footer{padding-block:32px 48px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Для Миши Зеленина · 27.11.2026</div>
+    <h1>ХулИИБот: <span>проект и математика</span></h1>
+    <p class="lede">ИИ-наставник в Telegram. Делает разбор человека по дате рождения и потом разговаривает с ним месяцами. Продукт работает, денег почти не дал: разговор был бесплатным, а новых людей приходит 11-15 в месяц. Ниже весь проект и расчёт, что изменит контент-завод.</p>
+    <div class="meta"><span><b>105</b> человек в боте</span><span><b>60</b> разборов</span><span><b>910</b> ответов наставника</span><span><b>11-15</b> новых в месяц</span><span>в работе с июня 2026</span></div>
+    <div class="legend">
+      <span><i class="pill r">факт</i> снято с сервера бота</span>
+      <span><i class="pill">рынок</i> чужие опубликованные кейсы</span>
+      <span><i class="pill w">гипотеза</i> наша оценка, её и проверяет пилот</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <div class="num">01 · Коротко</div>
+    <h2>Четыре вывода до всех таблиц</h2>
+    <ol class="flow">
+      <li><div><h3>Продукт работает, воронки нет</h3><p>Люди разговаривают с ботом месяцами. Платить было не за что: разговор бесплатный. Новых людей 11-15 в месяц.</p></div></li>
+      <li><div><h3>Один вход стоит около 3,2 € выручки</h3><p>После комиссии и расхода на ИИ остаётся около 2,2 €. Это при полной лестнице продуктов и рыночных конверсиях. Своих данных об оплатах у нас нет.</p></div></li>
+      <li><div><h3>5 000 € в месяц = около 1 550 входов</h3><p>Сейчас 11-15. Разрыв в сто раз, и закрыть его может только поток коротких видео.</p></div></li>
+      <li><div><h3>Сначала замер, потом завод</h3><p>За 30 дней измеряем две неизвестные: сколько просмотров даёт ролик и какая доля зрителей доходит до бота. Дальше решаем по цифрам.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">02 · Проект</div>
+    <h2>Что такое ХулИИБот</h2>
+    <p class="muted">Бот <b style="color:var(--ink)">@hulilogos_bot</b> - вход в ХУЛИЛОГИЮ. Это система о том, как устроена энергия человека: 12 стихий, у каждой своя сила и своя ловушка. По дате и времени рождения у человека три стихии: ядро, корни и движок. Без гороскопов и эзотерики: стихии здесь язык, на котором человек быстрее узнаёт себя.</p>
+    <p class="muted">Бот часть ХУЛИБЕГ: канал, живые занятия клуба дважды в неделю и сам бот, который остаётся с человеком между занятиями.</p>
+    <div class="principle">
+      <div class="q">Разбор приводит человека. <span>Разговор удерживает.</span></div>
+      <p>Бесплатный разбор по дате рождения - личный результат за минуту, им хочется поделиться. Дальше человек остаётся в диалоге с наставником, который помнит его ситуацию. <b>Деньги лежат на входе новичка</b>, в первые 1-2 месяца, пока интерес плотный.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card"><h3>Разбор по дате рождения</h3><p>Три стихии человека, его сила, ловушка и чего добрать. Текст около 11 000 знаков. Первый разбор бесплатно.</p></div>
+      <div class="card"><h3>Наставник в диалоге</h3><p>Отвечает на любой вопрос из базы знаний, больше 600 материалов. Говорит своими словами, без цитат и без названий источников.</p></div>
+      <div class="card"><h3>Память о человеке</h3><p>Ведёт досье: ситуация, состояние, договорённости, что уже пробовали и как с этим человеком говорить.</p></div>
+      <div class="card"><h3>Разбор связки</h3><p>Двое по двум датам: пара, партнёры по делу, родитель и ребёнок. Что даёт союз и где трение.</p></div>
+      <div class="card"><h3>Пишет первым</h3><p>Не чаще раза в сутки возвращается к разговору, по субботам зовёт на живое занятие. Тихие часы ночью.</p></div>
+      <div class="card"><h3>Любой язык</h3><p>Отвечает на языке человека и подстраивает тон. Приветствие переводится автоматически.</p></div>
+      <div class="card"><h3>Оплата без участия людей</h3><p>Tribute: карты любой страны, рубли и евро. Оплата прошла - доступ открылся, владельцу пришло уведомление.</p></div>
+      <div class="card"><h3>«Назову твоего зверя»</h3><p>Мгновенный ответ по дате рождения без обращения к ИИ. Сейчас им пользуются админы в комментариях канала.</p></div>
+      <div class="card"><h3>Техника</h3><p>Один сервис на Python на своём сервере, круглосуточно. Модели Claude: Opus 4.8 на разборы, Sonnet 5.5 на диалог. Каждый диалог пишется в журнал.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">03 · Сегодня · <span class="pill r">факт</span></div>
+    <h2>Что показывает сервер</h2>
+    <div class="grid g4">
+      <div class="card stat"><div class="v">105</div><div class="l">человек написали боту за всё время</div></div>
+      <div class="card stat"><div class="v">60</div><div class="l">получили разбор по дате рождения</div></div>
+      <div class="card stat"><div class="v">910</div><div class="l">ответов наставника, в среднем по 1 000 знаков</div></div>
+      <div class="card stat"><div class="v">111 €</div><div class="l">вся выручка от посторонних: одно продление клуба</div></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="bars">
+        <h3>Новые люди по месяцам</h3>
+        <div class="row"><span class="m">июнь</span><div class="t"><div class="f" style="width:7%"></div></div><span class="x">3</span></div>
+        <div class="row"><span class="m">июль</span><div class="t"><div class="f" style="width:100%"></div></div><span class="x">44</span></div>
+        <div class="row"><span class="m">август</span><div class="t"><div class="f" style="width:34%"></div></div><span class="x">15</span></div>
+        <div class="row"><span class="m">сентябрь</span><div class="t"><div class="f" style="width:32%"></div></div><span class="x">14</span></div>
+        <div class="row"><span class="m">октябрь</span><div class="t"><div class="f" style="width:34%"></div></div><span class="x">15</span></div>
+        <div class="row"><span class="m">ноябрь</span><div class="t"><div class="f" style="width:25%"></div></div><span class="x">11</span></div>
+        <p class="cap">Июль - запуск. Дальше поток держится только на своей аудитории.</p>
+      </div>
+      <div class="bars">
+        <h3>Ответы наставника по месяцам</h3>
+        <div class="row"><span class="m">июль</span><div class="t"><div class="f" style="width:100%"></div></div><span class="x">405</span></div>
+        <div class="row"><span class="m">август</span><div class="t"><div class="f" style="width:53%"></div></div><span class="x">213</span></div>
+        <div class="row"><span class="m">сентябрь</span><div class="t"><div class="f" style="width:30%"></div></div><span class="x">123</span></div>
+        <div class="row"><span class="m">октябрь</span><div class="t"><div class="f" style="width:26%"></div></div><span class="x">107</span></div>
+        <div class="row"><span class="m">ноябрь</span><div class="t"><div class="f" style="width:10%"></div></div><span class="x">42</span></div>
+        <p class="cap">Без новых людей разговор затухает: глубокие пользователи плотно сидят 1-2 месяца.</p>
+      </div>
+    </div>
+
+    <ul class="plain">
+      <li><b>Глубоких пользователей шесть.</b> Самый активный написал боту больше 240 сообщений за четыре месяца: 159, 57, 19 и 6 по месяцам.</li>
+      <li><b>Его ответ на вопрос о цене:</b> за сутки доступа платил бы 1 000 руб., а год назад, новичком, отдал бы 30 000 руб. за доступ ко всем знаниям. Одно мнение, не статистика, но оно показывает, где деньги.</li>
+      <li><b>Своя база выбрана.</b> Рассылка по боту 06.11: доставлено 55, ответили 3, новых разборов 4, оплат 0. Посты канала набирают 30-80 просмотров.</li>
+      <li><b>Техника готова.</b> Автооплата работает, платный доступ к наставнику написан и ждёт включения.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">04 · Продукт</div>
+    <h2>Лестница: от бесплатного разбора до клуба</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Ступень</th><th class="n">Цена</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr><td>Первый разбор по дате рождения</td><td class="n">0 €</td><td><span class="pill r">работает</span></td></tr>
+        <tr><td>Разговор с наставником, пробный период</td><td class="n">0 €</td><td><span class="pill r">работает</span> сейчас без ограничения</td></tr>
+        <tr><td>Дополнительный разбор: близкий, партнёр</td><td class="n">9,99 €</td><td><span class="pill r">работает</span></td></tr>
+        <tr><td>Наставник по доступу</td><td class="n">9,99 € / 33 € месяц</td><td><span class="pill w">код готов, не включено</span></td></tr>
+        <tr><td>«Старт»: 8 недель, программа новичка в боте, наставник и живые занятия клуба</td><td class="n">249 €</td><td><span class="pill w">гипотеза, продукта ещё нет</span></td></tr>
+        <tr><td>Клуб: живые занятия, разборы, связь лично</td><td class="n">111 € в месяц</td><td><span class="pill r">работает</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">05 · Рынок · <span class="pill">рынок</span></div>
+    <h2>Сколько за такое платят</h2>
+    <p class="muted">Цены с сайтов сервисов, ноябрь 2026.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Категория</th><th>Бесплатно</th><th>Платно</th></tr></thead>
+      <tbody>
+        <tr><td>ИИ-разборы по дате рождения в Telegram</td><td>5-20 вопросов</td><td>пакеты 100-990 руб., безлимит на месяц 990-1 690 руб.</td></tr>
+        <tr><td>ИИ-психологи в Telegram</td><td>5-30 сообщений</td><td>неделя 199-990 руб., месяц 499-2 890 руб.</td></tr>
+        <tr><td>Мировые астро-приложения</td><td>базовый профиль</td><td>9-12 $ в месяц, с агрессивной воронкой до 43 $ в месяц</td></tr>
+        <tr><td>ИИ-клоны экспертов</td><td>-</td><td>25-99 $ в месяц, работают на большой личной аудитории</td></tr>
+      </tbody>
+    </table></div>
+    <ul class="plain">
+      <li><b>Бесплатное → первая оплата: 2-5 %.</b> Медиана по подпискам 2,1 %, верхняя четверть 4,5 %.</li>
+      <li><b>Недорогой первый продукт в Telegram-воронках: 3-8 %</b> при цене 590-1 590 руб.</li>
+      <li><b>Дорогой продукт продаётся живым касанием,</b> не ботом.</li>
+      <li><b>Наши 9,99 € у верхней границы рынка, 33 € за месяц выше рынка вдвое.</b> Поэтому главная ставка не на подписку, а на «Старт».</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">06 · Экономика · <span class="pill w">гипотеза</span></div>
+    <h2>Сколько денег в одном входе</h2>
+    <p class="muted">Расчёт на 1 000 человек, зашедших в бота.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Строка</th><th class="n">Пессимистично</th><th class="n base">База</th><th class="n">Оптимистично</th></tr></thead>
+      <tbody>
+        <tr><td>Первая покупка, средний чек 15 €</td><td class="n">2 % = 300 €</td><td class="n base">5 % = 750 €</td><td class="n">8 % = 1 200 €</td></tr>
+        <tr><td>«Старт» 249 €</td><td class="n">0,3 % = 747 €</td><td class="n base">1 % = 2 490 €</td><td class="n">2 % = 4 980 €</td></tr>
+        <tr class="sum"><td>Выручка</td><td class="n">1 047 €</td><td class="n base">3 240 €</td><td class="n">6 180 €</td></tr>
+        <tr><td>Комиссия Tribute 10 %</td><td class="n">-105 €</td><td class="n base">-324 €</td><td class="n">-618 €</td></tr>
+        <tr><td>ИИ на бесплатных: разбор и пробные ответы</td><td class="n">-450 €</td><td class="n base">-450 €</td><td class="n">-450 €</td></tr>
+        <tr><td>ИИ на платящих</td><td class="n">-70 €</td><td class="n base">-220 €</td><td class="n">-400 €</td></tr>
+        <tr class="sum"><td>Остаётся</td><td class="n">около 420 €</td><td class="n base">около 2 250 €</td><td class="n">около 4 700 €</td></tr>
+        <tr><td>На один вход</td><td class="n">0,42 €</td><td class="n base">2,25 €</td><td class="n">4,7 €</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="grid g3">
+      <div class="card stat"><div class="v">0,03-0,04 $</div><div class="l">один ответ наставника</div></div>
+      <div class="card stat"><div class="v">0,25 $</div><div class="l">один разбор</div></div>
+      <div class="card stat"><div class="v">0,3-0,6 €</div><div class="l">съедает один бесплатный человек</div></div>
+    </div>
+    <p class="muted" style="margin-top:14px">Расход на ИИ посчитан по размерам запросов с сервера, не по счёту провайдера.</p>
+
+    <div class="principle">
+      <div class="q">Без «Старта» воронка <span>почти в нуле.</span></div>
+      <p>Если убрать строку «Старт», в базе остаётся около 125 € с тысячи входов. Гнать трафик на одну подписку смысла нет. <b>И бесплатный вход надо удешевить до запуска трафика:</b> холодному зрителю зверя можно называть мгновенно и без ИИ, а полный разбор давать следующим шагом.</p>
+    </div>
+    <p class="muted" style="margin-top:14px">Клуб за 111 € в месяц в расчёт не включён. Это возможный плюс сверху, данных о переходе в клуб нет.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">07 · Контент-завод</div>
+    <h2>Что должен дать поток роликов</h2>
+    <p class="muted">Крючок: «напиши дату рождения, бот назовёт твоего зверя». Личный результат бесплатно и сразу. Пилотный объём: 90 роликов в месяц, каждый на 3 площадки. Базовый сценарий:</p>
+    <div class="chain">
+      <div><div class="v">90</div><div class="l">роликов в месяц</div><div class="k">3 в день</div></div>
+      <div><div class="v">270</div><div class="l">размещений</div><div class="k">× 3 площадки</div></div>
+      <div><div class="v">270 000</div><div class="l">просмотров</div><div class="k">× 1 000 на размещение</div></div>
+      <div><div class="v">270</div><div class="l">входов в бота</div><div class="k">× 0,1 %</div></div>
+      <div><div class="v">875 €</div><div class="l">выручки в месяц</div><div class="k">× 3,24 € на вход</div></div>
+    </div>
+
+    <div class="tw"><table>
+      <thead><tr><th>90 роликов в месяц на 3 площадки</th><th class="n">Пессимистично</th><th class="n base">База</th><th class="n">Оптимистично</th></tr></thead>
+      <tbody>
+        <tr><td>Просмотров на размещение</td><td class="n">500</td><td class="n base">1 000</td><td class="n">3 000</td></tr>
+        <tr><td>Просмотров в месяц</td><td class="n">135 000</td><td class="n base">270 000</td><td class="n">810 000</td></tr>
+        <tr><td>Просмотр → вход в бота</td><td class="n">0,03 %</td><td class="n base">0,1 %</td><td class="n">0,3 %</td></tr>
+        <tr class="sum"><td>Входов в месяц</td><td class="n">40</td><td class="n base">270</td><td class="n">2 430</td></tr>
+        <tr><td>Выручка в месяц</td><td class="n">около 40 €</td><td class="n base">около 875 €</td><td class="n">около 15 000 €</td></tr>
+        <tr><td>После комиссии и ИИ</td><td class="n">около 20 €</td><td class="n base">около 600 €</td><td class="n">около 11 400 €</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="margin-top:14px">Правая колонка - потолок: все множители должны сыграть в плюс одновременно, для этого нужен попавший формат. Левая - что будет, если крючок не цепляет. Честная середина для 90 роликов в месяц: несколько сотен евро.</p>
+
+    <h3 style="margin-top:34px">Три пути к 5 000 € в месяц</h3>
+    <p class="muted">5 000 € / 3,24 € = около 1 550 входов в месяц.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Объёмом</h3><p>Около 515 роликов в месяц на 3 площадки при 1 000 просмотров и 0,1 % во вход. Это 17 роликов в день.</p></div>
+      <div class="card"><h3>Попаданием в формат</h3><p>Те же 90 роликов, но в среднем 5 700 просмотров на размещение.</p></div>
+      <div class="card"><h3>Крючком</h3><p>0,3 % из просмотра во вход: хватит 515 тыс. просмотров, это около 170 роликов.</p></div>
+    </div>
+    <p class="muted" style="margin-top:14px">Один ролик в базе: 3 000 просмотров на трёх площадках, 3 входа, около 10 € выручки при себестоимости ролика 1-3 $. Ролики набирают просмотры неделями, расчёт этого не учитывает.</p>
+
+    <h3 style="margin-top:34px">На что опирается расчёт · <span class="pill">рынок</span></h3>
+    <div class="tw"><table>
+      <thead><tr><th>Кейс</th><th>Объём</th><th>Результат</th></tr></thead>
+      <tbody>
+        <tr><td>ИИ-завод, недвижимость</td><td>7 704 ролика за 9 месяцев</td><td>8,8 млн охвата, 2 208 заявок: около 1 150 охвата на ролик, заявка на 4 000 охвата. Лучшие ролики 0,5-1 % в заявку. Заявка 706 руб.</td></tr>
+        <tr><td>ИИ-завод, англоязычный рынок</td><td>1 497 роликов за 101 день</td><td>8,25 млн просмотров, подписки около 1 300 $ в месяц, ролик 2,88 $. Три четверти просмотров дал один канал.</td></tr>
+        <tr><td>ИИ-завод, бренд БАДов</td><td>3 000 роликов за 8 недель</td><td>Технический кост ролика 0,74-1,41 $, просмотр → переход на сайт 1,2 %.</td></tr>
+        <tr><td>Новый канал с нуля</td><td>ролик в день, 41 день</td><td>108 тыс. просмотров за последние 28 дней.</td></tr>
+        <tr><td>Ролики без воронки</td><td>месяц, 500-1 000 просмотров на ролик</td><td>6 человек в Telegram: без ссылки и причины перейти поток не доходит.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">08 · Пилот</div>
+    <h2>30 дней на две цифры</h2>
+    <p class="muted">Цель пилота не выручка, а замер: просмотры на размещение и доля зрителей, дошедших до бота.</p>
+    <ul class="plain">
+      <li><b>30 роликов,</b> один крючок «какой ты зверь по дате рождения», 3 площадки.</li>
+      <li><b>У каждой площадки своя метка</b> в ссылке на бота: видно, какой ролик привёл человека и что он купил.</li>
+      <li><b>Раз в неделю одна таблица:</b> ролик, площадка, просмотры, входы, отправили дату, купили.</li>
+    </ul>
+    <div class="tw"><table>
+      <thead><tr><th>Итог за 30 дней</th><th>Решение</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill r">90+ входов</span> и от 1 000 просмотров на размещение</td><td>Разгоняем завод до 90+ роликов в месяц</td></tr>
+        <tr><td><span class="pill w">30-90 входов</span></td><td>Меняем крючок и формат, ещё 30 дней</td></tr>
+        <tr><td><span class="pill c">меньше 30 входов</span></td><td>Останавливаем, канал не наш</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="margin-top:14px">Пороги - гипотеза, их можно обсуждать. 90 входов хватит, чтобы измерить верх воронки. Конверсию в оплату на таком числе не измерить, для неё нужно 300+ входов.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">09 · Роли</div>
+    <h2>Кто что делает</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Контент-завод</h3>
+        <ul class="plain">
+          <li>Конвейер: шаблон крючка → сценарий → ролик → размещение на площадках с меткой.</li>
+          <li>30 роликов за 30 дней.</li>
+          <li>Недельная таблица цифр.</li>
+          <li>Выбор площадок под русскоязычную аудиторию.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Бот и смыслы</h3>
+        <ul class="plain">
+          <li>Включить платный доступ к наставнику.</li>
+          <li>Метки источников: бот запоминает ролик и площадку, выручка завода видна до евро.</li>
+          <li>Мгновенный «зверь» для холодного зрителя без расхода на ИИ.</li>
+          <li>Собрать «Старт»: программа новичка и живые занятия клуба.</li>
+          <li>Темы роликов, голос, ответы людям в комментариях.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">10 · Условия</div>
+    <h2>Делим 50 на 50</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Доля со всего</h3><p>Пополам делим всё, что зарабатывает бот, а не только выручку с роликов. Считаем после комиссии Tribute и расхода на ИИ.</p></div>
+      <div class="card"><h3>Расходы пилота на Стасе</h3><p>Подписки и генерации для роликов в пилоте оплачивает Стас.</p></div>
+      <div class="card"><h3>Кому что принадлежит</h3><p>Бот, знания и бренд остаются у Стаса. Конвейер остаётся у Миши, его можно продавать другим.</p></div>
+    </div>
+
+    <div class="tw"><table>
+      <thead><tr><th>Что это значит в деньгах, в месяц</th><th class="n">Входов</th><th class="n">После комиссии и ИИ</th><th class="n">Каждому</th></tr></thead>
+      <tbody>
+        <tr><td>Сегодня, без завода</td><td class="n">11-15</td><td class="n">около 30 €</td><td class="n">около 15 €</td></tr>
+        <tr><td>90 роликов, база</td><td class="n">270</td><td class="n">около 600 €</td><td class="n">около 300 €</td></tr>
+        <tr><td>Завод на полной мощности, база</td><td class="n">1 550</td><td class="n">около 3 500 €</td><td class="n">около 1 750 €</td></tr>
+        <tr><td>90 роликов, всё сыграло в плюс</td><td class="n">2 430</td><td class="n">около 11 400 €</td><td class="n">около 5 700 €</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="margin-top:14px">Все строки - гипотеза на рыночных конверсиях и при собранном «Старте». Клуб в расчёт не включён.</p>
+
+    <h3 style="margin-top:34px">Что остаётся кроме доли</h3>
+    <p class="muted">Конвейер остаётся рабочим инструментом и после пилота. ИИ-контент-заводы под ключ на рынке продают за 150 000-350 000 руб. за запуск. Воронка бота с метками даст то, чего у большинства продавцов нет: кейс с цифрами от просмотра до оплаты.</p>
+    <p class="muted">Открытым остаётся один вопрос: площадки.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">11 · Где смотреть</div>
+    <h2>Бот, канал, источники цифр</h2>
+    <div class="links">
+      <a href="https://t.me/hulilogos_bot">ХулИИБот <span>t.me/hulilogos_bot</span></a>
+      <a href="https://t.me/hulibeg">Канал ХУЛИБЕГ <span>t.me/hulibeg</span></a>
+    </div>
+    <div class="src">
+      <span>ИИ-завод в недвижимости: <a href="https://teletype.in/@antonsheer/cacRUT20Vf-">teletype.in/@antonsheer</a></span>
+      <span>Завод на 1 497 роликов: <a href="https://ru.arsentev.ai/press/ai-content-engine">ru.arsentev.ai/press/ai-content-engine</a></span>
+      <span>Завод для бренда БАДов: <a href="https://workspace.ru/cases/poluchili-1-240-zakazov-za-vosem-nedel-cherez-kontent-zavod-dlya-brenda-badov/">workspace.ru/cases</a></span>
+      <span>Новый канал с нуля и цены заводов под ключ: <a href="https://promaren.ru/products/content-factory/">promaren.ru</a>, <a href="https://ai.idrisov-agency.com/">ai.idrisov-agency.com</a></span>
+      <span>Конверсия охвата в подписку: <a href="https://contentboard.ru/blog/konversiya-iz-ohvata-v-podpisku/">contentboard.ru</a></span>
+      <span>Ролики без воронки: <a href="https://vc.ru/marketing/1746534-kak-ya-pytalsya-privlech-podpischikov-iz-tiktok-i-slil-ves-byudzhet-vpustuyu">vc.ru/marketing/1746534</a></span>
+      <span>Конверсии подписок: RevenueCat, State of Subscription Apps 2026</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">ХУЛИБЕГ · 2026 · для Михаила Зеленина, не для распространения</div></footer>
+
+</body>
+</html>
