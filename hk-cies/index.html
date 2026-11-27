@@ -9,8 +9,8 @@
   :root{--green:#10231d;--rose:#e2b9a9;--wine:#8c1f2c;--cream:#f8f6f1;--ink:#16201c;--grey:#5f6763;--line:#e2ddd3;--head:#efeae2;--note:#f6e6e3}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:var(--cream)}
-  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);font-size:clamp(15px,1.45vw,24px);line-height:1.45}
-  .s{min-height:100vh;scroll-snap-align:start;padding:6vh 7vw 7vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);font-size:clamp(12px,min(1.4vw,2.3vh),24px);line-height:1.45}
+  .s{min-height:100vh;scroll-snap-align:start;padding:11vh 7vw 8vh;display:flex;flex-direction:column;justify-content:center;position:relative}
   .s.dark{background:var(--green);color:#f4efe6}
   .logo{position:absolute;top:4vh;left:7vw;font-weight:700;font-size:1.05em;letter-spacing:-.01em}
   .logo span{color:var(--rose)}
@@ -80,55 +80,53 @@
   <div class="k">Главное на одном экране</div>
   <h2>Программа проверяет две разные вещи</h2>
   <div class="grid3">
-    <div class="card"><div class="n">Проверка 1 · Чистые активы</div><b class="h">Проходите с запасом</b><p>Около 13 млн USD при пороге 30 млн HKD, это около 3,85 млн USD. Окончательно подтверждаем по документам.</p><p style="margin-top:.7em"><span class="tag ok">Выше порога</span></p></div>
-    <div class="card"><div class="n">Проверка 2 · Инвестиция</div><b class="h">30 млн HKD нужно вложить заново</b><p>Офисы и бумаги на текущем счёте в инвестицию не входят. Это правило программы, а не вопрос оценки.</p><p style="margin-top:.7em"><span class="tag no">Текущие активы не засчитываются</span></p></div>
-    <div class="card g"><div class="n">С чего начинаем</div><b class="h">С банка или брокера</b><p>До продажи активов получаем письменный ответ: откроют ли designated account гражданину и налоговому резиденту РФ.</p></div>
+    <div class="card"><div class="n">Проверка 1 · Чистые активы</div><b class="h">Офисы закрывают порог сами</b><p>Порог 30 млн HKD. Доли в четырёх компаниях с офисами стоят в разы больше. Ждать перевода бумаг от матери и счёта в США для этой проверки не нужно.</p><p style="margin-top:.7em"><span class="tag ok">Выше порога при оформленных долях</span></p></div>
+    <div class="card"><div class="n">Проверка 2 · Инвестиция</div><b class="h">30 млн HKD новыми вложениями</b><p>В зачёт идут только покупки через designated account. Офисы и уже купленные бумаги в инвестицию не входят.</p><p style="margin-top:.7em"><span class="tag no">Список активов не равен инвестиции</span></p></div>
+    <div class="card g"><div class="n">С чего начинаем</div><b class="h">С банка или брокера</b><p>До продажи активов получаем письменный ответ: откроют ли designated account гражданину и налоговому резиденту РФ и что спросят о происхождении средств.</p></div>
   </div>
   <div class="pg">02 / 10</div>
 </section>
 
 <section class="s">
   <div class="logo">Mg <span>Accounting</span></div>
-  <div class="k">Ваши активы глазами программы</div>
+  <div class="k">Ваш список от 27 ноября глазами программы</div>
   <h2>Что куда засчитывается</h2>
   <table>
-    <tr><th>Актив</th><th>В чистые активы</th><th>В инвестицию</th><th>Почему</th></tr>
-    <tr><td><b>Четыре офиса в Гонконге</b><small>через четыре компании, около 2,5 млн USD каждый</small></td><td><span class="tag ok">Да</span></td><td><span class="tag no">Нет</span></td><td>Приобретены до запуска программы 1 марта 2024 года (п. 3.1 правил)</td></tr>
-    <tr><td><b>Брокерский счёт в Гонконге</b><small>около 2,5 млн USD</small></td><td><span class="tag ok">Да</span></td><td><span class="tag no">Нет</span></td><td>С 1 ноября 2026 года принимаются только покупки через designated account. Перевод бумаг не принимается</td></tr>
-    <tr><td><b>Инвестиции в США</b><small>около 600 тыс. USD</small></td><td><span class="tag ok">Да</span></td><td><span class="tag no">Нет</span></td><td>В инвестицию идут только допустимые активы в Гонконге</td></tr>
-    <tr><td><b>Задолженность компаний перед вами</b></td><td><span class="tag ok">Да</span></td><td><span class="tag no">Нет</span></td><td>После возврата это деньги для новой инвестиции</td></tr>
-    <tr><td><b>Наследство 2023 года и доли в компаниях</b></td><td><span class="tag chk">Проверить</span></td><td></td><td>Наследственное дело завершено, доли переоформлены на вас в реестрах</td></tr>
+    <tr><th>Актив, HKD</th><th>В чистые активы</th><th>Деньги для инвестиции</th><th>Комментарий</th></tr>
+    <tr><td><b>Бумаги в Гонконге, 16 млн</b><small>сейчас на счёте матери</small></td><td><span class="tag chk">Через 6 месяцев после перевода</span></td><td><span class="tag ok">Да, после продажи</span></td><td>Чистыми активами нужно владеть все шесть месяцев до заключения CPA. Банк спросит происхождение средств матери</td></tr>
+    <tr><td><b>Четыре офиса, в списке 10 млн</b><small>через четыре компании, доля 100%</small></td><td><span class="tag ok">Да, по полной оценке</span></td><td><span class="tag no">Нет</span></td><td>Для чистых активов лимита нет, считается рыночная стоимость долей. В инвестицию не входят: приобретены до 1 марта 2024 года</td></tr>
+    <tr><td><b>Займы компаниям, 2,5 + 1,5 млн</b><small>права требования акционера</small></td><td><span class="tag ok">Да</span></td><td><span class="tag ok">Да, после возврата</span></td><td>Деньги на счетах компаний в Гонконге</td></tr>
+    <tr><td><b>Бумаги в США, 3 млн</b><small>счёт на имя отца</small></td><td><span class="tag chk">После переоформления</span></td><td><span class="tag chk">После переоформления</span></td><td>Пока счёт на имя отца, актив за заявителем не числится</td></tr>
   </table>
   <div class="pg">03 / 10</div>
 </section>
 
 <section class="s">
   <div class="logo">Mg <span>Accounting</span></div>
-  <div class="k">Вариант, который обсуждался</div>
-  <h2>«10 млн HKD офисами и 20 млн HKD счётом»</h2>
-  <p class="lead">Логика понятная: активы в Гонконге уже есть. Но программа считает инвестицией только то, что вложено по её правилам после её запуска.</p>
+  <div class="k">Два вывода по списку</div>
+  <h2>33 млн HKD в списке и 30 млн HKD к вложению: это разные суммы</h2>
   <div class="grid2">
-    <div class="card"><div class="n">Офисы</div><b class="h">Дата приобретения</b><p>Активы, приобретённые до 1 марта 2024 года, в минимальную инвестицию не входят. Офисы куплены в 2013 и 2016 годах.</p></div>
-    <div class="card"><div class="n">Брокерский счёт</div><b class="h">Тип счёта</b><p>Для заявок с 1 ноября 2026 года не засчитываются активы, купленные через обычный счёт. Перевести их на designated account нельзя, нужна новая покупка.</p></div>
+    <div class="card"><div class="n">Чистые активы</div><b class="h">Можно идти раньше</b><p>Офисы через компании принадлежат вам дольше шести месяцев и одни закрывают порог. Первая проверка не зависит от перевода бумаг матери и от счёта в США.</p></div>
+    <div class="card"><div class="n">Инвестиция</div><b class="h">Формируется заново</b><p>Офисы остаются в чистых активах. Деньгами для вложения становятся бумаги после продажи, возврат займов и счёт в США после переоформления.</p></div>
   </div>
-  <div class="note"><b>Вывод.</b> Инвестицию на 30 млн HKD формируем заново. Хорошая новость: действующие активы полностью работают на первую проверку, по чистым активам.</div>
+  <div class="note"><b>Что проверяем по документам.</b> Оформление долей в компаниях после наследства 2023 года, основание перевода бумаг от матери, статус счёта в США.</div>
   <div class="pg">04 / 10</div>
 </section>
 
 <section class="s">
   <div class="logo">Mg <span>Accounting</span></div>
-  <div class="k">Хватает ли ликвидных активов</div>
+  <div class="k">Хватает ли денег на инвестицию</div>
   <h2>Откуда берутся 30 млн HKD</h2>
   <div class="big">
-    <div><b>3,85 млн USD</b><span>нужно вложить, это 30 млн HKD</span></div>
-    <div><b>3,1 млн USD</b><span>брокерский счёт и инвестиции в США</span></div>
-    <div class="t"><b>0,75 млн USD</b><span>не хватает, без учёта расходов</span></div>
+    <div><b>30 млн HKD</b><span>нужно вложить через designated account</span></div>
+    <div><b>23 млн HKD</b><span>бумаги 16, займы 2,5 + 1,5, счёт в США 3</span></div>
+    <div class="t"><b>7 млн HKD</b><span>не хватает, около 0,9 млн USD, без учёта расходов</span></div>
   </div>
   <div class="grid2">
-    <div class="card"><div class="n">Чем закрыть разницу</div><ul class="c" style="margin-top:.6em"><li>Возврат задолженности гонконгских компаний перед вами</li><li>Реализация одного из четырёх офисов</li></ul></div>
+    <div class="card"><div class="n">Чем закрыть разницу</div><ul class="c" style="margin-top:.6em"><li>Реализация одного из четырёх офисов</li><li>Возврат займов из арендной выручки следующих периодов</li></ul></div>
     <div class="card"><div class="n">Что важно знать заранее</div><ul class="c" style="margin-top:.6em"><li>Вложение остаётся в программе не менее семи лет</li><li>Дивиденды, проценты и аренду выводить можно, прирост стоимости нельзя</li><li>Если стоимость снизится, довносить не требуется</li></ul></div>
   </div>
-  <div class="note">Расчёт ориентировочный: курс 7,8 HKD за 1 USD, суммы с ваших слов.</div>
+  <div class="note">Суммы из вашего списка от 27 ноября, курс 7,8 HKD за 1 USD.</div>
   <div class="pg">05 / 10</div>
 </section>
 
@@ -179,7 +177,7 @@
       <li>Порядок реализации активов и вопросы на стороне РФ</li>
     </ul></div>
     <div class="card"><div class="n">Исполнители в Гонконге</div><ul class="c" style="margin-top:.6em">
-      <li><b>CPA (Practising):</b> заключения о чистых активах и об инвестиции, ежегодные подтверждения</li>
+      <li><b>CPA (Practising), ваш или подобранный нами:</b> заключения о чистых активах и об инвестиции, ежегодные подтверждения</li>
       <li><b>Иммиграционный консультант:</b> заявления в New CIES Office и Immigration Department</li>
       <li><b>Банк или брокер:</b> designated account и покупка активов</li>
       <li><b>Оценщик:</b> офисы и доли в компаниях</li>
@@ -194,7 +192,7 @@
   <h2>Три вопроса до старта</h2>
   <div class="grid3">
     <div class="card"><div class="n">Вопрос 1</div><b class="h">Банк или брокер</b><p>Кто откроет designated account гражданину и налоговому резиденту РФ и на каких условиях. Без счёта программа невыполнима.</p></div>
-    <div class="card"><div class="n">Вопрос 2</div><b class="h">Наследство и компании</b><p>Источник состояния посредник проверит обязательно. Документы 2023 года и реестры четырёх компаний должны быть в порядке.</p></div>
+    <div class="card"><div class="n">Вопрос 2</div><b class="h">Происхождение средств</b><p>Банк проверит обязательно: наследство 2023 года, перевод от матери, счёт в США. Документы готовим до обращения в банк.</p></div>
     <div class="card"><div class="n">Вопрос 3</div><b class="h">Ваша цель</b><p>Жить в Гонконге или иметь статус. От этого зависит итог через семь лет: постоянное резидентство или unconditional stay.</p></div>
   </div>
   <div class="pg">09 / 10</div>
@@ -205,8 +203,8 @@
   <div class="k">Следующий шаг</div>
   <h2>Общий договор на весь проект</h2>
   <div class="big" style="color:var(--ink)">
-    <div><b>до 35 000 USD</b><span>оценка стоимости услуги. Плюс сопутствующие расходы: госпошлины, оценка, бухгалтерия и аудит</span></div>
-    <div class="t" style="background:var(--wine);border-color:var(--wine)"><b>20%</b><span>предоплата при подписании: 7 000 USD от верхней оценки</span></div>
+    <div><b>42 000 USD</b><span>цена договора. Плюс сопутствующие расходы: госпошлины, оценка, бухгалтерия и аудит</span></div>
+    <div class="t" style="background:var(--wine);border-color:var(--wine)"><b>15%</b><span>предоплата при подписании: 6 300 USD</span></div>
     <div><b>Этап 1</b><span>документы и письменный ответ банка, с него начинаем</span></div>
   </div>
   <div class="grid2">
@@ -217,10 +215,10 @@
       <li>План этапов со сроками, исполнителями и бюджетом</li>
     </ul></div>
     <div class="card"><div class="n">Что нужно от вас</div><ul class="c" style="margin-top:.6em;color:var(--ink)">
-      <li>Перечень активов, залоги и обязательства</li>
+      <li>Таблица активов: где, на чьё имя, статус, документы</li>
       <li>Документы о наследстве 2023 года, о компаниях и офисах</li>
-      <li>Выписки брокера за шесть месяцев с составом бумаг</li>
-      <li>Задолженность компаний, документы детей</li>
+      <li>Выписки по счетам с бумагами в Гонконге и США</li>
+      <li>Договоры займов с компаниями, документы детей</li>
     </ul></div>
   </div>
   <div class="foot" style="margin-top:1.4em">Плюс сопутствующие расходы: госпошлины, оценка, бухгалтерия и аудит, комиссии банка и брокера · Оценка предварительная, по сведениям со встречи и правилам New CIES на 27 ноября 2026 года</div>
