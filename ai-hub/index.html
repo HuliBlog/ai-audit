@@ -273,6 +273,17 @@
   .proof strong b{font-weight:inherit}
   .proof p{color:#4f4a43;font-size:16px;max-width:560px}
 
+  /* next */
+  .next{padding-top:20px}
+  .card .price{display:block;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:26px;font-weight:500;letter-spacing:-.04em;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+  .card .price small{display:block;margin-top:8px;font-size:13px;font-weight:400;letter-spacing:0;line-height:1.4;color:var(--muted)}
+  .next .card{display:flex;flex-direction:column}
+  .next .card p{flex:1}
+  .bonus{margin-top:16px;padding:26px 30px;border-radius:22px;background:var(--sand);display:flex;gap:24px;align-items:center}
+  .bonus strong{flex:0 0 auto;font-size:46px;font-weight:500;letter-spacing:-.05em;line-height:1;color:var(--copper);font-variant-numeric:tabular-nums}
+  .bonus p{flex:1;color:#4f4a43;font-size:16px;max-width:520px}
+  .bonus .button{flex:0 0 auto;margin-left:auto}
+
   /* final */
   .final{position:relative;overflow:hidden;background:var(--dark);color:var(--on-dark);border-radius:28px 28px 0 0;padding-top:130px;padding-bottom:120px}
   .final canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
@@ -380,6 +391,10 @@
     .rows span{padding-top:0}
     .people{grid-template-columns:1fr;gap:34px}
     .proof{flex-direction:column;align-items:flex-start;gap:10px;padding:24px}
+    .next{padding-top:0}
+    .bonus{flex-direction:column;align-items:flex-start;gap:12px;padding:24px}
+    .bonus strong{font-size:40px}
+    .bonus .button{width:100%;justify-content:space-between;margin:6px 0 0}
     .levels{border-radius:22px 22px 0 0}
     .evening{padding-top:0;border-radius:0 0 22px 22px}
     .hosts{padding-top:0}
@@ -433,7 +448,7 @@
   <div class="orb o1" aria-hidden="true"></div>
   <div class="orb o2" aria-hidden="true"></div>
   <div class="hero-copy">
-    <span class="eyebrow" data-in style="--i:0"><span class="spark" aria-hidden="true">✣</span><b>Mg Digit<i>AI</i></b> &nbsp;ПРЕДСТАВЛЯЕТ</span>
+    <span class="eyebrow" data-in style="--i:0"><span class="spark" aria-hidden="true">✣</span><b>Mg Digital</b> &nbsp;ПРЕДСТАВЛЯЕТ</span>
     <h1 aria-label="AI HUB на Кипре."><span class="ln" aria-hidden="true"><span>AI HUB</span></span><span class="ln" aria-hidden="true"><em>на Кипре.</em></span></h1>
     <p class="lede" data-in style="--i:3">Живые встречи в Лимассоле для владельцев бизнеса и их команд. Приходите с ноутбуком, уходите с <span class="nb">ИИ-ассистентом</span>, который работает на ваших данных.</p>
     <div class="hero-actions" data-in style="--i:4">
@@ -577,8 +592,8 @@
       <p class="who">Собрали себе, хотите для бизнеса</p>
       <span class="tag">После первой встречи</span>
     </div>
-    <dl><dt>ЧТО ДЕЛАЕТЕ</dt><dd><span class="nb">ИИ-ассистент</span> Гермес, ассистенты для сотрудников, разбор вашего процесса.</dd></dl>
-    <dl><dt>С ЧЕМ УХОДИТЕ</dt><dd>С планом автоматизации одного процесса или с работающим Гермесом.</dd></dl>
+    <dl><dt>ЧТО ДЕЛАЕТЕ</dt><dd>Смотрите <span class="nb">ИИ-ассистента</span> Гермес в работе, разбираете свой процесс, собираете план для команды.</dd></dl>
+    <dl><dt>С ЧЕМ УХОДИТЕ</dt><dd>С планом автоматизации одного процесса. Сборку Гермеса заказывают отдельно, 100 € за встречу идут в зачёт.</dd></dl>
   </div>
 </section>
 
@@ -613,7 +628,9 @@
         <div><span>КОГДА</span><b>17 декабря 2026, четверг, 18:00-20:30, затем вопросы</b></div>
         <div><span>ГДЕ</span><b>Лимассол. Зал сообщим записавшимся</b></div>
         <div><span>УРОВЕНЬ</span><b>Старт: для тех, кто начинает с нуля</b></div>
-        <div><span>СТОИМОСТЬ</span><b>100 €, базовый тариф</b></div>
+        <div><span>СТОИМОСТЬ</span><b>100 € за встречу. Отдельно нужна подписка Claude, от 20&nbsp;€ в месяц</b></div>
+        <div><span>МЕСТА</span><b>16 мест. Место закрепляем после оплаты</b></div>
+        <div><span>ЗАЧЁТ</span><b>100 € идут в зачёт Гермеса, если закажете его в течение 7&nbsp;дней после встречи</b></div>
       </div>
       <a class="button dark mag" href="https://t.me/Mg_Digitai_bot" target="_blank" rel="noopener">Записаться в Telegram <span class="arr" data-a="↗" aria-hidden="true"></span></a>
     </div>
@@ -626,7 +643,7 @@
         <h3>ЧТО ВЗЯТЬ С СОБОЙ</h3>
         <ul>
           <li>Ноутбук</li>
-          <li>Платную подписку Claude</li>
+          <li>Платную подписку Claude, от 20 € в месяц</li>
           <li>Установленный Claude Code</li>
         </ul>
         <p>Не получилось поставить заранее? Поставим на месте.</p>
@@ -661,6 +678,41 @@
   </div>
 </section>
 
+<section class="next pad" id="next">
+  <div class="head" data-rv>
+    <div>
+      <span class="eyebrow">08 / ПОСЛЕ ХАБА</span>
+      <h2>Что дальше<br><em>после хаба.</em></h2>
+    </div>
+    <p>На встрече вы собираете инструмент сами. Если нужно быстрее или сразу для всей команды, делаем под ключ.</p>
+  </div>
+  <div class="cards" data-stagger>
+    <article class="card spot" data-rv>
+      <span class="n">ГЕРМЕС</span>
+      <h3><span class="nb">ИИ-ассистент</span> в Telegram</h3>
+      <p>Работает на своём сервере круглосуточно, помнит ваши проекты и договорённости, понимает голосовые. Утром даёт план дня, вечером проверяет, что сделано.</p>
+      <span class="price">от 490 €<small>Личный 490 €. Для команды до 5 человек 990 €</small></span>
+    </article>
+    <article class="card spot" data-rv>
+      <span class="n">ВНЕДРЕНИЕ ПОД КЛЮЧ</span>
+      <h3>Автоматизация процесса</h3>
+      <p>Берём один процесс вашей компании, разбираем его и собираем систему, которая делает эту работу.</p>
+      <span class="price">По задаче<small>Цену называем после разбора процесса</small></span>
+    </article>
+    <article class="card spot" data-rv>
+      <span class="n">ОБУЧЕНИЕ КОМАНДЫ</span>
+      <h3>Цифровая команда</h3>
+      <p>Курс для сотрудников: 6 встреч по 2-3 часа, онлайн. Корпоративный формат до 10 человек.</p>
+      <span class="price">5 555 €<small>За группу до 10 человек</small></span>
+    </article>
+  </div>
+  <div class="bonus" data-rv>
+    <strong>100 €</strong>
+    <p>за встречу идут в зачёт Гермеса, если вы заказываете его в течение 7&nbsp;дней после хаба.</p>
+    <a class="button dark mag" href="https://t.me/Mg_Digitai_bot" target="_blank" rel="noopener">Обсудить задачу <span class="arr" data-a="↗" aria-hidden="true"></span></a>
+  </div>
+</section>
+
 <section class="final pad" id="contact">
   <canvas id="net" aria-hidden="true"></canvas>
   <span class="eyebrow" data-rv>ЗАПИСЬ ОТКРЫТА</span>
@@ -685,6 +737,11 @@
 (function(){
   var d=document, root=d.documentElement;
   root.classList.add('js');
+  /* метка источника: /ai-hub/?s=katya -> t.me/Mg_Digitai_bot?start=hub_katya */
+  try{
+    var qs=new URLSearchParams(location.search), src=(qs.get('s')||qs.get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40);
+    if(src)[].forEach.call(d.querySelectorAll('a[href^="https://t.me/Mg_Digitai_bot"]'),function(a){a.href='https://t.me/Mg_Digitai_bot?start=hub_'+src});
+  }catch(e){}
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine=window.matchMedia&&matchMedia('(hover: hover) and (pointer: fine)').matches;
   var $=function(s,c){return (c||d).querySelector(s)}, $$=function(s,c){return [].slice.call((c||d).querySelectorAll(s))};
